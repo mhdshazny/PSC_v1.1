@@ -1,0 +1,12 @@
+
+<!-- Footer -->
+<footer class="page-footer font-small mdb-color text-info pt-4 bg-dark">
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2050 Copyright:
+    <a href="#"> Team Gryffindor</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
