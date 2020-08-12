@@ -1,0 +1,730 @@
+
+.bodylog {
+    background-image: url("resources/13.jpg");
+    border-radius: 200%;
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-position: center;
+    font-family: sans-serif;
+}
+.body{
+    background-image: url("resources/10.jpg");
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-position: center;
+    font-family: sans-serif;
+}
+
+.login-box{
+    /*width: 320px;*/
+    /*height:420px;*/
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+}
+.icon{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+}
+.h1{
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 42px;
+}
+.H2{
+    position: absolute;
+    left: 25%;
+
+}
+.login-box p{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+.login-box input{
+    width: 100%;
+    margin-bottom: 20px;
+    background: transparent;
+
+}
+.login-box input[type="text"], input[type="password"]
+{
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+}
+.login-box input[type="submit"]
+{
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #1c8adb;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+}
+.login-box input[type="submit"]:hover
+{
+    cursor: pointer;
+    background: #39dc79;
+    color: #000;
+}
+
+.login-box a{
+    text-decoration: none;
+    font-size: 14px;
+    color: #fff;
+    background: transparent;
+
+}
+.login-box a:hover
+{
+    color: #39dc79;
+}
+.form{
+    position: absolute;
+    left: 789px;
+    width: 589px;
+    top: 20%;
+}
+.bodyreg {
+    background-image: url("resources/6.jpg");
+    background-color: #cccccc;
+    background-size: 100% 100%;
+}
+.btn_pos1{
+    position: absolute;
+    left: 20%;
+}
+.btn_pos2{
+    position: absolute;
+    left: 30%;
+}
+.p input[type="text"] {
+    background: transparent;
+
+}
+.a{
+    color: black;
+}
+.prg {
+    margin-left: 2%;
+    margin-right:2%;
+    font-weight: bold ;
+}
+
+
+
+
+
+
+/* Main Page LMS */
+
+
+.container {
+    background-color: #FFFFFF;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom-width: 0px;
+    padding-left: 0px;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+}
+.row {
+    width: 100%;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    display: inline-block
+}
+.row.blockDisplay {
+    display: block;
+}
+.column_half {
+    width: 50%;
+    float: left;
+    margin-top: 0px;
+}
+.columns {
+    width: 25%;
+    float: left;
+    font-family: "Source Sans Pro";
+    color: #A5A5A5;
+    line-height: 24px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: justify;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+
+}
+.row .columns p {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+.container .columns h4 {
+    text-align: center;
+    color: #01B2D1;
+}
+.primary_header {
+    width: 100%;
+    background-color: #52bad5;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    clear: left;
+    border-bottom: 2px solid #2C9AB7;
+}
+.secondary_header {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: #B3B3B3;
+    clear: left;
+}
+.container .secondary_header ul {
+    margin-top: 0%;
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-left: auto;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 15px;
+    padding-left: 0px;
+    width: 100%;
+}
+.secondary_header ul li {
+    list-style: none;
+    float: left;
+    margin-right: auto;
+    margin-top: 0px;
+    font-family: "Source Sans Pro";
+    font-weight: normal;
+    color: #FFFFFF;
+    letter-spacing: 1px;
+    margin-left: auto;
+    text-align: center;
+    width: 16%;
+    transition: all 0.3s linear;
+}
+.secondary_header ul li:hover {
+    color: #717070;
+    cursor: pointer;
+}
+.left_article {
+    background-color: #FFFFFF;
+    width: 60%;
+    float: left;
+    font-family: "Source Sans Pro";
+    color: #343434;
+    padding-bottom: 15px;
+}
+.noDisplay {
+    display: none;
+}
+.container .left_article h3 {
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-top: 5%;
+    color: #717070;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.container .left_article p {
+    padding-left: 5%;
+    padding-right: 5%;
+    text-align: justify;
+    line-height: 24px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: #B3B3B3;
+}
+.right_article {
+    width: 40%;
+    float: left;
+    background-color: #F6F6F6;
+}
+.container .right_article ul {
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+}
+.right_article ul li {
+    font-family: "Source Sans Pro";
+    list-style: none;
+    text-align: center;
+    background-color: #B3B3B3;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: #FFFFFF;
+    font-weight: bold;
+    border-radius: 0px;
+    transition: all 0.3s linear;
+    border-left: 5px solid #717070;
+}
+.right_article ul li:hover {
+    background-color: #717070;
+    cursor: pointer;
+}
+.footer {
+    background-color: #717070;
+}
+.title {
+    font-weight: bold;
+    font-style: normal;
+    font-family: "Source Sans Pro";
+    text-align: center;
+    color: #FFFFFF;
+    letter-spacing: 2px;
+}
+.placeholder {
+    /* [disabled]max-width: 400px;
+*/
+    /* [disabled]max-height: 200px;
+*/
+    width: 100%;
+    padding-top: 30px;
+    /* [disabled]padding-left: 19px;
+*/
+    padding-bottom: 30px;
+    height: 100%;
+}
+.left_half {
+    background-color: #52BAD5;
+}
+.container .column_half.left_half h2 {
+    color: #FFFFFF;
+    font-family: "Source Sans Pro";
+    text-align: center;
+}
+.right_half {
+    background-color: #01B2D1;
+    color: #FFFFFF;
+    font-family: "Source Sans Pro";
+    text-align: center;
+    font-weight: bold;
+}
+.column_title {
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+.copyright {
+    text-align: center;
+    background-color: #717070;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    font-weight: lighter;
+    letter-spacing: 2px;
+    border-top-width: 2px;
+    font-family: "Source Sans Pro";
+}
+body {
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+}
+
+@media (max-width: 320px) {
+    .secondary_header ul li {
+        float: none;
+        margin-top: 28px;
+        margin-left: 0px;
+        width: 100%;
+    }
+    .container .secondary_header ul {
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        padding-top: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+        height: auto;
+        width: 100%;
+        text-align: center;
+    }
+    .secondary_header {
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        padding-top: 1px;
+        padding-bottom: 40px;
+    }
+    .left_article {
+        width: 100%;
+        height: auto;
+    }
+    .right_article {
+        width: 100%;
+        height: auto;
+    }
+    .placeholder {
+        width: 100%;
+        margin-top: 22PX;
+        margin-right: 0px;
+        margin-bottom: 22PX;
+        margin-left: 0px;
+        padding-top: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+        max-width: 400px;
+        max-height: 200px;
+        height: auto;
+    }
+    .columns {
+        width: 100%;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        padding-top: 0PX;
+        padding-right: 0PX;
+        padding-bottom: 0PX;
+        padding-left: 0PX;
+
+    }
+    .columns p {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .column_half.left_half {
+        width: 100%;
+    }
+    .column_half.right_half {
+        width: 100%;
+    }
+    .copyright {
+        padding-top: 25px;
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+    }
+    .container .left_article h3 {
+        margin-top: 30px;
+    }
+    .social .social_icon img {
+        width: 80%;
+    }
+    .container .secondary_header {
+    }
+}
+
+@media (min-width: 321px) and (max-width: 768px) {
+    .secondary_header ul li {
+        float: none;
+        margin-top: 28px;
+        margin-left: 0px;
+        width: 100%;
+    }
+    .container .secondary_header ul {
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        padding-top: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+        height: auto;
+        width: 100%;
+        text-align: center;
+    }
+    .secondary_header {
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        padding-top: 1px;
+        padding-bottom: 40px;
+    }
+    .left_article {
+        width: 100%;
+        height: auto;
+    }
+    .right_article {
+        width: 100%;
+        height: auto;
+        padding-bottom: 25px;
+    }
+    .placeholder {
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        padding-top: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        max-height: 100%;
+    }
+    .columns {
+        width: 100%;
+        margin-top: 6px;
+        margin-right: 0px;
+        margin-bottom: 6px;
+        margin-left: 0px;
+        padding-top: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+
+    }
+    .columns p {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+    .column_half.left_half {
+        width: 100%;
+    }
+    .column_half.right_half {
+        width: 100%;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1000px) {
+    .secondary_header {
+        overflow: auto;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    .secondary_header ul li {
+        margin-top: 10px;
+        margin-right: 7%;
+        margin-bottom: 10px;
+        margin-left: 7%;
+    }
+    .left_article {
+        height: auto;
+    }
+    .right_article {
+        height: auto;
+        padding-bottom: 27px;
+    }
+    .placeholder {
+        width: 100%;
+        margin-left: 0px;
+        margin-right: 0px;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .columns {
+        width: 50%;
+        float: left;
+        padding-left: 0px;
+        padding-top: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+
+
+    }
+    .container .columns p {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+}
+
+
+.thumbnail {
+    border-radius: 200px;
+    margin: auto;
+    width:20%;
+    padding: 10px;
+}
+.thumbnail_align {
+    text-align: center;
+
+    align-content: center;
+    align-items: center;
+}
+.social {
+    text-align: center;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    width: 100%;
+    background-color: #414141;
+    clear: both;
+    overflow: auto;
+}
+.social_icon {
+    width: 25%;
+    text-align: center;
+    float: left;
+    transition: all 0.3s linear;
+    line-height: 0px;
+    padding-top: 7px;
+}
+.container .social .social_icon:hover {
+    cursor: pointer;
+    opacity: 0.5;
+}
+#menu {
+}
+
+.left_article2 {
+    background-color: #FFFFFF;
+    width: 100%;
+    float: left;
+    font-family: "Source Sans Pro";
+    color: #343434;
+    padding-bottom: 15px;
+}
+.container .left_article2 p {
+    padding-left: 5%;
+    padding-right: 5%;
+    text-align: justify;
+    line-height: 24px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: #B3B3B3;
+}
+.imageDeveloper {
+    border-radius: 400px;
+    margin: auto;
+    width: 10%;
+    padding: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Popup page */
+
+
+
+
+
+/* Button used to open the contact form - fixed at the bottom of the page */
+.open-button {
+    background-color: #555;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    /* position: fixed;
+     bottom: 23px;
+     right: 28px;
+     width: 280px;*/
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+    display: block;
+    z-index: 9;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+}
+
+/* Add styles to the form container */
+.form-container {
+    max-width: 300px;
+    padding: 10px;
+    background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+    background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+    opacity: 1;
+}
+
+
+/* End Popup page */
+
+
+
+
+

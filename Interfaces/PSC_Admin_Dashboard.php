@@ -8,9 +8,7 @@
     <script src="../Plugins/chart.js/Chart.bundle.js"> </script>
 </head>
 <body>
-<?php
-include("../Common/TopNavBar.php");
-?>
+
 <!--<div class="container">-->
 <!--    <main role="main" class="pb-3 bg-dark">-->
 <!---->
@@ -19,7 +17,10 @@ include("../Common/TopNavBar.php");
 <!--</div>-->
 
 <div class="row">
-    <div class="container-fluid" style=" min-height:230px; width: 1700px ">
+    <?php
+    include("../Common/TopNavBar.php");
+    ?>
+    <div class="container-fluid" style=" min-height:230px; width: 100%">
         <br>
         <p class="text-info font-weight-bold" style="font-size: 250%">Hello Admin !</p>
     </div>
@@ -38,11 +39,12 @@ include("../Common/TopNavBar.php");
     </div>
 
 </div>
+    <?php
+    include("../Common/Footer.php");
+    ?>
 </div>
 
-<?php
-include("../Common/Footer.php");
-?>
+
 <script src="chartData.js"> </script>
 <!--<script src="chartData2.js"> </script>-->
 </body>
