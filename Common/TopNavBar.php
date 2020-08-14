@@ -1,5 +1,5 @@
 <!--<div class="container-fluid" style="width:1800px">-->
-<div class="container-fluid" style="width:100%">
+<div class="container-fluid" style="width: 100%">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#">Dashboard</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,13 +16,14 @@
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Payments
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="#">Action</a>
                     <a class="dropdown-item" href="#">Another action</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Something else here</a>
                 </div>
             </li>
+
             <li class="nav-item">
                 <a class="nav-link" href="#">Vehicles</a>
             </li>
@@ -32,8 +33,14 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">Collection centers</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Users</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Users
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="userReg.php">User Registration</a>
+                    <a class="dropdown-item" href="#">Tot Users</a>
+                </div>
             </li>
 
 <!--            Left options-->
