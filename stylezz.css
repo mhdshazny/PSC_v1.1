@@ -721,7 +721,9 @@ body {
     opacity: 1;
 }
 
-
+.bg-dark{
+    color: #023536;
+}
 /* End Popup page */
 
 
