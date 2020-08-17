@@ -8,8 +8,6 @@
     //    include ("../Common/config.php");
     ?>
 
-    <script type="text/javascript" src="../../Plugins/jquery/jquery.js"> </script>
-    <script type="text/javascript" src="../../Plugins/jquery/jquery.min.js"> </script>
 </head>
 <body class="bg-dark">
 

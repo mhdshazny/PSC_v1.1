@@ -9,7 +9,7 @@
     include("../Common/Header.php");
     //    include ("../Common/config.php");
     ?>
-
+    <script src="../Plugins/bootstrap/js/bootstrap.min.js">  </script>
 </head>
 <body class="bg-dark">
 
@@ -30,32 +30,35 @@ include("../Common/TopNavBar.php");
 
     </div>
 
-    <FORM action="userReg_dB.php" method="POST" enctype="">
+    <?php
+     $Priority = 'AdminUserReg';
+    ?>
+    <FORM action="userReg_dB.php" method="POST" enctype="multipart/form-data">
         <div class="container-fluid" style="width: 80%">
             <div class="row">
                 <div class="col-sm-5">
                     <div class="form-group">
                         <label for="userID" class="col-sm-3 control-label">User ID</label>
                         <div class="col-sm-9">
-                            <input type="text" value="USER0001" id="userID" placeholder="userID" class="form-control" disabled>
+                            <input type="text" value="USER001" id="userID" name="userID" placeholder="userID" class="form-control" readonly>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="firstName" class="col-sm-3 control-label">First Name</label>
                         <div class="col-sm-9">
-                            <input type="text" id="firstName" placeholder="First Name" class="form-control" autofocus>
+                            <input type="text" id="firstName" name="firstName" placeholder="First Name" class="form-control" autofocus>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="addressLine1" class="col-sm-3 control-label">Address 1</label>
                         <div class="col-sm-9">
-                            <input type="text" id="addressLine1" placeholder="Street address 1" class="form-control" autofocus>
+                            <input type="text" id="addressLine1" name="addressLine1" placeholder="Street address 1" class="form-control" autofocus>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="contactNo1" class="col-sm-3 control-label">Contact number</label>
                         <div class="col-sm-9">
-                            <input type="text" id="contactNo1" placeholder="Contact number" class="form-control" autofocus>
+                            <input type="text" id="contactNo1" name="contactNo1" placeholder="Contact number" class="form-control" autofocus>
                         </div>
                     </div>
                     <div class="form-group">
@@ -64,38 +67,84 @@ include("../Common/TopNavBar.php");
                             <input type="email" id="email" placeholder="Email" class="form-control" name= "email">
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label for="gender" class="col-sm-3 control-label">Gender* </label>
+                        <div class="col-sm-3" style="left: 20%">
+                            <div class="radio">
+                                <label><input type="radio" name="gender" id="gender" value="male" checked> &nbsp;&nbsp;     Male</label>
+                            </div>
+                            <div class="radio">
+                                <label><input type="radio" name="gender" id="gender" value="fe-male">    &nbsp;&nbsp; Female</label>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Password" class="col-sm-3 control-label">Password*</label>
+                        <div class="col-sm-9">
+                            <input type="password" id="Password" name="Password" class="form-control">
+                        </div>
+                    </div>
                 </div>
                 <!--                Next column -->
                 <div class="col-sm-5">
                     <div class="form-group">
-                        <label for="roleID" class="col-sm-3 control-label">User ID</label>
+
+                        <label for="roleID" class="col-sm-4 control-label">Role Type</label>
+
                         <div class="col-sm-9">
-                            <input type="text" value="ROLE_EMP" id="roleID" placeholder="roleID" class="form-control" disabled>
+                            <?php
+
+                            include ("../Common/config.php");
+
+                            $addQuery = "select * from `tbl_roles` where `roleID`= 1";
+                            $result = $con->query($addQuery);
+                            if ($result) {
+                            foreach ($result as $row) {
+                            ?>
+                            <input type="text" value="<?= $row['roleName']; ?>" name="roleID" id="roleID" placeholder="roleID" class="form-control" readonly="<?= $row['roleName']; ?>">
+
+                                <?php
+                            }
+                            }
+
+                            ?>
                         </div>
+
                     </div>
 
                     <div class="form-group">
                         <label for="lastName" class="col-sm-3 control-label">Last Name</label>
                         <div class="col-sm-9">
-                            <input type="text" id="lastName" placeholder="Last Name" class="form-control" autofocus>
+                            <input type="text" id="lastName" name="lastName" placeholder="Last Name" class="form-control" autofocus>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="addressLine2" class="col-sm-3 control-label">Address 2</label>
                         <div class="col-sm-9">
-                            <input type="text" id="addressLine2" placeholder="Street address 2 (Optional)" class="form-control" autofocus>
+                            <input type="text" id="addressLine2" name="addressLine2" placeholder="Street address 2 (Optional)" class="form-control" autofocus>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="contactNo2" class="col-sm-5 control-label">Contact number (Optional)</label>
                         <div class="col-sm-9">
-                            <input type="text" id="contactNo2" placeholder="Contact number (Optional)" class="form-control" autofocus>
+                            <input type="text" id="contactNo2" name="contactNo2" placeholder="Contact number (Optional)" class="form-control" autofocus>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="birthDate" class="col-sm-3 control-label">Date of Birth*</label>
                         <div class="col-sm-9">
-                            <input type="date" id="birthDate" class="form-control">
+                            <input type="date" id="dob" name="dob" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmPassword" class="col-sm-3 control-label">Confirm Password*</label>
+                        <div class="col-sm-9">
+                            <input type="password" id="confirmPassword" name="confirmPassword" class="form-control">
                         </div>
                     </div>
                 </div>
@@ -123,7 +172,7 @@ include("../Common/TopNavBar.php");
                     <div class="form-group">
                         <label for="centerID" class="col-sm-3 control-label">Center ID</label>
                         <div class="col-sm-9">
-                            <input type="text" id="centerID" placeholder="Center ID" class="form-control" autofocus>
+                            <input type="text" id="centerID" name="centerID" placeholder="Center ID" class="form-control" autofocus>
                         </div>
                     </div>
                 </div>
@@ -131,7 +180,7 @@ include("../Common/TopNavBar.php");
                     <div class="form-group">
                         <label for="regionID" class="col-sm-3 control-label">Region ID</label>
                         <div class="col-sm-9">
-                            <input type="text" id="regionID" placeholder="Region ID" class="form-control" autofocus>
+                            <input type="text" id="regionID" name="regionID" placeholder="Region ID" class="form-control" autofocus>
                         </div>
                     </div>
                 </div>
