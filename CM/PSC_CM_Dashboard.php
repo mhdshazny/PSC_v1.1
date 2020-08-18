@@ -1,27 +1,15 @@
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <meta charset="utf-8">
+
     <!--    Resources -->
     <?php
     include("../Common/Header.php");
     //    include ("../Common/config.php");
     ?>
-    <style>
-        body { padding-top:20px; }
-        .panel-body .btn:not(.btn-block) { width:120px;margin-bottom:10px; }
-    </style>
 
 </head>
 <body>
 
-<!--<div class="container">-->
-<!--    <main role="main" class="pb-3 bg-dark">-->
-<!---->
-<!--    </main>-->
-<!---->
-<!--</div>-->
 
 <div class="row">
     <?php
@@ -84,10 +72,9 @@
 <?php
 include("../Common/Footer.php");
 include("../Common/Scripts.php");
-//include ("Scripts.js");
 ?>
 
-                <script src="../Admin/chartData.js"> </script>
-                <!--<script src="chartData2.js"> </script>-->
+<script src="../Admin/chartData.js"> </script>
+<!--<script src="chartData2.js"> </script>-->
 </body>
 </html>

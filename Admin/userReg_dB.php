@@ -27,8 +27,12 @@ if (isset($_POST['addUser'])) {
 
     if (!empty($userID) && !empty($pass2) && !empty($pass1)) {
         if ($pass1 == $pass2) {
-            $sql = "INSERT INTO tbl_user(`userID`, `firstName`, `lastName`, `profilePic`, `roleID`, `addressLine1`, `addressLine2`, `contactNo1`, `contactNo2`, `email`, `centerID`, `dob`, `gender`, `regionID`, `isActive`) 
+            $sql = "INSERT INTO `tbl_user`(`userID`, `firstName`, `lastName`, `profilePic`, `roleID`, `addressLine1`, `addressLine2`, `contactNo1`, `contactNo2`, `email`, `centerID`, `dob`, `gender`, `regionID`, `isActive`) 
                 VALUES ('$userID', '$fName', '$lName', '$picture','$roleID','$address1','$address2','$contact','$contact2','$email','$centerID','$dob','$gender','$regionID','$isActive')";
+
+
+
+
 
             if ($con->query($sql) === TRUE) {
 

@@ -40,7 +40,7 @@ include("../Common/TopNavBar.php");
                     <div class="form-group">
                         <label for="userID" class="col-sm-3 control-label">User ID</label>
                         <div class="col-sm-9">
-                            <input type="text" value="USER001" id="userID" name="userID" placeholder="userID" class="form-control" readonly>
+                            <input type="text" id="userID" name="userID" placeholder="userID" class="form-control" >
                         </div>
                     </div>
                     <div class="form-group">
@@ -105,7 +105,7 @@ include("../Common/TopNavBar.php");
                             if ($result) {
                             foreach ($result as $row) {
                             ?>
-                            <input type="text" value="<?= $row['roleName']; ?>" name="roleID" id="roleID" placeholder="roleID" class="form-control" readonly="<?= $row['roleName']; ?>">
+                            <input type="text" value="<?= $row['roleID']; ?>" name="roleID" id="roleID" placeholder="roleID" class="form-control" readonly="<?= $row['roleName']; ?>">
 
                                 <?php
                             }

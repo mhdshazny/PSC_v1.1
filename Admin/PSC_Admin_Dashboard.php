@@ -48,7 +48,6 @@ include("../Common/TopNavBar.php");
 <?php
 include("../Common/Footer.php");
 include("../Common/Scripts.php");
-//include ("Scripts.js");
 ?>
 
 

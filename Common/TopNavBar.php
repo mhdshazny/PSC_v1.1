@@ -1,7 +1,7 @@
 <!--<div class="container-fluid" style="width:1800px">-->
 <div class="container-fluid bd-gray" style="width: 100%">
 <nav class="navbar navbar-expand-lg navbar-dark bg" style="">
-    <a class="navbar-brand" href="#">PSC v1.1</a>
+    <a class="navbar-brand" href="PSC_Admin_Dashboard.php">PSC v1.1</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
