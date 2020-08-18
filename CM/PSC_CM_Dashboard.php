@@ -1,15 +1,32 @@
 <html>
 <head>
-
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta charset="utf-8">
     <!--    Resources -->
     <?php
     include("../Common/Header.php");
     //    include ("../Common/config.php");
     ?>
 
+    <style>
+        /*menu buttons for dashboard*/
+        .btnMenu {
+            width: 250px !important;
+            height: 120px
+        }
+
+    </style>
+
 </head>
 <body>
 
+<!--<div class="container">-->
+<!--    <main role="main" class="pb-3 bg-dark">-->
+<!---->
+<!--    </main>-->
+<!---->
+<!--</div>-->
 
 <div class="row">
     <?php
@@ -33,37 +50,14 @@
             </div>
         </div>
 
-
-
         <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="panel panel-primary">
-                        <!--                <div class="panel-heading">-->
-                        <!--                    <h3 class="panel-title">-->
-                        <!--                        <span class="glyphicon glyphicon-bookmark"></span> Quick Shortcuts</h3>-->
-                        <!--                </div>-->
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-xs-6 col-md-6">
-                                    <a href="#" class="btn btn-danger btn-lg" role="button"><span class="glyphicon glyphicon-list-alt"></span> <br/>Apps</a>
-                                    <a href="#" class="btn btn-warning btn-lg" role="button"><span class="glyphicon glyphicon-bookmark"></span> <br/>Bookmarks</a>
-                                    <a href="#" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-signal"></span> <br/>Reports</a>
-                                    <a href="#" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-comment"></span> <br/>Comments</a>
-                                </div>
-                                <div class="col-xs-6 col-md-6">
-                                    <a href="#" class="btn btn-success btn-lg" role="button"><span class="glyphicon glyphicon-user"></span> <br/>Users</a>
-                                    <a href="#" class="btn btn-info btn-lg" role="button"><span class="glyphicon glyphicon-file"></span> <br/>Notes</a>
-                                    <a href="#" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-picture"></span> <br/>Photos</a>
-                                    <a href="#" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-tag"></span> <br/>Tags</a>
-                                </div>
-                            </div>
-                            <a href="http://www.jquery2dotnet.com/" class="btn btn-success btn-lg btn-block" role="button"><span class="glyphicon glyphicon-globe"></span> Website</a>
-                        </div>
-                        <!--            </div>-->
-                        <!--        </div>-->
-                        <!--    </div>-->
-                    </div>
+
+                                    <a href="#" class="btn btn-danger btn-lg btnMenu mx-2" role="button"><span class="glyphicon glyphicon-list-alt"></span> <br/>Stocks</a>
+                                    <a href="#" class="btn btn-warning btn-lg btnMenu mx-2" role="button"><span class="glyphicon glyphicon-bookmark"></span> <br/>Sales</a>
+
+                                    <a href="#" class="btn btn-success btn-lg btnMenu mx-2" role="button"><span class="glyphicon glyphicon-user"></span> <br/>Estimations</a>
+                                    <a href="#" class="btn btn-info btn-lg btnMenu mx-2" role="button"><span class="glyphicon glyphicon-file"></span> <br/>Transactions</a>
+
                 </div>
             </div>
         </div>
@@ -72,9 +66,10 @@
 <?php
 include("../Common/Footer.php");
 include("../Common/Scripts.php");
+//include ("Scripts.js");
 ?>
 
-<script src="../Admin/chartData.js"> </script>
-<!--<script src="chartData2.js"> </script>-->
+                <script src="../Admin/chartData.js"> </script>
+                <!--<script src="chartData2.js"> </script>-->
 </body>
 </html>
