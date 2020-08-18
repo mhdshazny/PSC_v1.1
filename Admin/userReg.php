@@ -98,7 +98,7 @@ include("../Common/TopNavBar.php");
                         <div class="col-sm-9">
                             <?php
 
-                            include ("../Common/config.php");
+                            include("../Common/config.php");
 
                             $addQuery = "select * from `tbl_roles` where `roleID`= 1";
                             $result = $con->query($addQuery);

@@ -89,7 +89,7 @@
 
 
 
-                <script src="../chartData.js"> </script>
+                <script src="../../Admin/chartData.js"> </script>
                 <!--<script src="chartData2.js"> </script>-->
 </body>
 </html>
