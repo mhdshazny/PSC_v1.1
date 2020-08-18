@@ -31,7 +31,7 @@
                 <a class="nav-link" href="#">Farmers</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Collection centers</a>
+                <a class="nav-link" href="CollectionCenter.php">Collection centers</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
