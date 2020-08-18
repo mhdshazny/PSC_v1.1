@@ -4,11 +4,10 @@
     <title>Title</title>
     <meta charset="utf-8">
     <!--    Resources -->
-    <link href="../../Plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
-    <script src="../../Plugins/chart.js/Chart.bundle.js"> </script>
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <?php
+    include("../Common/Header.php");
+    //    include ("../Common/config.php");
+    ?>
     <style>
         body { padding-top:20px; }
         .panel-body .btn:not(.btn-block) { width:120px;margin-bottom:10px; }
@@ -82,14 +81,13 @@
         </div>
     </div>
 </div>
+<?php
+include("../Common/Footer.php");
+include("../Common/Scripts.php");
+//include ("Scripts.js");
+?>
 
-                    <?php
-                    include("../Common/Footer.php");
-                    ?>
-
-
-
-                <script src="../../Admin/chartData.js"> </script>
+                <script src="../Admin/chartData.js"> </script>
                 <!--<script src="chartData2.js"> </script>-->
 </body>
 </html>
