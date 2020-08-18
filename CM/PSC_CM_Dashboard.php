@@ -8,10 +8,7 @@
     include("../Common/Header.php");
     //    include ("../Common/config.php");
     ?>
-    <style>
-        body { padding-top:20px; }
-        .panel-body .btn:not(.btn-block) { width:120px;margin-bottom:10px; }
-    </style>
+
 
 </head>
 <body>

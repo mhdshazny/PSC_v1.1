@@ -33,14 +33,14 @@ include("../Common/TopNavBar.php");
     <?php
     $Priority = 'AdminUserReg';
     ?>
-    <FORM action="userReg_dB.php" method="POST" enctype="multipart/form-data">
+    <FORM action="setEstimations_dB.php" method="POST" enctype="multipart/form-data">
         <div class="container-fluid" style="width: 80%">
             <div class="row">
                 <div class="col-sm-5">
                     <div class="form-group">
                         <label for="estimationID" class="col-sm-6 control-label">Estimation Record ID</label>
                         <div class="col-sm-9">
-                            <input type="text" value="USER001" id="estimationID" name="estimationID" placeholder="estimationID" class="form-control" readonly>
+                            <input type="text" value="EST001" id="estimationID" name="estimationID" placeholder="estimationID" class="form-control" readonly>
                         </div>
                     </div>
                     <div class="form-group">

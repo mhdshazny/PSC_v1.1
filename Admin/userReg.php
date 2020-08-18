@@ -105,7 +105,7 @@ include("../Common/TopNavBar.php");
                             if ($result) {
                             foreach ($result as $row) {
                             ?>
-                            <input type="text" value="<?= $row['roleID']; ?>" name="roleID" id="roleID" placeholder="roleID" class="form-control" readonly="<?= $row['roleName']; ?>">
+                            <input type="text" value="<?= $row['roleName']; ?>" name="roleID" id="roleID" placeholder="roleID" class="form-control" readonly="<?= $row['roleName']; ?>">
 
                                 <?php
                             }
