@@ -9,7 +9,9 @@
     include("../Common/Header.php");
     //    include ("../Common/config.php");
     ?>
-    <script src="../Plugins/bootstrap/js/bootstrap.min.js">  </script>
+    <!-- CSS only -->
+
+    <!-- JS, Popper.js, and jQuery -->
 </head>
 <body class="bg-dark">
 
@@ -93,27 +95,53 @@ include("../Common/TopNavBar.php");
                 <div class="col-sm-5">
                     <div class="form-group">
 
+                        <div class="dropdown">
                         <label for="roleID" class="col-sm-4 control-label">Role Type</label>
 
                         <div class="col-sm-9">
-                            <?php
+<!--                            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">-->
+<!--                                Role types-->
+<!--                            </button>-->
+
+                            <select name="roleType" class="btn-outline-dark form-control">
+                                <option value="">Select a role</option>
+
+                                <?php
 
                             include("../Common/config.php");
 
-                            $addQuery = "select * from `tbl_roles` where `roleID`= 1";
+                            $addQuery = "select * from `tbl_roles`";
                             $result = $con->query($addQuery);
                             if ($result) {
-                            foreach ($result as $row) {
+                            while ($row = $result->fetch_assoc()) {
+                                $roleName =$row['roleName'];
+                                $roleID =$row['roleID'];
                             ?>
-                            <input type="text" value="<?= $row['roleID']; ?>" name="roleID" id="roleID" placeholder="roleID" class="form-control" readonly="<?= $row['roleName']; ?>">
+<!--                                <div class="dropdown-menu">-->
+<!---->
+<!--                                    <a class="dropdown-item">--><?//= $roleName ?><!--</a>-->
+<!---->
+<!--                                </div>-->
 
+
+<!--                            <input type="text" value="--><?//= $row['roleID']; ?><!--" name="roleID" id="roleID" placeholder="roleID" class="form-control" readonly="--><?//= $row['roleName']; ?><!--">-->
+                                <?php
+                                echo "<option id='roleType' name='roleType' value='$roleID'>$roleName</option>";
+                                ?>
                                 <?php
                             }
                             }
 
                             ?>
+                            </select>
                         </div>
+                        </div>
+                    </div>
+                    <div class="container mt-3">
+                        <div class="dropdown">
 
+
+                        </div>
                     </div>
 
                     <div class="form-group">
@@ -194,6 +222,72 @@ include("../Common/TopNavBar.php");
 
         <br><br>
     </FORM>
+
+    <div class="row">
+        <div class="col-md-12" style="left: 0%">
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th>User Id</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Address Line 1</th>
+                    <th>Address Line 2</th>
+                    <th>Contact 1</th>
+                    <th>Contact 2</th>
+                    <th>E-Mail</th>
+                    <th>DoB</th>
+                    <th>Role Type</th>
+                    <th>Center ID</th>
+                    <th>Region ID</th>
+
+
+                </tr>
+                </thead>
+                <tbody>
+
+
+                <?php
+                include("../Common/config.php");
+                $loadTable = "SELECT * FROM `tbl_user`";
+                $result = $con->query($loadTable);
+                if ($result) {
+                    foreach ($result as $row) {
+
+                        ?>
+                        <tr>
+                            <td><?= $row['userID']; ?></td>
+                            <td><?= $row['firstName']; ?></td>
+                            <td><?= $row['lastName']; ?></td>
+                            <td><?= $row['firstName']; ?></td>
+                            <td><?= $row['addressLine1']; ?></td>
+                            <td><?= $row['addressLine2']; ?></td>
+                            <td><?= $row['contactNo1']; ?></td>
+                            <td><?= $row['contactNo2']; ?></td>
+                            <td><?= $row['email']; ?></td>
+                            <td><?= $row['centerID']; ?></td>
+                            <td><?= $row['dob']; ?></td>
+                            <td><?= $row['gender']; ?></td>
+                            <td>
+                                <button class="btn-danger btn-sm">Delete</button>
+                                <button class="btn-info btn-sm">Edit</button>
+
+                            </td>
+
+                        </tr>
+
+                        <?php
+                    }
+
+                }
+
+                ?>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+
 </div>
 
 
@@ -201,5 +295,27 @@ include("../Common/TopNavBar.php");
 include("../Common/Footer.php");
 include("../Common/Scripts.php");
 ?>
+
+<script>
+    $(document).ready(function () {
+        $('#addUser').onclick(function () {
+            var image_name= $('#picture').val();
+            if (image_name=''){
+                alert('Please upload a profile picture to proceed');
+                return false;
+            }
+            else {
+                var extension = $('#picture').val().split('.').pop().toLowerCase();
+                if (jquery.inArray(extension,['png','jpg','jpeg']) == -1){
+                    alert('Wrong image file extension');
+                    $('#picture').val('');
+                    return false;
+                }
+            }
+        })
+    })
+
+</script>
+
 
 </body>
