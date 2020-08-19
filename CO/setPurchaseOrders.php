@@ -88,6 +88,12 @@ include("../Common/TopNavBar.php");
                         </div>
                     </div>
                     <div class="form-group">
+                        <label for="Total" class="col-sm-3 control-label">Total</label>
+                        <div class="col-sm-9">
+                            <input type="text" id="Total" name="Total" placeholder="Total" class="form-control" readonly>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label for="Description" class="col-sm-3 control-label"> Description</label>
                         <div class="col-sm-9">
                             <input type="textarea" id="Description" name="Description" placeholder="Description" height="500" class="form-control" autofocus>
