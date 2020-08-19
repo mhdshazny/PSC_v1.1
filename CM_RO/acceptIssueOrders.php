@@ -60,24 +60,31 @@ include("../Common/TopNavBar.php");
                 <!--                Next column -->
                 <div class="col-sm-5">
                     <div class="form-group">
-                        <div class="col-sm-9">
+<!--                        <div class="col-sm-9">-->
                             <div class="form-group">
                                 <label for="dateOn" class="col-sm-6 control-label">Ordered Date</label>
                                 <div class="col-sm-9">
                                     <input type="date" id="dateOn" name="dateOn" placeholder="Date" class="form-control" autofocus>
                                 </div>
-                            </div>
+<!--                            </div>-->
                         </div>
 
                     </div>
-
+                    <div class="form-group">
+<!--                        <div class="col-sm-10">-->
+                        <label for="quantity" class="col-sm-5 control-label">Quantity</label>
+                        <div class="col-sm-9">
+                            <input type="text" id="quantity" name="quantity" placeholder="Quantity" class="form-control" autofocus>
+<!--                        </div>-->
+                    </div>
+                    </div>
                     <div class="form-group">
 
-                        <div class="col-sm-9">
+<!--                        <div class="col-sm-9">-->
                             <label for="dateOn" class="col-sm-6 control-label">Accepted Date</label>
                             <div class="col-sm-9">
                                 <input type="date" id="dateOn" name="dateOn" placeholder="Date" class="form-control" autofocus>
-                            </div>
+<!--                            </div>-->
                     </div>
 
                     <div class="form-group">
@@ -106,7 +113,7 @@ include("../Common/TopNavBar.php");
     </FORM>
 
     <div class="row">
-        <div class="col-md-12" style="left: 10%">
+        <div class="col-md-8" style="left: 10%">
             <table class="table table-bordered table-hover">
                 <thead>
                 <tr>
