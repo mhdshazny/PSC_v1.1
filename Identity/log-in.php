@@ -44,7 +44,7 @@ if (mysqli_num_rows($result) == 1) {
 
 //    }
 
-    header('Location:../Admin/PSC_SK_Dashboard.php?e=Username or password Success');
+    header('Location:../Admin/PSC_Admin_Dashboard.php?e=Username or password Success');
 
 
 } else {
