@@ -3,11 +3,11 @@
 $servername = "localhost";
 $username = "username";
 $password = "password";
-$db = "db-psc";
+$db = "db_psc";
 
 
 //create connection
-$con=new mysqli('localhost','root','','db-psc');
+$con=new mysqli('localhost','root','','db_psc');
 
 //check connection
 if($con->connect_error)
