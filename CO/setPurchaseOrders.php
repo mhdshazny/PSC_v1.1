@@ -44,9 +44,17 @@ include("../Common/TopNavBar.php");
                     <div class="form-group">
                         <label for="PurchaseOrderID" class="col-sm-3 control-label">Purchase Order ID</label>
                         <div class="col-sm-9">
-                            <input type="text" value="PO-001" id="PoID" name="userID" placeholder="PurchaseOrder ID" class="form-control" readonly>
+                            <input type="text" value="PO-001" id="PoID" name="PoID" placeholder="PurchaseOrder ID" class="form-control" readonly>
                         </div>
                     </div>
+
+                    <div class="form-group">
+                        <label for="StockID" class="col-sm-3 control-label">Stock ID</label>
+                        <div class="col-sm-9">
+                            <input type="text" value="STO-001" id="StockID" name="StockID" placeholder="Stock ID" class="form-control" readonly>
+                        </div>
+                    </div>
+
                     <div class="form-group">
                         <label for="FarmerID" class="col-sm-3 control-label">Farmer ID*</label>
                         <div class="col-sm-9">
@@ -77,6 +85,12 @@ include("../Common/TopNavBar.php");
                         <label for="UnitPrice" class="col-sm-3 control-label">Unit Price*</label>
                         <div class="col-sm-9">
                             <input type="text" id="UnitPrice" name="UnitPrice" placeholder="Unit Price" class="form-control" autofocus>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Total" class="col-sm-3 control-label">Total</label>
+                        <div class="col-sm-9">
+                            <input type="text" id="Total" name="Total" placeholder="Total" class="form-control" readonly>
                         </div>
                     </div>
                     <div class="form-group">
