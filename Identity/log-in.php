@@ -13,7 +13,7 @@ if (isset($_POST['username']))
 $pass = $_POST['password'];
 
 
-$result = mysqli_query($con, "select * from user where Username = '$user' and Password = '$pass' limit 1");
+$result = mysqli_query($con, "select * from tbl_user where username = '$user' and password = '$pass' limit 1");
 //        while($row = mysqli_fetch_array($result))
 //        {
 //            print ("Login Successful");
