@@ -53,8 +53,8 @@
         <div class="container">
 
             <a href="#" class="btn btn-danger btn-lg btnMenu mx-2" role="button"><span class="glyphicon glyphicon-list-alt"></span> <br/>Stock Balance</a>
-            <a href="#" class="btn btn-warning btn-lg btnMenu mx-2" role="button"><span class="glyphicon glyphicon-bookmark"></span> <br/>Issues</a>
-            <a href="#" class="btn btn-success btn-lg btnMenu mx-2" role="button"><span class="glyphicon glyphicon-user"></span> <br/>Purchases</a>
+            <a href="getIssues.php" class="btn btn-warning btn-lg btnMenu mx-2" role="button"><span class="glyphicon glyphicon-bookmark"></span> <br/>Issues</a>
+            <a href="getPurchases.php" class="btn btn-success btn-lg btnMenu mx-2" role="button"><span class="glyphicon glyphicon-user"></span> <br/>Purchases</a>
             <a href="#" class="btn btn-info btn-lg btnMenu mx-2" role="button"><span class="glyphicon glyphicon-file"></span> <br/>Estimations</a>
 
         </div>
