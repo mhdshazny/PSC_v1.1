@@ -17,8 +17,8 @@ if (isset($_POST['addPOrder'])) {
 
     if (!empty($PurchaseOrderID))
     {
-        $sql = "INSERT INTO ` tbl_purchaseorder`( `DateOn`,`poID`, `farmerID`, `paddyType`, `Qty`, `unitPrice`, `Description`) 
-                VALUES (' $date ', '$PurchaseOrderID', '$FarmerID', '$PaddyType','$Quantity','$UnitPrice','$Description')";
+        $sql = "INSERT INTO ` tbl_purchaseorder`( `DateOn`,`poID`,`farmerID`,`paddytype`,`Qty`,`unitPrice`,`Description`) 
+                VALUES (' $date ', '$PurchaseOrderID', '$FarmerID',''$PaddyType'','$Quantity','$UnitPrice','$Description')";
 
 
 

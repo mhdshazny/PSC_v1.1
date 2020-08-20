@@ -35,12 +35,26 @@ include("../Common/TopNavBar.php");
         <div class="container-fluid" style="width: 80%">
             <div class="row">
                 <div class="col-sm-5">
+
+                    <div class="form-group">
+                        <label for="StockID" class="col-sm-9  control-label">Stock ID</label>
+                        <div class="col-sm-7">
+                            <input type="text" id="StockID" name="StockID" placeholder="Stock ID" class="form-control" autofocus>
+                        </div>
+                    </div>
+                        <div class="container" style="margin-left: 30%">
+                            <button type="button" name="Search" id="Search" class="btn btn-primary btn-block" style="width: 50%; align-content: center">Search</button>
+                        </div>
+
+
                     <div class="form-group">
                         <label for="date" class="col-sm-9 control-label">Purchased date </label>
                         <div class="col-sm-7">
                             <input type="date" id="date" name="date" class="form-control" readonly>
                         </div>
                     </div>
+
+
                     <div class="form-group">
                         <label for="PurchaseOrderID" class="col-sm-9 control-label">Purchase Order ID</label>
                         <div class="col-sm-7">
@@ -48,12 +62,7 @@ include("../Common/TopNavBar.php");
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="StockID" class="col-sm-9  control-label">Stock ID</label>
-                        <div class="col-sm-7">
-                            <input type="text" id="StockID" name="StockID" placeholder="Stock ID" class="form-control" readonly>
-                        </div>
-                    </div>
+
 
                     <div class="form-group">
                         <label for="FarmerID" class="col-sm-9  control-label">Farmer ID</label>
@@ -137,14 +146,7 @@ include("../Common/TopNavBar.php");
                     </table>
 
                 </div>
-                <div class="form-group">
-                    <label for="Total" class="col-sm-3 control-label">Search</label>
-                    <div class="col-sm-9">
-                        <input type="text" id="Sstock" name="Sstock" placeholder="Enter stock ID" class="form-control" autofocus>
-                    </div>
-                <div class="container" style="margin-left: 30%">
-                    <button type="submit" name="Search" id="Search" class="btn btn-primary btn-block" style="width: 50%; align-content: center">Search</button>
-                </div>
+
             </div>
             <br><br>
 
