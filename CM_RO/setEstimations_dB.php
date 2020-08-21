@@ -5,7 +5,7 @@ if (isset($_POST['sendEstimations'])) {
     $estimationID = $_POST['estimationID'];
     $DateOn = $_POST['DateOn'];
     $PaddyType = $_POST['PaddyType'];
-    $totalLandArea = $_POST['totalLandArea'];
+    $landArea = $_POST['totalLandArea'];
     $centerID = $_POST['centerID'];
 
 
@@ -19,7 +19,7 @@ if (isset($_POST['sendEstimations'])) {
     if (!empty($estimationID))
     {
             $sql = "INSERT INTO `tbl_estimations`(`estimationID`, `centerID`, `DateOn`, `paddyType`, `season`, `landArea`, `totalFarmers`, `quantity`) 
-                VALUES ('$estimationID', '$DateOn', '$PaddyType', '$totalLandArea','$centerID','$season','$totalFarmers','$quantity')";
+                VALUES ('$estimationID', '$centerID','$DateOn', '$PaddyType', '$season','$landArea','$totalFarmers','$quantity')";
 
 
 

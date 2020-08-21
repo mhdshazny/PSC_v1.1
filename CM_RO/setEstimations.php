@@ -51,10 +51,10 @@ include("../Common/TopNavBar.php");
                     </div>
 
                     <div class="form-group">
-                        <label for="PaddyType" class="col-sm-4   control-label">Paddy Type</label>
+                        <label for="paddyType" class="col-sm-4   control-label">Paddy Type</label>
                         <div class="col-sm-9">
 
-                            <select class="form-control" id="PaddyType">
+                            <select class="form-control" id="paddyType">
                                 <option>Basmathi Rice</option>
                                 <option>Nadu Rice</option>
                                 <option>Kekulu Rice</option>
@@ -64,9 +64,9 @@ include("../Common/TopNavBar.php");
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="totalLandArea" class="col-sm-5 control-label">Total Land Area</label>
+                        <label for="landArea" class="col-sm-5 control-label">Total Land Area</label>
                         <div class="col-sm-9">
-                            <input type="text" id="totalLandArea" name="totalLandArea" placeholder="Total Land Area in (perch)" class="form-control" autofocus>
+                            <input type="text" id="landArea" name="landArea" placeholder="Total Land Area in (perch)" class="form-control" autofocus>
                         </div>
                     </div>
 
@@ -100,7 +100,7 @@ include("../Common/TopNavBar.php");
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="contactNo1" class="col-sm-6   control-label">Total Estimated Quantity</label>
+                        <label for="quantity" class="col-sm-6   control-label">Total Estimated Quantity</label>
                         <div class="col-sm-9">
                             <input type="text" id="quantity" name="quantity" placeholder="Quantity (Kg)" class="form-control" autofocus>
                         </div>
