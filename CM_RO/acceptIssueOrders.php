@@ -33,7 +33,7 @@ include("../Common/TopNavBar.php");
     <?php
     $Priority = 'AdminUserReg';
     ?>
-    <FORM action="userReg_dB.php" method="POST" enctype="multipart/form-data">
+    <FORM action="acceptIssueOrders_dB.php" method="POST" enctype="multipart/form-data">
         <div class="container-fluid" style="width: 80%">
             <div class="row">
                 <div class="col-sm-5">
@@ -44,9 +44,17 @@ include("../Common/TopNavBar.php");
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="PaddyType" class="col-sm-4 control-label">Paddy Type</label>
+                        <label for="paddyType" class="col-sm-4   control-label">Paddy Type</label>
                         <div class="col-sm-9">
-                            <input type="text" id="PaddyType" name="PaddyType" placeholder="Paddy Type" class="form-control" autofocus>
+
+                            <select class="form-control" id="paddyType" name="paddyType">
+                                <option value ="Basmathi Rice">Basmathi Rice</option>
+                                <option value ="Nadu Rice">Nadu Rice</option>
+                                <option value ="Kekulu Rice">Kekulu Rice</option>
+                                <option value ="Samba Rice">Samba Rice</option>
+                                <option value ="Red Rice">Red Rice</option>
+
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">
@@ -62,9 +70,9 @@ include("../Common/TopNavBar.php");
                     <div class="form-group">
 <!--                        <div class="col-sm-9">-->
                             <div class="form-group">
-                                <label for="dateOn" class="col-sm-6 control-label">Ordered Date</label>
+                                <label for="orderDateOn" class="col-sm-6 control-label">Ordered Date</label>
                                 <div class="col-sm-9">
-                                    <input type="date" id="dateOn" name="dateOn" placeholder="Date" class="form-control" autofocus>
+                                    <input type="date" id="orderDateOn" name="orderDateOn" placeholder="Date" class="form-control" autofocus>
                                 </div>
 <!--                            </div>-->
                         </div>
@@ -72,7 +80,7 @@ include("../Common/TopNavBar.php");
                     </div>
                     <div class="form-group">
 <!--                        <div class="col-sm-10">-->
-                        <label for="quantity" class="col-sm-5 control-label">Quantity</label>
+                        <label for="quantity" class="col-sm-5 control-label">Quantity (Kg)</label>
                         <div class="col-sm-9">
                             <input type="text" id="quantity" name="quantity" placeholder="Quantity" class="form-control" autofocus>
 <!--                        </div>-->
@@ -81,9 +89,9 @@ include("../Common/TopNavBar.php");
                     <div class="form-group">
 
 <!--                        <div class="col-sm-9">-->
-                            <label for="dateOn" class="col-sm-6 control-label">Accepted Date</label>
+                            <label for="acceptDateOn" class="col-sm-6 control-label">Accepted Date</label>
                             <div class="col-sm-9">
-                                <input type="date" id="dateOn" name="dateOn" placeholder="Date" class="form-control" autofocus>
+                                <input type="date" id="acceptDateOn" name="acceptDateOn" placeholder="Date" class="form-control" autofocus>
 <!--                            </div>-->
                     </div>
 
@@ -94,7 +102,7 @@ include("../Common/TopNavBar.php");
                     </div>
 
                         <div class="container" style="margin-left: 30%">
-                            <button type="submit" name="addUser" id="addUser" class="btn btn-primary btn-block" style="width: 50%; align-content: center">Accept Issue Order</button>
+                            <button type="submit" name="acceptIssueOrder" id="acceptIssueOrder" class="btn btn-primary btn-block" style="width: 50%; align-content: center">Accept Issue Order</button>
                         </div>
                 </div>
 

@@ -40,7 +40,7 @@ include("../Common/TopNavBar.php");
     <?php
     $Priority = 'AdminUserReg';
     ?>
-    <FORM action="userReg_dB.php" method="POST" enctype="multipart/form-data">
+    <FORM action="confirmIssueOrders_dB.php" method="POST" enctype="multipart/form-data">
         <div class="container-fluid" style="width: 80%">
             <div class="row">
                 <div class="col-sm-5">
@@ -132,7 +132,7 @@ include("../Common/TopNavBar.php");
             </div>
         </div>
 
-    </FORM>
+<!--    </FORM>-->
 
     <!--Center Details-->
 <!--    <div class="container-fluid" style=" min-height:150px; width: 100%; left: 20%">-->
@@ -140,7 +140,7 @@ include("../Common/TopNavBar.php");
         <p class="text-info font-weight-bold" style="font-size: 150%; margin-left: 20%">Center and Vehicle Details</p>
 
 <!--    </div>-->
-    <FORM action="userReg_dB.php" method="POST" enctype="multipart/form-data">
+<!--    <FORM action="confirmIssueOrders_dB.php" method="POST" enctype="multipart/form-data">-->
         <div class="container-fluid" style="width: 80%">
             <div class="row">
                 <div class="col-sm-5">
@@ -179,7 +179,7 @@ include("../Common/TopNavBar.php");
 
 
                         <div class="container" style="margin-left: 30%">
-                            <button type="submit" name="addUser" id="addUser" class="btn btn-primary btn-block" style="width: 50%; align-content: center">Confirm Issue Order</button>
+                            <button type="submit" name="confirmIssueOrder" id="confirmIssueOrder" class="btn btn-primary btn-block" style="width: 50%; align-content: center">Confirm Issue Order</button>
                         </div>
                     </div>
 
