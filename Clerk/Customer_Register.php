@@ -110,8 +110,12 @@ include("../Common/Header.php");
 
         </form>
     </div>
-
-
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
     <?php
     include("../Common/Footer.php");
     include("../Common/Scripts.php");

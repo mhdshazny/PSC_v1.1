@@ -110,8 +110,11 @@ include("../Common/TopNavBar.php");
                             </div>
     </form>
 </div>
-
-
+</div>
+</div>
+</div>
+</div>
+</div>
 <?php
 include("../Common/Footer.php");
 include("../Common/Scripts.php");
