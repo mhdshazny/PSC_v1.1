@@ -194,6 +194,62 @@ include("../Common/TopNavBar.php");
 
         <br><br>
     </FORM>
+
+
+    <div class="row">
+        <div class="col-md-12" style="left: 10%">
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th>Role_ID</th>
+                    <th>Role_Name</th>
+                    <th>Actions</th>
+
+
+                </tr>
+                </thead>
+                <tbody>
+
+
+                <?php
+                include("../Common/config.php");
+                $loadTable = "SELECT * FROM `tbl_user`";
+                $result = $con->query($loadTable);
+                if ($result) {
+                    foreach ($result as $row) {
+
+                        ?>
+                        <tr>
+                            <td><?= $row['userID']; ?></td>
+                            <td><?= $row['firstName']; ?></td>
+                            <td><?= $row['lastName']; ?></td>
+                            <td><?= $row['addressLine1']; ?></td>
+                            <td><?= $row['lastName']; ?></td>
+                            <td><?= $row['lastName']; ?></td>
+                            <td><?= $row['lastName']; ?></td>
+                            <td><?= $row['lastName']; ?></td>
+                            <td>
+                                <button class="btn-danger btn-sm">Delete</button>
+                                <button class="btn-info btn-sm">Edit</button>
+
+                            </td>
+
+                        </tr>
+
+                        <?php
+                    }
+
+                }
+
+                ?>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+
+
+
 </div>
 
 
