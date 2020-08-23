@@ -19,12 +19,17 @@
 <!--    </main>-->
 <!---->
 <!--</div>-->
+
 <?php
 include("../Common/TopNavBar.php");
 ?>
-<div class="container-fluid bg-light" style="width: 100%;min-height: 87%">
-
-    <div class="container-fluid" style=" min-height:150px; width: 100%; left: 20%">
+<div class="row" style="min-height: 87%; background-color: #011d21">
+    <?php
+    include("../Common/SideNavBar.php");
+    ?>
+<div class="col-md-10 d-none d-md-block container text-white" style="background-color: #011d21">
+<div class="container-fluid rounded" style="min-height: 100%; background-color: #04333b">
+    <div class="container-fluid">
         <br>
         <p class="text-info font-weight-bold" style="font-size: 150%; margin-left: 20%">User Registration</p>
 
@@ -34,9 +39,9 @@ include("../Common/TopNavBar.php");
      $Priority = 'AdminUserReg';
     ?>
     <FORM action="userReg_dB.php" method="POST" enctype="multipart/form-data">
-        <div class="container-fluid" style="width: 80%">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-sm-5">
+                <div class="col-sm-4">
                     <div class="form-group">
                         <label for="userID" class="col-sm-3 control-label">User ID</label>
                         <div class="col-sm-9">
@@ -90,7 +95,7 @@ include("../Common/TopNavBar.php");
                     </div>
                 </div>
                 <!--                Next column -->
-                <div class="col-sm-5">
+                <div class="col-sm-4">
                     <div class="form-group">
 
                         <label for="roleID" class="col-sm-4 control-label">Role Type</label>
@@ -148,7 +153,7 @@ include("../Common/TopNavBar.php");
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-2">
+                <div class="col-sm-4">
                     <div class="form-group">
                         <label for="picture" class="col-sm-3 control-label">Picture</label>
                         <div class="col-sm-9">
@@ -168,7 +173,7 @@ include("../Common/TopNavBar.php");
 
             <br><br>
             <div class="row">
-                <div class="col-sm-5">
+                <div class="col-sm-4">
                     <div class="form-group">
                         <label for="centerID" class="col-sm-3 control-label">Center ID</label>
                         <div class="col-sm-9">
@@ -176,7 +181,7 @@ include("../Common/TopNavBar.php");
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-5">
+                <div class="col-sm-4">
                     <div class="form-group">
                         <label for="regionID" class="col-sm-3 control-label">Region ID</label>
                         <div class="col-sm-9">
@@ -260,6 +265,7 @@ include("../Common/TopNavBar.php");
             </table>
         </div>
     </div>
+</div>
 </div>
 
 

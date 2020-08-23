@@ -1,5 +1,5 @@
 <!--<div class="container-fluid" style="width:1800px">-->
-<div class="container-fluid bd-gray" style="width: 100%">
+<div class="container-fluid bd-gray" style="width: 100%; background-color: #011d21;">
 <nav class="navbar navbar-expand-lg" style="">
     <a class="navbar-brand text-white" href="PSC_Admin_Dashboard.php">PSC v1.1</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
