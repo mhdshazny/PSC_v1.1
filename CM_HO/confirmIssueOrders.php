@@ -59,7 +59,7 @@ include("../Common/TopNavBar.php");
                     <div class="form-group">
                         <label for="PaddyType" class="col-sm-4 control-label">Paddy Type</label>
                         <div class="col-sm-9">
-                            <input type="text" id="PaddyType" name="PaddyType" placeholder="Paddy Type" class="form-control" autofocus>
+                            <input type="text" id="paddyType" name="paddyType" placeholder="Paddy Type" class="form-control" autofocus>
                         </div>
                     </div>
                     <div class="form-group">
