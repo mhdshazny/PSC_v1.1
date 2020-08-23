@@ -9,16 +9,16 @@ if (isset($_POST['addPOrder'])) {
     $Quantity = $_POST['Quantity'];
     $UnitPrice = $_POST['UnitPrice'];
     $Description = $_POST['Description'];
+    $isActive="1";
 
 
 
 
 
-
-    if (!empty($PurchaseOrderID))
+    if (!empty($_POST['PurchaseOrderID']))
     {
-        $sql = "INSERT INTO ` tbl_purchaseorder`( `DateOn`,`poID`,`farmerID`,`paddytype`,`Qty`,`unitPrice`,`Description`) 
-                VALUES (' $date ', '$PurchaseOrderID', '$FarmerID',''$PaddyType'','$Quantity','$UnitPrice','$Description')";
+        $sql = "INSERT INTO `tbl_purchaseorder`(`poID`, `farmerID`, `Qty`, `unitPrice`, `DateOn`, `Description`, `isActive`, `paddytype`) 
+                VALUES ('$PurchaseOrderID','$FarmerID','$Quantity','$UnitPrice','$date','$Description','$isActive','$PaddyType')";
 
 
 
@@ -28,11 +28,23 @@ if (isset($_POST['addPOrder'])) {
 
             function phpAlert($msg)
             {
-                echo '<script type="text/javascript">alert("' . $msg . '")</script>';
+               echo '<script type="text/javascript">alert("' . $msg . '")</script>';
+               // echo "<script type='text/javascript'>alert('$msg');</script>";
             }
 
             phpAlert("New record successfully Inserted");
             header('Location: setPurchaseOrders.php?e=data inserted');
+//            $message = "Successfully added to the database";
+//            echo "<script type='text/javascript'>alert('$message');</script>";
+
+
+//           alert("Successfully inserted");
+//
+//            function alert($msg)
+//            {
+//                echo "<script type='text/javascript'>alert('$msg');</script>";
+//            }
+
 
         } else {
 
@@ -42,7 +54,7 @@ if (isset($_POST['addPOrder'])) {
 
             //This will redirect to same page and it'll show the message above url//
 
-            header('Location: setPurchaseOrders.php?e=Wrong Credentials11');
+            header('Location: setEstimations.php?e=Wrong Credentials11');
         }
 
 
