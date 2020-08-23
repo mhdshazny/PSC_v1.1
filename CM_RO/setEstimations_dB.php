@@ -3,9 +3,9 @@ include("../Common/config.php");
 
 if (isset($_POST['sendEstimations'])) {
     $estimationID = $_POST['estimationID'];
-    $DateOn = $_POST['DateOn'];
-    $PaddyType = $_POST['PaddyType'];
-    $landArea = $_POST['totalLandArea'];
+    $DateOn = $_POST['dateOn'];
+    $PaddyType = $_POST['paddyType'];
+    $landArea = $_POST['landArea'];
     $centerID = $_POST['centerID'];
 
 

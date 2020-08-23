@@ -40,7 +40,7 @@ include("../Common/TopNavBar.php");
                     <div class="form-group">
                         <label for="estimationID" class="col-sm-6 control-label">Estimation Record ID</label>
                         <div class="col-sm-9">
-                            <input type="text" value="EST001" id="estimationID" name="estimationID" placeholder="estimationID" class="form-control" readonly>
+                            <input type="text"  id="estimationID" name="estimationID" placeholder="estimationID" class="form-control" autofocus>
                         </div>
                     </div>
                     <div class="form-group">
@@ -54,15 +54,19 @@ include("../Common/TopNavBar.php");
                         <label for="paddyType" class="col-sm-4   control-label">Paddy Type</label>
                         <div class="col-sm-9">
 
-                            <select class="form-control" id="paddyType">
-                                <option>Basmathi Rice</option>
-                                <option>Nadu Rice</option>
-                                <option>Kekulu Rice</option>
-                                <option>Samba Rice</option>
-                                <option>Red Rice</option>
+                            <select class="form-control" id="paddyType" name="paddyType">
+                                <option value ="Basmathi Rice">Basmathi Rice</option>
+                                <option value ="Nadu Rice">Nadu Rice</option>
+                                <option value ="Kekulu Rice">Kekulu Rice</option>
+                                <option value ="Samba Rice">Samba Rice</option>
+                                <option value ="Red Rice">Red Rice</option>
+
                             </select>
                         </div>
                     </div>
+
+
+
                     <div class="form-group">
                         <label for="landArea" class="col-sm-5 control-label">Total Land Area</label>
                         <div class="col-sm-9">
@@ -85,9 +89,9 @@ include("../Common/TopNavBar.php");
                     <div class="form-group">
                         <label for="season" class="col-sm-3 control-label">Season</label>
                         <div class="col-sm-9">
-                                <select class="form-control" id="season">
-                                    <option>Maha Season</option>
-                                    <option>Yala Season</option>
+                                <select class="form-control" id="season" name="season">
+                                    <option value="Maha Season">Maha Season</option>
+                                    <option value="Yala Season">Yala Season</option>
 
                                 </select>
                             </div>
@@ -140,5 +144,6 @@ include("../Common/TopNavBar.php");
 include("../Common/Footer.php");
 include("../Common/Scripts.php");
 ?>
+
 
 </body>
