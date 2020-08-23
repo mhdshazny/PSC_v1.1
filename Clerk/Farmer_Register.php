@@ -1,8 +1,15 @@
-<?php
-include("../Common/Header.php");
-//    include ("../Common/config.php");
-?>
-<script src="../Plugins/bootstrap/js/bootstrap.min.js">  </script>
+<head>
+
+    <title>Farmer Registration</title>
+
+
+    <!--    Resources -->
+
+    <?php
+    include("../Common/Header.php");
+    //    include ("../Common/config.php");
+    ?>
+    <script src="../Plugins/bootstrap/js/bootstrap.min.js">  </script>
 </head>
 <body class="bg-dark">
 
@@ -23,102 +30,160 @@ include("../Common/TopNavBar.php");
 
     </div>
 
-
-    <form action="FarmerReg_dB.php" method="POST" enctype="multipart/form-data">
+    <?php
+    $Priority = 'ClerkCustomerRegistration';
+    ?>
+    <FORM action="Farmer_Register_dB.php" method="POST" enctype="multipart/form-data">
         <div class="container-fluid" style="width: 80%">
             <div class="row">
-                <div class="col-sm-9">
+                <div class="col-sm-5">
+                    <div class="form-group">
+                        <label for="farmerID" class="col-sm-3 control-label">Farmer ID</label>
+                        <div class="col-sm-9">
+                            <input type="text" id="farmerID" name="farmerID" placeholder="farmerID" class="form-control" >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="firstName" class="col-sm-3 control-label">First Name</label>
+                        <div class="col-sm-9">
+                            <input type="text" id="firstName" name="firstName" placeholder="First Name" class="form-control" autofocus>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactNo1" class="col-sm-3 control-label">Contact number</label>
+                        <div class="col-sm-9">
+                            <input type="text" id="contactNo1" name="contactNo1" placeholder="Contact number" class="form-control" autofocus>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="addressLine1" class="col-sm-3 control-label">Address 1</label>
+                        <div class="col-sm-9">
+                            <input type="text" id="addressLine1" name="addressLine1" placeholder="Street Address 1" class="form-control" autofocus>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="region" class="col-sm-3 control-label">Region</label>
+                        <div class="col-sm-9">
+                            <input type="region" id="region" placeholder="region" class="form-control" autofocus>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="NIC" class="col-sm-3 control-label">NIC</label>
+                        <div class="col-sm-9">
+                            <input type="NIC" id="NIC" placeholder="NIC No" class="form-control" autofocus>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender" class="col-sm-3 control-label">Gender* </label>
+                        <div class="col-sm-3" style="left: 20%">
+                            <div class="radio">
+                                <label><input type="radio" name="gender" id="gender" value="male" checked> &nbsp;&nbsp;     Male</label>
+                            </div>
+                            <div class="radio">
+                                <label><input type="radio" name="gender" id="gender" value="fe-male">    &nbsp;&nbsp; Female</label>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="form-group">
 
                         <div class="col-sm-9">
 
                         </div>
+                    </div>
+                </div>
+                <!--                Next column -->
+                <div class="col-sm-5">
+                    <div class="form-group">
+                        <div class="col-sm-9">
+                        </div>
+
+
 
                         <div class="form-group">
-                            <label for="FarmerID" class="col-sm-3 control-label">Farmer ID</label>
+                            <label for="lastName" class="col-sm-3 control-label">Last Name</label>
                             <div class="col-sm-9">
-                                <input type="text" id="FarmerID" name="FarmerID" placeholder="FarmerID" class="form-control">
+                                <input type="text" id="lastName" name="lastName" placeholder="Last Name" class="form-control" autofocus>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="contactNo" class="col-sm-3 control-label">Contact number</label>
+                            <label for="addressLine2" class="col-sm-3 control-label">Address 2</label>
                             <div class="col-sm-9">
-                                <input type="text" id="contactNo" name="contactNo" placeholder="Contact number" class="form-control">
+                                <input type="text" id="addressLine2" name="addressLine2" placeholder="Street address 2 (Optional)" class="form-control" autofocus>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="addressLine" class="col-sm-3 control-label">Address</label>
+                            <label for="contactNo2" class="col-sm-5 control-label">Contact number (Optional)</label>
                             <div class="col-sm-9">
-                                <input type="text" id="addressLine" name="addressLine" placeholder="Street address" class="form-control">
+                                <input type="text" id="contactNo2" name="contactNo2" placeholder="Contact number (Optional)" class="form-control" autofocus>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="NIC" class="col-sm-3 control-label">NIC</label>
+
                             <div class="col-sm-9">
-                                <input type="text" id="NIC No" name="NIC No" placeholder="NIC No" class="form-control">
                             </div>
-                            <div class="form-group">
-                                <label for="CenterID" class="col-sm-3 control-label">Center ID</label>
-                                <div class="col-sm-9">
-                                    <input type="text" id="CenterID" name="CenterID" placeholder="CenterID" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="gender" class="col-sm-3 control-label">Gender</label>
-                                    <div class="col-sm-3" style="left: 20%">
-                                        <div class="radio">
-                                            <label><input type="radio" name="gender" id="gender" value="male" checked> &nbsp;&nbsp;     Male</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" name="gender" id="gender" value="fe-male">    &nbsp;&nbsp; Female</label>
-                                        </div>
-                                        <div class="form-group">
-                                        </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+
+                        <div class="col-sm-9">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+
+                        <div class="col-sm-9">
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-9 col-sm-offset-3">
+                            <span class="help-block">* Required fields</span>
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+            </div>
 
 
+            <br><br>
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="form-group">
 
-                                    </div>
+                        <div class="col-sm-9">
 
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-5">
+                    <div class="form-group">
 
-                                    <br>
-                                </div>
-                                <br><br>
-                                <div class="row">
+                        <div class="col-sm-9">
 
-                                    <div class="col-sm-5">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-                                        <div class="form-group">
-                                            <div class="col-sm-9 col-sm-offset-3">
-                                                <span class="help-block">* Required fields</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+        <br><br>
+        <div class="container" style="margin-left: 30%">
+            <button type="submit" name="addCustomer" id="addCustomer" class="btn btn-primary btn-block" style="width: 50%; align-content: center">Save</button>
+        </div>
 
-                            <br>
-                            <div class="container" style="margin-left: 30%">
-                                <button type="submit" name="Save" id="Save" class="btn btn-primary btn-block" style="width: 30%; align-content: center">Save</button>
-                            </div>
-
-                            <br>
-                            <div class="container" style="margin-left: 30%">
-                                <button type="submit" name="Update" id="Update" class="btn btn-primary btn-block" style="width: 30%; align-content: center">Update</button>
-                            </div>
-                            <br>
-                            <div class="container" style="margin-left: 30%">
-                                <button type="submit" name="Delete" id="Delete" class="btn btn-primary btn-block" style="width: 30%; align-content: center">Delete</button>
-                            </div>
-    </form>
+        <br><br>
+    </FORM>
 </div>
-</div>
-</div>
-</div>
-</div>
-</div>
+
+
 <?php
 include("../Common/Footer.php");
 include("../Common/Scripts.php");
 ?>
 
 </body>
-<?php

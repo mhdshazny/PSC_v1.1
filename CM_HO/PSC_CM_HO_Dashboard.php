@@ -32,7 +32,7 @@
     <?php
     include("../Common/TopNavBarRO.php");
     ?>
-    <div class="container-fluid" style=" min-height:230px; width: 100%">
+    <div class="container-fluid" style=" min-height:330px; width: 100%">
         <br>
         <p class="text-info font-weight-bold" style="font-size: 250%"> Hello Manager !</p>
     </div>

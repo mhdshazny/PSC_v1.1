@@ -19,12 +19,17 @@
 <!--    </main>-->
 <!---->
 <!--</div>-->
+
 <?php
 include("../Common/TopNavBar.php");
 ?>
-<div class="container-fluid bg-light" style="width: 100%;min-height: 87%">
-
-    <div class="container-fluid" style=" min-height:150px; width: 100%; left: 20%">
+<div class="row" style="min-height: 87%; background-color: #011d21">
+    <?php
+    include("../Common/SideNavBar.php");
+    ?>
+<div class="col-md-10 d-none d-md-block container text-white" style="background-color: #011d21">
+<div class="container-fluid rounded" style="min-height: 100%; background-color: #04333b">
+    <div class="container-fluid">
         <br>
         <p class="text-info font-weight-bold" style="font-size: 150%; margin-left: 20%">User Registration</p>
 
@@ -34,9 +39,9 @@ include("../Common/TopNavBar.php");
      $Priority = 'AdminUserReg';
     ?>
     <FORM action="userReg_dB.php" method="POST" enctype="multipart/form-data">
-        <div class="container-fluid" style="width: 80%">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-sm-5">
+                <div class="col-sm-4">
                     <div class="form-group">
                         <label for="userID" class="col-sm-3 control-label">User ID</label>
                         <div class="col-sm-9">
@@ -90,7 +95,7 @@ include("../Common/TopNavBar.php");
                     </div>
                 </div>
                 <!--                Next column -->
-                <div class="col-sm-5">
+                <div class="col-sm-4">
                     <div class="form-group">
 
                         <label for="roleID" class="col-sm-4 control-label">Role Type</label>
@@ -148,7 +153,7 @@ include("../Common/TopNavBar.php");
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-2">
+                <div class="col-sm-4">
                     <div class="form-group">
                         <label for="picture" class="col-sm-3 control-label">Picture</label>
                         <div class="col-sm-9">
@@ -168,7 +173,7 @@ include("../Common/TopNavBar.php");
 
             <br><br>
             <div class="row">
-                <div class="col-sm-5">
+                <div class="col-sm-4">
                     <div class="form-group">
                         <label for="centerID" class="col-sm-3 control-label">Center ID</label>
                         <div class="col-sm-9">
@@ -176,7 +181,7 @@ include("../Common/TopNavBar.php");
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-5">
+                <div class="col-sm-4">
                     <div class="form-group">
                         <label for="regionID" class="col-sm-3 control-label">Region ID</label>
                         <div class="col-sm-9">
@@ -194,6 +199,76 @@ include("../Common/TopNavBar.php");
 
         <br><br>
     </FORM>
+
+
+    <div class="row">
+        <div class="col-md-11" style="left:5%">
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th>User ID</th>
+                    <th>User Name</th>
+                    <th>Role ID</th>
+                    <th>Center ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Address</th>
+                    <th>Contact No</th>
+                    <th>E-Mail</th>
+                    <th>DoB</th>
+                    <th>Gender</th>
+                    <th>isActive</th>
+                    <th>Actions</th>
+
+
+                </tr>
+                </thead>
+                <tbody>
+
+
+                <?php
+                include("../Common/config.php");
+                $loadTable = "SELECT * FROM `tbl_employee`";
+                $result = $con->query($loadTable);
+                if ($result) {
+                    foreach ($result as $row) {
+                        ?>
+                        <tr>
+                            <td><?= $row['empID']; ?></td>
+                            <td><?= $row['userName']; ?></td>
+                            <td><?= $row['roleID']; ?></td>
+                            <td><?= $row['centerID']; ?></td>
+                            <td><?= $row['firstName']; ?></td>
+                            <td><?= $row['lastName']; ?></td>
+                            <td><?= $row['addressLine1']; ?></td>
+                            <td><?= $row['contactNo1']; ?></td>
+                            <td><?= $row['email']; ?></td>
+                            <td><?= $row['dob']; ?></td>
+                            <td><?= $row['gender'] ?></td>
+                            <td><?= $row['isActive']; ?></td>
+                            <td>
+                                <button class="btn-danger btn-sm">Delete</button>
+                                <button class="btn-info btn-sm">Edit</button>
+
+                            </td>
+
+                        </tr>
+
+                        <?php
+                    }
+
+                }
+
+                ?>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+
+
 </div>
 
 

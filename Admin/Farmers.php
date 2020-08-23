@@ -13,7 +13,12 @@
 </head>
 <body class="bg-dark">
 
-
+<!--<div class="container">-->
+<!--    <main role="main" class="pb-3 bg-dark">-->
+<!---->
+<!--    </main>-->
+<!---->
+<!--</div>-->
 <?php
 include("../Common/TopNavBar.php");
 ?>
@@ -24,7 +29,7 @@ include("../Common/TopNavBar.php");
         <p class="text-info font-weight-bold" style="font-size: 150%; margin-left: 20%">Collection Centers </p>
 
     </div>
-    <FORM action="userReg_dB.php" method="POST" enctype="multipart/form-data">
+    <FORM action="userReg_dB.php" method="POST">
         <div class="container-fluid" style="width: 80%">
             <div class="row">
                 <div class="col-sm-6">
@@ -53,10 +58,10 @@ include("../Common/TopNavBar.php");
                             <input type="text" id="contactNo2" name="contactNo2" placeholder="Contact number (Optional)" class="form-control" autofocus>
                         </div>
                     </div>
-<!--                    <div class="form-group">-->
-<!--                        <div class="col-sm-9" style="height: 15%">-->
-<!--                        </div>-->
-<!--                    </div>-->
+                    <!--                    <div class="form-group">-->
+                    <!--                        <div class="col-sm-9" style="height: 15%">-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
                     <div class="form-group">
                         <label for="BankAccID" class="col-sm-4 control-label">Bank Account ID</label>
                         <div class="col-sm-9">
@@ -79,12 +84,12 @@ include("../Common/TopNavBar.php");
 
                     </div>
 
-<!--                    <div class="form-group">-->
-<!--                        <label for="Password" class="col-sm-3 control-label">Password*</label>-->
-<!--                        <div class="col-sm-9">-->
-<!--                            <input type="password" id="Password" name="Password" class="form-control">-->
-<!--                        </div>-->
-<!--                    </div>-->
+                    <!--                    <div class="form-group">-->
+                    <!--                        <label for="Password" class="col-sm-3 control-label">Password*</label>-->
+                    <!--                        <div class="col-sm-9">-->
+                    <!--                            <input type="password" id="Password" name="Password" class="form-control">-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
                 </div>
                 <!--                Next column -->
                 <div class="col-sm-6">
@@ -95,12 +100,12 @@ include("../Common/TopNavBar.php");
                         </div>
                     </div>
 
-<!--                    <div class="form-group">-->
-<!--                        <label for="lastName" class="col-sm-3 control-label">Last Name</label>-->
-<!--                        <div class="col-sm-9">-->
-<!--                            <input type="text" id="lastName" name="lastName" placeholder="Last Name" class="form-control" autofocus>-->
-<!--                        </div>-->
-<!--                    </div>-->
+                    <!--                    <div class="form-group">-->
+                    <!--                        <label for="lastName" class="col-sm-3 control-label">Last Name</label>-->
+                    <!--                        <div class="col-sm-9">-->
+                    <!--                            <input type="text" id="lastName" name="lastName" placeholder="Last Name" class="form-control" autofocus>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
                     <div class="form-group">
                         <div class="col-sm-9" style="height: 12.5%">
 
@@ -125,12 +130,12 @@ include("../Common/TopNavBar.php");
 
                         </div>
                     </div>
-<!--                    <div class="form-group">-->
-<!--                        <label for="confirmPassword" class="col-sm-4 control-label">Confirm Password*</label>-->
-<!--                        <div class="col-sm-9">-->
-<!--                            <input type="password" id="confirmPassword" name="confirmPassword" class="form-control">-->
-<!--                        </div>-->
-<!--                    </div>-->
+                    <!--                    <div class="form-group">-->
+                    <!--                        <label for="confirmPassword" class="col-sm-4 control-label">Confirm Password*</label>-->
+                    <!--                        <div class="col-sm-9">-->
+                    <!--                            <input type="password" id="confirmPassword" name="confirmPassword" class="form-control">-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
                 </div>
 
                 <br>
