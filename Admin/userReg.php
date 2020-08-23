@@ -91,9 +91,6 @@ include("../Common/TopNavBar.php");
                                 </div>
                             </div>
                         </div>
-
-
-
                         <div class="row">
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
                                 <div class="form-group">
@@ -114,8 +111,6 @@ include("../Common/TopNavBar.php");
 
                             </div>
                         </div>
-
-
                         <div class="row">
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
                                 <div class="form-group">
@@ -136,8 +131,6 @@ include("../Common/TopNavBar.php");
 
                             </div>
                         </div>
-
-
                         <div class="row">
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
                                 <div class="form-group">
@@ -159,9 +152,6 @@ include("../Common/TopNavBar.php");
 
                             </div>
                         </div>
-
-
-
                         <div class="row">
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
                                 <div class="form-group">
@@ -182,8 +172,6 @@ include("../Common/TopNavBar.php");
 
                             </div>
                         </div>
-
-
                         <div class="row">
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
                                 <div class="form-group">
@@ -208,9 +196,6 @@ include("../Common/TopNavBar.php");
 
                             </div>
                         </div>
-
-
-
                         <div class="row">
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
                                 <div class="form-group">
@@ -232,9 +217,6 @@ include("../Common/TopNavBar.php");
 
                             </div>
                         </div>
-
-
-
                         <div class="row">
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
                                 <div class="form-group">
@@ -268,7 +250,8 @@ include("../Common/TopNavBar.php");
             </div>
 
             <div class="row">
-                <div class="col-auto" style="left:5%">
+                <div class="container-fluid ">
+                <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12">
                     <table class="table table-bordered table-hover table-light">
                         <thead>
                         <tr>
@@ -327,6 +310,7 @@ include("../Common/TopNavBar.php");
                         </tbody>
 
                     </table>
+                </div>
                 </div>
             </div>
         </div>
