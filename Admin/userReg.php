@@ -197,12 +197,22 @@ include("../Common/TopNavBar.php");
 
 
     <div class="row">
-        <div class="col-md-12" style="left: 10%">
+        <div class="col-md-11" style="left:5%">
             <table class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                    <th>Role_ID</th>
-                    <th>Role_Name</th>
+                    <th>User ID</th>
+                    <th>User Name</th>
+                    <th>Role ID</th>
+                    <th>Center ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Address</th>
+                    <th>Contact No</th>
+                    <th>E-Mail</th>
+                    <th>DoB</th>
+                    <th>Gender</th>
+                    <th>isActive</th>
                     <th>Actions</th>
 
 
@@ -213,21 +223,24 @@ include("../Common/TopNavBar.php");
 
                 <?php
                 include("../Common/config.php");
-                $loadTable = "SELECT * FROM `tbl_user`";
+                $loadTable = "SELECT * FROM `tbl_employee`";
                 $result = $con->query($loadTable);
                 if ($result) {
                     foreach ($result as $row) {
-
                         ?>
                         <tr>
-                            <td><?= $row['userID']; ?></td>
+                            <td><?= $row['empID']; ?></td>
+                            <td><?= $row['userName']; ?></td>
+                            <td><?= $row['roleID']; ?></td>
+                            <td><?= $row['centerID']; ?></td>
                             <td><?= $row['firstName']; ?></td>
                             <td><?= $row['lastName']; ?></td>
                             <td><?= $row['addressLine1']; ?></td>
-                            <td><?= $row['lastName']; ?></td>
-                            <td><?= $row['lastName']; ?></td>
-                            <td><?= $row['lastName']; ?></td>
-                            <td><?= $row['lastName']; ?></td>
+                            <td><?= $row['contactNo1']; ?></td>
+                            <td><?= $row['email']; ?></td>
+                            <td><?= $row['dob']; ?></td>
+                            <td><?= $row['gender'] ?></td>
+                            <td><?= $row['isActive']; ?></td>
                             <td>
                                 <button class="btn-danger btn-sm">Delete</button>
                                 <button class="btn-info btn-sm">Edit</button>
@@ -247,7 +260,7 @@ include("../Common/TopNavBar.php");
             </table>
         </div>
     </div>
-
+</div>
 
 
 </div>

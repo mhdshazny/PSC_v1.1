@@ -1,22 +1,21 @@
 <!--<div class="container-fluid" style="width:1800px">-->
 <div class="container-fluid bd-gray" style="width: 100%">
-<nav class="navbar navbar-expand-lg navbar-dark bg" style="">
-    <a class="navbar-brand" href="PSC_Admin_Dashboard.php">PSC v1.1</a>
+<nav class="navbar navbar-expand-lg" style="">
+    <a class="navbar-brand text-white" href="PSC_Admin_Dashboard.php">PSC v1.1</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="#">Stocks <span class="sr-only">(current)</span></a>
+                <a class="nav-link text-white" href="#">Stocks <span class="sr-only">(current)</span></a>
             </li>
 
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Payments
                 </a>
-                <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                <div class="dropdown-menu " aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="#">Action</a>
                     <a class="dropdown-item" href="#">Another action</a>
                     <div class="dropdown-divider"></div>
@@ -25,16 +24,16 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#">Vehicles</a>
+                <a class="nav-link text-white" href="#">Vehicles</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Farmers</a>
+                <a class="nav-link text-white" href="Farmers.php">Farmers</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="CollectionCenter.php">Collection centers</a>
+                <a class="nav-link text-white" href="CollectionCenter.php">Collection centers</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Users
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -49,10 +48,10 @@
 <!--            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
             <ul class="navbar-nav" style="left: 0px">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Logout</a>
+                    <a class="nav-link text-white" href="../Identity/login.php">Logout</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Settings</a>
+                    <a class="nav-link text-white" href="#">Settings</a>
                 </li>
             </ul>
     </div>
