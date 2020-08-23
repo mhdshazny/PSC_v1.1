@@ -13,12 +13,7 @@
 </head>
 <body class="bg-dark">
 
-<!--<div class="container">-->
-<!--    <main role="main" class="pb-3 bg-dark">-->
-<!---->
-<!--    </main>-->
-<!---->
-<!--</div>-->
+
 <?php
 include("../Common/TopNavBar.php");
 ?>

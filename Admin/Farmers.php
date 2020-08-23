@@ -29,7 +29,7 @@ include("../Common/TopNavBar.php");
         <p class="text-info font-weight-bold" style="font-size: 150%; margin-left: 20%">Collection Centers </p>
 
     </div>
-    <FORM action="userReg_dB.php" method="POST" enctype="multipart/form-data">
+    <FORM action="userReg_dB.php" method="POST">
         <div class="container-fluid" style="width: 80%">
             <div class="row">
                 <div class="col-sm-6">
