@@ -29,6 +29,7 @@ include("../Common/TopNavBar.php");
     ?>
 <div class="col-md-10 d-none d-md-block container text-white" style="background-color: #011d21">
 <div class="container-fluid rounded" style="min-height: 100%; background-color: #04333b">
+<div class="row">
     <div class="container-fluid">
         <br>
         <p class="text-info font-weight-bold" style="font-size: 150%; margin-left: 20%">User Registration</p>
@@ -38,7 +39,7 @@ include("../Common/TopNavBar.php");
     <?php
      $Priority = 'AdminUserReg';
     ?>
-    <FORM action="userReg_dB.php" method="POST" enctype="multipart/form-data">
+    <FORM action="userReg_dB.php" method="POST" class="col" enctype="multipart/form-data">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-4">
@@ -199,15 +200,14 @@ include("../Common/TopNavBar.php");
 
         <br><br>
     </FORM>
-
+</div>
 
     <div class="row">
         <div class="col-md-11" style="left:5%">
-            <table class="table table-bordered table-hover">
+            <table class="table table-bordered table-hover table-light">
                 <thead>
                 <tr>
                     <th>User ID</th>
-                    <th>User Name</th>
                     <th>Role ID</th>
                     <th>Center ID</th>
                     <th>First Name</th>
@@ -235,7 +235,6 @@ include("../Common/TopNavBar.php");
                         ?>
                         <tr>
                             <td><?= $row['empID']; ?></td>
-                            <td><?= $row['userName']; ?></td>
                             <td><?= $row['roleID']; ?></td>
                             <td><?= $row['centerID']; ?></td>
                             <td><?= $row['firstName']; ?></td>
