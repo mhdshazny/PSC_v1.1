@@ -53,7 +53,7 @@
         <div class="container">
 
             <a href="#" class="btn btn-danger btn-lg btnMenu mx-2" role="button"><span class="glyphicon glyphicon-list-alt"></span> <br/>Stocks</a>
-            <a href="#" class="btn btn-warning btn-lg btnMenu mx-2" role="button"><span class="glyphicon glyphicon-bookmark"></span> <br/>New Purchase Order</a>
+            <a href="setPurchaseOrder_dB.php" class="btn btn-warning btn-lg btnMenu mx-2" role="button"><span class="glyphicon glyphicon-bookmark"></span> <br/>New Purchase Order</a>
             <a href="#" class="btn btn-success btn-lg btnMenu mx-2" role="button"><span class="glyphicon glyphicon-user"></span> <br/>Estimations</a>
             <a href="#" class="btn btn-info btn-lg btnMenu mx-2" role="button"><span class="glyphicon glyphicon-file"></span> <br/>Transactions</a>
 
