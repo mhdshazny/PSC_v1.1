@@ -4,3 +4,7 @@
 <script src="Scripts.js"> </script>
 <!--<script src="../Plugins/jquery/jquery.slim.js"></script>-->
 <script src="../Plugins/bootstrap/js/bootstrap.min.js">  </script>
+<!--Bootbox Scripts-->
+<script src="../Plugins/bootbox/bootbox.all.js"></script>
+<script src="../Plugins/bootbox/bootbox.js"></script>
+<script src="../Plugins/bootbox/bootbox.locales.js"></script>
