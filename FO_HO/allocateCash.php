@@ -45,21 +45,14 @@ include("../Common/TopNavBar.php");
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-12 ">
                                 <div class="form-group">
-                                    <label for="ContactDetails" class="col-sm-12 col-md-12 col-lg-12 bg-info mt-4"> Details</label>
+                                    <label for="Details" class="col-sm-12 col-md-12 col-lg-12 bg-info mt-4"> Details</label>
                                 </div>
                             </div>
                         </div>
 
 
                         <div class="row">
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
-                                <div class="form-group">
-                                    <label for="PayingAccNo" class="col-sm-12 col-md-12 col-lg-12 control-label">Paying Account No</label>
-                                    <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="text" id="PayingAccNo" name="PayingAccNo" placeholder="PayingAccNo" class="form-control" >
-                                    </div>
-                                </div>
-                            </div>
+
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
                                 <div class="form-group">
                                     <label for="Date" class="col-sm-12 col-md-12 col-lg-12 control-label">Date </label>
@@ -68,14 +61,45 @@ include("../Common/TopNavBar.php");
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-sm-4 col-md-4 col-lg-4 ">
+                                <div class="form-group">
+                                    <label for="PayingAccNo" class="col-sm-12 col-md-12 col-lg-12 control-label">Paying Account No</label>
+                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                        <input type="text" id="PayingAccNo" name="PayingAccNo" placeholder="Paying Account Number" class="form-control" >
+                                    </div>
+                                </div>
+                            </div>
 
+
+
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4 col-md-4 col-lg-4 ">
+                                <div class="form-group">
+                                    <label for="BankID" class="col-sm-12 col-md-12 col-lg-12 control-label">Bank ID </label>
+                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                        <input type="text" id="BankID" name="BankID"  placeholder="Bank ID" class="form-control" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <div class="container" style="margin-left: 30%">
+                            <button type="submit" name="search" id="search" class="btn btn-primary btn-block" style="width: 50%; align-content: center">search</button>
+                            </div>
+
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-12 ">
+                                <div class="form-group">
+                                    <label for="ContactDetails" class="col-sm-12 col-md-12 col-lg-12 bg-info mt-4">Bank details</label>
+                                </div>
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
                                 <div class="form-group">
                                     <label for="bankName" class="col-sm-12 col-md-12 col-lg-12 control-label">Regional Bank Name</label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="text" id="bankName" name="bankName" placeholder="Regional Bank Name" class="form-control" autofocus>
+                                        <input type="text" id="bankName" name="bankName" placeholder="Regional Bank Name" class="form-control" readonly>
                                     </div>
                                 </div>
                             </div>
@@ -83,65 +107,33 @@ include("../Common/TopNavBar.php");
                                 <div class="form-group">
                                     <label for="region" class="col-sm-12 col-md-12 col-lg-12  control-label">Region</label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="text" id="region" name="region" placeholder="Region" class="form-control" autofocus>
+                                        <input type="text" id="region" name="region" placeholder="Region" class="form-control" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-md-4 col-lg-4 ">
+                                <div class="form-group">
+                                    <label for="accNO" class="col-sm-12 col-md-12 col-lg-12  control-label">Bank account number</label>
+                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                        <input type="text" id="accNO" name="accNO" placeholder="Bank account number" class="form-control" readonly>
                                     </div>
                                 </div>
                             </div>
 
                         </div>
+
+
                         <div class="row">
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
-                                <div class="form-group">
-                                    <label for="accNO" class="col-sm-12 col-md-12 col-lg-12  control-label">Bank account number</label>
-                                    <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="text" id="accNO" name="accNO" placeholder="Bank account number" class="form-control" autofocus>
-                                    </div>
-                                </div>
-                            </div>
+
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
                                 <div class="form-group">
                                     <label for="Amount" class="col-sm-12 col-md-12 col-lg-12  control-label">Amount</label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
                                         <input type="text" id="Amount" name="Amount" placeholder="Amount" class="form-control" autofocus>
                                     </div>
-                                </div>                            </div>
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
+                                </div>
+                            </div>
 
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12 col-md-12 col-lg-12 ">
-                                <div class="form-group">
-                                    <label for="ContactDetails" class="col-sm-12 col-md-12 col-lg-12 bg-info mt-4">Contact Details</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
-                                <div class="form-group">
-                                    <label for="contactNo1" class="col-sm-12 col-md-12 col-lg-12  control-label">Contact number</label>
-                                    <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="number" id="contactNo1" name="contactNo1" placeholder="Contact number" class="form-control" autofocus>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
-                                <div class="form-group">
-                                    <label for="contactNo2" class="col-sm-12 col-md-12 col-lg-12 control-label">Contact number (Optional)</label>
-                                    <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="number" id="contactNo2" name="contactNo2" placeholder="Contact number (Optional)" class="form-control" autofocus>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
-                                <div class="form-group">
-                                    <label for="email" class="col-sm-12 col-md-12 col-lg-12 control-label">Email* </label>
-                                    <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="email" id="email" placeholder="Email" class="form-control" name= "email">
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
@@ -162,24 +154,8 @@ include("../Common/TopNavBar.php");
 
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-sm-12 col-md-12 col-lg-12 ">
-                                <div class="form-group">
-                                    <label for="ContactDetails" class="col-sm-12 col-md-12 col-lg-12 bg-info mt-4">Pre Loaded</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
-                                <div class="form-group">
-                                    <label for="isActive" class="col-sm-12 col-md-12 col-lg-12  control-label">is Active</label>
-                                    <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="checkbox" id="isActive" name="isActive" value="1" class="form-control" checked>
-                                    </div>
-                                </div>
-                            </div>
 
-                        </div>
+
                     </div>
 
                     <br><br>
