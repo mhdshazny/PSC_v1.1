@@ -13,7 +13,6 @@ if (isset($_POST['addUser'])) {
     $pass2 = $_POST['confirmPassword'];
     $userID = $_POST['userID'];
     $centerID = $_POST['centerID'];
-
     $roleID = $_POST['roleID'];
     $fName = $_POST['firstName'];
     $lName = $_POST['lastName'];
@@ -52,7 +51,7 @@ if (isset($_POST['addUser'])) {
         if (!empty($userID) && !empty($pass2) && !empty($pass1)) {
             if ($pass1 == $pass2) {
                 $sql = "INSERT INTO `tbl_employee`(`empID`, `firstName`, `lastName`, `profilePic`, `roleID`, `addressLine1`, `addressLine2`, `contactNo1`, `contactNo2`, `email`, `centerID`, `dob`, `gender`, `isActive`,`password`) 
-                VALUES ('$userID', '$fName', '$lName', '$picture','$roleID','$address1','$address2','$contact','$contact2','$email','$centerID','$dob','$gender','$isActive','$passwordFinal')";
+                VALUES ('$userID', '$fName', '$lName', '$picture','$roleID','$address1','$address2','$contact','$contact2','$email','$centerID','$dob','$gender','1','$passwordFinal')";
 
                 if ($con->query($sql) === TRUE) {
                     if (move_uploaded_file($_FILES["picture"]["tmp_name"], $target_file)) {
@@ -61,8 +60,6 @@ if (isset($_POST['addUser'])) {
                     } else {
                         echo "Sorry, there was an error uploading your file.";
                     }
-
-
                 } else {
 
                     //This will print the error//
@@ -143,6 +140,8 @@ if (isset($_POST['updateUser'])){
                     if (move_uploaded_file($_FILES["picture"]["tmp_name"], $target_file)) {
                         mysqli_commit($con);
                         header('Location: userReg.php?e=data inserted');
+
+
                     } else {
                         echo "Sorry, there was an error uploading your file.";
                     }
@@ -158,8 +157,6 @@ if (isset($_POST['updateUser'])){
 
                     header('Location: userReg.php?e=Wrong Credentials11');
                 }
-
-
             } else {
                 header('Location: userReg.php?e=Wrong Credentials4');
 

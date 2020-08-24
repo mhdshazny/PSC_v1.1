@@ -12,7 +12,7 @@
     <script src="../Plugins/bootstrap/js/bootstrap.min.js">  </script>
     <!--Bootbox Scripts-->
 </head>
-<body class="bg-dark">
+<body class="bg-dark" style="width: 100%; margin: 0%;">
 
 <!--<div class="container">-->
 <!--    <main role="main" class="pb-3 bg-dark">-->
@@ -24,16 +24,16 @@
 <?php
 include("../Common/TopNavBar.php");
 ?>
-<div class="row" style="min-height: 87%; background-color: #011d21">
+<div class="row" style="min-height: 87%; background-color: #011d21; margin-right: 0px; margin-left: 0px">
     <?php
     include("../Common/SideNavBar.php");
     ?>
-    <div class="col-md-10 d-none d-md-block container text-white" style="background-color: #011d21">
+    <div class="col-md-10 col-lg-10 col-sm-10 d-none d-md-block container text-white" style="background-color: #011d21">
         <div class="container-fluid rounded" style="min-height: 100%; background-color: #04333b">
             <div class="row">
                 <div class="container-fluid">
                     <br>
-                    <p class="text-info font-weight-bold" style="font-size: 150%; margin-left: 20%">User Registration</p>
+                    <p class="text-info font-weight-bold" style="font-size: 150%; margin-left: 5%">User Registration</p>
 
                 </div>
 
@@ -42,13 +42,36 @@ include("../Common/TopNavBar.php");
                 ?>
                 <FORM action="userReg_dB.php" method="POST" class="col" enctype="multipart/form-data">
                     <div class="container-fluid">
-
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-12 rounded">
+                                <div class="form-group">
+                                    <label for="ContactDetails" class="col-sm-12 col-md-12 col-lg-12 bg-info rounded mt-4">Employee Details</label>
+                                </div>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
                                 <div class="form-group">
                                     <label for="userID" class="col-sm-12 col-md-12 col-lg-12 control-label">User ID</label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="text" id="userID" name="userID" placeholder="userID" class="form-control" >
+                                        <?php
+                                        include ("../Common/config.php");
+                                         $query="SELECT * FROM `tbl_employee` ORDER BY `empID` DESC LIMIT 1";
+                                        $result = $con->query($query);
+
+                                        foreach ($result as $rows) {
+                                         $prevID= $rows['empID'];
+                                         $newID = substr($prevID,4,5);
+                                         $newID = $newID + 1;
+                                         $newID = str_pad($newID, 5, "0", STR_PAD_LEFT);
+
+
+                                        ?>
+                                        <input type="text" id="userID" name="userID" placeholder="userID" class="form-control" value="USER<?= $newID?>" readonly >
+                                        <?php
+                                        }
+                                        $con->close();
+                                        ?>
                                     </div>
                                 </div>
                             </div>
@@ -140,6 +163,39 @@ include("../Common/TopNavBar.php");
                         <div class="row">
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
                                 <div class="form-group">
+                                    <label for="birthDate" class="col-sm-12 col-md-12 col-lg-12  control-label">Date of Birth*</label>
+                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                        <input type="date" id="dob" name="dob" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-md-4 col-lg-4 ">
+                                <div class="form-group">
+                                    <label for="gender" class="col-sm-12 col-md-12 col-lg-12 control-label">Gender* </label>
+                                    <div class="col-sm-12 col-md-12 col-lg-12" style="left: 20%">
+                                        <div class="radio col-auto float-left">
+                                            <label><input type="radio" name="gender" id="male" value="1" checked> &nbsp;&nbsp;     Male</label>
+                                        </div>
+                                        <div class="radio col-auto float-left">
+                                            <label><input type="radio" name="gender" id="female" value="2">    &nbsp;&nbsp; Female</label>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-12 rounded">
+                                <div class="form-group">
+                                    <label for="ContactDetails" class="col-sm-12 col-md-12 col-lg-12 bg-info rounded mt-4">Contact details</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4 col-md-4 col-lg-4 ">
+                                <div class="form-group">
                                     <label for="addressLine1" class="col-sm-12 col-md-12 col-lg-12  control-label">Address 1</label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
                                         <input type="text" id="addressLine1" name="addressLine1" placeholder="Street address 1" class="form-control" autofocus>
@@ -154,9 +210,12 @@ include("../Common/TopNavBar.php");
                                     </div>
                                 </div>                            </div>
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
+                                <div class="form-group">
 
+                                </div>
                             </div>
                         </div>
+
                         <div class="row">
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
                                 <div class="form-group">
@@ -164,6 +223,7 @@ include("../Common/TopNavBar.php");
                                     <div class="col-sm-12 col-md-12 col-lg-12">
                                         <input type="number" id="contactNo1" name="contactNo1" placeholder="Contact number" class="form-control" autofocus>
                                     </div>
+
                                 </div>
                             </div>
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
@@ -188,38 +248,17 @@ include("../Common/TopNavBar.php");
                                 </div>
                             </div>
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
-                                <div class="form-group">
-                                    <label for="birthDate" class="col-sm-12 col-md-12 col-lg-12  control-label">Date of Birth*</label>
-                                    <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="date" id="dob" name="dob" class="form-control">
-                                    </div>
-                                </div>                            </div>
+
+                            </div>
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
 
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
+                            <div class="col-sm-12 col-md-12 col-lg-12 rounded">
                                 <div class="form-group">
-                                    <label for="gender" class="col-sm-12 col-md-12 col-lg-12 control-label">Gender* </label>
-                                    <div class="col-sm-12 col-md-12 col-lg-12" style="left: 20%">
-                                        <div class="radio col-auto float-left">
-                                            <label><input type="radio" name="gender" id="male" value="1" checked> &nbsp;&nbsp;     Male</label>
-                                        </div>
-                                        <div class="radio col-auto float-left">
-                                            <label><input type="radio" name="gender" id="female" value="2">    &nbsp;&nbsp; Female</label>
-                                        </div>
-
-
-                                    </div>
-
+                                    <label for="ContactDetails" class="col-sm-12 col-md-12 col-lg-12 bg-info rounded mt-4">Security validations</label>
                                 </div>
-                            </div>
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
-
-                            </div>
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
-
                             </div>
                         </div>
                         <div class="row">
@@ -241,6 +280,13 @@ include("../Common/TopNavBar.php");
                             </div>
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
 
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-12 rounded">
+                                <div class="form-group">
+                                    <label for="ContactDetails" class="col-sm-12 col-md-12 col-lg-12 bg-info rounded mt-4">Availability Details</label>
+                                </div>
                             </div>
                         </div>
                         <div class="row">
@@ -327,7 +373,7 @@ include("../Common/TopNavBar.php");
 
                             <?php
                             include("../Common/config.php");
-                            $loadTable = "SELECT * FROM `tbl_employee`";
+                            $loadTable = "SELECT * FROM `tbl_employee` ORDER BY `empID` DESC ";
                             $result = $con->query($loadTable);
                             if ($result) {
                             foreach ($result as $row) {
