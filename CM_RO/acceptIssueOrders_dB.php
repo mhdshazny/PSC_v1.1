@@ -16,7 +16,7 @@ if (isset($_POST['acceptIssueOrder'])) {
     $customerID="CUS001";
     $region="Kandy";
     $unitPrice="50";
-    $isActive="Active";
+    $isActive="1";
     $adminID='AD001';
     $Description= 'ABC';
 
@@ -27,7 +27,7 @@ if (isset($_POST['acceptIssueOrder'])) {
     if (!empty($issueOrderID) && !empty($orderDateOn) && !empty($quantity)) {
 
             $sql ="INSERT INTO `tbl_issueorder`(`ioID`, `customerID`, `region`, `paddyType`, `Qty`, `unitPrice`, 
-                    `orderDateOn`, `vehicleID`, `adminID`, `Description`, `confrimDateOn`, `isActive`) 
+                    `orderDateOn`, `vehicleID`, `adminID`, `Description`, `confirmDateOn`, `isActive`) 
                     VALUES ('$issueOrderID','$customerID','$region','$paddyType','$quantity','$unitPrice',
                     '$orderDateOn','$vehicleID','$adminID','$Description','$acceptDateOn','$isActive')";
 

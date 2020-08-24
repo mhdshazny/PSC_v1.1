@@ -1,7 +1,7 @@
 <?php
 include("../Common/config.php");
 
-if (isset($_POST['addUser'])) {
+if (isset($_POST['confirmIssueOrder'])) {
 
 
 
@@ -17,7 +17,7 @@ if (isset($_POST['addUser'])) {
     $confirmDateOn = $_POST['confirmDateOn'];
     $region= $_POST['region'];
 
-    $isActive="Active";
+    $isActive="1";
     $adminID='AD003';
     $Description= 'ABC';
 
@@ -27,7 +27,7 @@ if (isset($_POST['addUser'])) {
     if (!empty($issueOrderID)) {
 
         $sql ="INSERT INTO `tbl_issueorder`(`ioID`, `customerID`, `region`, `paddyType`, `Qty`, `unitPrice`, 
-                    `orderDateOn`, `vehicleID`, `adminID`, `Description`, `confrimDateOn`, `isActive`) 
+                    `orderDateOn`, `vehicleID`, `adminID`, `Description`, `confirmDateOn`, `isActive`) 
                     VALUES ('$issueOrderID','$customerID','$region','$paddyType','$quantity','$unitPrice',
                     '$orderDateOn','$vehicleID','$adminID','$Description','$acceptDateOn','$isActive')";
 

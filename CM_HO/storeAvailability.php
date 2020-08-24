@@ -47,13 +47,12 @@ include("../Common/TopNavBar.php");
             <table class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                    <th>Issue Order ID</th>
-                    <th>Paddy Type</th>
-                    <th>Quantity</th>
-                    <th>Unit Price</th>
-                    <th>Net Total</th>
-                    <th>Order Placed Date</th>
-                    <th>Description</th>
+                    <th>Store ID</th>
+                    <th>Region</th>
+                    <th>Capacity</th>
+                    <th>Availability</th>
+                    <th>Action</th>
+
 
 
 
@@ -73,16 +72,13 @@ include("../Common/TopNavBar.php");
                         <tr>
                             <td><?= $row['roleID']; ?></td>
                             <td><?= $row['roleName']; ?></td>
+                            <td><?= $row['roleID']; ?></td>
+                            <td><?= $row['roleName']; ?></td>
                             <td>
                                 <button class="btn-danger btn-sm">Delete</button>
                                 <button class="btn-info btn-sm">Edit</button>
 
                             </td>
-                            <td><?= $row['roleID']; ?></td>
-                            <td><?= $row['roleName']; ?></td>
-                            </td>
-                            <td><?= $row['roleID']; ?></td>
-                            <td><?= $row['roleName']; ?></td>
 
 
                         </tr>
