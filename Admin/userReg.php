@@ -10,6 +10,7 @@
     //    include ("../Common/config.php");
     ?>
     <script src="../Plugins/bootstrap/js/bootstrap.min.js">  </script>
+    <!--Bootbox Scripts-->
 </head>
 <body class="bg-dark">
 
@@ -56,32 +57,55 @@ include("../Common/TopNavBar.php");
 
                                     <label for="roleID" class="col-sm-12 col-md-12 col-lg-12 control-label">Role Type</label>
 
-                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                    <!--                                    <div class="col-sm-12 col-md-12 col-lg-12">-->
+
+                                    <!--                                                <input type="text" value="--><?//= $row['roleID']; ?><!--" name="roleID" id="roleID" placeholder="roleID" class="form-control" readonly="--><?//= $row['roleName']; ?><!--">-->
+                                    <div class="input-group col-sm-12 col-md-12 col-lg-12">
+
+                                        <select class="custom-select" id="roleID" name="roleID">
+                                            <option value=''></option>
+
+<!---->
                                         <?php
 
                                         include("../Common/config.php");
-
-                                        $addQuery = "select * from `tbl_roles` where `roleID`= 1";
+//
+                                        $addQuery = "select * from `tbl_roles`";
                                         $result = $con->query($addQuery);
-                                        if ($result) {
-                                            foreach ($result as $row) {
-                                                ?>
-                                                <input type="text" value="<?= $row['roleID']; ?>" name="roleID" id="roleID" placeholder="roleID" class="form-control" readonly="<?= $row['roleName']; ?>">
-
-                                                <?php
-                                            }
-                                        }
-
+//
+                                        //                                        if ($result) {
+                                        //                                            foreach ($result as $row) {
                                         ?>
+
+                                            <?php
+                                            while ($rows = $result->fetch_assoc()) {
+                                            $roleID= $rows['roleID'];
+                                            $roleName= $rows['roleName'];
+                                            echo "<option value='$roleID'>$roleName</option>";
+
+
+                                            }
+                                            ?>
+<!---->
+<!---->
+                                        </select>
                                     </div>
+
+                                    <!--                                    </div>-->
 
                                 </div>
                             </div>
                             <div class="col-sm-4 col-md-4 col-lg-4">
+<!--                                <div class="form-group">-->
+<!--                                    <label for="picture" class="col-sm-12 col-md-12 col-lg-12  control-label">Picture</label>-->
+<!--                                    <div class="col-sm-12 col-md-12 col-lg-12">-->
+<!--                                        <input type="file" name="picture" id="picture" placeholder=Picture" class="form-control">-->
+<!--                                    </div>-->
+<!--                                </div>-->
                                 <div class="form-group">
                                     <label for="picture" class="col-sm-12 col-md-12 col-lg-12  control-label">Picture</label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="file" name="picture" id="picture" placeholder=Picture" class="form-control btn" autofocus>
+                                        <input type="file" name="picture" id="picture" placeholder=Picture" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -136,7 +160,7 @@ include("../Common/TopNavBar.php");
                                 <div class="form-group">
                                     <label for="contactNo1" class="col-sm-12 col-md-12 col-lg-12  control-label">Contact number</label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="text" id="contactNo1" name="contactNo1" placeholder="Contact number" class="form-control" autofocus>
+                                        <input type="number" id="contactNo1" name="contactNo1" placeholder="Contact number" class="form-control" autofocus>
                                     </div>
                                 </div>
                             </div>
@@ -144,7 +168,7 @@ include("../Common/TopNavBar.php");
                                 <div class="form-group">
                                     <label for="contactNo2" class="col-sm-12 col-md-12 col-lg-12 control-label">Contact number (Optional)</label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="text" id="contactNo2" name="contactNo2" placeholder="Contact number (Optional)" class="form-control" autofocus>
+                                        <input type="number" id="contactNo2" name="contactNo2" placeholder="Contact number (Optional)" class="form-control" autofocus>
                                     </div>
                                 </div>
                             </div>
@@ -219,18 +243,36 @@ include("../Common/TopNavBar.php");
                         </div>
                         <div class="row">
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
-                                <div class="form-group">
-                                    <label for="centerID" class="col-sm-12 col-md-12 col-lg-12 control-label">Center ID</label>
-                                    <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="text" id="centerID" name="centerID" placeholder="Center ID" class="form-control" autofocus>
-                                    </div>
-                                </div>
+
                             </div>
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
                                 <div class="form-group">
-                                    <label for="regionID" class="col-sm-12 col-md-12 col-lg-12 control-label">Region ID</label>
-                                    <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="text" id="regionID" name="regionID" placeholder="Region ID" class="form-control" autofocus>
+                                    <label for="centerID" class="col-sm-12 col-md-12 col-lg-12 control-label">Center ID</label>
+                                    <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                                        <select class="custom-select" id="centerID" name="centerID">
+                                            <option value=""></option>
+
+                                            <?php
+
+                                            include("../Common/config.php");
+                                            //
+                                            $addQuery = "select * from `tbl_collectioncenter`";
+                                            $result = $con->query($addQuery);
+                                            //
+                                            //                                        if ($result) {
+                                            //                                            foreach ($result as $row) {
+                                            ?>
+
+                                            <?php
+                                            while ($rows = $result->fetch_assoc()) {
+                                                $ccID= $rows['centerID'];
+                                                $ccName= $rows['region'];
+                                                echo "<option value='$ccID'>$ccName</option>";
+
+
+                                            }
+                                            ?>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -243,6 +285,7 @@ include("../Common/TopNavBar.php");
                     <br><br>
                     <div class="container" style="margin-left: 30%">
                         <button type="submit" name="addUser" id="addUser" class="btn btn-primary btn-block" style="width: 50%; align-content: center">Register</button>
+                        <button type="submit" name="updateUser" id="updateUser" class="btn btn-primary btn-block" style="width: 50%; align-content: center" disabled>Update</button>
                     </div>
 
                     <br><br>
@@ -251,66 +294,66 @@ include("../Common/TopNavBar.php");
 
             <div class="row">
                 <div class="container-fluid ">
-                <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12">
-                    <table class="table table-bordered table-hover table-light">
-                        <thead>
-                        <tr>
-                            <th>User ID</th>
-                            <th>Role ID</th>
-                            <th>Center ID</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Address</th>
-                            <th>Contact No</th>
-                            <th>E-Mail</th>
-                            <th>DoB</th>
-                            <th>Gender</th>
-                            <th>isActive</th>
-                            <th>Actions</th>
+                    <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12">
+                        <table id="userTable" class="table table-bordered table-hover table-light">
+                            <thead>
+                            <tr>
+                                <th>User ID</th>
+                                <th>Role ID</th>
+                                <th>Center ID</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Address</th>
+                                <th>Contact No</th>
+                                <th>E-Mail</th>
+                                <th>DoB</th>
+                                <th>Gender</th>
+                                <th>isActive</th>
+                                <th>Actions</th>
 
 
-                        </tr>
-                        </thead>
-                        <tbody>
+                            </tr>
+                            </thead>
+                            <tbody>
 
 
-                        <?php
-                        include("../Common/config.php");
-                        $loadTable = "SELECT * FROM `tbl_employee`";
-                        $result = $con->query($loadTable);
-                        if ($result) {
+                            <?php
+                            include("../Common/config.php");
+                            $loadTable = "SELECT * FROM `tbl_employee`";
+                            $result = $con->query($loadTable);
+                            if ($result) {
                             foreach ($result as $row) {
-                                ?>
-                                <tr>
-                                    <td><?= $row['empID']; ?></td>
-                                    <td><?= $row['roleID']; ?></td>
-                                    <td><?= $row['centerID']; ?></td>
-                                    <td><?= $row['firstName']; ?></td>
-                                    <td><?= $row['lastName']; ?></td>
-                                    <td><?= $row['addressLine1']; ?></td>
-                                    <td><?= $row['contactNo1']; ?></td>
-                                    <td><?= $row['email']; ?></td>
-                                    <td><?= $row['dob']; ?></td>
-                                    <td><?= $row['gender'] ?></td>
-                                    <td><?= $row['isActive']; ?></td>
-                                    <td>
-                                        <button class="btn-danger btn-sm">Delete</button>
-                                        <button class="btn-info btn-sm">Edit</button>
+                            ?>
+                            <tr>
+                                <td><?= $row['empID']; ?></td>
+                                <td><?= $row['roleID']; ?></td>
+                                <td><?= $row['centerID']; ?></td>
+                                <td><?= $row['firstName']; ?></td>
+                                <td><?= $row['lastName']; ?></td>
+                                <td><?= $row['addressLine1']; ?></td>
+                                <td><?= $row['contactNo1']; ?></td>
+                                <td><?= $row['email']; ?></td>
+                                <td><?= $row['dob']; ?></td>
+                                <td><?= $row['gender'] ?></td>
+                                <td><?= $row['isActive']; ?></td>
+                                <td>
+                                    <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $row['empID'];?>')" value="<?= $row['empID']; ?>">Delete</button>
+                                    <button class="btn-info btn-sm" onclick="editUser()" value="<?= $row['empID']; ?>">Edit</button>
 
-                                    </td>
+                                </td>
 
-                                </tr>
+                            </tr>
 
-                                <?php
+                            <?php
                             }
 
-                        }
+                            }
 
-                        ?>
-                        </tbody>
+                            ?>
+                            </tbody>
 
-                    </table>
-                </div>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
@@ -325,4 +368,60 @@ include("../Common/Footer.php");
 include("../Common/Scripts.php");
 ?>
 <!--</div>-->
+<script>
+
+    function confirmDelete(id){
+        bootbox.confirm({
+            title: "",
+            message: "Do you want to delete this record? This cannot be undone.",
+
+            buttons: {
+                cancel: {
+                    label: '<i class="fa fa-times"></i> Cancel'
+                },
+                confirm: {
+                    label: '<i class="fa fa-check"></i> Confirm'
+                }
+            },
+            callback: function (result) {
+                if (result){
+                    $.ajax({
+                        type: "POST",
+                        url: "CRUDuser.php",
+                        data: {Delete:id},
+                        cache: false,
+                        dataType:'json',
+                        success: function(data){
+                            if(data.result){
+                                alert(data.message);
+                                location.reload()
+                            }
+                        }
+                    });
+                }
+            }
+        });
+
+    }
+
+    function editUser() {
+        document.getElementById('addUser').disabled=true;
+        document.getElementById('updateUser').disabled=false;
+
+        var table = document.getElementById('userTable'),index;
+
+        for (var  i = 1 ; i < table.rows.length ; i++){
+            table.rows[i].onclick = function () {
+                rIndex = this.rowIndex;
+                document.getElementById("userID").value = this.cells[0].innerHTML;
+                document.getElementById("firstName").value = this.cells[3].innerHTML;
+
+                // $('#myInput').val( this.cells[0].innerHTML);
+
+
+
+            }
+        }
+    }
+</script>
 </body>

@@ -51,12 +51,19 @@ include("../Common/TopNavBar.php");
             <!---->
             <!--            </div>-->
             <div class="row">
-                <div class="col-md-auto col-lg-4">
-                    <canvas id="myChart" class="rounded effect" style="background-color: white"></canvas>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 mb-5 align-content-center" style="min-width: 200%">
+                    <canvas class="rounded effect " id="myChart2"></canvas>
                 </div>
+
+            </div>
+            <div class="row">
                 <div class="col-md-auto col-lg-4">
+                    <canvas id="myChart" class="rounded effect" style=""></canvas>
+                </div>
+                <!--<div class="col-md-auto col-lg-4">
                     <canvas class="rounded effect" id="myChart2" style="background-color: white;"></canvas>
-                </div>
+                </div>-->
                 <div class="col-md-auto col-lg-4">
                     <canvas class="rounded effect" id="myChart3"style="background-color: white"></canvas>
                 </div>
@@ -165,10 +172,10 @@ $data2 = trim($data2,",");
     let myLineChart = new Chart(ctxL, {
         type: 'line',
         data: {
-            labels: ["January", "February", "March", "April", "May", "June", "July"],
+            labels: ["January", "February", "March", "April", "May", "June", "July", "July", "July", "July", "July", "July", "July", "July", "July"],
             datasets: [{
                 label: "My First dataset",
-                data: [65, 59, 80, 81, 56, 55, 40],
+                data: [15, 19, 20, 31, 16, 25, 10, 20, 15, 30, 20],
                 backgroundColor: [
                     'rgba(105, 0, 132, .2)',
                 ],
@@ -179,7 +186,18 @@ $data2 = trim($data2,",");
             },
                 {
                     label: "My Second dataset",
-                    data: [28, 48, 40, 19, 86, 27, 90],
+                    data: [28, 18, 40, 19, 32, 27, 40],
+                    backgroundColor: [
+                        'rgba(0, 137, 132, .2)',
+                    ],
+                    borderColor: [
+                        'rgba(0, 10, 130, .7)',
+                    ],
+                    borderWidth: 2
+                },
+                {
+                    label: "My Second dataset",
+                    data: [28, 18, 40, 19, 32, 27, 40],
                     backgroundColor: [
                         'rgba(0, 137, 132, .2)',
                     ],
