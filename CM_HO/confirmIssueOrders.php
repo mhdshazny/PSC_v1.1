@@ -149,17 +149,52 @@ include("../Common/TopNavBar.php");
 
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
                                 <div class="form-group">
-                                    <label for="centerID" class="col-sm-12 col-md-12 col-lg-12 control-label">Center ID</label>
+                                    <label for="centerID1" class="col-sm-12 col-md-12 col-lg-12 control-label">Center ID 1</label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="text" id="centerID" name="centerID" placeholder="Center ID need to add find option" class="form-control" required autofocus>
+                                        <input type="text" id="centerID1" name="centerID1" placeholder="Center ID need to add find option" class="form-control" required autofocus>
                                         <div class="valid-feedback">Valid.</div>
                                         <div class="invalid-feedback">Please fill out this field.</div>
                                     </div>
                                 </div>
                             </div>
+
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
                                 <div class="form-group">
-                                    <label for="vehicleID" class="col-sm-12 col-md-12 col-lg-12 control-label">Vehicle ID</label>
+                                    <label for="quantity1" class="col-sm-5 control-label">Center 1 Quantity (kg)</label>
+                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                        <input type="text" id="quantity1" name="quantity1" placeholder="Quantity(Kg)" class="form-control" required autofocus>
+                                        <div class="valid-feedback">Valid.</div>
+                                        <div class="invalid-feedback">Please fill out this field.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                        <div class="col-sm-4 col-md-4 col-lg-4 ">
+                        <div class="form-group">
+                            <label for="centerID2" class="col-sm-12 col-md-12 col-lg-12 control-label">Center ID 1</label>
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                <input type="text" id="centerID2" name="centerID2" placeholder="Center ID need to add find option" class="form-control" required autofocus>
+                                <div class="valid-feedback">Valid.</div>
+                                <div class="invalid-feedback">Please fill out this field.</div>
+                            </div>
+                        </div>
+                    </div>
+                            <div class="col-sm-4 col-md-4 col-lg-4 ">
+                                <div class="form-group">
+                                    <label for="quantity2" class="col-sm-5 control-label">Center 2 Quantity (kg)</label>
+                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                        <input type="text" id="quantity2" name="quantity2" placeholder="Quantity(Kg)" class="form-control" required autofocus>
+                                        <div class="valid-feedback">Valid.</div>
+                                        <div class="invalid-feedback">Please fill out this field.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4 col-md-4 col-lg-4 ">
+                                <div class="form-group">
+                                    <label for="vehicleID" class="col-sm-12 col-md-12 col-lg-12 control-label">Center ID 1</label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
                                         <input type="text" id="vehicleID" name="vehicleID" placeholder="Vehicle ID need to add find option" class="form-control" required autofocus>
                                         <div class="valid-feedback">Valid.</div>
@@ -171,13 +206,14 @@ include("../Common/TopNavBar.php");
                                 <div class="form-group">
                                     <label for="capacity" class="col-sm-5 control-label">Vehicle Capacity</label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="text" id="capacity" name="capacity" placeholder="Capacity" class="form-control" required autofocus>
+                                        <input type="text" id="capacity" name="capacity" placeholder="Capacity(Kg)" class="form-control" required autofocus>
                                         <div class="valid-feedback">Valid.</div>
                                         <div class="invalid-feedback">Please fill out this field.</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                         <div class="row">
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
 
@@ -231,19 +267,19 @@ include("../Common/TopNavBar.php");
             <div class="row">
                 <div class="container-fluid ">
                     <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12">
-                        <table id="userTable" class="table table-bordered table-hover table-light">
+                        <table id="issueOrderTable" class="table table-bordered table-hover table-light">
                             <thead>
                             <tr>
-                                <th>User ID</th>
-                                <th>Center ID</th>
-                                <th>Region</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>NIC</th>
-                                <th>Address</th>
+                                <th>Issue OrderID</th>
+                                <th>Order Date</th>
+                                <th>Customer ID</th>
+                                <th>Customer Name</th>
                                 <th>Contact No</th>
-                                <th>E-Mail</th>
-                                <th>Gender</th>
+                                <th>Region</th>
+                                <th>Paddy Type</th>
+                                <th>Quantity</th>
+                                <th>Unit Price</th>
+                                <th>NetTotal</th>
                                 <th>isActive</th>
                                 <th>Actions</th>
 
@@ -255,13 +291,13 @@ include("../Common/TopNavBar.php");
 
                             <?php
                             include("../Common/config.php");
-                            $loadTable = "SELECT * FROM `tbl_cutomer`";
+                            $loadTable = "SELECT * FROM `tbl_issueorder`";
                             $result = $con->query($loadTable);
                             if ($result) {
                                 foreach ($result as $row) {
                                     ?>
                                     <tr>
-                                        <td><?= $row['customerID']; ?></td>
+                                        <td><?= $row['issueOrderID']; ?></td>
                                         <td><?= $row['centerID']; ?></td>
                                         <td><?= $row['region']; ?></td>
                                         <td><?= $row['firstName']; ?></td>

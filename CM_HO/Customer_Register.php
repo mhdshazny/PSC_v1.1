@@ -122,7 +122,8 @@ include("../Common/TopNavBar.php");
                                     <div class="col-sm-12 col-md-12 col-lg-12">
                                         <input type="text" id="addressLine2" name="addressLine2" placeholder="Street address 2 (Optional)" class="form-control" autofocus>
                                     </div>
-                                </div>                            </div>
+                                </div>
+                            </div>
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
 
                             </div>

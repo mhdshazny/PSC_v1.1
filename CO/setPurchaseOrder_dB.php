@@ -54,7 +54,7 @@ if (isset($_POST['addPOrder'])) {
 
             //This will redirect to same page and it'll show the message above url//
 
-            header('Location: setEstimations.php?e=Wrong Credentials11');
+            header('Location: setPurchaseOrders.php?e=Wrong Credentials11');
         }
 
 
