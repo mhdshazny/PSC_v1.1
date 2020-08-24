@@ -33,83 +33,47 @@ include("../Common/TopNavBar.php");
             <div class="row">
                 <div class="container-fluid">
                     <br>
-                    <p class="text-info font-weight-bold" style="font-size: 150%; margin-left: 20%">User Registration</p>
+                    <p class="text-info font-weight-bold" style="font-size: 150%; margin-left: 20%">Customer Registration</p>
 
                 </div>
 
                 <?php
                 $Priority = 'AdminUserReg';
                 ?>
-                <FORM action="userReg_dB.php" method="POST" class="col" enctype="multipart/form-data">
+                <FORM action="Customer_Register_dB.php" method="POST" class="col" enctype="multipart/form-data">
                     <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-12 ">
+                                <div class="form-group">
+                                    <label for="ContactDetails" class="col-sm-12 col-md-12 col-lg-12 bg-info mt-4">Customer Details</label>
+                                </div>
+                            </div>
+                        </div>
+
 
                         <div class="row">
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
                                 <div class="form-group">
-                                    <label for="userID" class="col-sm-12 col-md-12 col-lg-12 control-label">User ID</label>
+                                    <label for="customerID" class="col-sm-12 col-md-12 col-lg-12 control-label">Customer ID</label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="text" id="userID" name="userID" placeholder="userID" class="form-control" >
+                                        <input type="text" id="customerID" name="customerID" placeholder="customerID" class="form-control" >
                                     </div>
                                 </div>
                             </div>
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
                                 <div class="form-group">
-
-                                    <label for="roleID" class="col-sm-12 col-md-12 col-lg-12 control-label">Role Type</label>
-
-                                    <!--                                    <div class="col-sm-12 col-md-12 col-lg-12">-->
-
-                                    <!--                                                <input type="text" value="--><?//= $row['roleID']; ?><!--" name="roleID" id="roleID" placeholder="roleID" class="form-control" readonly="--><?//= $row['roleName']; ?><!--">-->
-                                    <div class="input-group col-sm-12 col-md-12 col-lg-12">
-
-                                        <select class="custom-select" id="roleID" name="roleID">
-                                            <option value=''></option>
-
-<!---->
-                                        <?php
-
-                                        include("../Common/config.php");
-//
-                                        $addQuery = "select * from `tbl_roles`";
-                                        $result = $con->query($addQuery);
-//
-                                        //                                        if ($result) {
-                                        //                                            foreach ($result as $row) {
-                                        ?>
-
-                                            <?php
-                                            while ($rows = $result->fetch_assoc()) {
-                                            $roleID= $rows['roleID'];
-                                            $roleName= $rows['roleName'];
-                                            echo "<option value='$roleID'>$roleName</option>";
-
-
-                                            }
-                                            ?>
-<!---->
-<!---->
-                                        </select>
+                                    <label for="NIC" class="col-sm-12 col-md-12 col-lg-12 control-label">NIC </label>
+                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                        <input type="text" id="NIC" name="NIC" placeholder="NIC No" class="form-control" >
                                     </div>
-
-                                    <!--                                    </div>-->
-
                                 </div>
                             </div>
                             <div class="col-sm-4 col-md-4 col-lg-4">
-<!--                                <div class="form-group">-->
-<!--                                    <label for="picture" class="col-sm-12 col-md-12 col-lg-12  control-label">Picture</label>-->
-<!--                                    <div class="col-sm-12 col-md-12 col-lg-12">-->
-<!--                                        <input type="file" name="picture" id="picture" placeholder=Picture" class="form-control">-->
-<!--                                    </div>-->
-<!--                                </div>-->
+
                                 <div class="form-group">
-                                    <label for="picture" class="col-sm-12 col-md-12 col-lg-12  control-label">Picture</label>
+                                    <label for="region" class="col-sm-12 col-md-12 col-lg-12 control-label">Region</label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="file" name="picture" id="picture" placeholder=Picture" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-sm-12 col-md-12 col-lg-12  col-sm-offset-3">
+                                        <input type="text" id="region" name="region" placeholder="region" class="form-control" >
                                     </div>
                                 </div>
                             </div>
@@ -132,9 +96,15 @@ include("../Common/TopNavBar.php");
                                 </div>
                             </div>
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
-                                <picture style="margin-left: 25%" id="picBox" hidden>
-                                    <img src="" id="picBox" class="rounded-circle" alt="ProfilePic" style="width:40%;">
-                                </picture>
+                                <label for="gender" class="col-sm-12 col-md-12 col-lg-12 control-label">Gender* </label>
+                                <div class="col-sm-12 col-md-12 col-lg-12" style="left: 20%">
+                                    <div class="radio col-auto float-left">
+                                        <label><input type="radio" name="gender" id="male" value="1" checked> &nbsp;&nbsp;     Male</label>
+                                    </div>
+                                    <div class="radio col-auto float-left">
+                                        <label><input type="radio" name="gender" id="female" value="2">    &nbsp;&nbsp; Female</label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="row">
@@ -158,6 +128,14 @@ include("../Common/TopNavBar.php");
                             </div>
                         </div>
                         <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-12 ">
+                                <div class="form-group">
+                                    <label for="ContactDetails" class="col-sm-12 col-md-12 col-lg-12 bg-info mt-4">Contact Details</label>
+                                </div>
+                            </div>
+                            </div>
+                        <div class="row">
+
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
                                 <div class="form-group">
                                     <label for="contactNo1" class="col-sm-12 col-md-12 col-lg-12  control-label">Contact number</label>
@@ -175,11 +153,6 @@ include("../Common/TopNavBar.php");
                                 </div>
                             </div>
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
-
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
                                 <div class="form-group">
                                     <label for="email" class="col-sm-12 col-md-12 col-lg-12 control-label">Email* </label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
@@ -187,31 +160,16 @@ include("../Common/TopNavBar.php");
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
-                                <div class="form-group">
-                                    <label for="birthDate" class="col-sm-12 col-md-12 col-lg-12  control-label">Date of Birth*</label>
-                                    <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="date" id="dob" name="dob" class="form-control">
-                                    </div>
-                                </div>                            </div>
+                        </div>
+                        <div class="row">
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
 
                             </div>
+
                         </div>
                         <div class="row">
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
                                 <div class="form-group">
-                                    <label for="gender" class="col-sm-12 col-md-12 col-lg-12 control-label">Gender* </label>
-                                    <div class="col-sm-12 col-md-12 col-lg-12" style="left: 20%">
-                                        <div class="radio col-auto float-left">
-                                            <label><input type="radio" name="gender" id="male" value="1" checked> &nbsp;&nbsp;     Male</label>
-                                        </div>
-                                        <div class="radio col-auto float-left">
-                                            <label><input type="radio" name="gender" id="female" value="2">    &nbsp;&nbsp; Female</label>
-                                        </div>
-
-
-                                    </div>
 
                                 </div>
                             </div>
@@ -223,24 +181,10 @@ include("../Common/TopNavBar.php");
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
+                            <div class="col-sm-12 col-md-12 col-lg-12 ">
                                 <div class="form-group">
-                                    <label for="Password" class="col-sm-12 col-md-12 col-lg-12 control-label">Password*</label>
-                                    <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="password" id="Password" name="Password" class="form-control">
-                                    </div>
+                                    <label for="ContactDetails" class="col-sm-12 col-md-12 col-lg-12 bg-info mt-4">Pre Loaded</label>
                                 </div>
-                            </div>
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
-                                <div class="form-group">
-                                    <label for="confirmPassword" class="col-sm-12 col-md-12 col-lg-12  control-label">Confirm Password*</label>
-                                    <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="password" id="confirmPassword" name="confirmPassword" class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
-
                             </div>
                         </div>
                         <div class="row">
@@ -248,44 +192,11 @@ include("../Common/TopNavBar.php");
                                 <div class="form-group">
                                     <label for="isActive" class="col-sm-12 col-md-12 col-lg-12  control-label">is Active</label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="checkbox" id="isActive" name="isActive" value="1" class="form-control" checked disabled>
+                                        <input type="checkbox" id="isActive" name="isActive" value="1" class="form-control" checked>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
-                                <div class="form-group">
-                                    <label for="centerID" class="col-sm-12 col-md-12 col-lg-12 control-label">Center ID</label>
-                                    <div class="input-group col-sm-12 col-md-12 col-lg-12">
-                                        <select class="custom-select" id="centerID" name="centerID">
-                                            <option value=""></option>
 
-                                            <?php
-
-                                            include("../Common/config.php");
-                                            //
-                                            $addQuery = "select * from `tbl_collectioncenter`";
-                                            $result = $con->query($addQuery);
-                                            //
-                                            //                                        if ($result) {
-                                            //                                            foreach ($result as $row) {
-                                            ?>
-
-                                            <?php
-                                            while ($rows = $result->fetch_assoc()) {
-                                                $ccID= $rows['centerID'];
-                                                $ccName= $rows['region'];
-                                                echo "<option value='$ccID'>$ccName</option>";
-
-
-                                            }
-                                            ?>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
-
-                            </div>
                         </div>
                     </div>
 
@@ -307,14 +218,14 @@ include("../Common/TopNavBar.php");
                             <thead>
                             <tr>
                                 <th>User ID</th>
-                                <th>Role ID</th>
                                 <th>Center ID</th>
+                                <th>Region</th>
                                 <th>First Name</th>
                                 <th>Last Name</th>
+                                <th>NIC</th>
                                 <th>Address</th>
                                 <th>Contact No</th>
                                 <th>E-Mail</th>
-                                <th>DoB</th>
                                 <th>Gender</th>
                                 <th>isActive</th>
                                 <th>Actions</th>
@@ -327,38 +238,36 @@ include("../Common/TopNavBar.php");
 
                             <?php
                             include("../Common/config.php");
-                            $loadTable = "SELECT * FROM `tbl_employee`";
+                            $loadTable = "SELECT * FROM `tbl_cutomer`";
                             $result = $con->query($loadTable);
                             if ($result) {
-                            foreach ($result as $row) {
-                            ?>
-                            <tr>
-                                <td><?= $row['empID']; ?></td>
-                                <td><?= $row['roleID']; ?></td>
-                                <td><?= $row['centerID']; ?></td>
-                                <td><?= $row['firstName']; ?></td>
-                                <td><?= $row['lastName']; ?></td>
-                                <td><?= $row['addressLine1']; ?></td>
-                                <td><?= $row['contactNo1']; ?></td>
-                                <td><?= $row['email']; ?></td>
-                                <td><?= $row['dob']; ?></td>
-                                <td><?= $row['gender'] ?></td>
-                                <td><?= $row['isActive']; ?></td>
-                                <td>
-                                    <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $row['empID'];?>')" value="<?= $row['empID']; ?>">Delete</button>
-                                    <button class="btn-info btn-sm" onclick="editUser()" value="<?= $row['empID']; ?>">Edit</button>
+                                foreach ($result as $row) {
+                                    ?>
+                                    <tr>
+                                        <td><?= $row['customerID']; ?></td>
+                                        <td><?= $row['centerID']; ?></td>
+                                        <td><?= $row['region']; ?></td>
+                                        <td><?= $row['firstName']; ?></td>
+                                        <td><?= $row['lastName']; ?></td>
+                                        <td><?= $row['NIC']; ?></td>
+                                        <td><?= $row['addressLine1']; ?></td>
+                                        <td><?= $row['contactNo1']; ?></td>
+                                        <td><?= $row['email']; ?></td>
+                                        <td><?= $row['gender'] ?></td>
+                                        <td><?= $row['isActive']; ?></td>
+                                        <td>
+                                            <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $row['empID'];?>')" value="<?= $row['empID']; ?>">Delete</button>
+                                            <button class="btn-info btn-sm" onclick="editUser()" value="<?= $row['empID']; ?>">Edit</button>
 
-                                </td>
-                                <td hidden><?= $row['addressLine2']; ?></td>
-                                <td hidden><?= $row['contactNo2']; ?></td>
-                                <td hidden><?= $row['password']; ?></td>
-                                <td hidden><?= $row['profilePic']; ?></td>
+                                        </td>
+                                        <td hidden><?= $row['addressLine2']; ?></td>
+                                        <td hidden><?= $row['contactNo2']; ?></td>
 
 
-                            </tr>
+                                    </tr>
 
-                            <?php
-                            }
+                                    <?php
+                                }
 
                             }
 
