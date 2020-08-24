@@ -24,7 +24,7 @@
 
 
 </head>
-<body class="" style="background-color: #011d21">
+<body class="" style="background-color: #011d21; margin-right: 1%">
 
 <!--<div class="container">-->
 <!--    <main role="main" class="pb-3 bg-dark">-->
@@ -52,7 +52,7 @@ include("../Common/TopNavBar.php");
             <!--            </div>-->
             <div class="row">
 
-                <div class="col-lg-6 col-md-6 col-sm-6 mb-5 align-content-center" style="min-width: 200%">
+                <div class="col-lg-6 col-md-6 col-sm-6 mb-5 align-content-center" style="min-width:100%">
                     <canvas class="rounded effect " id="myChart2"></canvas>
                 </div>
 
