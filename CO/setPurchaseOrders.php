@@ -31,20 +31,24 @@ include("../Common/TopNavBar.php");
     </div>
 
 
-    <FORM action="setPurchaseOrder_dB.php" method="POST">
+    <FORM action="setPurchaseOrder_dB.php" method="POST" class="was-validated">
         <div class="container-fluid" style="width: 80%">
             <div class="row">
                 <div class="col-sm-9">
                     <div class="form-group">
                         <label for="date" class="col-sm-3 control-label">Date </label>
                         <div class="col-sm-9">
-                            <input type="date" id="date" name="date" class="form-control">
+                            <input type="date" id="date" name="date" class="form-control" required>
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Please fill out this field.</div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="PurchaseOrderID" class="col-sm-3 control-label">Purchase Order ID</label>
                         <div class="col-sm-9">
-                            <input type="text"  id="PurchaseOrderID" name="PurchaseOrderID" placeholder="PurchaseOrder ID" class="form-control" autofocus>
+                            <input type="text"  id="PurchaseOrderID" name="PurchaseOrderID" placeholder="PurchaseOrder ID" class="form-control" required autofocus>
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Please fill out this field.</div>
                         </div>
                     </div>
 
@@ -58,12 +62,14 @@ include("../Common/TopNavBar.php");
                     <div class="form-group">
                         <label for="FarmerID" class="col-sm-3 control-label">Farmer ID*</label>
                         <div class="col-sm-9">
-                            <input type="text" id="FarmerID" name="FarmerID" placeholder="Farmer ID" class="form-control" autofocus>
+                            <input type="text" id="FarmerID" name="FarmerID" placeholder="Farmer ID" class="form-control" required autofocus>
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Please fill out this field.</div>
                         </div>
                     </div>
 
                      <div class="form-group">
-                        <label for="PaddyType" class="col-sm-4   control-label">Paddy Type*</label>
+                        <label for="PaddyType" class="col-sm-4 control-label" required>Paddy Type*</label>
                         <div class="col-sm-9">
 
                             <select class="form-control" id="PaddyType" name="PaddyType">
@@ -72,6 +78,8 @@ include("../Common/TopNavBar.php");
                                 <option value="Kekulu Rice">Kekulu Rice</option>
                                 <option value="Samba Rice">Samba Rice</option>
                                 <option value="Red Rice">Red Rice</option>
+                                <div class="valid-feedback">Valid.</div>
+                                <div class="invalid-feedback">Please fill out this field.</div>
                             </select>
                         </div>
                     </div>
@@ -79,13 +87,17 @@ include("../Common/TopNavBar.php");
                     <div class="form-group">
                         <label for="Quantity" class="col-sm-3 control-label">Quantity*</label>
                         <div class="col-sm-9">
-                            <input type="text" id="Quantity" name="Quantity" placeholder="Quantity" value="" class="form-control" autofocus>
+                            <input type="text" id="Quantity" name="Quantity" placeholder="Quantity" value="" class="form-control" required autofocus>
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Please fill out this field.</div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="UnitPrice" class="col-sm-3 control-label">Unit Price*</label>
                         <div class="col-sm-9">
-                            <input type="text" id="UnitPrice" name="UnitPrice" placeholder="Unit Price" value="" class="form-control" autofocus>
+                            <input type="text" id="UnitPrice" name="UnitPrice" placeholder="Unit Price" value="" class="form-control" required autofocus>
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Please fill out this field.</div>
                         </div>
                     </div>
                     <div class="form-group">
@@ -108,7 +120,8 @@ include("../Common/TopNavBar.php");
 //                            }
 //                            ?>
 
-
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Please fill out this field.</div>
                         </div>
                     </div>
                     <div class="container" style="margin-left: 30%">
@@ -117,7 +130,9 @@ include("../Common/TopNavBar.php");
                     <div class="form-group">
                         <label for="Description" class="col-sm-3 control-label"> Description</label>
                         <div class="col-sm-9">
-                            <input type="textarea" id="Description" name="Description" placeholder="Description" height="500" class="form-control" autofocus>
+                            <input type="textarea" id="Description" name="Description" placeholder="Description" height="500" class="form-control" required autofocus>
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Please fill out this field.</div>
                         </div>
                     </div>
                     <div class="form-group">

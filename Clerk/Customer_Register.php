@@ -36,7 +36,7 @@ include("../Common/TopNavBar.php");
     <FORM action="Customer_Register_dB.php" method="POST" enctype="multipart/form-data">
         <div class="container-fluid" style="width: 80%">
             <div class="row">
-                <div class="col-sm-5">
+                <div class="col-sm-6">
                     <div class="form-group">
                         <label for="customerID" class="col-sm-3 control-label">Customer ID</label>
                         <div class="col-sm-9">
@@ -61,11 +61,7 @@ include("../Common/TopNavBar.php");
                             <input type="text" id="addressLine1" name="addressLine1" placeholder="Street Address 1" class="form-control" autofocus>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="region" class="col-sm-3 control-label">Region</label>
-                        <div class="col-sm-9">
-                            <input type="region" id="region" placeholder="region" class="form-control" autofocus>
-                        </div>
+
                     </div>
                     <div class="form-group">
                         <label for="NIC" class="col-sm-3 control-label">NIC</label>
@@ -93,7 +89,10 @@ include("../Common/TopNavBar.php");
                     </div>
                 </div>
                 <!--                Next column -->
-                <div class="col-sm-5">
+
+
+
+            <div class="col-sm-6">
                     <div class="form-group">
                         <div class="col-sm-9">
                         </div>
@@ -118,6 +117,7 @@ include("../Common/TopNavBar.php");
                             <input type="text" id="contactNo2" name="contactNo2" placeholder="Contact number (Optional)" class="form-control" autofocus>
                         </div>
                     </div>
+
                     <div class="form-group">
                         <div class="col-sm-9">
                         </div>

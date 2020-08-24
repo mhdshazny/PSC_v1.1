@@ -1,6 +1,6 @@
 <head>
 
-    <title>Accept Issue Orders</title>
+    <title>User Registration</title>
 
 
     <!--    Resources -->
@@ -33,14 +33,14 @@ include("../Common/TopNavBar.php");
             <div class="row">
                 <div class="container-fluid">
                     <br>
-                    <p class="text-info font-weight-bold" style="font-size: 150%; margin-left: 20%">Accept Issue Orders</p>
+                    <p class="text-info font-weight-bold" style="font-size: 150%; margin-left: 20%">Customer Registration</p>
 
                 </div>
 
                 <?php
                 $Priority = 'AdminUserReg';
                 ?>
-                <FORM action="acceptIssueOrders_dB.php" method="POST" class="col" enctype="multipart/form-data">
+                <FORM action="Customer_Register_dB.php" method="POST" class="col" enctype="multipart/form-data">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-12 ">
@@ -54,21 +54,17 @@ include("../Common/TopNavBar.php");
                         <div class="row">
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
                                 <div class="form-group">
-                                    <label for="issueOrderID" class="col-sm-12 col-md-12 col-lg-12 control-label">Issue Order ID</label>
+                                    <label for="customerID" class="col-sm-12 col-md-12 col-lg-12 control-label">Customer ID</label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="text" id="issueOrderID" name="issueOrderID" placeholder="Issue Order ID" class="form-control" required autofocus>
-                                        <div class="valid-feedback">Valid.</div>
-                                        <div class="invalid-feedback">Please fill out this field.</div>
+                                        <input type="text" id="customerID" name="customerID" placeholder="customerID" class="form-control" >
                                     </div>
                                 </div>
                             </div>
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
                                 <div class="form-group">
-                                    <label for="orderDateOn" class="col-sm-12 col-md-12 col-lg-12 control-label">Ordered Date</label>
+                                    <label for="NIC" class="col-sm-12 col-md-12 col-lg-12 control-label">NIC </label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="date" id="orderDateOn" name="orderDateOn" placeholder="Date" class="form-control" required autofocus>
-                                        <div class="valid-feedback">Valid.</div>
-                                        <div class="invalid-feedback">Please fill out this field.</div>
+                                        <input type="text" id="NIC" name="NIC" placeholder="NIC No" class="form-control" >
                                     </div>
                                 </div>
                             </div>
@@ -85,53 +81,46 @@ include("../Common/TopNavBar.php");
                         <div class="row">
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
                                 <div class="form-group">
-                                    <label for="paddyType" class="col-sm-12 col-md-12 col-lg-12 control-label">Paddy Type</label>
+                                    <label for="firstName" class="col-sm-12 col-md-12 col-lg-12 control-label">First Name</label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <select class="form-control" id="paddyType" name="paddyType" required>
-                                            <option value ="Basmathi Rice">Basmathi Rice</option>
-                                            <option value ="Nadu Rice">Nadu Rice</option>
-                                            <option value ="Kekulu Rice">Kekulu Rice</option>
-                                            <option value ="Samba Rice">Samba Rice</option>
-                                            <option value ="Red Rice">Red Rice</option>
-                                            <div class="valid-feedback">Valid.</div>
-                                            <div class="invalid-feedback">Please fill out this field.</div>
-                                        </select>
+                                        <input type="text" id="firstName" name="firstName" placeholder="First Name" class="form-control" autofocus>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
                                 <div class="form-group">
-                                    <label for="quantity" class="col-sm-12 col-md-12 col-lg-12 control-label">Quantity (Kg)</label>
+                                    <label for="lastName" class="col-sm-12 col-md-12 col-lg-12  control-label">Last Name</label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="text" id="quantity" name="quantity" placeholder="Quantity" class="form-control" required autofocus>
-                                        <div class="valid-feedback">Valid.</div>
-                                        <div class="invalid-feedback">Please fill out this field.</div>
+                                        <input type="text" id="lastName" name="lastName" placeholder="Last Name" class="form-control" autofocus>
                                     </div>
                                 </div>
                             </div>
-
+                            <div class="col-sm-4 col-md-4 col-lg-4 ">
+                                <label for="gender" class="col-sm-12 col-md-12 col-lg-12 control-label">Gender* </label>
+                                <div class="col-sm-12 col-md-12 col-lg-12" style="left: 20%">
+                                    <div class="radio col-auto float-left">
+                                        <label><input type="radio" name="gender" id="male" value="1" checked> &nbsp;&nbsp;     Male</label>
+                                    </div>
+                                    <div class="radio col-auto float-left">
+                                        <label><input type="radio" name="gender" id="female" value="2">    &nbsp;&nbsp; Female</label>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
                                 <div class="form-group">
-                                    <label for="OrderAcceptStatus" class="col-sm-12 col-md-12 col-lg-12 control-label">Order Accept Status</label>
+                                    <label for="addressLine1" class="col-sm-12 col-md-12 col-lg-12  control-label">Address 1</label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <select class="form-control" id="OrderAcceptStatus" name="OrderAcceptStatus" required>
-                                            <option value ="Accept">Accept</option>
-                                            <option value ="Reject">Reject</option>
-                                            <div class="valid-feedback">Valid.</div>
-                                            <div class="invalid-feedback">Please fill out this field.</div>
-                                        </select>
+                                        <input type="text" id="addressLine1" name="addressLine1" placeholder="Street address 1" class="form-control" autofocus>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
                                 <div class="form-group">
-                                    <label for="acceptDateOn" class="col-sm-12 col-md-12 col-lg-12 control-label">Accepted Date</label>
+                                    <label for="addressLine2" class="col-sm-12 col-md-12 col-lg-12  control-label">Address 2</label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="date" id="acceptDateOn" name="acceptDateOn" placeholder="Date" class="form-control" required autofocus>
-                                        <div class="valid-feedback">Valid.</div>
-                                        <div class="invalid-feedback">Please fill out this field.</div>
+                                        <input type="text" id="addressLine2" name="addressLine2" placeholder="Street address 2 (Optional)" class="form-control" autofocus>
                                     </div>
                                 </div>                            </div>
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
@@ -144,7 +133,7 @@ include("../Common/TopNavBar.php");
                                     <label for="ContactDetails" class="col-sm-12 col-md-12 col-lg-12 bg-info mt-4">Contact Details</label>
                                 </div>
                             </div>
-                        </div>
+                            </div>
                         <div class="row">
 
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
