@@ -40,7 +40,7 @@ include("../Common/TopNavBar.php");
                 <?php
                 $Priority = 'AdminUserReg';
                 ?>
-                <FORM action="userReg_dB.php" method="POST" class="col" enctype="multipart/form-data">
+                <FORM action="Customer_Register_dB.php" method="POST" class="col" enctype="multipart/form-data">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-12 ">
@@ -192,7 +192,7 @@ include("../Common/TopNavBar.php");
                                 <div class="form-group">
                                     <label for="isActive" class="col-sm-12 col-md-12 col-lg-12  control-label">is Active</label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="checkbox" id="isActive" name="isActive" value="1" class="form-control" checked disabled>
+                                        <input type="checkbox" id="isActive" name="isActive" value="1" class="form-control" checked>
                                     </div>
                                 </div>
                             </div>
