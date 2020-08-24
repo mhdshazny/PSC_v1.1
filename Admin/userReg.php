@@ -202,10 +202,10 @@ include("../Common/TopNavBar.php");
                                     <label for="gender" class="col-sm-12 col-md-12 col-lg-12 control-label">Gender* </label>
                                     <div class="col-sm-12 col-md-12 col-lg-12" style="left: 20%">
                                         <div class="radio">
-                                            <label><input type="radio" name="gender" id="gender" value="male" checked> &nbsp;&nbsp;     Male</label>
+                                            <label><input type="radio" name="gender" id="male" value="1" checked> &nbsp;&nbsp;     Male</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input type="radio" name="gender" id="gender" value="fe-male">    &nbsp;&nbsp; Female</label>
+                                            <label><input type="radio" name="gender" id="female" value="2">    &nbsp;&nbsp; Female</label>
                                         </div>
 
 
@@ -243,7 +243,12 @@ include("../Common/TopNavBar.php");
                         </div>
                         <div class="row">
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
-
+                                <div class="form-group">
+                                    <label for="isActive" class="col-sm-12 col-md-12 col-lg-12  control-label">is Active</label>
+                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                        <input type="checkbox" id="isActive" name="isActive" value="1" class="form-control" checked disabled>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
                                 <div class="form-group">
@@ -341,6 +346,10 @@ include("../Common/TopNavBar.php");
                                     <button class="btn-info btn-sm" onclick="editUser()" value="<?= $row['empID']; ?>">Edit</button>
 
                                 </td>
+                                <td hidden><?= $row['addressLine2']; ?></td>
+                                <td hidden><?= $row['contactNo2']; ?></td>
+                                <td hidden><?= $row['password']; ?></td>
+
 
                             </tr>
 
@@ -408,13 +417,41 @@ include("../Common/Scripts.php");
         document.getElementById('addUser').disabled=true;
         document.getElementById('updateUser').disabled=false;
 
+
         var table = document.getElementById('userTable'),index;
 
         for (var  i = 1 ; i < table.rows.length ; i++){
             table.rows[i].onclick = function () {
                 rIndex = this.rowIndex;
                 document.getElementById("userID").value = this.cells[0].innerHTML;
+                document.getElementById("roleID").value = this.cells[1].innerHTML;
+                document.getElementById("centerID").value = this.cells[2].innerHTML;
                 document.getElementById("firstName").value = this.cells[3].innerHTML;
+                document.getElementById("lastName").value = this.cells[4].innerHTML;
+                document.getElementById("addressLine1").value = this.cells[5].innerHTML;
+                document.getElementById("contactNo1").value = this.cells[6].innerHTML;
+                document.getElementById("email").value = this.cells[7].innerHTML;
+                document.getElementById("dob").value = this.cells[8].innerHTML;
+
+                let gender_temp = this.cells[9].innerHTML;
+                if (gender_temp == "1"){
+                    document.getElementById("male").checked=true;
+                }
+                else {
+                    document.getElementById("female").checked=true
+
+                }
+
+                document.getElementById("addressLine2").value = this.cells[12].innerHTML;
+                document.getElementById("contactNo2").value = this.cells[13].innerHTML;
+                document.getElementById("Password").value = this.cells[14].innerHTML;
+                document.getElementById("confirmPassword").value = this.cells[14].innerHTML;
+
+
+                document.getElementById('isActive').disabled=false;
+                document.getElementById('userID').readOnly=true;
+                document.getElementById('confirmPassword').readOnly=true;
+
 
                 // $('#myInput').val( this.cells[0].innerHTML);
 
