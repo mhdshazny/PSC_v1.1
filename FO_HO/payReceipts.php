@@ -40,7 +40,7 @@ include("../Common/TopNavBar.php");
                 <?php
                 $Priority = 'AdminUserReg';
                 ?>
-                <FORM action="Customer_Register_dB.php" method="POST" class="col" enctype="multipart/form-data">
+                <FORM action="SaveReceipts_dB.php" method="POST" class="col" enctype="multipart/form-data">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-12 ">
@@ -77,14 +77,13 @@ include("../Common/TopNavBar.php");
                                 <div class="form-group">
                                     <label for="ioID" class="col-sm-12 col-md-12 col-lg-12 control-label">Issue order ID </label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
+
                                         <input type="text" id="ioID" name="ioID"  placeholder="Issue order ID" class="form-control" >
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="container" style="margin-left: 30%">
-                            <button type="submit" name="search" id="search" class="btn btn-primary btn-block" style="width: 50%; align-content: center">search</button>
-                        </div>
+
 
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-12 ">
@@ -112,7 +111,7 @@ include("../Common/TopNavBar.php");
                             </div>
 
                             <div class="container" style="margin-left: 30%">
-                                <button type="submit" name="cal" id="cal" class="btn btn-primary btn-block" style="width: 50%; align-content: center" onclick="calTot()">Calculate</button>
+                                <button type="button" name="cal" id="cal" class="btn btn-primary btn-block" style="width: 50%; align-content: center" onclick="calTot()">Calculate</button>
                             </div>
 
                         </div>
@@ -155,7 +154,7 @@ include("../Common/TopNavBar.php");
 
                     <br><br>
                     <div class="container" style="margin-left: 30%">
-                        <button type="submit" name="print" id="print" class="btn btn-primary btn-block" style="width: 50%; align-content: center">Print bill</button>
+                        <button type="submit" name="addBill" id="addBill" class="btn btn-primary btn-block" style="width: 50%; align-content: center">Add Bill</button>
                         <button type="submit" name="updateUser" id="updateUser" class="btn btn-primary btn-block" style="width: 50%; align-content: center" disabled>Update</button>
                         <button type="button" name="reload" id="reload" class="btn btn-danger btn-block" style="width: 50%; align-content: center" onclick="location.reload()">Reload</button>
                     </div>
@@ -173,9 +172,9 @@ include("../Common/TopNavBar.php");
                                 <th>Date</th>
                                 <th>Sale ID</th>
                                 <th>IoID</th>
-<!--                                <th>Paddy type</th>-->
-<!--                                <th>Unit price</th>-->
-<!--                                <th>Qty</th>-->
+                                <th>Paddy type</th>
+                                <th>Unit price</th>
+                                <th>Qty</th>
                                 <th>Amount</th>
 
 
@@ -187,27 +186,50 @@ include("../Common/TopNavBar.php");
 
                             <?php
                             include("../Common/config.php");
-                            $loadTable = "SELECT * FROM `tbl_paymentreceipts`";
-                            $result = $con->query($loadTable);
-                            if ($result) {
-                                foreach ($result as $row) {
+                            $loadTableIssueOrder = "SELECT * FROM `tbl_issueorder`,`tbl_paymentreceipts` WHERE tbl_issueorder.ioID = tbl_paymentreceipts.ioID";
+//                            $loadTablePayReceipts = "SELECT * FROM `tbl_paymentreceipts`";
+//                            $result1 = $con->query($loadTablePayReceipts);
+                            $result2 = $con->query($loadTableIssueOrder);
+
+//                            if ($result1) {
                                     ?>
                                     <tr>
+<!--                                        --><?php
+//
+//                                        foreach ($result1 as $rows) {
+//
+//                                        ?>
+<!---->
+<!--                                            <td>--><?//= $rows['DateOn']; ?><!--</td>-->
+<!--                                            <td>--><?//= $rows['saleID']; ?><!--</td>-->
+<!---->
+<!---->
+<!---->
+<!--                                            --><?php
+//                                        }
+//                                        }
+//                                        ?>
+                                    <!--</tr>
+                                <tr>-->
+                                        <?php
+                                        if ($result2){
+                                        foreach ($result2 as $row) {
+
+                                        ?>
                                         <td><?= $row['DateOn']; ?></td>
                                         <td><?= $row['saleID']; ?></td>
                                         <td><?= $row['ioID']; ?></td>
-<!--                                        <td>--><?//= $row['firstName']; ?><!--</td>-->
-<!--                                        <td>--><?//= $row['lastName']; ?><!--</td>-->
-<!--                                        <td>--><?//= $row['NIC']; ?><!--</td>-->
-                                        <td><?= $row['amount']; ?></td>
+                                        <td><?= $row['paddyType']; ?></td>
+                                        <td><?= $row['unitPrice']; ?></td>
+                                        <td><?= $row['Qty']; ?></td>
+                                        <td><?= $row['netTotal']; ?></td>
 
                                         <td>
-                                            <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $row['empID'];?>')" value="<?= $row['empID']; ?>">Delete</button>
-                                            <button class="btn-info btn-sm" onclick="editUser()" value="<?= $row['empID']; ?>">Edit</button>
+                                            <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $row['saleID'];?>')" value="<?= $row['saleID']; ?>">Delete</button>
+                                            <button class="btn-info btn-sm" onclick="editUser()" value="<?= $row['saleID']; ?>">Edit</button>
 
                                         </td>
-                                        <td hidden><?= $row['addressLine2']; ?></td>
-                                        <td hidden><?= $row['contactNo2']; ?></td>
+
 
 
                                     </tr>
