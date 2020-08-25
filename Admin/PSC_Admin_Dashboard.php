@@ -24,7 +24,7 @@
 
 
 </head>
-<body class="" style="background-color: #011d21; margin-right: 1%">
+<body class="" style="background-color: #011d21; ">
 
 <!--<div class="container">-->
 <!--    <main role="main" class="pb-3 bg-dark">-->
@@ -35,7 +35,7 @@
 <?php
 include("../Common/TopNavBar.php");
 ?>
-<div class="row" style="min-height: 87%; background-color: #011d21" >
+<div class="row" style="min-height: 87%; background-color: #011d21;margin: 0px; padding-left: 1%" >
  <?php
  include("../Common/SideNavBar.php");
  ?>

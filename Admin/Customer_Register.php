@@ -24,12 +24,12 @@
 <?php
 include("../Common/TopNavBar.php");
 ?>
-<div class="row" style="min-height: 87%; background-color: #011d21; margin-right: 0px; margin-left: 0px">
+<div class="row" style="min-height: 87%; background-color: #011d21;  margin: 0px; padding-left: 1%;">
     <?php
     include("../Common/SideNavBar.php");
     ?>
-    <div class="col-md-10 col-lg-10 col-sm-10 d-none d-md-block container text-white" style="background-color: #011d21">
-        <div class="container-fluid rounded" style="min-height: 100%; background-color: #04333b;margin-left: 00px; margin-right: 00px">
+    <div class="col-md-10 col-lg-10 col-sm-10 d-none d-md-block container text-white" style="background-color: #011d21;">
+        <div class="container-fluid rounded" style="min-height: 100%; background-color: #04333b;">
             <div class="row">
                 <div class="container-fluid">
                     <br>
