@@ -25,9 +25,9 @@ if (isset($_POST['Delete'])) {
 }
 
 if (isset($_GET['keyword']) && $_GET['keyword'] == 'searchCenter') {
-    $centerID=$_GET['keyword'];
+    $centerID=$_GET['id'];
     $qty='';
-    $query="select `Qty` from `tbl_stores` where `centerID`='$centerID'";
+    $query="select `Qty` from `tbl_stores` where `centerID`='".$centerID."'";
     $result = $con->query($query);
     if ($result) {
         while ($row = $result->fetch_assoc()) {
@@ -45,4 +45,3 @@ if (isset($_GET['keyword']) && $_GET['keyword'] == 'searchCenter') {
 
 $con->close();
 
-?>

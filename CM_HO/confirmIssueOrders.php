@@ -165,7 +165,7 @@ include("../Common/TopNavBar.php");
 
 <!--                                    <input type="text" id="centerID1" name="centerID1" class="form-group input-group form-control  col-sm-11 col-md-11 col-lg-11" placeholder="Center ID need to add find option" aria-label="" aria-describedby="basic-addon1">
                                     <button type="button" name="QtySearch1" id="QtySearch1" onclick="getQtyCenter()" class="btn btn-outline-primary ion-search col-md-1 col-sm-1 col-lg-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>-->
-                                    <select class="custom-select" id="centerID1" name="centerID1" onchange="getQtyCenter()" disabled>
+                                    <select class="custom-select" id="centerID1" name="centerID1" disabled>
                                         <option value=''>Null</option>
 
                                         <?php
@@ -502,6 +502,12 @@ include("../Common/Scripts.php");
 <!--</div>-->
 <script>
 
+    $( document ).ready(function() {
+        $('#centerID1').change(function(e){
+            availableQty();
+        })
+    });
+
     function rejectOrder(id){
         bootbox.confirm({
             title: "",
@@ -596,20 +602,22 @@ include("../Common/Scripts.php");
         document.getElementById("orderQuantity2").value= rem2;
 
 
-        // var id = $('#centerID1').val();
-        // $.ajax({
-        //     type: "GET",
-        //     url: "CRUDissueOrder.php",
-        //     data: {keyword:'searchCenter',id:id},
-        //     cache: false,
-        //     dataType:'json',
-        //     success: function(data){
-        //         if(data.result){
-        //            $('#Avlbl_quantity1').val(data.message);
-        //
-        //         }
-        //     }
-        // });
+
+    }
+    function availableQty() {
+        var id = $('#centerID1').val();
+        $.ajax({
+            type: "GET",
+            url: "CRUDissueOrder.php",
+            data: {keyword:'searchCenter',id:id},
+            cache: false,
+            dataType:'json',
+            success: function(data){
+                if(data.result){
+                   $('#Avlbl_quantity1').val(data.Qty);
+                }
+            }
+        });
     }
 
 </script>
