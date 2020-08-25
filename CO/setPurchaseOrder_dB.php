@@ -2,12 +2,14 @@
 include("../Common/config.php");
 
 if (isset($_POST['addPOrder'])) {
-    $date = $_POST['date'];
+    $Date = $_POST['Date'];
     $PurchaseOrderID = $_POST['PurchaseOrderID'];
     $FarmerID = $_POST['FarmerID'];
+    $StockID = $_POST['StockID'];
     $PaddyType = $_POST['PaddyType'];
     $Quantity = $_POST['Quantity'];
     $UnitPrice = $_POST['UnitPrice'];
+    $Total = $_POST['Total'];
     $Description = $_POST['Description'];
     $isActive="1";
 
@@ -17,8 +19,8 @@ if (isset($_POST['addPOrder'])) {
 
     if (!empty($_POST['PurchaseOrderID']))
     {
-        $sql = "INSERT INTO `tbl_purchaseorder`(`poID`, `farmerID`, `Qty`, `unitPrice`, `DateOn`, `Description`, `isActive`, `paddytype`) 
-                VALUES ('$PurchaseOrderID','$FarmerID','$Quantity','$UnitPrice','$date','$Description','$isActive','$PaddyType')";
+        $sql = "INSERT INTO `tbl_purchaseorder`(`poID`,`stockID`,`farmerID`,`Qty`,`unitPrice`,`total`,`DateOn`,`Description`,`isActive`,`paddyType`) 
+                VALUES ('$PurchaseOrderID','$StockID','$FarmerID','$Quantity','$UnitPrice',' $Total','$Date','$Description','$isActive','$PaddyType')";
 
 
 

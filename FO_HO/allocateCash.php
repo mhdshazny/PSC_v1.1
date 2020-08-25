@@ -90,7 +90,7 @@ include("../Common/TopNavBar.php");
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-12 ">
                                 <div class="form-group">
-                                    <label for="ContactDetails" class="col-sm-12 col-md-12 col-lg-12 bg-info mt-4">Bank details</label>
+                                    <label for="BankDetails" class="col-sm-12 col-md-12 col-lg-12 bg-info mt-4">Bank details</label>
                                 </div>
                             </div>
                         </div>

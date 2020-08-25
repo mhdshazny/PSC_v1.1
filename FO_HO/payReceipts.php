@@ -1,6 +1,6 @@
 <head>
 
-    <title>Purchase Orders</title>
+    <title>Payment receipts</title>
 
 
     <!--    Resources -->
@@ -33,14 +33,14 @@ include("../Common/TopNavBar.php");
             <div class="row">
                 <div class="container-fluid">
                     <br>
-                    <p class="text-info font-weight-bold" style="font-size: 150%; margin-left: 20%">Purchase Order</</p>
+                    <p class="text-info font-weight-bold" style="font-size: 150%; margin-left: 20%">Customer payment receipts</p>
 
                 </div>
 
                 <?php
                 $Priority = 'AdminUserReg';
                 ?>
-                <FORM action="setPurchaseOrder_dB.php" method="POST" class="col" enctype="multipart/form-data">
+                <FORM action="Customer_Register_dB.php" method="POST" class="col" enctype="multipart/form-data">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-12 ">
@@ -63,17 +63,9 @@ include("../Common/TopNavBar.php");
                             </div>
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
                                 <div class="form-group">
-                                    <label for="PurchaseOrderID" class="col-sm-12 col-md-12 col-lg-12 control-label">Purchase Order ID</label>
+                                    <label for="SaleID" class="col-sm-12 col-md-12 col-lg-12 control-label">Sale ID </label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="text" id="PurchaseOrderID" name="PurchaseOrderID"  placeholder="Purchase Order ID" class="form-control" >
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
-                                <div class="form-group">
-                                    <label for="FarmerID" class="col-sm-12 col-md-12 col-lg-12 control-label">Farmer ID</label>
-                                    <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="text" id="FarmerID" name="FarmerID"  placeholder="Farmer ID" class="form-control" >
+                                        <input type="text" id="SaleID" name="SaleID"  placeholder="Sale ID" class="form-control" >
                                     </div>
                                 </div>
                             </div>
@@ -81,33 +73,18 @@ include("../Common/TopNavBar.php");
 
                         </div>
                         <div class="row">
-
-
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
                                 <div class="form-group">
-                                    <label for="StockID" class="col-sm-12 col-md-12 col-lg-12 control-label">Stock ID</label>
+                                    <label for="ioID" class="col-sm-12 col-md-12 col-lg-12 control-label">Issue order ID </label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="text" id="StockID" name="StockID"  placeholder="Stock ID" class="form-control" >
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
-                                <div class="form-group">
-                                    <label for="PaddyType" class="col-sm-12 col-md-12 col-lg-12 control-label">Paddy Type*</label>
-                                    <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <select class="form-control" id="PaddyType" name="PaddyType">
-                                            <option value="Basmathi Rice">Basmathi Rice</option>
-                                            <option value="Nadu Rice">Nadu Rice</option>
-                                            <option value="Kekulu Rice">Kekulu Rice</option>
-                                            <option value="Samba Rice">Samba Rice</option>
-                                            <option value="Red Rice">Red Rice</option>
-                                        </select>
+                                        <input type="text" id="ioID" name="ioID"  placeholder="Issue order ID" class="form-control" >
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-
+                        <div class="container" style="margin-left: 30%">
+                            <button type="submit" name="search" id="search" class="btn btn-primary btn-block" style="width: 50%; align-content: center">search</button>
+                        </div>
 
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-12 ">
@@ -178,7 +155,7 @@ include("../Common/TopNavBar.php");
 
                     <br><br>
                     <div class="container" style="margin-left: 30%">
-                        <button type="submit" name="addPOrder" id="addPOrder" class="btn btn-primary btn-block" style="width: 50%; align-content: center">Add purchase order</button>
+                        <button type="submit" name="print" id="print" class="btn btn-primary btn-block" style="width: 50%; align-content: center">Print bill</button>
                         <button type="submit" name="updateUser" id="updateUser" class="btn btn-primary btn-block" style="width: 50%; align-content: center" disabled>Update</button>
                         <button type="button" name="reload" id="reload" class="btn btn-danger btn-block" style="width: 50%; align-content: center" onclick="location.reload()">Reload</button>
                     </div>
@@ -194,12 +171,11 @@ include("../Common/TopNavBar.php");
                             <thead>
                             <tr>
                                 <th>Date</th>
-                                <th>PoID</th>
-                                <th>Stock ID</th>
-                                <th>Farmer ID</th>
-                                <th>Paddy type</th>
-                                <th>Unit price</th>
-                                <th>Qty</th>
+                                <th>Sale ID</th>
+                                <th>IoID</th>
+<!--                                <th>Paddy type</th>-->
+<!--                                <th>Unit price</th>-->
+<!--                                <th>Qty</th>-->
                                 <th>Amount</th>
 
 
@@ -211,20 +187,19 @@ include("../Common/TopNavBar.php");
 
                             <?php
                             include("../Common/config.php");
-                            $loadTable = "SELECT * FROM `tbl_purchaseorder`";
+                            $loadTable = "SELECT * FROM `tbl_paymentreceipts`";
                             $result = $con->query($loadTable);
                             if ($result) {
                                 foreach ($result as $row) {
                                     ?>
                                     <tr>
                                         <td><?= $row['DateOn']; ?></td>
-                                        <td><?= $row['poID']; ?></td>
-                                        <td><?= $row['stockID']; ?></td>
-                                        <td><?= $row['farmerID']; ?></td>
-                                        <td><?= $row['paddyType']; ?></td>
-                                        <td><?= $row['unitPrice']; ?></td>
-                                        <td><?= $row['Qty']; ?></td>
-                                        <td><?= $row['total']; ?></td>
+                                        <td><?= $row['saleID']; ?></td>
+                                        <td><?= $row['ioID']; ?></td>
+<!--                                        <td>--><?//= $row['firstName']; ?><!--</td>-->
+<!--                                        <td>--><?//= $row['lastName']; ?><!--</td>-->
+<!--                                        <td>--><?//= $row['NIC']; ?><!--</td>-->
+                                        <td><?= $row['amount']; ?></td>
 
                                         <td>
                                             <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $row['empID'];?>')" value="<?= $row['empID']; ?>">Delete</button>
