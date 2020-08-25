@@ -57,22 +57,22 @@ include("../Common/TopNavBar.php");
                                     <div class="col-sm-12 col-md-12 col-lg-12">
                                         <?php
                                         include ("../Common/config.php");
-                                        $query="SELECT * FROM `tbl_customer` ORDER BY `customerID` DESC LIMIT 1";
+                                        $query="SELECT * FROM `tbl_employee` ORDER BY `empID` DESC LIMIT 1";
                                         $result = $con->query($query);
                                         $numRows = mysqli_num_rows($result);
-                                        $newID="CUS00001";
+                                        $newID="USER00001";
                                         if ($numRows>0){
                                             foreach ($result as $rows) {
 
 
-                                                $prevID= $rows['customerID'];
+                                                $prevID= $rows['empID'];
                                                 $newID = substr($prevID,4,5);
                                                 $newID = $newID + 1;
                                                 $newID = str_pad($newID, 5, "0", STR_PAD_LEFT);
 
 
                                                 ?>
-                                                <input type="text" id="customerID" name="customerID" placeholder="customerID" value="CUS<?= $newID?>" class="form-control" readonly>
+                                                <input type="text" id="customerID" name="customerID" placeholder="customerID" value="CUS<?= $newID?>" class="form-control" >
                                                 <?php
                                             }
                                         }
@@ -95,38 +95,9 @@ include("../Common/TopNavBar.php");
 
                                 <div class="form-group">
                                     <label for="region" class="col-sm-12 col-md-12 col-lg-12 control-label">Region</label>
-<!--                                    region name will be displayed instead of centerID-->
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-<!--                                        <input type="text" id="centerID" name="centerID" placeholder="region" class="form-control" >-->
-                                        <select class="custom-select" id="centerID" name="centerID">
-                                            <option value=''>Null</option>
-
-                                            <!---->
-                                            <?php
-
-                                            include("../Common/config.php");
-                                            //
-                                            $addQuery = "select * from `tbl_collectioncenter`";
-                                            $result = $con->query($addQuery);
-                                            //
-                                            //                                        if ($result) {
-                                            //                                            foreach ($result as $row) {
-                                            ?>
-
-                                            <?php
-                                            while ($rows = $result->fetch_assoc()) {
-                                                $centerID= $rows['centerID'];
-                                                $regionName= $rows['region'];
-                                                echo "<option value='$centerID'>$regionName</option>";
-//                                                echo "<label for='regionName' name='regionName' value='$regionName' hidden>$regionName</label>";
-
-                                            }
-                                            ?>
-                                            <!---->
-                                            <!---->
-                                        </select>
+                                        <input type="text" id="region" name="region" placeholder="region" class="form-control" >
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -254,8 +225,8 @@ include("../Common/TopNavBar.php");
 
                     <br><br>
                     <div class="container" style="margin-left: 30%">
-                        <button type="submit" name="addCustomer" id="addCustomer" class="btn btn-primary btn-block" style="width: 50%; align-content: center">Register</button>
-                        <button type="submit" name="updateCustomer" id="updateCustomer" class="btn btn-primary btn-block" style="width: 50%; align-content: center" disabled>Update</button>
+                        <button type="submit" name="addUser" id="addUser" class="btn btn-primary btn-block" style="width: 50%; align-content: center">Register</button>
+                        <button type="submit" name="updateUser" id="updateUser" class="btn btn-primary btn-block" style="width: 50%; align-content: center" disabled>Update</button>
                         <button type="button" name="reload" id="reload" class="btn btn-danger btn-block" style="width: 50%; align-content: center" onclick="location.reload()">Reload</button>
                         <button type="button" name="temp" id="temp" class="btn btn-danger btn-block" style="width: 50%; align-content: center" data-target=".bd-example-modal-lg" data-toggle="modal" >temp</button>
 
@@ -372,12 +343,12 @@ include("../Common/TopNavBar.php");
                                 <th>First Name</th>
                                 <th>Last Name</th>
                                 <th>NIC</th>
-                                <th style="width: 10%">Address</th>
+                                <th>Address</th>
                                 <th>Contact No</th>
                                 <th>E-Mail</th>
                                 <th>Gender</th>
                                 <th>isActive</th>
-                                <th style="width: 8%">Actions</th>
+                                <th>Actions</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -404,12 +375,11 @@ include("../Common/TopNavBar.php");
                                         <td><?= $row['isActive']; ?></td>
                                         <td>
                                             <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $row['customerID'];?>')" value="<?= $row['customerID']; ?>">Delete</button>
-                                            <button class="btn-info btn-sm" onclick="editCustomer()" value="<?= $row['customerID']; ?>">Edit</button>
+                                            <button class="btn-info btn-sm" onclick="editUser()" value="<?= $row['customerID']; ?>">Edit</button>
 
                                         </td>
                                         <td hidden><?= $row['addressLine2']; ?></td>
                                         <td hidden><?= $row['contactNo2']; ?></td>
-                                        <!--<td hidden><?/*= $row['region']; */?></td>-->
 
 
                                     </tr>
@@ -497,9 +467,10 @@ include("../Common/Scripts.php");
 
     }
 
-    function editCustomer() {
-        document.getElementById('addCustomer').disabled=true;
-        document.getElementById('updateCustomer').disabled=false;
+    function editUser() {
+        document.getElementById('addUser').disabled=true;
+        document.getElementById('updateUser').disabled=false;
+        document.getElementById('picBox').hidden=false;
 
         var dir = "../Upload/User/";
         var table = document.getElementById('userTable'),index;
@@ -507,16 +478,15 @@ include("../Common/Scripts.php");
         for (var  i = 1 ; i < table.rows.length ; i++){
             table.rows[i].onclick = function () {
                 rIndex = this.rowIndex;
-                document.getElementById("customerID").value = this.cells[0].innerHTML;
-                // document.getElementById("centerID").value = this.cells[1].innerHTML;
-                document.getElementById("centerID").value = this.cells[1].innerHTML;
+                document.getElementById("userID").value = this.cells[0].innerHTML;
+                document.getElementById("roleID").value = this.cells[1].innerHTML;
+                document.getElementById("centerID").value = this.cells[2].innerHTML;
                 document.getElementById("firstName").value = this.cells[3].innerHTML;
                 document.getElementById("lastName").value = this.cells[4].innerHTML;
-                document.getElementById("NIC").value = this.cells[5].innerHTML;
-                document.getElementById("addressLine1").value = this.cells[6].innerHTML;
-                document.getElementById("contactNo1").value = this.cells[7].innerHTML;
-                document.getElementById("email").value = this.cells[8].innerHTML;
-                // document.getElementById("dob").value = this.cells[8].innerHTML;
+                document.getElementById("addressLine1").value = this.cells[5].innerHTML;
+                document.getElementById("contactNo1").value = this.cells[6].innerHTML;
+                document.getElementById("email").value = this.cells[7].innerHTML;
+                document.getElementById("dob").value = this.cells[8].innerHTML;
 
                 let gender_temp = this.cells[9].innerHTML;
                 if (gender_temp == "1"){
@@ -529,11 +499,16 @@ include("../Common/Scripts.php");
 
                 document.getElementById("addressLine2").value = this.cells[12].innerHTML;
                 document.getElementById("contactNo2").value = this.cells[13].innerHTML;
-                // document.getElementById("centerID").value = this.cells[13].innerHTML;
+                document.getElementById("Password").value = this.cells[14].innerHTML;
+                document.getElementById("confirmPassword").value = this.cells[14].innerHTML;
+                // document.getElementById("picBox").src = dir + this.cells[15].innerHTML;
+                // alert(this.cells[15].innerHTML)
+                document.images['picBox'].src = dir +this.cells[15].innerHTML;
 
 
                 document.getElementById('isActive').disabled=false;
-                document.getElementById('customerID').readOnly=true;
+                document.getElementById('userID').readOnly=true;
+                document.getElementById('confirmPassword').readOnly=true;
 
 
                 // $('#myInput').val( this.cells[0].innerHTML);
