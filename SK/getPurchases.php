@@ -49,150 +49,150 @@ include("../Common/TopNavBar.php");
                             </div>
                         </div>
 
-
-                        <div class="row">
-
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
-                                <div class="form-group">
-                                    <label for="Date" class="col-sm-12 col-md-12 col-lg-12 control-label">Date </label>
-
-                                    <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="date" id="Date" name="Date"  class="form-control" >
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
-                                <div class="form-group">
-
-                                    <label for="StockID" class="col-sm-12 col-md-12 col-lg-12 control-label">Stock ID</label>
-                                    <div class="col-sm-12 col-md-12 col-lg-12">
-
-                                        <input type="text" id="StockID" name="StockID" placeholder="Stock ID" class="form-control" autofocus>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
-                                <div class="form-group">
-                                    <label for="PoID" class="col-sm-12 col-md-12 col-lg-12 control-label">PurchaseOrder ID </label>
-                                    <div class="col-sm-12 col-md-12 col-lg-12">
-
-                                        <input type="text"  id="PoID" name="PoID" placeholder="PurchaseOrder ID" class="form-control" readonly>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        <div class="col-sm-4 col-md-4 col-lg-4 ">
-                        <div class="form-group">
-                            <label for="FarmerID" class="col-sm-12 col-md-12 col-lg-12  control-label">Farmer ID</label>
-                            <div class="col-sm-12 col-md-12 col-lg-12">
-                                <input type="text" id="FarmerID" name="FarmerID" placeholder="Farmer ID" class="form-control" readonly>
-                            </div>
-                        </div>
-                        </div>
-                        </div>
-
-                        <div class="row">
-                        <div class="col-sm-4 col-md-4 col-lg-4 ">
-                        <div class="form-group">
-                            <label for="PaddyType" class="col-sm-12 col-md-12 col-lg-12 control-label" >Paddy Type</label>
-                            <div class="col-sm-12 col-md-12 col-lg-12">
-                                <input type="text" id="PaddyType" name="PaddyType" placeholder="PaddyType" class="form-control" readonly>
-                            </div>
-                        </div>
-                        </div>
-
-
-
-
-                        <div class="col-sm-4 col-md-4 col-lg-4 ">
-                            <div class="form-group">
-                                <label for="Description" class="col-sm-12 col-md-12 col-lg-12  control-label"> Description</label>
-                                <div class="col-sm-12 col-md-12 col-lg-12">
-                                    <input type="textarea" id="Description" name="Description" placeholder="Description" height="500" class="form-control" readonly>
-                                </div>
-                            </div>
-
-                        </div>
-
+<!---->
+<!--                        <div class="row">-->
+<!---->
+<!--                            <div class="col-sm-4 col-md-4 col-lg-4 ">-->
+<!--                                <div class="form-group">-->
+<!--                                    <label for="Date" class="col-sm-12 col-md-12 col-lg-12 control-label">Date </label>-->
+<!---->
+<!--                                    <div class="col-sm-12 col-md-12 col-lg-12">-->
+<!--                                        <input type="date" id="Date" name="Date"  class="form-control" >-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="col-sm-4 col-md-4 col-lg-4 ">-->
+<!--                                <div class="form-group">-->
+<!---->
+<!--                                    <label for="StockID" class="col-sm-12 col-md-12 col-lg-12 control-label">Stock ID</label>-->
+<!--                                    <div class="col-sm-12 col-md-12 col-lg-12">-->
+<!---->
+<!--                                        <input type="text" id="StockID" name="StockID" placeholder="Stock ID" class="form-control" autofocus>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!---->
+<!---->
+<!--                        </div>-->
+<!--                        <div class="row">-->
+<!--                            <div class="col-sm-4 col-md-4 col-lg-4 ">-->
+<!--                                <div class="form-group">-->
+<!--                                    <label for="PoID" class="col-sm-12 col-md-12 col-lg-12 control-label">PurchaseOrder ID </label>-->
+<!--                                    <div class="col-sm-12 col-md-12 col-lg-12">-->
+<!---->
+<!--                                        <input type="text"  id="PoID" name="PoID" placeholder="PurchaseOrder ID" class="form-control" readonly>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!---->
+<!---->
+<!--                        <div class="col-sm-4 col-md-4 col-lg-4 ">-->
+<!--                        <div class="form-group">-->
+<!--                            <label for="FarmerID" class="col-sm-12 col-md-12 col-lg-12  control-label">Farmer ID</label>-->
+<!--                            <div class="col-sm-12 col-md-12 col-lg-12">-->
+<!--                                <input type="text" id="FarmerID" name="FarmerID" placeholder="Farmer ID" class="form-control" readonly>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        </div>-->
+<!--                        </div>-->
+<!---->
+<!--                        <div class="row">-->
+<!--                        <div class="col-sm-4 col-md-4 col-lg-4 ">-->
+<!--                        <div class="form-group">-->
+<!--                            <label for="PaddyType" class="col-sm-12 col-md-12 col-lg-12 control-label" >Paddy Type</label>-->
+<!--                            <div class="col-sm-12 col-md-12 col-lg-12">-->
+<!--                                <input type="text" id="PaddyType" name="PaddyType" placeholder="PaddyType" class="form-control" readonly>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        </div>-->
+<!---->
+<!---->
+<!---->
+<!---->
+<!--                        <div class="col-sm-4 col-md-4 col-lg-4 ">-->
+<!--                            <div class="form-group">-->
+<!--                                <label for="Description" class="col-sm-12 col-md-12 col-lg-12  control-label"> Description</label>-->
+<!--                                <div class="col-sm-12 col-md-12 col-lg-12">-->
+<!--                                    <input type="textarea" id="Description" name="Description" placeholder="Description" height="500" class="form-control" readonly>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!---->
+<!--                        </div>-->
+<!---->
+<!--                    </div>-->
+<!--                        <div class="row">-->
+<!--                            <div class="col-sm-12 col-md-12 col-lg-12 ">-->
+<!--                                <div class="form-group">-->
+<!--                                    <label for="Amount" class="col-sm-12 col-md-12 col-lg-12 bg-info mt-4">Amount</label>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="row">-->
+<!--                            <div class="col-sm-4 col-md-4 col-lg-4 ">-->
+<!--                                <div class="form-group">-->
+<!--                                    <label for="UnitPrice" class="col-sm-12 col-md-12 col-lg-12 control-label">Unit price</label>-->
+<!--                                    <div class="col-sm-12 col-md-12 col-lg-12">-->
+<!--                                        <input type="text" id="UnitPrice" name="UnitPrice" placeholder="Unit price" class="form-control" readonly>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="col-sm-4 col-md-4 col-lg-4 ">-->
+<!--                                <div class="form-group">-->
+<!--                                    <label for="Quantity" class="col-sm-12 col-md-12 col-lg-12  control-label">Quantity</label>-->
+<!--                                    <div class="col-sm-12 col-md-12 col-lg-12">-->
+<!--                                        <input type="text" id="Quantity" name="Quantity" placeholder="Quantity" class="form-control" readonly>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!---->
+<!---->
+<!---->
+<!--                        </div>-->
+<!---->
+<!---->
+<!--                        <div class="row">-->
+<!---->
+<!--                            <div class="col-sm-4 col-md-4 col-lg-4 ">-->
+<!--                                <div class="form-group">-->
+<!--                                    <label for="Total" class="col-sm-12 col-md-12 col-lg-12  control-label">Total amount</label>-->
+<!--                                    <div class="col-sm-12 col-md-12 col-lg-12">-->
+<!--                                        <input type="text" id="Total" name="Total" placeholder="Total" class="form-control" readonly>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!---->
+<!--                        </div>-->
+<!--                        <div class="row">-->
+<!--                            <div class="col-sm-4 col-md-4 col-lg-4 ">-->
+<!---->
+<!--                            </div>-->
+<!---->
+<!--                        </div>-->
+<!--                        <div class="row">-->
+<!--                            <div class="col-sm-4 col-md-4 col-lg-4 ">-->
+<!--                                <div class="form-group">-->
+<!---->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="col-sm-4 col-md-4 col-lg-4 ">-->
+<!---->
+<!--                            </div>-->
+<!--                            <div class="col-sm-4 col-md-4 col-lg-4 ">-->
+<!---->
+<!--                            </div>-->
+<!--                        </div>-->
+<!---->
+<!---->
                     </div>
-                        <div class="row">
-                            <div class="col-sm-12 col-md-12 col-lg-12 ">
-                                <div class="form-group">
-                                    <label for="Amount" class="col-sm-12 col-md-12 col-lg-12 bg-info mt-4">Amount</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
-                                <div class="form-group">
-                                    <label for="UnitPrice" class="col-sm-12 col-md-12 col-lg-12 control-label">Unit price</label>
-                                    <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="text" id="UnitPrice" name="UnitPrice" placeholder="Unit price" class="form-control" readonly>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
-                                <div class="form-group">
-                                    <label for="Quantity" class="col-sm-12 col-md-12 col-lg-12  control-label">Quantity</label>
-                                    <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="text" id="Quantity" name="Quantity" placeholder="Quantity" class="form-control" readonly>
-                                    </div>
-                                </div>
-                            </div>
-
-
-
-                        </div>
-
-
-                        <div class="row">
-
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
-                                <div class="form-group">
-                                    <label for="Total" class="col-sm-12 col-md-12 col-lg-12  control-label">Total amount</label>
-                                    <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="text" id="Total" name="Total" placeholder="Total" class="form-control" readonly>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
-
-                            </div>
-
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
-                                <div class="form-group">
-
-                                </div>
-                            </div>
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
-
-                            </div>
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
-
-                            </div>
-                        </div>
-
-
-                    </div>
-
-                    <br><br>
-                    <div class="container" style="margin-left: 30%">
-                        <button type="button" name="search" id="search" class="btn btn-primary btn-block" style="width: 50%; align-content: center">search</button>
-                        <button type="submit" name="updateUser" id="updateUser" class="btn btn-primary btn-block" style="width: 50%; align-content: center" disabled>Update</button>
-                        <button type="button" name="reload" id="reload" class="btn btn-danger btn-block" style="width: 50%; align-content: center" onclick="location.reload()">Reload</button>
-                    </div>
-
-                    <br><br>
+<!---->
+<!--                    <br><br>-->
+<!--                    <div class="container" style="margin-left: 30%">-->
+<!--                        <button type="button" name="search" id="search" class="btn btn-primary btn-block" style="width: 50%; align-content: center">search</button>-->
+<!--                        <button type="submit" name="updateUser" id="updateUser" class="btn btn-primary btn-block" style="width: 50%; align-content: center" disabled>Update</button>-->
+<!--                        <button type="button" name="reload" id="reload" class="btn btn-danger btn-block" style="width: 50%; align-content: center" onclick="location.reload()">Reload</button>-->
+<!--                    </div>-->
+<!---->
+<!--                    <br><br>-->
                 </FORM>
             </div>
 
@@ -202,9 +202,13 @@ include("../Common/TopNavBar.php");
                         <table id="cashAllocateTable" class="table table-bordered table-hover table-light">
                             <thead>
                             <tr>
-                                <th>Stock_ID</th>
+                                <th>PoID</th>
+                                <th>Stock ID</th>
+                                <th>Farmer ID</th>
                                 <th>Paddy Type</th>
                                 <th>Quantity</th>
+                                <th>Description</th>
+                                <th>Total</th>
 
 
 
@@ -222,9 +226,13 @@ include("../Common/TopNavBar.php");
                                 foreach ($result as $row) {
                                     ?>
                                     <tr>
+                                        <td><?= $row['poID']; ?></td>
                                         <td><?= $row['stockID']; ?></td>
+                                        <td><?= $row['farmerID']; ?></td>
                                         <td><?= $row['paddyType']; ?></td>
                                         <td><?= $row['Qty']; ?></td>
+                                        <td><?= $row['Description']; ?></td>
+                                        <td><?= $row['total']; ?></td>
 
                                         <td>
                                             <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $row['empID'];?>')" value="<?= $row['empID']; ?>">Delete</button>
