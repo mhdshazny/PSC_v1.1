@@ -358,7 +358,7 @@ include("../Common/TopNavBar.php");
 
                             <?php
                             include("../Common/config.php");
-                            $loadTableIssueOrder = "SELECT * FROM `tbl_issueorder`,`tbl_paymentreceipts` WHERE tbl_issueorder.ioID = tbl_paymentreceipts.ioID";
+                            $loadTableIssueOrder = "SELECT * FROM `tbl_issueorder`";
 //                            $loadTablePayReceipts = "SELECT * FROM `tbl_paymentreceipts`";
 //                            $result1 = $con->query($loadTablePayReceipts);
                             $result2 = $con->query($loadTableIssueOrder);
