@@ -216,11 +216,15 @@ include("../Common/TopNavBar.php");
                                                                         for (var  i = 1 ; i < table.rows.length ; i++){
                                                                             table.rows[i].onclick = function () {
                                                                                 rIndex = this.rowIndex;
+                                                                                // alert(this.cells[0].innerHTML);
+                                                                                // alert(this.cells[1].innerHTML);
+                                                                                // alert(this.cells[2].innerHTML);
+                                                                                // alert(this.cells[3].innerHTML);
+                                                                                // alert(this.cells[4].innerHTML);
                                                                                 document.getElementById("ioID").value = this.cells[0].innerHTML;
-                                                                                document.getElementById("paddyType").value = this.cells[1].innerHTML;
-                                                                                document.getElementById("totalQuantity").value = this.cells[2].innerHTML;
-                                                                                document.getElementById("unitPrice").value = this.cells[3].innerHTML;
-                                                                                document.getElementById("netTotal").value = this.cells[4].innerHTML;
+                                                                                document.getElementById("unitPrice").value = this.cells[1].innerHTML;
+                                                                                document.getElementById("quantity").value = this.cells[2].innerHTML;
+                                                                                document.getElementById("netTotal").value = this.cells[3].innerHTML;
 
                                                                             }
                                                                         }
