@@ -103,46 +103,6 @@ include("../Common/TopNavBar.php");
                             </div>
 
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
-                                <picture style="margin-left: 25%" id="picBox" hidden>
-                                    <img src="" id="picBox" class="rounded-circle" alt="ProfilePic" style="width:40%;">
-                                </picture>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
-                                <div class="form-group">
-                                    <label for="birthDate" class="col-sm-12 col-md-12 col-lg-12  control-label">Date of Birth*</label>
-                                    <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="date" id="dob" name="dob" class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
-                                <div class="form-group">
-                                    <label for="gender" class="col-sm-12 col-md-12 col-lg-12 control-label">Gender* </label>
-                                    <div class="col-sm-12 col-md-12 col-lg-12" style="left: 20%">
-                                        <div class="radio col-auto float-left">
-                                            <label><input type="radio" name="gender" id="male" value="1" checked> &nbsp;&nbsp;     Male</label>
-                                        </div>
-                                        <div class="radio col-auto float-left">
-                                            <label><input type="radio" name="gender" id="female" value="2">    &nbsp;&nbsp; Female</label>
-                                        </div>
-
-
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12 col-md-12 col-lg-12 rounded">
-                                <div class="form-group">
-                                    <label for="ContactDetails" class="col-sm-12 col-md-12 col-lg-12 bg-info rounded mt-4">Contact details</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
                                 <div class="form-group">
                                     <label for="addressLine1" class="col-sm-12 col-md-12 col-lg-12  control-label">Address 1</label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
@@ -157,95 +117,43 @@ include("../Common/TopNavBar.php");
                                         <input type="text" id="addressLine2" name="addressLine2" placeholder="Street address 2 (Optional)" class="form-control" autofocus>
                                     </div>
                                 </div>                            </div>
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
-                                <div class="form-group">
 
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="row">
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
-                                <div class="form-group">
-                                    <label for="contactNo1" class="col-sm-12 col-md-12 col-lg-12  control-label">Contact number</label>
-                                    <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="number" id="contactNo1" name="contactNo1" placeholder="Contact number" class="form-control" autofocus>
-                                    </div>
 
-                                </div>
-                            </div>
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
-                                <div class="form-group">
-                                    <label for="contactNo2" class="col-sm-12 col-md-12 col-lg-12 control-label">Contact number (Optional)</label>
-                                    <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="number" id="contactNo2" name="contactNo2" placeholder="Contact number (Optional)" class="form-control" autofocus>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
-
-                            </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
                                 <div class="form-group">
-                                    <label for="email" class="col-sm-12 col-md-12 col-lg-12 control-label">Email* </label>
+                                    <label for="NIC" class="col-sm-12 col-md-12 col-lg-12  control-label">NIC</label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="email" id="email" placeholder="Email" class="form-control" name= "email">
+                                        <input type="text" id="NIC" name="NIC" placeholder="NIC" class="form-control" autofocus>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
+                                </div>                            </div>
 
-                            </div>
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
-
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12 col-md-12 col-lg-12 rounded">
                                 <div class="form-group">
-                                    <label for="ContactDetails" class="col-sm-12 col-md-12 col-lg-12 bg-info rounded mt-4">Security validations</label>
+                                    <label for="gender" class="col-sm-12 col-md-12 col-lg-12 control-label">Gender* </label>
+                                    <div class="col-sm-12 col-md-12 col-lg-12" style="left: 20%">
+                                        <div class="radio col-auto float-left">
+                                            <label><input type="radio" name="gender" id="male" value="1" checked> &nbsp;&nbsp;     Male</label>
+                                        </div>
+                                        <div class="radio col-auto float-left">
+                                            <label><input type="radio" name="gender" id="female" value="2">    &nbsp;&nbsp; Female</label>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
                                 <div class="form-group">
-                                    <label for="Password" class="col-sm-12 col-md-12 col-lg-12 control-label">Password*</label>
+                                    <label for="landArea" class="col-sm-12 col-md-12 col-lg-12  control-label">Land Area</label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="password" id="Password" name="Password" class="form-control">
+                                        <input type="text" id="NIC" name="landArea" placeholder="Land Area (perches)" class="form-control" autofocus>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
-                                <div class="form-group">
-                                    <label for="confirmPassword" class="col-sm-12 col-md-12 col-lg-12  control-label">Confirm Password*</label>
-                                    <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="password" id="confirmPassword" name="confirmPassword" class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
 
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12 col-md-12 col-lg-12 rounded">
-                                <div class="form-group">
-                                    <label for="ContactDetails" class="col-sm-12 col-md-12 col-lg-12 bg-info rounded mt-4">Availability Details</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
-                                <div class="form-group">
-                                    <label for="isActive" class="col-sm-12 col-md-12 col-lg-12  control-label">is Active</label>
-                                    <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="checkbox" id="isActive" name="isActive" value="1" class="form-control" checked disabled>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
                                 <div class="form-group">
                                     <label for="centerID" class="col-sm-12 col-md-12 col-lg-12 control-label">Center ID</label>
@@ -277,6 +185,80 @@ include("../Common/TopNavBar.php");
                                     </div>
                                 </div>
                             </div>
+
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-12 rounded">
+                                <div class="form-group">
+                                    <label for="ContactDetails" class="col-sm-12 col-md-12 col-lg-12 bg-info rounded mt-4">Contact details</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-sm-4 col-md-4 col-lg-4 ">
+                                <div class="form-group">
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-4 col-md-4 col-lg-4 ">
+                                <div class="form-group">
+                                    <label for="contactNo1" class="col-sm-12 col-md-12 col-lg-12  control-label">Contact number</label>
+                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                        <input type="number" id="contactNo1" name="contactNo1" placeholder="Contact number" class="form-control" autofocus>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-md-4 col-lg-4 ">
+                                <div class="form-group">
+                                    <label for="contactNo2" class="col-sm-12 col-md-12 col-lg-12 control-label">Contact number (Optional)</label>
+                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                        <input type="number" id="contactNo2" name="contactNo2" placeholder="Contact number (Optional)" class="form-control" autofocus>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-md-4 col-lg-4 ">
+
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-sm-4 col-md-4 col-lg-4 ">
+
+                            </div>
+                            <div class="col-sm-4 col-md-4 col-lg-4 ">
+
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-sm-4 col-md-4 col-lg-4 ">
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-12 rounded">
+                                <div class="form-group">
+                                    <label for="ContactDetails" class="col-sm-12 col-md-12 col-lg-12 bg-info rounded mt-4">Availability Details</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4 col-md-4 col-lg-4 ">
+                                <div class="form-group">
+                                    <label for="isActive" class="col-sm-12 col-md-12 col-lg-12  control-label">is Active</label>
+                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                        <input type="checkbox" id="isActive" name="isActive" value="1" class="form-control" checked disabled>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
 
                             </div>
@@ -285,7 +267,7 @@ include("../Common/TopNavBar.php");
 
                     <br><br>
                     <div class="container" style="margin-left: 30%">
-                        <button type="submit" name="addUser" id="addUser" class="btn btn-primary btn-block" style="width: 50%; align-content: center">Register</button>
+                        <button type="submit" name="addFarmer" id="addFarmer" class="btn btn-primary btn-block" style="width: 50%; align-content: center">Register</button>
                         <button type="submit" name="updateUser" id="updateUser" class="btn btn-primary btn-block" style="width: 50%; align-content: center" disabled>Update</button>
                         <button type="button" name="reload" id="reload" class="btn btn-danger btn-block" style="width: 50%; align-content: center" onclick="location.reload()">Reload</button>
                     </div>
@@ -300,16 +282,14 @@ include("../Common/TopNavBar.php");
                         <table id="userTable" class="table table-bordered table-hover table-light">
                             <thead>
                             <tr>
-                                <th>User ID</th>
-                                <th>Role ID</th>
+                                <th>Farmer ID</th>
+                                <th>Name</th>
                                 <th>Center ID</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
                                 <th>Address</th>
                                 <th>Contact No</th>
-                                <th>E-Mail</th>
-                                <th>DoB</th>
+                                <th>NIC</th>
                                 <th>Gender</th>
+                                <th>Land Area</th>
                                 <th>isActive</th>
                                 <th>Actions</th>
 
@@ -321,22 +301,20 @@ include("../Common/TopNavBar.php");
 
                             <?php
                             include("../Common/config.php");
-                            $loadTable = "SELECT * FROM `tbl_employee` ORDER BY `empID` DESC ";
+                            $loadTable = "SELECT * FROM `tbl_farmer` ORDER BY `farmerID` DESC ";
                             $result = $con->query($loadTable);
                             if ($result) {
                                 foreach ($result as $row) {
                                     ?>
                                     <tr>
-                                        <td><?= $row['empID']; ?></td>
-                                        <td><?= $row['roleID']; ?></td>
-                                        <td><?= $row['centerID']; ?></td>
+                                        <td><?= $row['farmerID']; ?></td>
                                         <td><?= $row['firstName']; ?></td>
-                                        <td><?= $row['lastName']; ?></td>
+                                        <td><?= $row['centerID']; ?></td>
                                         <td><?= $row['addressLine1']; ?></td>
                                         <td><?= $row['contactNo1']; ?></td>
-                                        <td><?= $row['email']; ?></td>
-                                        <td><?= $row['dob']; ?></td>
-                                        <td><?= $row['gender'] ?></td>
+                                        <td><?= $row['NIC']; ?></td>
+                                        <td><?= $row['gender']; ?></td>
+                                        <td><?= $row['landArea']; ?></td>
                                         <td><?= $row['isActive']; ?></td>
                                         <td>
                                             <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $row['empID'];?>')" value="<?= $row['empID']; ?>">Delete</button>
