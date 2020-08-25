@@ -70,6 +70,15 @@ include("../Common/TopNavBar.php");
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="col-sm-4 col-md-4 col-lg-4 ">
+                                <div class="form-group">
+                                    <label for="orderStatus" class="col-sm-12 col-md-12 col-lg-12 control-label">Order Status </label>
+                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                        <input type="text" id="orderStatus" name="orderStatus" placeholder="Order Status" class="form-control" readonly>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="container" style="margin-left: 30%">
                             <button type="button" name="search" id="search" class="btn btn-primary btn-block" style="width: 50%; align-content: center">search</button>
                             </div>
@@ -188,7 +197,7 @@ include("../Common/TopNavBar.php");
 
                     <br><br>
                     <div class="container" style="margin-left: 30%">
-                        <button type="submit" name="add" id="add" class="btn btn-primary btn-block" style="width: 50%; align-content: center">Issued</button>
+                        <button type="button" name="add" id="add" class="btn btn-primary btn-block" onclick="changeStatus()" style="width: 50%; align-content: center">Issued</button>
                         <button type="submit" name="updateUser" id="updateUser" class="btn btn-primary btn-block" style="width: 50%; align-content: center" disabled>Update</button>
                         <button type="button" name="reload" id="reload" class="btn btn-danger btn-block" style="width: 50%; align-content: center" onclick="location.reload()">Reload</button>
                     </div>
@@ -234,7 +243,24 @@ include("../Common/TopNavBar.php");
                                             <button class="btn-info btn-sm" onclick="editUser()" value="<?= $row['empID']; ?>">Edit</button>
 
                                         </td>
+                                        <script>
+                                            function changeStatus() {
 
+                                                document.getElementById("orderStatus").value = "Issued";
+
+                                                <?php
+
+                                                include("../Common/config.php");
+
+                                                  if (isset($_POST['add'])) {
+                                                      $orderStatus =$_POST['FarmerID'];
+
+                                                      $sql = "INSERT INTO `tbl_issueorder`(`orderStatus`) VALUES ('$orderStatus')";
+                                                  }
+                                                ?>
+
+                                            }
+                                        </script>
 
 
                                     </tr>
@@ -265,9 +291,7 @@ include("../Common/Scripts.php");
 <!--</div>-->
 <script>
 
-    function changeStatus() {
 
-    }
     
     
     function confirmDelete(id){
