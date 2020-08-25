@@ -11,23 +11,23 @@ mysqli_autocommit($con,FALSE);
 if (isset($_POST['addCenter'])) {
 
     $centerID = $_POST['centerID'];
-    $address1 = $_POST['addressLine1'];
-    $region = $_POST['regionName'];
+
+    $region = $_POST['region'];
     $capacity = $_POST['capacity'];
-    $capacity = $_POST['contactNo1'];
+    $contact = $_POST['contactNo1'];
     $bankAccID = $_POST['bankAccID'];
-    $centerManager=$_POST['centerManager'];
-    $isActive="1";
+    $centerManager = $_POST['centerManager'];
+    $isActive = "1";
 
 
-    if (!empty($centerID) && !empty($address1) && !empty($region)&& !empty($capacity)&& !empty($contact) && !empty($bankAccID)&& !empty($isActive) && !empty($centerManager)) {
+    if (!empty($centerID) && !empty($address1) && !empty($region) && !empty($capacity) && !empty($contact) && !empty($bankAccID) && !empty($isActive) && !empty($centerManager)) {
 
-        $sql = "INSERT INTO `tbl_collectioncenter`(`centerID`, `firstName`, `lastName`, `addressLine1`, `addressLine2`, `contactNo1`, `contactNo2`, `centerID`, `gender`, `isActive`,`NIC`,`landArea`) 
-                VALUES ('$centerID', '$fName', '$lName','$address1','$address2','$contact','$contact2','$centerID','$gender','$isActive','$NIC','$landArea')";
+        $sql = "INSERT INTO `tbl_collectioncenter`(`centerID`, `region`, `capacity`, `contactNo`, `bankAccID`, `centerManger`, `isActive`) 
+                VALUES ('$centerID', '$region','$capacity','$contact','$bankAccID','$centerManager','$isActive')";
 
         if ($con->query($sql) === TRUE) {
             mysqli_commit($con);
-            header('Location: Farmer_Register.php?e=data inserted');
+            header('Location: CollectionCenter.php?e=data inserted');
         } else {
 
             //This will print the error//
@@ -36,68 +36,65 @@ if (isset($_POST['addCenter'])) {
 
             //This will redirect to same page and it'll show the message above url//
 
-            header('Location: Farmer_Register.php?e=Wrong Credentials11');
+            header('Location: CollectionCenter.php?e=Wrong Credentials11');
         }
-
-
     } else {
-        header('Location: Farmer_Register.php?e=missing important credentials');
+        header('Location: CollectionCenter.php?e=credentials Missing');
 
     }
 
-
-}
+    }
 
 //Update
 
-if (isset($_POST['updateFarmer'])){
+    if (isset($_POST['updateFarmer'])) {
 
-    $UP_farmerID = $_POST['farmerID'];
-    $UP_centerID = $_POST['centerID'];
+        $UP_farmerID = $_POST['farmerID'];
+        $UP_centerID = $_POST['centerID'];
 
-    $UP_fName = $_POST['firstName'];
-    $UP_lName = $_POST['lastName'];
-    $UP_address1 = $_POST['addressLine1'];
-    $UP_address2 = $_POST['addressLine2'];
-    $UP_contact = $_POST['contactNo1'];
-    $UP_contact2 = $_POST['contactNo2'];
-    $UP_email = $_POST['email'];
-    $UP_gender=$_POST['gender'];
-    $UP_isActive="0";
-    $UP_isActive=$_POST['isActive'];
-    $UP_region = $_POST['regionName'];
-    $UP_NIC = $_POST['NIC'];
-    $landArea = $_POST['landArea'];
+        $UP_fName = $_POST['firstName'];
+        $UP_lName = $_POST['lastName'];
+        $UP_address1 = $_POST['addressLine1'];
+        $UP_address2 = $_POST['addressLine2'];
+        $UP_contact = $_POST['contactNo1'];
+        $UP_contact2 = $_POST['contactNo2'];
+        $UP_email = $_POST['email'];
+        $UP_gender = $_POST['gender'];
+        $UP_isActive = "0";
+        $UP_isActive = $_POST['isActive'];
+        $UP_region = $_POST['regionName'];
+        $UP_NIC = $_POST['NIC'];
+        $landArea = $_POST['landArea'];
 
 
-    if (!empty($UP_farmerID) && !empty($UP_fName) && !empty($UP_lName)&& !empty($UP_address1)&& !empty($UP_contact)&& !empty($UP_gender)&& !empty($landArea))
-    {
-        $sql = "UPDATE `tbl_farmer` SET `firstName`='$UP_fName',`lastName`='$UP_lName',`addressLine1`='$UP_address1',`addressLine2`='$UP_address2',`contactNo1`='$UP_contact',`contactNo2`='$UP_contact2', `centerID`='$UP_centerID',`gender`='$UP_gender',`isActive`='$UP_isActive',`landArea`='$landArea' WHERE `farmerID`='$UP_farmerID' ";
+        if (!empty($UP_farmerID) && !empty($UP_fName) && !empty($UP_lName) && !empty($UP_address1) && !empty($UP_contact) && !empty($UP_gender) && !empty($landArea)) {
+            $sql = "UPDATE `tbl_farmer` SET `firstName`='$UP_fName',`lastName`='$UP_lName',`addressLine1`='$UP_address1',`addressLine2`='$UP_address2',`contactNo1`='$UP_contact',`contactNo2`='$UP_contact2', `centerID`='$UP_centerID',`gender`='$UP_gender',`isActive`='$UP_isActive',`landArea`='$landArea' WHERE `farmerID`='$UP_farmerID' ";
 
 //                `profilePic`, `roleID`, `addressLine1`, `addressLine2`, `contactNo1`, `contactNo2`, `email`, `centerID`, `dob`, `gender`, `isActive`,`password`
-        if ($con->query($sql) === TRUE) {
+            if ($con->query($sql) === TRUE) {
 //                     if (move_uploaded_file($_FILES["picture"]["tmp_name"], $target_file)) {
-            mysqli_commit($con);
-            header('Location: Farmer_Register.php?e=data updated');
+                mysqli_commit($con);
+                header('Location: Farmer_Register.php?e=data updated');
 //                     } else {
 //                         echo "Sorry, there was an error uploading your file.";
 //                     }
 
 
-        } else {
+            } else {
 
-            //This will print the error//
+                //This will print the error//
 
 //                     print("Error: " . $sql . "<br>" . $con->error);
 
-            //This will redirect to same page and it'll show the message above url//
+                //This will redirect to same page and it'll show the message above url//
 
-            header('Location: Farmer_Register.php?e=Up Wrong Credentials/Query stopped working');
+                header('Location: Farmer_Register.php?e=Up Wrong Credentials/Query stopped working');
+            }
+
+
+        } else {
+            header('Location: Farmer_Register.php?e=credentials Missing6');
+
         }
 
-
-    } else {
-        header('Location: Farmer_Register.php?e=credentials Missing6');
-
-    }
 }
