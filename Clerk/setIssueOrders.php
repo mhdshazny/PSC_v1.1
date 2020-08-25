@@ -133,8 +133,8 @@ include("../Common/TopNavBar.php");
                                                             <i class="fas ion-android-create prefix grey-text"></i>
                                                             <label data-error="wrong" data-success="right"
                                                                    for="orangeForm-email1">Customer Name</label>
-                                                            <input type="text" id="customerNamemodal" name="customerNamemodal"
-                                                                   class="form-control validate">
+                                                            <input type="text" id="customerName_Modal" name="customerName_Modal"
+                                                                  onkeyup="customerName_Search()" class="form-control validate">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -182,7 +182,7 @@ include("../Common/TopNavBar.php");
                                                         <script>
                                                             function customerID_Search() {
                                                                 // alert();
-                                                                let input, filter, table, tr, td, i, txtValue;
+                                                                let input, filter, table, tr, td, i,txtValue;
                                                                 input = document.getElementById("customerID_Modal");
                                                                 filter = input.value.toUpperCase();
                                                                 table = document.getElementById("customerTableModal");
@@ -198,30 +198,28 @@ include("../Common/TopNavBar.php");
                                                                         }
                                                                     }
                                                                 }
+
+
                                                             }
-
-                                                            function selectModal() {
-
-                                                                var table = document.getElementById('customerTableModal'),index;
-
-                                                                for (var  i = 1 ; i < table.rows.length ; i++){
-                                                                    table.rows[i].onclick = function () {
-                                                                        rIndex = this.rowIndex;
-                                                                        document.getElementById("customerID").value = this.cells[0].innerHTML;
-                                                                        document.getElementById("customer").value = this.cells[1].innerHTML;
-                                                                        document.getElementById("contact").value = this.cells[2].innerHTML;
-                                                                        document.getElementById("region").value = this.cells[3].innerHTML;
-
-
-
-
-                                                                        // $('#myInput').val( this.cells[0].innerHTML);
-
-
-
+                                                            function customerName_Search() {
+                                                                // alert();
+                                                                let input, filter, table, tr, td, i,txtValue;
+                                                                input = document.getElementById("customerName_Modal");
+                                                                filter = input.value.toUpperCase();
+                                                                table = document.getElementById("customerTableModal");
+                                                                tr = table.getElementsByTagName("tr");
+                                                                for (i = 0; i < tr.length; i++) {
+                                                                    td = tr[i].getElementsByTagName("td")[2];
+                                                                    if (td) {
+                                                                        txtValue = td.textContent || td.innerText;
+                                                                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                                                            tr[i].style.display = "";
+                                                                        } else {
+                                                                            tr[i].style.display = "none";
+                                                                        }
                                                                     }
                                                                 }
-                                                            }
+
 
                                                             }
                                                         </script>
@@ -452,6 +450,36 @@ include("../Common/TopNavBar.php");
                         </tbody>
 
                     </table>
+                    <script>
+
+
+
+                        // function selectModal() {
+                        //
+                        //     var table = document.getElementById('customerTableModal'),index;
+                        //
+                        //     for (var  i = 1 ; i < table.rows.length ; i++){
+                        //         table.rows[i].onclick = function () {
+                        //             rIndex = this.rowIndex;
+                        //             document.getElementById("customerID").value = this.cells[0].innerHTML;
+                        //             document.getElementById("customer").value = this.cells[1].innerHTML;
+                        //             document.getElementById("contact").value = this.cells[2].innerHTML;
+                        //             document.getElementById("region").value = this.cells[3].innerHTML;
+                        //
+                        //
+                        //
+                        //
+                        //             // $('#myInput').val( this.cells[0].innerHTML);
+                        //
+                        //
+                        //
+                        //         }
+                        //     }
+                        // }
+
+                        }
+                    </script>
+
                 </div>
             </div>
         </div>
