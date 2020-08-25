@@ -1,6 +1,6 @@
 <head>
 
-    <title>Cash Allocation</title>
+    <title>Payment receipts</title>
 
 
     <!--    Resources -->
@@ -33,7 +33,7 @@ include("../Common/TopNavBar.php");
             <div class="row">
                 <div class="container-fluid">
                     <br>
-                    <p class="text-info font-weight-bold" style="font-size: 150%; margin-left: 20%">Cash Allocation</p>
+                    <p class="text-info font-weight-bold" style="font-size: 150%; margin-left: 20%">Customer payment receipts</p>
 
                 </div>
 
@@ -63,61 +63,56 @@ include("../Common/TopNavBar.php");
                             </div>
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
                                 <div class="form-group">
-                                    <label for="PayingAccNo" class="col-sm-12 col-md-12 col-lg-12 control-label">Paying Account No</label>
+                                    <label for="SaleID" class="col-sm-12 col-md-12 col-lg-12 control-label">Sale ID </label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="text" id="PayingAccNo" name="PayingAccNo" placeholder="Paying Account Number" class="form-control" >
+                                        <input type="text" id="SaleID" name="SaleID"  placeholder="Sale ID" class="form-control" >
                                     </div>
                                 </div>
                             </div>
-
 
 
                         </div>
                         <div class="row">
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
                                 <div class="form-group">
-                                    <label for="BankID" class="col-sm-12 col-md-12 col-lg-12 control-label">Bank ID </label>
+                                    <label for="ioID" class="col-sm-12 col-md-12 col-lg-12 control-label">Issue order ID </label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="text" id="BankID" name="BankID"  placeholder="Bank ID" class="form-control" >
+                                        <input type="text" id="ioID" name="ioID"  placeholder="Issue order ID" class="form-control" >
                                     </div>
                                 </div>
                             </div>
                         </div>
-                            <div class="container" style="margin-left: 30%">
+                        <div class="container" style="margin-left: 30%">
                             <button type="submit" name="search" id="search" class="btn btn-primary btn-block" style="width: 50%; align-content: center">search</button>
-                            </div>
+                        </div>
 
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-12 ">
                                 <div class="form-group">
-                                    <label for="BankDetails" class="col-sm-12 col-md-12 col-lg-12 bg-info mt-4">Bank details</label>
+                                    <label for="Amount" class="col-sm-12 col-md-12 col-lg-12 bg-info mt-4">Amount</label>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
                                 <div class="form-group">
-                                    <label for="bankName" class="col-sm-12 col-md-12 col-lg-12 control-label">Regional Bank Name</label>
+                                    <label for="UnitPrice" class="col-sm-12 col-md-12 col-lg-12 control-label">Unit price</label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="text" id="bankName" name="bankName" placeholder="Regional Bank Name" class="form-control" readonly>
+                                        <input type="text" id="UnitPrice" name="UnitPrice" placeholder="Unit price" class="form-control" autofocus>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
                                 <div class="form-group">
-                                    <label for="region" class="col-sm-12 col-md-12 col-lg-12  control-label">Region</label>
+                                    <label for="Quantity" class="col-sm-12 col-md-12 col-lg-12  control-label">Quantity</label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="text" id="region" name="region" placeholder="Region" class="form-control" readonly>
+                                        <input type="text" id="Quantity" name="Quantity" placeholder="Quantity" class="form-control" autofocus>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
-                                <div class="form-group">
-                                    <label for="accNO" class="col-sm-12 col-md-12 col-lg-12  control-label">Bank account number</label>
-                                    <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="text" id="accNO" name="accNO" placeholder="Bank account number" class="form-control" readonly>
-                                    </div>
-                                </div>
+
+                            <div class="container" style="margin-left: 30%">
+                                <button type="submit" name="cal" id="cal" class="btn btn-primary btn-block" style="width: 50%; align-content: center" onclick="calTot()">Calculate</button>
                             </div>
 
                         </div>
@@ -127,9 +122,9 @@ include("../Common/TopNavBar.php");
 
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
                                 <div class="form-group">
-                                    <label for="Amount" class="col-sm-12 col-md-12 col-lg-12  control-label">Amount</label>
+                                    <label for="Total" class="col-sm-12 col-md-12 col-lg-12  control-label">Total amount</label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="text" id="Amount" name="Amount" placeholder="Amount" class="form-control" autofocus>
+                                        <input type="text" id="Total" name="Total" placeholder="Total" class="form-control" autofocus>
                                     </div>
                                 </div>
                             </div>
@@ -160,7 +155,7 @@ include("../Common/TopNavBar.php");
 
                     <br><br>
                     <div class="container" style="margin-left: 30%">
-                        <button type="submit" name="addUser" id="addUser" class="btn btn-primary btn-block" style="width: 50%; align-content: center">Add record</button>
+                        <button type="submit" name="print" id="print" class="btn btn-primary btn-block" style="width: 50%; align-content: center">Print bill</button>
                         <button type="submit" name="updateUser" id="updateUser" class="btn btn-primary btn-block" style="width: 50%; align-content: center" disabled>Update</button>
                         <button type="button" name="reload" id="reload" class="btn btn-danger btn-block" style="width: 50%; align-content: center" onclick="location.reload()">Reload</button>
                     </div>
@@ -176,10 +171,11 @@ include("../Common/TopNavBar.php");
                             <thead>
                             <tr>
                                 <th>Date</th>
-                                <th>Bank ID</th>
-                                <th>Bank name</th>
-                                <th>Region</th>
-                                <th>Account number</th>
+                                <th>Sale ID</th>
+                                <th>IoID</th>
+<!--                                <th>Paddy type</th>-->
+<!--                                <th>Unit price</th>-->
+<!--                                <th>Qty</th>-->
                                 <th>Amount</th>
 
 
@@ -191,23 +187,20 @@ include("../Common/TopNavBar.php");
 
                             <?php
                             include("../Common/config.php");
-                            $loadTable = "SELECT * FROM `tbl_cutomer`";
+                            $loadTable = "SELECT * FROM `tbl_paymentreceipts`";
                             $result = $con->query($loadTable);
                             if ($result) {
                                 foreach ($result as $row) {
                                     ?>
                                     <tr>
-                                        <td><?= $row['customerID']; ?></td>
-                                        <td><?= $row['centerID']; ?></td>
-                                        <td><?= $row['region']; ?></td>
-                                        <td><?= $row['firstName']; ?></td>
-                                        <td><?= $row['lastName']; ?></td>
-                                        <td><?= $row['NIC']; ?></td>
-                                        <td><?= $row['addressLine1']; ?></td>
-                                        <td><?= $row['contactNo1']; ?></td>
-                                        <td><?= $row['email']; ?></td>
-                                        <td><?= $row['gender'] ?></td>
-                                        <td><?= $row['isActive']; ?></td>
+                                        <td><?= $row['DateOn']; ?></td>
+                                        <td><?= $row['saleID']; ?></td>
+                                        <td><?= $row['ioID']; ?></td>
+<!--                                        <td>--><?//= $row['firstName']; ?><!--</td>-->
+<!--                                        <td>--><?//= $row['lastName']; ?><!--</td>-->
+<!--                                        <td>--><?//= $row['NIC']; ?><!--</td>-->
+                                        <td><?= $row['amount']; ?></td>
+
                                         <td>
                                             <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $row['empID'];?>')" value="<?= $row['empID']; ?>">Delete</button>
                                             <button class="btn-info btn-sm" onclick="editUser()" value="<?= $row['empID']; ?>">Edit</button>
@@ -278,6 +271,40 @@ include("../Common/Scripts.php");
         });
 
     }
+
+
+    //Calculate total
+    function calTot() {
+
+
+        let quantity = document.getElementById('Quantity');
+        let unitPrice = document.getElementById('UnitPrice');
+        let  tot =document.getElementById('Total');
+        // let tot = 0;
+        let uP=-0;
+        let  qty=0;
+        uP = parseInt(unitPrice.value);
+        qty = parseInt(quantity.value);
+        // let Tot=parseInt(tot.value);
+
+
+        if(uP > 0 && qty >= 0){
+
+            Tot = qty*uP;
+            document.getElementById('Total').value = Tot;
+
+
+        }
+        else {
+
+            document.getElementById('Total').value = "Insert proper values";
+
+        }
+
+
+
+    }
+
 
     function editUser() {
         document.getElementById('addUser').disabled=true;
