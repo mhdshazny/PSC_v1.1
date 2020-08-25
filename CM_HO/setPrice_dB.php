@@ -2,38 +2,33 @@
 include("../Common/config.php");
 
 if (isset($_POST['setPrice'])) {
-    $estimationID = $_POST['estimationID'];
-    $DateOn = $_POST['dateOn'];
-    $PaddyType = $_POST['paddyType'];
-    $landArea = $_POST['landArea'];
-    $centerID = $_POST['centerID'];
+    $dateOn = $_POST['DateOn'];
+    $priceID = $_POST['paddyType'];
+    $buyingPrice = $_POST['buyingPrice'];
+    $sellingPrice = $_POST['sellingPrice'];
+    $paddyType = $_POST['paddyType'];
+
+//echo $priceID;
+//echo $buyingPrice;
+//echo $sellingPrice;
+//exit();
 
 
+    if (!empty($priceID) && !empty($buyingPrice) && !empty($sellingPrice)) {
+       /* $sql = "INSERT INTO `tbl_price`(`paddyType`, `buyingPrice`, `sellingPrice`)
+                VALUES ('$PaddyType', '$buyingPrice','$sellingPrice')";*/
+    $sql = "UPDATE `tbl_price` SET `DateOn`= '$dateOn',`buyingPrice`='$buyingPrice', `sellingPrice`='$sellingPrice' WHERE `priceID`='$priceID'";
+    $sqlIn ="INSERT INTO `tbl_priceRecord`(`priceRecID`, `paddyType`, `buyingPrice`, `sellingPrice`, `DateOn`) VALUES ('$priceID','$paddyType','$buyingPrice','$sellingPrice', '$dateOn')";
 
-    $season = $_POST['season'];
-    $totalFarmers = $_POST['totalFarmers'];
-    $quantity = $_POST['quantity'];
-
-
-
-    if (!empty($estimationID))
-    {
-        $sql = "INSERT INTO `tbl_estimations`(`estimationID`, `centerID`, `DateOn`, `paddyType`, `season`, `landArea`, `totalFarmers`, `quantity`) 
-                VALUES ('$estimationID', '$centerID','$DateOn', '$PaddyType', '$season','$landArea','$totalFarmers','$quantity')";
-
-
-
-
-
-        if ($con->query($sql) === TRUE) {
+        if ($con->query($sql) === TRUE && $con->query($sqlIn)==true) {
 
             function phpAlert($msg)
             {
                 echo '<script type="text/javascript">alert("' . $msg . '")</script>';
             }
 
-            phpAlert("New record successfully Inserted");
-            header('Location: setEstimations.php?e=data inserted');
+            phpAlert("New record successfully updated");
+            header('Location: setPrice.php?e=data inserted');
 
         } else {
 
@@ -43,16 +38,11 @@ if (isset($_POST['setPrice'])) {
 
             //This will redirect to same page and it'll show the message above url//
 
-            header('Location: setEstimations.php?e=Wrong Credentials11');
+            header('Location: setPrice.php?e=Wrong Credentials11');
         }
 
-
-    } else {
-        header('Location: setEstimations.php?e=Wrong Credentials');
-
     }
-}
-else {
-    header('Location: setEstimations.php?e=quantity missing');
-
+    else{
+        header('Location: setPrice.php?e=Missing values');
+    }
 }

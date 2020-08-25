@@ -255,7 +255,7 @@ include("../Common/TopNavBar.php");
 
                     <br><br>
                     <div class="container" style="margin-left: 30%">
-                        <button type="submit" name="addUser" id="addUser" class="btn btn-primary btn-block" style="width: 50%; align-content: center">Register</button>
+                        <button type="submit" name="acceptOrder" id="acceptOrder" class="btn btn-primary btn-block" style="width: 50%; align-content: center">Register</button>
                         <button type="submit" name="updateUser" id="updateUser" class="btn btn-primary btn-block" style="width: 50%; align-content: center" disabled>Update</button>
                         <button type="button" name="reload" id="reload" class="btn btn-danger btn-block" style="width: 50%; align-content: center" onclick="location.reload()">Reload</button>
                     </div>
@@ -271,15 +271,11 @@ include("../Common/TopNavBar.php");
                             <thead>
                             <tr>
                                 <th>Issue OrderID</th>
-                                <th>Order Date</th>
-                                <th>Customer ID</th>
-                                <th>Customer Name</th>
-                                <th>Contact No</th>
+                                <th>Customer ID
                                 <th>Region</th>
                                 <th>Paddy Type</th>
                                 <th>Quantity</th>
-                                <th>Unit Price</th>
-                                <th>NetTotal</th>
+                                <th>Ordered Date</th>
                                 <th>isActive</th>
                                 <th>Actions</th>
 
@@ -298,23 +294,19 @@ include("../Common/TopNavBar.php");
                                     ?>
                                     <tr>
                                         <td><?= $row['ioID']; ?></td>
-                                        <td><?= $row['OrderDateOn']; ?></td>
                                         <td><?= $row['customerID']; ?></td>
-                                        <td><?= $row['customer']; ?></td>
-                                        <td><?= $row['contactNo1']; ?></td>
-                                        <td><?= $row['NIC']; ?></td>
-                                        <td><?= $row['addressLine1']; ?></td>
-                                        <td><?= $row['contactNo1']; ?></td>
-                                        <td><?= $row['email']; ?></td>
-                                        <td><?= $row['gender'] ?></td>
+                                        <td><?= $row['region']; ?></td>
+                                        <td><?= $row['paddyType']; ?></td>
+                                        <td><?= $row['Qty1']; ?></td>
+                                        <td><?= $row['OrderDateOn']; ?></td>
+
                                         <td><?= $row['isActive']; ?></td>
                                         <td>
-                                            <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $row['empID'];?>')" value="<?= $row['empID']; ?>">Delete</button>
-                                            <button class="btn-info btn-sm" onclick="editUser()" value="<?= $row['empID']; ?>">Edit</button>
+                                            <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $row['ioID'];?>')" value="<?= $row['empID']; ?>">Delete</button>
+                                            <button class="btn-info btn-sm" onclick="acceptIssueOrder()" value="<?= $row['ioID']; ?>">Accept</button>
 
                                         </td>
-                                        <td hidden><?= $row['addressLine2']; ?></td>
-                                        <td hidden><?= $row['contactNo2']; ?></td>
+
 
 
                                     </tr>
@@ -379,43 +371,23 @@ include("../Common/Scripts.php");
 
     }
 
-    function editUser() {
-        document.getElementById('addUser').disabled=true;
-        document.getElementById('updateUser').disabled=false;
-        document.getElementById('picBox').hidden=false;
+    function acceptIssueOrder() {
+        document.getElementById('acceptOrder').disabled=true;
 
-        var dir = "../Upload/User/";
-        var table = document.getElementById('userTable'),index;
+
+
 
         for (var  i = 1 ; i < table.rows.length ; i++){
-            table.rows[i].onclick = function () {
+            table.row[i].onclick = function () {
                 rIndex = this.rowIndex;
-                document.getElementById("userID").value = this.cells[0].innerHTML;
-                document.getElementById("roleID").value = this.cells[1].innerHTML;
-                document.getElementById("centerID").value = this.cells[2].innerHTML;
-                document.getElementById("firstName").value = this.cells[3].innerHTML;
-                document.getElementById("lastName").value = this.cells[4].innerHTML;
-                document.getElementById("addressLine1").value = this.cells[5].innerHTML;
-                document.getElementById("contactNo1").value = this.cells[6].innerHTML;
-                document.getElementById("email").value = this.cells[7].innerHTML;
-                document.getElementById("dob").value = this.cells[8].innerHTML;
-
-                let gender_temp = this.cells[9].innerHTML;
-                if (gender_temp == "1"){
-                    document.getElementById("male").checked=true;
-                }
-                else {
-                    document.getElementById("female").checked=true
-
-                }
-
-                document.getElementById("addressLine2").value = this.cells[12].innerHTML;
-                document.getElementById("contactNo2").value = this.cells[13].innerHTML;
-                document.getElementById("Password").value = this.cells[14].innerHTML;
-                document.getElementById("confirmPassword").value = this.cells[14].innerHTML;
-                // document.getElementById("picBox").src = dir + this.cells[15].innerHTML;
-                // alert(this.cells[15].innerHTML)
-                document.images['picBox'].src = dir +this.cells[15].innerHTML;
+                document.getElementById("issueOrderID").value = this.cells[0].innerHTML;
+                document.getElementById("orderDateOn").value = this.cells[1].innerHTML;
+                document.getElementById("region").value = this.cells[2].innerHTML;
+                document.getElementById("customerID").value = this.cells[3].innerHTML;
+                document.getElementById("paddyType").value = this.cells[4].innerHTML;
+                document.getElementById("quantity").value = this.cells[5].innerHTML;
+                document.getElementById("unitPrice").value = this.cells[6].innerHTML;
+                document.getElementById("netTotal").value = this.cells[7].innerHTML;
 
 
                 document.getElementById('isActive').disabled=false;

@@ -40,7 +40,7 @@ include("../Common/TopNavBar.php");
                 <?php
                 $Priority = 'AdminUserReg';
                 ?>
-                <FORM action="confirmIssueOrders_dB.php" method="POST" class="col" class="was-validated"">
+                <FORM action="setPrice_dB.php" method="POST" class="col" class="was-validated"">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-sm-12 col-md-12 col-lg-12 ">
@@ -70,11 +70,16 @@ include("../Common/TopNavBar.php");
                                 <label for="paddyType" class="col-sm-12 col-md-12 col-lg-12 control-label">Paddy Type</label>
                                 <div class="col-sm-12 col-md-12 col-lg-12">
                                     <select class="form-control" id="paddyType" name="paddyType" required>
-                                        <option value ="Basmathi Rice">Basmathi Rice</option>
-                                        <option value ="Nadu Rice">Nadu Rice</option>
-                                        <option value ="Kekulu Rice">Kekulu Rice</option>
-                                        <option value ="Samba Rice">Samba Rice</option>
-                                        <option value ="Red Rice">Red Rice</option>
+                                        <?php
+                                        include ("../Common/config.php");
+                                        $query="SELECT * FROM `tbl_price`";
+                                        $result=$con->query($query);
+                                        while($rows=$result->fetch_assoc()){
+                                            $priceID= $rows['priceID'];
+                                            $paddyType=$rows['paddyType'];
+                                            echo "<option value ='$priceID'>$paddyType</option>";
+                                        }
+                                        ?>
                                         <div class="valid-feedback">Valid.</div>
                                         <div class="invalid-feedback">Please fill out this field.</div>
                                     </select>
@@ -149,7 +154,7 @@ include("../Common/TopNavBar.php");
 
                 <br><br>
                 <div class="container" style="margin-left: 30%">
-                    <button type="submit" name="addUser" id="addUser" class="btn btn-primary btn-block" style="width: 50%; align-content: center">Register</button>
+                    <button type="submit" name="setPrice" id="setPrice" class="btn btn-primary btn-block" style="width: 50%; align-content: center">Register</button>
                     <button type="submit" name="updateUser" id="updateUser" class="btn btn-primary btn-block" style="width: 50%; align-content: center" disabled>Update</button>
                     <button type="button" name="reload" id="reload" class="btn btn-danger btn-block" style="width: 50%; align-content: center" onclick="location.reload()">Reload</button>
                 </div>
@@ -164,6 +169,7 @@ include("../Common/TopNavBar.php");
                         <table id="userTable" class="table table-bordered table-hover table-light">
                             <thead>
                             <tr>
+                                <th>Price ID</th>
                                 <th>Paddy Type</th>
                                 <th>Buying Price</th>
                                 <th>Selling Price</th>
@@ -184,6 +190,7 @@ include("../Common/TopNavBar.php");
                                 foreach ($result as $row) {
                                     ?>
                                     <tr>
+                                        <td><?= $row['priceID']; ?></td>
                                         <td><?= $row['paddyType']; ?></td>
                                         <td><?= $row['buyingPrice']; ?></td>
                                         <td><?= $row['sellingPrice']; ?></td>

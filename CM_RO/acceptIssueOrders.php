@@ -228,16 +228,13 @@ include("../Common/TopNavBar.php");
                         <table id="userTable" class="table table-bordered table-hover table-light">
                             <thead>
                             <tr>
-                                <th>User ID</th>
-                                <th>Center ID</th>
+                                <th>Issue OrderID</th>
+                                <th>Customer ID
                                 <th>Region</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>NIC</th>
-                                <th>Address</th>
-                                <th>Contact No</th>
-                                <th>E-Mail</th>
-                                <th>Gender</th>
+                                <th>Paddy Type</th>
+                                <th>Quantity</th>
+                                <th>Ordered Date</th>
+                                <th>Accepted Date</th>
                                 <th>isActive</th>
                                 <th>Actions</th>
 
@@ -249,22 +246,19 @@ include("../Common/TopNavBar.php");
 
                             <?php
                             include("../Common/config.php");
-                            $loadTable = "SELECT * FROM `tbl_cutomer`";
+                            $loadTable = "SELECT * FROM `tbl_issueorder`";
                             $result = $con->query($loadTable);
                             if ($result) {
                                 foreach ($result as $row) {
                                     ?>
                                     <tr>
+                                        <td><?= $row['ioID']; ?></td>
                                         <td><?= $row['customerID']; ?></td>
-                                        <td><?= $row['centerID']; ?></td>
                                         <td><?= $row['region']; ?></td>
-                                        <td><?= $row['firstName']; ?></td>
-                                        <td><?= $row['lastName']; ?></td>
-                                        <td><?= $row['NIC']; ?></td>
-                                        <td><?= $row['addressLine1']; ?></td>
-                                        <td><?= $row['contactNo1']; ?></td>
-                                        <td><?= $row['email']; ?></td>
-                                        <td><?= $row['gender'] ?></td>
+                                        <td><?= $row['paddyType']; ?></td>
+                                        <td><?= $row['Qty1']; ?></td>
+                                        <td><?= $row['OrderDateOn']; ?></td>
+                                        <td><?= $row['OrderDateOn']; ?></td>
                                         <td><?= $row['isActive']; ?></td>
                                         <td>
                                             <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $row['empID'];?>')" value="<?= $row['empID']; ?>">Delete</button>

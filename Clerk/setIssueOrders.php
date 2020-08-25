@@ -209,7 +209,7 @@ include("../Common/TopNavBar.php");
                                                                     table = document.getElementById("customerTableModal");
                                                                     tr = table.getElementsByTagName("tr");
                                                                     for (i = 0; i < tr.length; i++) {
-                                                                        td = tr[i].getElementsByTagName("td")[2];
+                                                                        td = tr[i].getElementsByTagName("td")[1];
                                                                         if (td) {
                                                                             txtValue = td.textContent || td.innerText;
                                                                             if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -387,8 +387,12 @@ include("../Common/TopNavBar.php");
                         </div>
                     </div>
 
+                    <div class="col-sm-4 col-md-4 col-lg-4 ">
+
+                    </div>
                 </div>
             </div>
+
 
             <br><br>
             <div class="container" style="margin-left: 30%">
