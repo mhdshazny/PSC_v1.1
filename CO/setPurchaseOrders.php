@@ -135,7 +135,7 @@ include("../Common/TopNavBar.php");
                             </div>
 
                             <div class="container" style="margin-left: 30%">
-                                <button type="submit" name="cal" id="cal" class="btn btn-primary btn-block" style="width: 50%; align-content: center" onclick="calTot()">Calculate</button>
+                                <button type="button" name="cal" id="cal" class="btn btn-primary btn-block" style="width: 50%; align-content: center" onclick="calTot()">Calculate</button>
                             </div>
 
                         </div>
