@@ -24,6 +24,7 @@
 <?php
 include("../Common/TopNavBar.php");
 ?>
+<!--<div class="row" style="min-height: 87%; background-color: #011d21">-->
 <div class="row" style="min-height: 87%; background-color: #011d21">
     <?php
     include("../Common/SideNavBar.php");
