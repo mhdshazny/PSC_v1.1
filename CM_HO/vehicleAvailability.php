@@ -80,8 +80,7 @@ include("../Common/TopNavBar.php");
                                             <button class="btn-info btn-sm" onclick="editUser()" value="<?= $row['empID']; ?>">Edit</button>
 
                                         </td>
-                                        <td hidden><?= $row['addressLine2']; ?></td>
-                                        <td hidden><?= $row['contactNo2']; ?></td>
+
 
 
                                     </tr>

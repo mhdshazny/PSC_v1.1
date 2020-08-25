@@ -173,7 +173,7 @@ include("../Common/TopNavBar.php");
 
                     <br><br>
                     <div class="container" style="margin-left: 30%">
-                        <button type="submit" name="addUser" id="addUser" class="btn btn-primary btn-block" style="width: 50%; align-content: center">Register</button>
+                        <button type="submit" name="sendEstimations" id="sendEstimations" class="btn btn-primary btn-block" style="width: 50%; align-content: center">Register</button>
                         <button type="submit" name="updateUser" id="updateUser" class="btn btn-primary btn-block" style="width: 50%; align-content: center" disabled>Update</button>
                         <button type="button" name="reload" id="reload" class="btn btn-danger btn-block" style="width: 50%; align-content: center" onclick="location.reload()">Reload</button>
                     </div>

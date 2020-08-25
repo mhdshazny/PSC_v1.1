@@ -297,11 +297,11 @@ include("../Common/TopNavBar.php");
                                 foreach ($result as $row) {
                                     ?>
                                     <tr>
-                                        <td><?= $row['issueOrderID']; ?></td>
-                                        <td><?= $row['centerID']; ?></td>
-                                        <td><?= $row['region']; ?></td>
-                                        <td><?= $row['firstName']; ?></td>
-                                        <td><?= $row['lastName']; ?></td>
+                                        <td><?= $row['ioID']; ?></td>
+                                        <td><?= $row['OrderDateOn']; ?></td>
+                                        <td><?= $row['customerID']; ?></td>
+                                        <td><?= $row['customer']; ?></td>
+                                        <td><?= $row['contactNo1']; ?></td>
                                         <td><?= $row['NIC']; ?></td>
                                         <td><?= $row['addressLine1']; ?></td>
                                         <td><?= $row['contactNo1']; ?></td>
