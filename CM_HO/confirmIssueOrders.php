@@ -29,6 +29,7 @@ include("../Common/TopNavBar.php");
     include("../Common/SideNavBar.php");
 
     $centerID1_temp = "";
+    $vehicleCapTemp = "";
     ?>
     <div class="col-md-10 d-none d-md-block container text-white" style="background-color: #011d21">
         <div class="container-fluid rounded" style="min-height: 100%; background-color: #04333b">
@@ -42,7 +43,7 @@ include("../Common/TopNavBar.php");
                 <?php
                 $Priority = 'AdminUserReg';
                 ?>
-                <FORM action="confirmIssueOrders_dB.php" method="POST" class="col" class="was-validated"">
+                <FORM action="confirmIssueOrders_dB.php" method="POST" class="col-sm-12 col-md-12 col-lg-12" class="was-validated"">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-sm-12 col-md-12 col-lg-12 ">
@@ -162,8 +163,34 @@ include("../Common/TopNavBar.php");
 <!--                            <form action="CRUDissueOrder.php" method="post">-->
                                 <div class="input-group col-sm-12 col-md-12 col-lg-12">
 
-                                    <input type="text" id="centerID1" name="centerID1" class="form-group input-group form-control  col-sm-11 col-md-11 col-lg-11" placeholder="Center ID need to add find option" aria-label="" aria-describedby="basic-addon1">                                <!--                                  modal-->
-                                    <button type="button" name="QtySearch1" id="QtySearch1" onclick="getQtyCenter()" class="btn btn-outline-primary ion-search col-md-1 col-sm-1 col-lg-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+<!--                                    <input type="text" id="centerID1" name="centerID1" class="form-group input-group form-control  col-sm-11 col-md-11 col-lg-11" placeholder="Center ID need to add find option" aria-label="" aria-describedby="basic-addon1">
+                                    <button type="button" name="QtySearch1" id="QtySearch1" onclick="getQtyCenter()" class="btn btn-outline-primary ion-search col-md-1 col-sm-1 col-lg-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>-->
+                                    <select class="custom-select" id="centerID1" name="centerID1" onchange="getQtyCenter()" disabled>
+                                        <option value=''>Null</option>
+
+                                        <?php
+
+                                        include("../Common/config.php");
+                                        //
+                                        $addQuery = "select * from `tbl_collectioncenter`";
+                                        $result = $con->query($addQuery);
+                                        //
+                                        //                                        if ($result) {
+                                        //                                            foreach ($result as $row) {
+                                        ?>
+
+                                        <?php
+                                        while ($rows = $result->fetch_assoc()) {
+                                            $centerID= $rows['centerID'];
+                                            $regionName= $rows['region'];
+                                            echo "<option value='$centerID'>$regionName</option>";
+//                                                echo "<label for='regionName' name='regionName' value='$regionName' hidden>$regionName</label>";
+
+                                        }
+                                        ?>
+                                        <!---->
+                                        <!---->
+                                    </select>
 
                                 </div>
 <!--                            </form>-->
@@ -195,7 +222,35 @@ include("../Common/TopNavBar.php");
                             <div class="form-group">
                                 <label for="centerID2" class="col-sm-12 col-md-12 col-lg-12 control-label">Center ID 2</label>
                                 <div class="col-sm-12 col-md-12 col-lg-12">
-                                    <input type="text" id="centerID2" name="centerID2" placeholder="Center ID need to add find option" class="form-control" required autofocus>
+<!--                                    <input type="text" id="centerID2" name="centerID2" placeholder="Center ID need to add find option" class="form-control" required readonly>-->
+                                    <select class="custom-select" id="centerID2" name="centerID2"  onchange="getQtyCenter2()" disabled>
+                                        <option value=''>Null</option>
+
+                                        <?php
+
+                                        include("../Common/config.php");
+                                        //
+                                        $addQuery = "select * from `tbl_collectioncenter`";
+                                        $result = $con->query($addQuery);
+                                        //
+                                        //                                        if ($result) {
+                                        //                                            foreach ($result as $row) {
+                                        ?>
+
+                                        <?php
+                                        while ($rows = $result->fetch_assoc()) {
+                                            $centerID= $rows['centerID'];
+                                            $regionName= $rows['region'];
+                                            echo "<option value='$centerID'>$regionName</option>";
+//                                                echo "<label for='regionName' name='regionName' value='$regionName' hidden>$regionName</label>";
+
+                                        }
+                                        ?>
+                                        <!---->
+                                        <!---->
+                                    </select>
+
+
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
@@ -203,9 +258,9 @@ include("../Common/TopNavBar.php");
                         </div>
                         <div class="col-sm-4 col-md-4 col-lg-4 ">
                             <div class="form-group">
-                                <label for="quantity2" class="col-sm-5 control-label">Center 2 Quantity (kg)</label>
+                                <label for="Avlbl_quantity2" class="col-sm-5 control-label">Center 2 Quantity (kg)</label>
                                 <div class="col-sm-12 col-md-12 col-lg-12">
-                                    <input type="text" id="quantity2" name="quantity2" placeholder="Quantity(Kg)" class="form-control" required autofocus>
+                                    <input type="text" id="Avlbl_quantity2" name="Avlbl_quantity2" placeholder="Quantity(Kg)" class="form-control" required>
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
@@ -215,7 +270,7 @@ include("../Common/TopNavBar.php");
                             <div class="form-group">
                                 <label for="orderQuantity2" class="col-sm-5 control-label">Order Quantity (kg)</label>
                                 <div class="col-sm-12 col-md-12 col-lg-12">
-                                    <input type="text" id="orderQuantity2" name="orderQuantity2" placeholder="Quantity(Kg)" class="form-control" required autofocus>
+                                    <input type="text" id="orderQuantity2" name="orderQuantity2" placeholder="Quantity(Kg)" class="form-control" required readonly>
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
@@ -227,7 +282,40 @@ include("../Common/TopNavBar.php");
                             <div class="form-group">
                                 <label for="vehicleID" class="col-sm-12 col-md-12 col-lg-12 control-label">Vehicle ID 1</label>
                                 <div class="col-sm-12 col-md-12 col-lg-12">
-                                    <input type="text" id="vehicleID" name="vehicleID" placeholder="Vehicle ID need to add find option" class="form-control" readonly required autofocus>
+<!--                                    <input type="text" id="vehicleID" name="vehicleID" placeholder="Vehicle ID need to add find option" class="form-control" readonly required autofocus>-->
+                                    <select class="custom-select" id="vehicleID" name="vehicleID">
+                                        <option value='' >Null</option>
+
+                                        <?php
+
+                                        include("../Common/config.php");
+                                        //
+//                                        $totValue= "<script>document.getElementById('quantity').toString();</script>";
+//                                        $Qty= $totValue;
+                                        $addQuery = "select * from `tbl_vehicles` ORDER BY `capacity` DESC";
+                                        $result = $con->query($addQuery);
+                                        //
+                                        //                                        if ($result) {
+                                        //                                            foreach ($result as $row) {
+                                        ?>
+
+                                        <?php
+                                        while ($rows = $result->fetch_assoc()) {
+                                            $vehicleID= $rows['vehicleID'];
+                                            $vehicleName= $rows['vehicleModel'];
+                                            $vehicleCapacity= $rows['capacity'];
+                                            echo "<option value='$vehicleID'>$vehicleName   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $vehicleCapacity </option>";
+//                                                echo "<label for='regionName' name='regionName' value='$regionName' hidden>$regionName</label>";
+?>
+                                            <?php
+                                        }
+
+                                        ?>
+                                        <!---->
+                                        <!---->
+                                    </select>
+
+                                    <div class="valid-feedback">Valid.</div>
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
@@ -237,7 +325,7 @@ include("../Common/TopNavBar.php");
                             <div class="form-group">
                                 <label for="capacity" class="col-sm-5 control-label">Vehicle Capacity</label>
                                 <div class="col-sm-12 col-md-12 col-lg-12">
-                                    <input type="text" id="capacity" name="capacity" placeholder="Capacity(Kg)" class="form-control" required autofocus>
+                                    <input type="text" id="capacity" name="capacity" placeholder="Capacity(Kg)" class="form-control" value="<?php echo $vehicleCapTemp?>" required autofocus>
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
@@ -286,8 +374,8 @@ include("../Common/TopNavBar.php");
 
                 <br><br>
                 <div class="container" style="margin-left: 30%">
-                    <button type="submit" name="acceptOrder" id="acceptOrder" class="btn btn-primary btn-block" style="width: 50%; align-content: center">Register</button>
-                    <button type="submit" name="updateUser" id="updateUser" class="btn btn-primary btn-block" style="width: 50%; align-content: center" disabled>Update</button>
+                    <button type="submit" name="confirmIssueOrder" id="confirmIssueOrder" class="btn btn-primary btn-block" style="width: 50%; align-content: center">Accept order</button>
+<!--                    <button type="submit" name="updateUser" id="updateUser" class="btn btn-primary btn-block" style="width: 50%; align-content: center" disabled>Update</button>-->
                     <button type="button" name="reload" id="reload" class="btn btn-danger btn-block" style="width: 50%; align-content: center" onclick="location.reload()">Reload</button>
                 </div>
 
@@ -361,9 +449,10 @@ include("../Common/TopNavBar.php");
 
                             function acceptIssueOrder() {
 
-                                document.getElementById('acceptOrder').disabled=true;
+                                // document.getElementById('acceptOrder').disabled=true;
 
-                                document.getElementById('updateUser').disabled=false;
+                                // document.getElementById('updateUser').disabled=false;
+                                document.getElementById('centerID1').disabled=false;
                                 document.getElementById('isActive').disabled=false;
 
                                 var table = document.getElementById('issueOrderTable'),index;
@@ -449,20 +538,78 @@ include("../Common/Scripts.php");
 
 
     function getQtyCenter(){
-        var id = $('#centerID1').val();
-        $.ajax({
-            type: "GET",
-            url: "CRUDissueOrder.php",
-            data: {keyword:'searchCenter',id:id},
-            cache: false,
-            dataType:'json',
-            success: function(data){
-                if(data.result){
-                   $('#Avlbl_quantity1').val(data.message);
 
-                }
+        let totQty= document.getElementById("quantity").value;
+        let centerAvblQty1= document.getElementById("Avlbl_quantity1").value;
+
+        let centerAvblQty2= document.getElementById("Avlbl_quantity2").value;
+
+        let rem= totQty - centerAvblQty1;
+
+        let rem2 = rem - centerAvblQty2;
+
+        document.getElementById("orderQuantity1").value= rem;
+        //document.getElementById("capacity").value= <?php //echo $vehicleCapTemp?>//;
+
+        if (rem>0){
+            document.getElementById("centerID2").disabled=false;
+            document.getElementById("quantity2").readOnly=false;
+
+            // document.getElementById("centerID2").disabled=false;
+            if (rem2>0){
+                document.getElementById("orderQuantity2").readOnly=false;
+                document.getElementById("orderQuantity2").value= rem2;
+
             }
-        });
+
+        }
+        else {
+            document.getElementById("centerID2").readOnly=true;
+            document.getElementById("quantity2").readOnly=true;
+            document.getElementById("orderQuantity2").readOnly=true;
+
+        }
+
+        // var id = $('#centerID1').val();
+        // $.ajax({
+        //     type: "GET",
+        //     url: "CRUDissueOrder.php",
+        //     data: {keyword:'searchCenter',id:id},
+        //     cache: false,
+        //     dataType:'json',
+        //     success: function(data){
+        //         if(data.result){
+        //            $('#Avlbl_quantity1').val(data.message);
+        //
+        //         }
+        //     }
+        // });
+    }
+    function getQtyCenter2(){
+
+
+        let rem= document.getElementById("orderQuantity1").value;
+        let centerAvblQty2= document.getElementById("Avlbl_quantity2").value;
+
+        let rem2 = rem - centerAvblQty2;
+
+        document.getElementById("orderQuantity2").value= rem2;
+
+
+        // var id = $('#centerID1').val();
+        // $.ajax({
+        //     type: "GET",
+        //     url: "CRUDissueOrder.php",
+        //     data: {keyword:'searchCenter',id:id},
+        //     cache: false,
+        //     dataType:'json',
+        //     success: function(data){
+        //         if(data.result){
+        //            $('#Avlbl_quantity1').val(data.message);
+        //
+        //         }
+        //     }
+        // });
     }
 
 </script>

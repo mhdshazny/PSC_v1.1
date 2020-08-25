@@ -3,8 +3,6 @@ include("../Common/config.php");
 
 if (isset($_POST['confirmIssueOrder'])) {
 
-
-
     $issueOrderID = $_POST['issueOrderID'];
     $paddyType = $_POST['paddyType'];
 
@@ -14,22 +12,32 @@ if (isset($_POST['confirmIssueOrder'])) {
     $orderDateOn = $_POST['orderDateOn'];
     $quantity = $_POST['quantity'];
     $acceptDateOn = $_POST['acceptDateOn'];
-    $confirmDateOn = $_POST['confirmDateOn'];
+//    $confirmDateOn = $_POST['confirmDateOn'];
+    $confirmDateOn = date("Y-m-d");
     $region= $_POST['region'];
+
+    $centerID1= $_POST['centerID1'];
+    $centerID2= $_POST['centerID2'];
+    $qty2= $_POST['orderQuantity2'];
+    $qty1= $_POST['orderQuantity1'];
 
     $isActive="1";
     $adminID='AD003';
     $Description= 'ABC';
+    $orderStatus="Order confirmed";
+
 
 
 //    if (!empty($picture)) {
 
-    if (!empty($issueOrderID)) {
-
-        $sql ="INSERT INTO `tbl_issueorder`(`ioID`, `customerID`, `region`, `paddyType`, `Qty`, `unitPrice`, 
-                    `orderDateOn`, `vehicleID`, `adminID`, `Description`, `confirmDateOn`, `isActive`) 
-                    VALUES ('$issueOrderID','$customerID','$region','$paddyType','$quantity','$unitPrice',
-                    '$orderDateOn','$vehicleID','$adminID','$Description','$acceptDateOn','$isActive')";
+    if (!empty($issueOrderID) && !empty($qty1) && !empty($confirmDateOn) && !empty($vehicleID)) {
+//
+//        $sql ="INSERT INTO `tbl_issueorder`(`ioID`, `customerID`, `region`, `paddyType`, `Qty`, `unitPrice`,
+//                    `orderDateOn`, `vehicleID`, `adminID`, `Description`, `confirmDateOn`, `isActive`)
+//                    VALUES ('$issueOrderID','$customerID','$region','$paddyType','$quantity','$unitPrice',
+//                    '$orderDateOn','$vehicleID','$adminID','$Description','$acceptDateOn','$isActive')
+        $sql ="UPDATE `tbl_issueorder` SET `center1`='$centerID1',`center2`='$centerID2',`Qty2`='$qty2',`Qty1`='$qty1',`vehicleID`='$vehicleID',`adminID`='$adminID',`Description`='$Description',`confrimDateOn`='$confirmDateOn',
+                `orderStatus`='$orderStatus' WHERE `ioID`='$issueOrderID'";
 
 
         if ($con->query($sql) === TRUE) {
@@ -39,8 +47,8 @@ if (isset($_POST['confirmIssueOrder'])) {
                 echo '<script type="text/javascript">alert("' . $msg . '")</script>';
             }
 
-            phpAlert("New record successfully Inserted");
-            header('Location: confirmIssueOrders.php?e=data inserted');
+            phpAlert("Order confirmation successful");
+            header('Location: confirmIssueOrders.php?e=Order confirmation successful');
 
         } else {
 
@@ -50,7 +58,7 @@ if (isset($_POST['confirmIssueOrder'])) {
 
             //This will redirect to same page and it'll show the message above url//
 
-            header('Location: confirmIssueOrders.php?e=Wrong Credentials11');
+            header('Location: confirmIssueOrders.php?e=Query stopped working');
         }
 
 
