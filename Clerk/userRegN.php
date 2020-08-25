@@ -1,6 +1,6 @@
 <head>
 
-    <title>Customer Registration</title>
+    <title>User Registration</title>
 
 
     <!--    Resources -->
@@ -56,19 +56,19 @@ include("../Common/TopNavBar.php");
                                     <div class="col-sm-12 col-md-12 col-lg-12">
                                         <?php
                                         include ("../Common/config.php");
-                                        $query="SELECT * FROM `tbl_employee` ORDER BY `empID` DESC LIMIT 1";
+                                         $query="SELECT * FROM `tbl_employee` ORDER BY `empID` DESC LIMIT 1";
                                         $result = $con->query($query);
 
                                         foreach ($result as $rows) {
-                                            $prevID= $rows['empID'];
-                                            $newID = substr($prevID,4,5);
-                                            $newID = $newID + 1;
-                                            $newID = str_pad($newID, 5, "0", STR_PAD_LEFT);
+                                         $prevID= $rows['empID'];
+                                         $newID = substr($prevID,4,5);
+                                         $newID = $newID + 1;
+                                         $newID = str_pad($newID, 5, "0", STR_PAD_LEFT);
 
 
-                                            ?>
-                                            <input type="text" id="userID" name="userID" placeholder="userID" class="form-control" value="USER<?= $newID?>" readonly >
-                                            <?php
+                                        ?>
+                                        <input type="text" id="userID" name="userID" placeholder="userID" class="form-control" value="USER<?= $newID?>" readonly >
+                                        <?php
                                         }
                                         $con->close();
                                         ?>
@@ -88,29 +88,29 @@ include("../Common/TopNavBar.php");
                                         <select class="custom-select" id="roleID" name="roleID">
                                             <option value=''></option>
 
-                                            <!---->
-                                            <?php
+<!---->
+                                        <?php
 
-                                            include("../Common/config.php");
-                                            //
-                                            $addQuery = "select * from `tbl_roles`";
-                                            $result = $con->query($addQuery);
-                                            //
-                                            //                                        if ($result) {
-                                            //                                            foreach ($result as $row) {
-                                            ?>
+                                        include("../Common/config.php");
+//
+                                        $addQuery = "select * from `tbl_roles`";
+                                        $result = $con->query($addQuery);
+//
+                                        //                                        if ($result) {
+                                        //                                            foreach ($result as $row) {
+                                        ?>
 
                                             <?php
                                             while ($rows = $result->fetch_assoc()) {
-                                                $roleID= $rows['roleID'];
-                                                $roleName= $rows['roleName'];
-                                                echo "<option value='$roleID'>$roleName</option>";
+                                            $roleID= $rows['roleID'];
+                                            $roleName= $rows['roleName'];
+                                            echo "<option value='$roleID'>$roleName</option>";
 
 
                                             }
                                             ?>
-                                            <!---->
-                                            <!---->
+<!---->
+<!---->
                                         </select>
                                     </div>
 
@@ -119,12 +119,12 @@ include("../Common/TopNavBar.php");
                                 </div>
                             </div>
                             <div class="col-sm-4 col-md-4 col-lg-4">
-                                <!--                                <div class="form-group">-->
-                                <!--                                    <label for="picture" class="col-sm-12 col-md-12 col-lg-12  control-label">Picture</label>-->
-                                <!--                                    <div class="col-sm-12 col-md-12 col-lg-12">-->
-                                <!--                                        <input type="file" name="picture" id="picture" placeholder=Picture" class="form-control">-->
-                                <!--                                    </div>-->
-                                <!--                                </div>-->
+<!--                                <div class="form-group">-->
+<!--                                    <label for="picture" class="col-sm-12 col-md-12 col-lg-12  control-label">Picture</label>-->
+<!--                                    <div class="col-sm-12 col-md-12 col-lg-12">-->
+<!--                                        <input type="file" name="picture" id="picture" placeholder=Picture" class="form-control">-->
+<!--                                    </div>-->
+<!--                                </div>-->
                                 <div class="form-group">
                                     <label for="picture" class="col-sm-12 col-md-12 col-lg-12  control-label">Picture</label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
@@ -376,35 +376,35 @@ include("../Common/TopNavBar.php");
                             $loadTable = "SELECT * FROM `tbl_employee` ORDER BY `empID` DESC ";
                             $result = $con->query($loadTable);
                             if ($result) {
-                                foreach ($result as $row) {
-                                    ?>
-                                    <tr>
-                                        <td><?= $row['empID']; ?></td>
-                                        <td><?= $row['roleID']; ?></td>
-                                        <td><?= $row['centerID']; ?></td>
-                                        <td><?= $row['firstName']; ?></td>
-                                        <td><?= $row['lastName']; ?></td>
-                                        <td><?= $row['addressLine1']; ?></td>
-                                        <td><?= $row['contactNo1']; ?></td>
-                                        <td><?= $row['email']; ?></td>
-                                        <td><?= $row['dob']; ?></td>
-                                        <td><?= $row['gender'] ?></td>
-                                        <td><?= $row['isActive']; ?></td>
-                                        <td>
-                                            <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $row['empID'];?>')" value="<?= $row['empID']; ?>">Delete</button>
-                                            <button class="btn-info btn-sm" onclick="editUser()" value="<?= $row['empID']; ?>">Edit</button>
+                            foreach ($result as $row) {
+                            ?>
+                            <tr>
+                                <td><?= $row['empID']; ?></td>
+                                <td><?= $row['roleID']; ?></td>
+                                <td><?= $row['centerID']; ?></td>
+                                <td><?= $row['firstName']; ?></td>
+                                <td><?= $row['lastName']; ?></td>
+                                <td><?= $row['addressLine1']; ?></td>
+                                <td><?= $row['contactNo1']; ?></td>
+                                <td><?= $row['email']; ?></td>
+                                <td><?= $row['dob']; ?></td>
+                                <td><?= $row['gender'] ?></td>
+                                <td><?= $row['isActive']; ?></td>
+                                <td>
+                                    <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $row['empID'];?>')" value="<?= $row['empID']; ?>">Delete</button>
+                                    <button class="btn-info btn-sm" onclick="editUser()" value="<?= $row['empID']; ?>">Edit</button>
 
-                                        </td>
-                                        <td hidden><?= $row['addressLine2']; ?></td>
-                                        <td hidden><?= $row['contactNo2']; ?></td>
-                                        <td hidden><?= $row['password']; ?></td>
-                                        <td hidden><?= $row['profilePic']; ?></td>
+                                </td>
+                                <td hidden><?= $row['addressLine2']; ?></td>
+                                <td hidden><?= $row['contactNo2']; ?></td>
+                                <td hidden><?= $row['password']; ?></td>
+                                <td hidden><?= $row['profilePic']; ?></td>
 
 
-                                    </tr>
+                            </tr>
 
-                                    <?php
-                                }
+                            <?php
+                            }
 
                             }
 
