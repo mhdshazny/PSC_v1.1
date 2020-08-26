@@ -36,9 +36,9 @@
 include("../Common/TopNavBar.php");
 ?>
 <div class="row" style="min-height: 87%; background-color: #011d21;margin: 0px; padding-left: 1%" >
- <?php
- include("../Common/SideNavBar.php");
- ?>
+    <?php
+    include("../Common/SideNavBar.php");
+    ?>
     <div class="col-md-10 d-none d-md-block container" style="">
         <!--<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">-->
         <div class="container-fluid rounded" style="min-height: 100%; background-color: #04333b" >
@@ -51,14 +51,17 @@ include("../Common/TopNavBar.php");
             <!---->
             <!--            </div>-->
             <div class="row">
-
-                <div class="col-lg-6 col-md-6 col-sm-6 mb-5 align-content-center" style="min-width:100%; ">
-                    <canvas class="rounded effect " id="myChart2"></canvas>
+                <div class="col-md-12 col-sm-12 col-lg-12">
+                    <div class="col-lg-5 col-md-5 col-sm-5 col mb-5" style="margin-left: 2% ">
+                        <canvas class="rounded effect " id="myChart2"></canvas>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 mb-5 col" style="margin-left: 2% ">
+                        <canvas class="rounded effect " id="myChart2"></canvas>
+                    </div>
                 </div>
-
             </div>
             <div class="row">
-                <div class="col-md-auto col-lg-4">
+                <div class="col-md-auto col-lg-4" style="margin-left: 2%">
                     <canvas id="myChart" class="rounded effect" style=""></canvas>
                 </div>
                 <!--<div class="col-md-auto col-lg-4">
