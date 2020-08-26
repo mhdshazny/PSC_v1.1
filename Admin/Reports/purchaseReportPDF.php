@@ -100,7 +100,7 @@ $result = $con->query($loadTable);
 }
 $html.='</tbody>
 </table>
-<div style="text-align: center; font-style: italic;">Payment terms: payment due in 30 days</div>
+<div style="text-align: center; font-style: italic;">Purchase terms: Purchases within '.$_POST['fromDate'].' to '.$_POST['toDate'].' days</div>
 </body>
 </html>
 ';
