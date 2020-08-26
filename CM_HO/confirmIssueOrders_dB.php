@@ -38,6 +38,9 @@ if (isset($_POST['confirmIssueOrder'])) {
 //                    '$orderDateOn','$vehicleID','$adminID','$Description','$acceptDateOn','$isActive')
         $sql ="UPDATE `tbl_issueorder` SET `center1`='$centerID1',`center2`='$centerID2',`Qty2`='$qty2',`Qty1`='$qty1',`vehicleID`='$vehicleID',`adminID`='$adminID',`Description`='$Description',`confrimDateOn`='$confirmDateOn',
                 `orderStatus`='$orderStatus' WHERE `ioID`='$issueOrderID'";
+//
+//        $sql2 ="UPDATE `tbl_stores` SET ,`center2`='$centerID2',`Qty2`='$qty2',`Qty1`='$qty1',`vehicleID`='$vehicleID',`adminID`='$adminID',`Description`='$Description',`confrimDateOn`='$confirmDateOn',
+//                `orderStatus`='$orderStatus' WHERE `center1`='$centerID1' && ";
 
 
         if ($con->query($sql) === TRUE) {

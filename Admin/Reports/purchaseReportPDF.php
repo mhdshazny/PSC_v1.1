@@ -1,7 +1,11 @@
 <?php
-require_once __DIR__ . '\..\vendor\autoload.php';
 
-$html = '
+
+
+
+require_once __DIR__ . '../..\..\vendor\autoload.php';
+
+$html.='
 <html>
 <head>
 <style>
@@ -43,7 +47,7 @@ table thead td { background-color: #EEEEEE;
 <!--mpdf
 <htmlpageheader name="myheader">
 <div style="text-align:center;font-size:20pt;font-weight:bold">Sales Report</div>   
-<div style="text-align:center;font-size:16pt;font-weight:bold">As of '.$_POST['date'].'</div>
+<div style="text-align:center;font-size:16pt;font-weight:bold">As of '.$_POST['fromDate'].' to '.$_POST['toDate'].'</div>
 </htmlpageheader>
 <htmlpagefooter name="myfooter">
 <div style="border-top: 1px solid #000000; font-size: 9pt; text-align: center; padding-top: 3mm; ">
@@ -56,26 +60,44 @@ mpdf-->
 <table class="items" width="100%" style="font-size: 9pt; border-collapse: collapse; " cellpadding="8">
 <thead>
 <tr>
-<td width="15%">Ref. No.</td>
-<td width="10%">Quantity</td>
-<td width="45%">Description</td>
-<td width="15%">Unit Price</td>
-<td width="15%">Amount</td>
+<th>Purchase ID</th>
+<th>farmerID</th>
+<th>paddyType</th>
+<th>Qty</th>
+<th>unitPrice</th>
+<th>total</th>
+<th>stockID</th>
+<th>DateOn</th>
+<th>Description</th>
+
 </tr>
 </thead>
 <tbody>';
-foreah($data as $val){
-    $html .= '
+
+include("../../Common/config.php");
+
+$loadTable = "SELECT * FROM `tbl_purchaseorder`";
+$result = $con->query($loadTable);
+
+    foreach($result as $row){
+         $html.='
 <!-- ITEMS HERE -->
 <tr>
-<td align="center">MF1234567</td>
-<td align="center">10</td>
-<td>Large pack Hoover bags</td>
-<td class="cost">&pound;2.56</td>
-<td class="cost">&pound;25.60</td>
+                                        <td>'; $row['poID']; $html.='</td>
+                                        <td>'; $row['farmerID']; $html.='</td>
+                                        <td>'; $row['paddyType']; $html.='</td>
+                                        <td>'; $row['Qty']; $html.='</td>
+                                        <td>'; $row['unitPrice']; $html.= '</td>
+                                        <td>'; $row['total']; $html.='</td>
+                                        <td>'; $row['stockID']; $html.='</td>
+                                        <td>'; $row['DateOn']; $html.='</td>
+                                        <td>'; $row['Description']; $html.='</td>
+                                     
+                         
 </tr>';
+
 }
-$html.= '</tbody>
+$html.='</tbody>
 </table>
 <div style="text-align: center; font-style: italic;">Payment terms: payment due in 30 days</div>
 </body>
@@ -101,4 +123,4 @@ $mpdf->SetDisplayMode('fullpage');
 
 $mpdf->WriteHTML($html);
 
-$mpdf->Output('salesReport.pdf','D');
+$mpdf->Output('purchaseReport.pdf','D');

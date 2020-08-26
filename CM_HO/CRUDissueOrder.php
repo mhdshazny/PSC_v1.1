@@ -42,6 +42,24 @@ if (isset($_GET['keyword']) && $_GET['keyword'] == 'searchCenter') {
     }
 }
 
+if (isset($_GET['search']) && $_GET['search'] == 'searchVehicle') {
+    $vehicleID=$_GET['id'];
+    $qty='';
+    $query="select `capacity` from `tbl_vehicles` where `vehicleID`='".$vehicleID."'";
+    $result = $con->query($query);
+    if ($result) {
+        while ($row = $result->fetch_assoc()) {
+            $qty = $row['capacity'];
+            $Qty = array("result" => true, "Vehicle" => $qty);
+            echo json_encode($Qty);
+        }
+    }
+    else{
+        $delalert = array("result"=>false, "Vehicle"=>'Failed');
+        echo json_encode($delalert);
+    }
+}
+
 
 $con->close();
 

@@ -260,9 +260,9 @@ include("../Common/TopNavBar.php");
                             <div class="form-group">
                                 <label for="Avlbl_quantity2" class="col-sm-5 control-label">Center 2 Quantity (kg)</label>
                                 <div class="col-sm-12 col-md-12 col-lg-12">
-                                    <input type="text" id="Avlbl_quantity2" name="Avlbl_quantity2" placeholder="Quantity(Kg)" class="form-control" required>
-                                    <div class="valid-feedback">Valid.</div>
-                                    <div class="invalid-feedback">Please fill out this field.</div>
+                                    <input type="text" id="Avlbl_quantity2" name="Avlbl_quantity2" placeholder="Quantity(Kg)" class="form-control">
+<!--                                    <div class="valid-feedback">Valid.</div>-->
+<!--                                    <div class="invalid-feedback">Please fill out this field.</div>-->
                                 </div>
                             </div>
                         </div>
@@ -304,7 +304,7 @@ include("../Common/TopNavBar.php");
                                             $vehicleID= $rows['vehicleID'];
                                             $vehicleName= $rows['vehicleModel'];
                                             $vehicleCapacity= $rows['capacity'];
-                                            echo "<option value='$vehicleID'>$vehicleName   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $vehicleCapacity </option>";
+                                            echo "<option value='$vehicleID'>$vehicleName</option>";
 //                                                echo "<label for='regionName' name='regionName' value='$regionName' hidden>$regionName</label>";
 ?>
                                             <?php
@@ -325,7 +325,7 @@ include("../Common/TopNavBar.php");
                             <div class="form-group">
                                 <label for="capacity" class="col-sm-5 control-label">Vehicle Capacity</label>
                                 <div class="col-sm-12 col-md-12 col-lg-12">
-                                    <input type="text" id="capacity" name="capacity" placeholder="Capacity(Kg)" class="form-control" value="<?php echo $vehicleCapTemp?>" required autofocus>
+                                    <input type="text" id="vehicleCapacity" name="vehicleCapacity" placeholder="Capacity(Kg)" class="form-control" autofocus>
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
@@ -406,7 +406,7 @@ include("../Common/TopNavBar.php");
 
                             <?php
                             include("../Common/config.php");
-                            $loadTable = "SELECT * FROM `tbl_issueorder` WHERE `isActive`=1";
+                            $loadTable = "SELECT * FROM `tbl_issueorder` WHERE `isActive`='1' && `orderStatus`='Order Placed' ";
                             $result = $con->query($loadTable);
 
                             if ($result) {
@@ -505,7 +505,10 @@ include("../Common/Scripts.php");
     $( document ).ready(function() {
         $('#centerID1').change(function(e){
             availableQty();
-        })
+        });
+        $('#vehicleID').change(function(d){
+            vehicleCapcity();
+        });
     });
 
     function rejectOrder(id){
@@ -548,23 +551,30 @@ include("../Common/Scripts.php");
         let totQty= document.getElementById("quantity").value;
         let centerAvblQty1= document.getElementById("Avlbl_quantity1").value;
 
-        let centerAvblQty2= document.getElementById("Avlbl_quantity2").value;
+        //let centerAvblQty2= document.getElementById("Avlbl_quantity2").value;
 
-        let rem= totQty - centerAvblQty1;
+        let rem= centerAvblQty1 - totQty;
 
-        let rem2 = rem - centerAvblQty2;
+        //let rem2 = rem - centerAvblQty2;
 
-        document.getElementById("orderQuantity1").value= rem;
         //document.getElementById("capacity").value= <?php //echo $vehicleCapTemp?>//;
 
         if (rem>0){
+            document.getElementById("orderQuantity1").value= document.getElementById("quantity").value ;
+            // document.getElementById("quantity").value= ;
+
+
             document.getElementById("centerID2").disabled=false;
             document.getElementById("quantity2").readOnly=false;
 
+            let rem2 = document.getElementById("orderQuantity1").value;
             // document.getElementById("centerID2").disabled=false;
-            if (rem2>0){
+            if (rem2 != totQty){
+
+
                 document.getElementById("orderQuantity2").readOnly=false;
-                document.getElementById("orderQuantity2").value= rem2;
+                document.getElementById("centerID1").disabled=true;
+                // document.getElementById("Avlbl_quantity2").value= rem2;
 
             }
 
@@ -615,6 +625,31 @@ include("../Common/Scripts.php");
             success: function(data){
                 if(data.result){
                    $('#Avlbl_quantity1').val(data.Qty);
+                    getQtyCenter()
+                }
+            }
+        });
+    }
+    function orderQtyFromCC1() {
+        let totValue = $('#quantity').val();
+        let valueCC1 = $('#Avlbl_quantity1').val();
+        if (totValue<valueCC1) {
+            $('#orderQuantity1').val(data.Vehicle);
+        }
+    }
+
+
+    function vehicleCapcity() {
+        var id1 = $('#vehicleID').val();
+        $.ajax({
+            type: "GET",
+            url: "CRUDissueOrder.php",
+            data: {search:'searchVehicle',id:id1},
+            cache: false,
+            dataType:'json',
+            success: function(data){
+                if(data.result){
+                   $('#vehicleCapacity').val(data.Vehicle);
                 }
             }
         });
