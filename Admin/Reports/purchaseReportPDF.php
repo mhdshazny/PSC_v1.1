@@ -75,8 +75,9 @@ mpdf-->
 <tbody>';
 
 include("../../Common/config.php");
-
-$loadTable = "SELECT * FROM `tbl_purchaseorder`";
+$purchaseDateFrom=$_POST['fromDate'];
+$purchaseDateTo=$_POST['toDate'];
+$loadTable = "SELECT * FROM `tbl_purchaseorder` WHERE `DateOn` BETWEEN '$purchaseDateFrom' AND '$purchaseDateTo' ";
 $result = $con->query($loadTable);
 
     foreach($result as $row){
