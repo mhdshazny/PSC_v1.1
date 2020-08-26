@@ -78,8 +78,14 @@ include("../Common/TopNavBar.php");
                                 <div class="form-group">
                                     <label for="BankID" class="col-sm-12 col-md-12 col-lg-12 control-label">Bank ID </label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="text" id="BankID" name="BankID"  placeholder="Bank ID" class="form-control" >
-                                    </div>
+                                        <div class="input-group">
+                                            <button type="button" class="btn btn-outline-primary ion-search" data-toggle="modal"
+                                                    data-target=".bd-example-modal-lg" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                                            <input type="text" name="customerID" id="customerID" class="form-group input-group form-control  col-sm-12 col-md-12 col-lg-12" placeholder="Customer ID" aria-label="" aria-describedby="basic-addon1">                                <!--                                  modal-->
+
+<!--                                        <input type="text" id="BankID" name="BankID"  placeholder="Bank ID" class="form-control" >-->
+                                        </div>
+                                        </div>
                                 </div>
                             </div>
                         </div>
@@ -161,6 +167,7 @@ include("../Common/TopNavBar.php");
                     <br><br>
                     <div class="container" style="margin-left: 30%">
                         <button type="submit" name="addUser" id="addUser" class="btn btn-primary btn-block" style="width: 50%; align-content: center">Add record</button>
+                        <button type="submit" name="addUser" id="addUser" class="btn btn-primary btn-block" style="width: 50%; align-content: center">Print Bill</button>
                         <button type="submit" name="updateUser" id="updateUser" class="btn btn-primary btn-block" style="width: 50%; align-content: center" disabled>Update</button>
                         <button type="button" name="reload" id="reload" class="btn btn-danger btn-block" style="width: 50%; align-content: center" onclick="location.reload()">Reload</button>
                     </div>

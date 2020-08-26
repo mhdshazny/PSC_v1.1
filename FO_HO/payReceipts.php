@@ -265,7 +265,7 @@ include("../Common/TopNavBar.php");
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-12 ">
                                 <div class="form-group">
-                                    <label for="CenterDetails" class="col-sm-12 col-md-12 col-lg-12 bg-info mt-4">Center and Vehicle Details</label>
+                                    <label for="CenterDetails" class="col-sm-12 col-md-12 col-lg-12 bg-info mt-4">Issue Order Details</label>
                                 </div>
                             </div>
                         </div>
