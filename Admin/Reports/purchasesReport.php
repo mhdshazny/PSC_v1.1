@@ -51,7 +51,7 @@ if (isset($_POST)){
 
 }
 ?>
-<body class="" style="background-color: #011d21; ">
+<body class="" style="background-color: #011d21">
 
 <!--<div class="container">-->
 <!--    <main role="main" class="pb-3 bg-dark">-->
@@ -62,7 +62,7 @@ if (isset($_POST)){
 <?php
 include("../../Common/TopNavBar.php");
 ?>
-<div class="row" style="min-height: 87%; background-color: #011d21;margin: 0px; padding-left: 1%" >
+<div class="row" style="min-height:100%; background-color: #011d21;margin: 0px; padding-left: 1%" >
     <?php
     include("../../Common/SideNavBar.php");
     ?>
@@ -230,7 +230,7 @@ include("../../Common/TopNavBar.php");
 
 
 
-    <div class="row " style="background-color: #011d21">
+    <div class="row col-sm-12 col-lg-12 col-md-12" style="background-color: #011d21">
         <?php
         include("../../Common/Footer.php");
         //        include("../../Common/Scripts.php");

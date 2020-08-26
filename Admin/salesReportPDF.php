@@ -64,7 +64,7 @@ mpdf-->
 </tr>
 </thead>
 <tbody>';
-foreah($data as $val){
+//foreah($data as $val){
     $html .= '
 <!-- ITEMS HERE -->
 <tr>
@@ -74,7 +74,7 @@ foreah($data as $val){
 <td class="cost">&pound;2.56</td>
 <td class="cost">&pound;25.60</td>
 </tr>';
-}
+//}
 $html.= '</tbody>
 </table>
 <div style="text-align: center; font-style: italic;">Payment terms: payment due in 30 days</div>

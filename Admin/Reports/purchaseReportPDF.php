@@ -1,9 +1,5 @@
 <?php
-
-
-
-
-require_once __DIR__ . '../..\..\vendor\autoload.php';
+require_once __DIR__ . '\..\..\vendor\autoload.php';
 
 $html.='
 <html>
@@ -46,7 +42,8 @@ table thead th{ background-color: #EEEEEE;
 <body>
 <!--mpdf
 <htmlpageheader name="myheader">
-<div style="text-align:center;font-size:20pt;font-weight:bold">Sales Report</div>   
+<div style="text-align:center;font-size:20pt;font-weight:bold">Paddy Storage Corporation - Reports</div>   
+<div style="text-align:center;font-size:17pt;font-weight:bold">Purchase Report</div>   
 <div style="text-align:center;font-size:16pt;font-weight:bold">As of '.$_POST['fromDate'].' to '.$_POST['toDate'].'</div>
 </htmlpageheader>
 <htmlpagefooter name="myfooter">
@@ -57,6 +54,7 @@ Page {PAGENO} of {nb}
 <sethtmlpageheader name="myheader" value="on" show-this-page="1" />
 <sethtmlpagefooter name="myfooter" value="on" />
 mpdf-->
+
 <table class="items" width="100%" style="font-size: 9pt; border-collapse: collapse; " cellpadding="8">
 <thead>
 <tr>
