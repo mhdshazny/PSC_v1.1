@@ -21,7 +21,7 @@ td { vertical-align: top; }
 	border-left: 0.1mm solid #000000;
 	border-right: 0.1mm solid #000000;
 }
-table thead td { background-color: #EEEEEE;
+table thead th{ background-color: #EEEEEE;
 	text-align: center;
 	border: 0.1mm solid #000000;
 	font-variant: small-caps;
@@ -83,15 +83,15 @@ $result = $con->query($loadTable);
          $html.='
 <!-- ITEMS HERE -->
 <tr>
-                                        <td>'; $row['poID']; $html.='</td>
-                                        <td>'; $row['farmerID']; $html.='</td>
-                                        <td>'; $row['paddyType']; $html.='</td>
-                                        <td>'; $row['Qty']; $html.='</td>
-                                        <td>'; $row['unitPrice']; $html.= '</td>
-                                        <td>'; $row['total']; $html.='</td>
-                                        <td>'; $row['stockID']; $html.='</td>
-                                        <td>'; $row['DateOn']; $html.='</td>
-                                        <td>'; $row['Description']; $html.='</td>
+                                        <td>'. $row['poID'] .'</td>
+                                        <td>'. $row['farmerID'] .'</td>
+                                        <td>'. $row['paddyType'] .'</td>
+                                        <td>'. $row['Qty'] .'</td>
+                                        <td>'. $row['unitPrice'] .'</td>
+                                        <td>'. $row['total'] .'</td>
+                                        <td>'. $row['stockID'] .'</td>
+                                        <td>'. $row['DateOn'] .'</td>
+                                        <td>'. $row['Description'] .'</td>
                                      
                          
 </tr>';
@@ -110,7 +110,8 @@ $mpdf = new \Mpdf\Mpdf([
     'margin_top' => 48,
     'margin_bottom' => 25,
     'margin_header' => 10,
-    'margin_footer' => 10
+    'margin_footer' => 10,
+    'format' => 'A4-L'
 ]);
 
 $mpdf->SetProtection(array('print'));

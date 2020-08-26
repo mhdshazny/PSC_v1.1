@@ -9,7 +9,7 @@
     include("../Common/Header.php");
     //    include ("../Common/config.php");
     ?>
-    <script src="../Plugins/bootstrap/js/bootstrap.min.js">  </script>
+<!--    <script src="../Plugins/bootstrap/js/bootstrap.min.js">  </script>-->
     <!--Bootbox Scripts-->
 </head>
 <body class="bg-dark" style="width: 100%; margin: 0%;">
@@ -349,7 +349,7 @@ include("../Common/TopNavBar.php");
             <div class="row">
                 <div class="container-fluid ">
                     <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12">
-                        <table id="userTable" class="table table-bordered table-hover table-light">
+                        <table id="userTable" class="table table-bordered table-hover table-light table-responsive" width="100%">
                             <thead>
                             <tr>
                                 <th>User ID</th>
@@ -364,6 +364,12 @@ include("../Common/TopNavBar.php");
                                 <th>Gender</th>
                                 <th>isActive</th>
                                 <th>Actions</th>
+
+
+                                <th hidden></th>
+                                <th hidden>Actions</th>
+                                <th hidden>Actions</th>
+                                <th hidden>Actions</th>
 
 
                             </tr>
@@ -428,6 +434,9 @@ include("../Common/Scripts.php");
 ?>
 <!--</div>-->
 <script>
+    $( document ).ready(function() {
+        $('#userTable').DataTable();
+    });
 
     function confirmDelete(id){
         bootbox.confirm({
