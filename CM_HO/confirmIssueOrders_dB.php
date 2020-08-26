@@ -30,14 +30,14 @@ if (isset($_POST['confirmIssueOrder'])) {
 
 //    if (!empty($picture)) {
 
-    if (!empty($issueOrderID) && !empty($qty1) && !empty($confirmDateOn)) {
+    if (!empty($issueOrderID) && !empty($qty1) && !empty($confirmDateOn) && !empty($vehicleID)) {
 //
 //        $sql ="INSERT INTO `tbl_issueorder`(`ioID`, `customerID`, `region`, `paddyType`, `Qty`, `unitPrice`,
 //                    `orderDateOn`, `vehicleID`, `adminID`, `Description`, `confirmDateOn`, `isActive`)
 //                    VALUES ('$issueOrderID','$customerID','$region','$paddyType','$quantity','$unitPrice',
 //                    '$orderDateOn','$vehicleID','$adminID','$Description','$acceptDateOn','$isActive')
-        $sql ="UPDATE `tbl_issueorder` SET `center2`='$centerID2',`Qty2`='$qty2',`Qty1`='$qty1',`vehicleID`='$vehicleID',`adminID`='$adminID',`Description`='$Description',`confrimDateOn`='$confirmDateOn',
-                `orderStatus`='$orderStatus' WHERE `center`='$centerID1' && ";
+        $sql ="UPDATE `tbl_issueorder` SET `center1`='$centerID1',`center2`='$centerID2',`Qty2`='$qty2',`Qty1`='$qty1',`vehicleID`='$vehicleID',`adminID`='$adminID',`Description`='$Description',`confrimDateOn`='$confirmDateOn',
+                `orderStatus`='$orderStatus' WHERE `ioID`='$issueOrderID'";
 //
 //        $sql2 ="UPDATE `tbl_stores` SET ,`center2`='$centerID2',`Qty2`='$qty2',`Qty1`='$qty1',`vehicleID`='$vehicleID',`adminID`='$adminID',`Description`='$Description',`confrimDateOn`='$confirmDateOn',
 //                `orderStatus`='$orderStatus' WHERE `center1`='$centerID1' && ";
