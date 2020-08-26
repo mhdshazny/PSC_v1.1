@@ -345,7 +345,7 @@ include("../Common/TopNavBar.php");
                         </table>
                         <script>
                             function messageBox() {
-                                alert("Issue Order Confirmed!");
+                                alert("Wrong Credentials");
 
                             }
 
