@@ -58,15 +58,12 @@ mpdf-->
 <table class="items" width="100%" style="font-size: 9pt; border-collapse: collapse; " cellpadding="8">
 <thead>
 <tr>
-<th>Purchase ID</th>
-<th>farmerID</th>
-<th>paddyType</th>
-<th>Qty</th>
-<th>unitPrice</th>
-<th>total</th>
-<th>stockID</th>
-<th>DateOn</th>
-<th>Description</th>
+                                <th>Price Record ID</th>
+                                <th>Paddy Type</th>
+                                <th>Buying Price</th>
+                                <th>Selling Price</th>
+                                <th>Date</th>
+
 
 </tr>
 </thead>
@@ -75,24 +72,18 @@ mpdf-->
 include("../../Common/config.php");
 $purchaseDateFrom=$_POST['fromDate'];
 $purchaseDateTo=$_POST['toDate'];
-$loadTable = "SELECT * FROM `tbl_purchaseorder` WHERE `DateOn` BETWEEN '$purchaseDateFrom' AND '$purchaseDateTo' ";
+$loadTable = "SELECT * FROM `tbl_pricerecord` WHERE `dateOn` BETWEEN '$purchaseDateFrom' AND '$purchaseDateTo' ";
 $result = $con->query($loadTable);
 
 foreach($result as $row){
     $html.='
 <!-- ITEMS HERE -->
 <tr>
-                                        <td>'. $row['poID'] .'</td>
-                                        <td>'. $row['farmerID'] .'</td>
-                                        <td>'. $row['paddyType'] .'</td>
-                                        <td>'. $row['Qty'] .'</td>
-                                        <td>'. $row['unitPrice'] .'</td>
-                                        <td>'. $row['total'] .'</td>
-                                        <td>'. $row['stockID'] .'</td>
-                                        <td>'. $row['DateOn'] .'</td>
-                                        <td>'. $row['Description'] .'</td>
-                                     
-                         
+                                        <td>'. $row['priceRecID'] .'</td>
+                                        <td>'. $row['priceRecID'] .'</td>
+                                        <td>'. $row['priceRecID'] .'</td>
+                                        <td>'. $row['sellingPrice'] .'</td>
+                                        <td>'. $row['dateOn'] .'</td>                                      
 </tr>';
 
 }

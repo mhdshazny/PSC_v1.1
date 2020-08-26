@@ -60,11 +60,11 @@ if (isset($_POST)){
 <!---->
 <!--</div>-->
 <?php
-include("../../Common/TopNavBar.php");
+include("Common/TopNavBar.php");
 ?>
 <div class="row" style="min-height: 100%; background-color: #011d21;margin: 0px; padding-left: 1%" >
     <?php
-    include("../../Common/SideNavBar.php");
+    include("Common/SideNavBar.php");
     ?>
     <div class="col-md-10 d-none d-md-block container" style="">
         <!--<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">-->

@@ -61,11 +61,11 @@ if (isset($_POST)){
 <!---->
 <!--</div>-->
 <?php
-include("../../Common/TopNavBar.php");
+include("Common/TopNavBar.php");
 ?>
 <div class="row" style="min-height:100%; background-color: #011d21;margin: 0px; padding-left: 1%" >
     <?php
-    include("../../Common/SideNavBar.php");
+    include("Common/SideNavBar.php");
     ?>
     <div class="col-md-10 d-none d-md-block container" style="">
         <!--<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">-->
@@ -73,13 +73,13 @@ include("../../Common/TopNavBar.php");
 
             <div class="container-fluid mb-lg-5">
                 <br>
-                <p class="text-white font-weight-bold" style="font-size: 250%; margin-left: 10%">Purchase Reports</p>
+                <p class="text-white font-weight-bold" style="font-size: 250%; margin-left: 10%">Price variation Reports</p>
             </div>
 
             <div class="row" style="margin-left: 0%">
 
                 <div class="col-sm-12 col-md-12 col-lg-12">
-                    <form action="purchaseReportPDF.php<?php /*echo $_SERVER['PHP_SELF']; */?>" method="post">
+                    <form action="priceVariationReportPDF.php" method="post">
                         <div class="row col-sm-12 col-lg-12 col-md-12">
                             <div class="col-md-4 col-sm-4 col-lg-4 mb-5" style="">
                                 <label for="CenterDetails" class="col-sm-12 col-md-12 col-lg-12 text-white">From Date</label>
@@ -149,15 +149,12 @@ include("../../Common/TopNavBar.php");
                         <table id="userTable" class="table table-bordered table-hover table-light">
                             <thead>
                             <tr>
-                                <th>Customer ID</th>
-                                <th>Center ID</th>
-                                <th>Region</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>NIC</th>
-                                <th>Address</th>
-                                <th>Contact No</th>
-                                <th>E-Mail</th>
+                                <th>Price Record ID</th>
+                                <th>Paddy Type</th>
+                                <th>Buying Price</th>
+                                <th>Selling Price</th>
+                                <th>Date</th>
+
 
                             </tr>
                             </thead>
@@ -166,24 +163,17 @@ include("../../Common/TopNavBar.php");
 
                             <?php
                             include("../../Common/config.php");
-                            $loadTable = "SELECT * FROM `tbl_purchaseorder` ORDER BY `DateOn` DESC";
+                            $loadTable = "SELECT * FROM `tbl_pricerecord` ORDER BY `dateOn` DESC";
                             $result = $con->query($loadTable);
                             if ($result) {
                                 foreach ($result as $row) {
                                     ?>
                                     <tr>
-                                        <td><?= $row['poID']; ?></td>
-                                        <td><?= $row['farmerID']; ?></td>
-                                        <td><?= $row['paddyType']; ?></td>
-                                        <td><?= $row['Qty']; ?></td>
-                                        <td><?= $row['unitPrice']; ?></td>
-                                        <td><?= $row['total']; ?></td>
-                                        <td><?= $row['stockID']; ?></td>
-                                        <td><?= $row['DateOn']; ?></td>
-                                        <td><?= $row['Description']; ?></td>
-
-
-
+                                        <td><?= $row['priceRecID']; ?></td>
+                                        <td><?= $row['priceRecID']; ?></td>
+                                        <td><?= $row['priceRecID']; ?></td>
+                                        <td><?= $row['sellingPrice']; ?></td>
+                                        <td><?= $row['dateOn']; ?></td>
                                     </tr>
 
                                     <?php
@@ -195,29 +185,7 @@ include("../../Common/TopNavBar.php");
                             </tbody>
 
                         </table>
-                        <script>
-                            function customerID_Search() {
-                                // alert();
-                                let input, filter, table, tr, td, i,txtValue;
-                                input = document.getElementById("customerID_Modal");
-                                filter = input.value.toUpperCase();
-                                table = document.getElementById("customerTableModal");
-                                tr = table.getElementsByTagName("tr");
-                                for (i = 0; i < tr.length; i++) {
-                                    td = tr[i].getElementsByTagName("td")[0];
-                                    if (td) {
-                                        txtValue = td.textContent || td.innerText;
-                                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                                            tr[i].style.display = "";
-                                        } else {
-                                            tr[i].style.display = "none";
-                                        }
-                                    }
-                                }
 
-
-                            }
-                        </script>
                     </div>
                 </div>
             </div>

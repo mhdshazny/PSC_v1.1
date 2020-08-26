@@ -60,11 +60,11 @@ if (isset($_POST)){
 <!---->
 <!--</div>-->
 <?php
-include("../../Common/TopNavBar.php");
+include("Common/TopNavBar.php");
 ?>
 <div class="row" style="min-height:100%; background-color: #011d21;margin: 0px; padding-left: 1%" >
     <?php
-    include("../../Common/SideNavBar.php");
+    include("Common/SideNavBar.php");
     ?>
     <div class="col-md-10 d-none d-md-block container" style="">
         <!--<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">-->
@@ -72,13 +72,13 @@ include("../../Common/TopNavBar.php");
 
             <div class="container-fluid mb-lg-5">
                 <br>
-                <p class="text-white font-weight-bold" style="font-size: 250%; margin-left: 10%">Purchase Reports</p>
+                <p class="text-white font-weight-bold" style="font-size: 250%; margin-left: 10%">Sales Reports</p>
             </div>
 
             <div class="row" style="margin-left: 0%">
 
                 <div class="col-sm-12 col-md-12 col-lg-12">
-                    <form action="purchaseReportPDF.php<?php /*echo $_SERVER['PHP_SELF']; */?>" method="post">
+                    <form action="salesReportPDF.php" method="post">
                         <div class="row col-sm-12 col-lg-12 col-md-12">
                             <div class="col-md-4 col-sm-4 col-lg-4 mb-5" style="">
                                 <label for="CenterDetails" class="col-sm-12 col-md-12 col-lg-12 text-white">From Date</label>
@@ -148,15 +148,20 @@ include("../../Common/TopNavBar.php");
                         <table id="userTable" class="table table-bordered table-hover table-light">
                             <thead>
                             <tr>
+                                <th>Issue Order ID</th>
                                 <th>Customer ID</th>
-                                <th>Center ID</th>
                                 <th>Region</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>NIC</th>
-                                <th>Address</th>
-                                <th>Contact No</th>
-                                <th>E-Mail</th>
+                                <th>Paddy Type</th>
+                                <th>Collected Center 1</th>
+                                <th>Collected Quantity</th>
+                                <th>Collected Center 2</th>
+                                <th>Collected Quantity</th>
+                                <th>Total Quantity</th>
+                                <th>Unit Price</th>
+                                <th>Vehicle ID</th>
+                                <th>Order Confirmed Date</th>
+                                <th>Order Status</th>
+                                <th>Order Description</th>
 
                             </tr>
                             </thead>
@@ -165,20 +170,25 @@ include("../../Common/TopNavBar.php");
 
                             <?php
                             include("../../Common/config.php");
-                            $loadTable = "SELECT * FROM `tbl_purchaseorder` ORDER BY `DateOn` DESC";
+                            $loadTable = "SELECT * FROM `tbl_issueorder` ORDER BY `confrimDateOn` DESC";
                             $result = $con->query($loadTable);
                             if ($result) {
                                 foreach ($result as $row) {
                                     ?>
                                     <tr>
-                                        <td><?= $row['poID']; ?></td>
-                                        <td><?= $row['farmerID']; ?></td>
+                                        <td><?= $row['ioID']; ?></td>
+                                        <td><?= $row['customerID']; ?></td>
+                                        <td><?= $row['region']; ?></td>
                                         <td><?= $row['paddyType']; ?></td>
-                                        <td><?= $row['Qty']; ?></td>
+                                        <td><?= $row['center1']; ?></td>
+                                        <td><?= $row['Qty1']; ?></td>
+                                        <td><?= $row['center2']; ?></td>
+                                        <td><?= $row['Qty2']; ?></td>
+                                        <td><?= $row['totalQuantity']; ?></td>
                                         <td><?= $row['unitPrice']; ?></td>
-                                        <td><?= $row['total']; ?></td>
-                                        <td><?= $row['stockID']; ?></td>
-                                        <td><?= $row['DateOn']; ?></td>
+                                        <td><?= $row['vehicleID']; ?></td>
+                                        <td><?= $row['confrimDateOn']; ?></td>
+                                        <td><?= $row['orderStatus']; ?></td>
                                         <td><?= $row['Description']; ?></td>
 
 
