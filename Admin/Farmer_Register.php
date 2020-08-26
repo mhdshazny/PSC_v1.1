@@ -272,6 +272,7 @@ include("../Common/TopNavBar.php");
                         <button type="submit" name="addFarmer" id="addFarmer" class="btn btn-primary btn-block" style="width: 50%; align-content: center">Register</button>
                         <button type="submit" name="updateFarmer" id="updateFarmer" class="btn btn-primary btn-block" style="width: 50%; align-content: center" disabled>Update</button>
                         <button type="button" name="reload" id="reload" class="btn btn-danger btn-block" style="width: 50%; align-content: center" onclick="location.reload()">Clear</button>
+                        <button type="button" name="reload" id="reload" class="btn btn-danger btn-block" style="width: 50%; align-content: center" onclick="messageBox()">messageBox</button>
 
                     </div>
 
@@ -343,6 +344,12 @@ include("../Common/TopNavBar.php");
 
                         </table>
                         <script>
+                            function messageBox() {
+                                alert("Hello World");
+
+                            }
+
+
                             function farmerID_Search() {
                                 // alert();
                                 let input, filter, table, tr, td, i,txtValue;
