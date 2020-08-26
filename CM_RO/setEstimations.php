@@ -45,7 +45,7 @@ include("../Common/TopNavBar.php");
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-12 ">
                                 <div class="form-group">
-                                    <label for="ContactDetails" class="col-sm-12 col-md-12 col-lg-12 bg-info mt-4">Customer Details</label>
+                                    <label for="ContactDetails" class="col-sm-12 col-md-12 col-lg-12 bg-info mt-4">Stock Details</label>
                                 </div>
                             </div>
                         </div>
@@ -174,8 +174,9 @@ include("../Common/TopNavBar.php");
                     <br><br>
                     <div class="container" style="margin-left: 30%">
                         <button type="submit" name="sendEstimations" id="sendEstimations" class="btn btn-primary btn-block" style="width: 50%; align-content: center">Register</button>
-                        <button type="submit" name="updateUser" id="updateUser" class="btn btn-primary btn-block" style="width: 50%; align-content: center" disabled>Update</button>
                         <button type="button" name="reload" id="reload" class="btn btn-danger btn-block" style="width: 50%; align-content: center" onclick="location.reload()">Reload</button>
+                        <button type="submit" name="updateUser" id="updateUser" class="btn btn-primary btn-block" style="width: 50%; align-content: center" disabled>Update</button>
+                        <button type="button" name="reload" id="reload" class="btn btn-danger btn-block" style="width: 50%; align-content: center" onclick="reload()">Alert</button>
                     </div>
 
                     <br><br>
@@ -294,6 +295,11 @@ include("../Common/Scripts.php");
                 }
             }
         });
+
+    }
+
+    function alert() {
+        alert("Saved Successfully!");
 
     }
 

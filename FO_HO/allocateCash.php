@@ -89,9 +89,9 @@ include("../Common/TopNavBar.php");
                                 </div>
                             </div>
                         </div>
-                            <div class="container" style="margin-left: 30%">
-                            <button type="submit" name="search" id="search" class="btn btn-primary btn-block" style="width: 50%; align-content: center">search</button>
-                            </div>
+<!--                            <div class="container" style="margin-left: 30%">-->
+<!--                            <button type="submit" name="search" id="search" class="btn btn-primary btn-block" style="width: 50%; align-content: center">search</button>-->
+<!--                            </div>-->
 
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-12 ">

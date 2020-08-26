@@ -20,7 +20,7 @@ if (isset($_POST['addCenter'])) {
     $isActive = "1";
 
 
-    if (!empty($centerID) && !empty($address1) && !empty($region) && !empty($capacity) && !empty($contact) && !empty($bankAccID) && !empty($isActive) && !empty($centerManager)) {
+    if (!empty($centerID) && !empty($region) && !empty($capacity) && !empty($contact) && !empty($bankAccID) && !empty($isActive) && !empty($centerManager)) {
 
         $sql = "INSERT INTO `tbl_collectioncenter`(`centerID`, `region`, `capacity`, `contactNo`, `bankAccID`, `centerManger`, `isActive`) 
                 VALUES ('$centerID', '$region','$capacity','$contact','$bankAccID','$centerManager','$isActive')";

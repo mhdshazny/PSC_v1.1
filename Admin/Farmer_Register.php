@@ -345,7 +345,7 @@ include("../Common/TopNavBar.php");
                         </table>
                         <script>
                             function messageBox() {
-                                alert("Hello World");
+                                alert("Issue Order Confirmed!");
 
                             }
 
