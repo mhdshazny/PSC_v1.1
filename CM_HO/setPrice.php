@@ -62,55 +62,65 @@ include("../Common/TopNavBar.php");
                                 </div>
                             </div>
                         </div>
-
-
+                    </div>
                     <div class="row">
+
+
                         <div class="col-sm-4 col-md-4 col-lg-4 ">
-                            <div class="form-group">
-                                <label for="paddyType" class="col-sm-12 col-md-12 col-lg-12 control-label">Paddy Type</label>
-                                <div class="col-sm-12 col-md-12 col-lg-12">
-                                    <select class="form-control" id="paddyType" name="paddyType" required>
-                                        <?php
-                                        include ("../Common/config.php");
-                                        $query="SELECT * FROM `tbl_price`";
-                                        $result=$con->query($query);
-                                        while($rows=$result->fetch_assoc()){
-                                            $priceID= $rows['priceID'];
-                                            $paddyType=$rows['paddyType'];
-                                            echo "<option value ='$priceID'>$paddyType</option>";
-                                        }
-                                        ?>
-                                        <div class="valid-feedback">Valid.</div>
-                                        <div class="invalid-feedback">Please fill out this field.</div>
-                                    </select>
-                                </div>
-                            </div>
+                            <label for="paddyType="col-sm-12 col-md-12 col-lg-12 control-label">Paddy Type</label>
+
+                            <select class="custom-select" id="paddyType" name="paddyType" >
+                                <option value=''>-Select Paddy Type-</option>
+
+                                <?php
+
+                                include("../Common/config.php");
+                                //
+                                $addQuery = "select * from `tbl_collectioncenter`";
+                                $result = $con->query($addQuery);
+                                //
+                                //                                        if ($result) {
+                                //                                            foreach ($result as $row) {
+                                ?>
+
+                                <?php
+                                while ($rows = $result->fetch_assoc()) {
+                                    $centerID= $rows['centerID'];
+                                    $regionName= $rows['region'];
+                                    echo "<option value='$centerID'>$regionName</option>";
+//                                                echo "<label for='regionName' name='regionName' value='$regionName' hidden>$regionName</label>";
+
+                                }
+                                ?>
+                                <!---->
+                                <!---->
+                            </select>
+
                         </div>
-                        <div class="col-sm-4 col-md-4 col-lg-4 ">
-                            <div class="form-group">
-                                <label for="buyingPrice" class="col-sm-12 col-md-12 col-lg-12 control-label">Buying Price</label>
-                                <div class="col-sm-12 col-md-12 col-lg-12">
-                                    <input type="text" id="buyingPrice" name="buyingPrice" placeholder="0.00" class="form-control" required autofocus>
-                                    <div class="valid-feedback">Valid.</div>
-                                    <div class="invalid-feedback">Please fill out this field.</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4 col-md-4 col-lg-4 ">
-                            <div class="form-group">
-                                <label for="sellingPrice"class="col-sm-12 col-md-12 col-lg-12 control-label">Selling Price</label>
-                                <div class="col-sm-12 col-md-12 col-lg-12">
-                                    <input type="text" id="sellingPrice" name="sellingPrice" placeholder="0.00" class="form-control" required autofocus>
-                                    <div class="valid-feedback">Valid.</div>
-                                    <div class="invalid-feedback">Please fill out this field.</div>
-                                </div>
+                        <!--                            </form>-->
+
+
+                    <div class="col-sm-4 col-md-4 col-lg-4 ">
+                        <div class="form-group">
+                            <label for="buyingPrice" class="col-sm-12 col-md-12 col-lg-12 control-label">Buying Price</label>
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                <input type="text" id="buyingPrice" name="buyingPrice" placeholder="Buying Price" class="form-control" required >
+                                <div class="valid-feedback">Valid.</div>
+                                <div class="invalid-feedback">Please fill out this field.</div>
                             </div>
                         </div>
                     </div>
-
                         <div class="col-sm-4 col-md-4 col-lg-4 ">
-
+                            <div class="form-group">
+                                <label for="sellingPrice" class="col-sm-12 col-md-12 col-lg-12 control-label">Selling Price</label>
+                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                    <input type="text" id="sellingPrice" name="sellingPrice" placeholder="Selling Price" class="form-control" required >
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>
+                                </div>
+                            </div>
                         </div>
+
                     </div>
 
                     <div class="row">
@@ -184,7 +194,7 @@ include("../Common/TopNavBar.php");
 
                             <?php
                             include("../Common/config.php");
-                            $loadTable = "SELECT * FROM `tbl_price`";
+                            $loadTable = "SELECT * FROM `tbl_pricerecord`";
                             $result = $con->query($loadTable);
                             if ($result) {
                                 foreach ($result as $row) {
