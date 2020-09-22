@@ -50,7 +50,7 @@ include("../Common/TopNavBar.php");
             <!--            <div class="row mb-5">-->
             <!---->
             <!--            </div>-->
-            <div class="container-fluid">
+            <div class="container-fluid text-white">
 
                 <div class="row mb-5" style="min-height: 100px">
                     <div class="col-sm-6 col-md-6 col-lg-6">
@@ -243,8 +243,9 @@ $LineGraph2Data4 = trim($LineGraph2Data4,",");
             labels: [<?php echo $data1?>],
             datasets: [{
                 data: [<?php echo $data2?>],
-                backgroundColor: ["#ff3939 ", "#ff8585", "#FDB45C", "#949FB1", "#4D5360", "#39ff39 "],
-                hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870", "#A8B3C5", "#616774"]
+                backgroundColor: ["#white ", "#ff8585", "#FDB45C", "#949FB1", "#4D5360", "#39ff39 "],
+                hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870", "#A8B3C5", "#616774"],
+                labelColor: ["#fff", "#fff", "#fff", "#fff", "#fff"]
             }]
         },
         options: {

@@ -148,15 +148,15 @@ include("Common/TopNavBar.php");
                         <table id="userTable" class="table table-bordered table-hover table-light">
                             <thead>
                             <tr>
-                                <th>Customer ID</th>
-                                <th>Center ID</th>
-                                <th>Region</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>NIC</th>
-                                <th>Address</th>
-                                <th>Contact No</th>
-                                <th>E-Mail</th>
+                                <th>Purchase ID</th>
+                                <th>farmerID</th>
+                                <th>paddyType</th>
+                                <th>Qty</th>
+                                <th>unitPrice</th>
+                                <th>total</th>
+                                <th>stockID</th>
+                                <th>DateOn</th>
+                                <th>Description</th>
 
                             </tr>
                             </thead>
