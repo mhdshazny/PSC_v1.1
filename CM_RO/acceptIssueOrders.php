@@ -256,17 +256,27 @@ include("../Common/TopNavBar.php");
                                         <td><?= $row['customerID']; ?></td>
                                         <td><?= $row['region']; ?></td>
                                         <td><?= $row['paddyType']; ?></td>
+                                        <td hidden><?= $row['center1']; ?></td>
+                                        <td hidden><?= $row['center2']; ?></td>
+                                        <td hidden><?= $row['Qty2']; ?></td>
                                         <td><?= $row['Qty1']; ?></td>
-                                        <td><?= $row['OrderDateOn']; ?></td>
-                                        <td><?= $row['OrderDateOn']; ?></td>
+                                        <td hidden><?= $row['totalQuantity']; ?></td>
+                                        <td hidden><?= $row['unitPrice']; ?></td>
+                                        <td><?= $row['orderDateOn']; ?></td>
+                                        <td hidden><?= $row['vehicleID']; ?></td>
+                                        <td hidden><?= $row['adminID']; ?></td>
+                                        <td hidden><?= $row['Description']; ?></td>
+                                        <td><?= $row['confrimDateOn']; ?></td>
+                                        <td hidden><?= $row['acceptedDateOn']; ?></td>
+                                        <td hidden><?= $row['orderStatus']; ?></td>
+                                        <td hidden><?= $row['netTotal']; ?></td>
+                                        <td hidden><?= $row['stockID']; ?></td>
                                         <td><?= $row['isActive']; ?></td>
                                         <td>
                                             <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $row['empID'];?>')" value="<?= $row['empID']; ?>">Delete</button>
                                             <button class="btn-info btn-sm" onclick="editUser()" value="<?= $row['empID']; ?>">Edit</button>
 
                                         </td>
-                                        <td hidden><?= $row['addressLine2']; ?></td>
-                                        <td hidden><?= $row['contactNo2']; ?></td>
 
 
                                     </tr>

@@ -56,9 +56,31 @@ include("../Common/TopNavBar.php");
                                 <div class="form-group">
                                     <label for="estimationID" class="col-sm-12 col-md-12 col-lg-12 control-label">Estimation Record ID</label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="text"  id="estimationID" name="estimationID" placeholder="Estimation Record ID" class="form-control" required autofocus>
-                                        <div class="valid-feedback">Valid.</div>
-                                        <div class="invalid-feedback">Please fill out this field.</div>
+                                        <?php
+                                        include ("../Common/config.php");
+                                        $query="SELECT * FROM `tbl_estimations` ORDER BY `estimationID` DESC LIMIT 1";
+                                        $result = $con->query($query);
+                                        $numRows = mysqli_num_rows($result);
+                                        $newID="ESTM00001";
+                                        if ($numRows>0){
+                                            foreach ($result as $rows) {
+
+
+                                                $prevID= $rows['estimationID'];
+                                                $newID = substr($prevID,4,5);
+                                                $newID = $newID + 1;
+                                                $newID = str_pad($newID, 5, "0", STR_PAD_LEFT);
+
+
+                                                ?>
+                                                <input type="text" id="estimationID" name="estimationID" placeholder="estimationID" value="ESTM<?= $newID?>" class="form-control" >
+                                                <?php
+                                            }
+                                        }
+                                        $con->close();
+                                        ?>
+
+
                                     </div>
                                 </div>
                             </div>
@@ -186,21 +208,20 @@ include("../Common/TopNavBar.php");
             <div class="row">
                 <div class="container-fluid ">
                     <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12">
-                        <table id="userTable" class="table table-bordered table-hover table-light">
+                        <table id="userTable" class="table table-bordered table-hover table-light table-responsive">
                             <thead>
                             <tr>
-                                <th>User ID</th>
+                                <th>Estimation ID</th>
                                 <th>Center ID</th>
-                                <th>Region</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>NIC</th>
-                                <th>Address</th>
-                                <th>Contact No</th>
-                                <th>E-Mail</th>
-                                <th>Gender</th>
-                                <th>isActive</th>
-                                <th>Actions</th>
+
+                                <th>Date On</th>
+                                <th>Paddy Type</th>
+                                <th>Season</th>
+                                <th>Land Area</th>
+                                <th>Total Farmers</th>
+                                <th>Quantity</th>
+
+
 
 
                             </tr>
@@ -210,30 +231,28 @@ include("../Common/TopNavBar.php");
 
                             <?php
                             include("../Common/config.php");
-                            $loadTable = "SELECT * FROM `tbl_cutomer`";
+                            $loadTable = "SELECT * FROM `tbl_estimations`";
                             $result = $con->query($loadTable);
                             if ($result) {
                                 foreach ($result as $row) {
                                     ?>
                                     <tr>
-                                        <td><?= $row['customerID']; ?></td>
+                                        <td><?= $row['estimationID']; ?></td>
                                         <td><?= $row['centerID']; ?></td>
-                                        <td><?= $row['region']; ?></td>
-                                        <td><?= $row['firstName']; ?></td>
-                                        <td><?= $row['lastName']; ?></td>
-                                        <td><?= $row['NIC']; ?></td>
-                                        <td><?= $row['addressLine1']; ?></td>
-                                        <td><?= $row['contactNo1']; ?></td>
-                                        <td><?= $row['email']; ?></td>
-                                        <td><?= $row['gender'] ?></td>
-                                        <td><?= $row['isActive']; ?></td>
+                                        <td><?= $row['DateOn']; ?></td>
+                                        <td><?= $row['paddyType']; ?></td>
+                                        <td><?= $row['season']; ?></td>
+                                        <td><?= $row['landArea']; ?></td>
+                                        <td><?= $row['totalFarmers']; ?></td>
+                                        <td><?= $row['quantity']; ?></td>
+
+
                                         <td>
-                                            <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $row['empID'];?>')" value="<?= $row['empID']; ?>">Delete</button>
-                                            <button class="btn-info btn-sm" onclick="editUser()" value="<?= $row['empID']; ?>">Edit</button>
+                                            <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $row['estimationID'];?>')" value="<?= $row['estimationID']; ?>">Delete</button>
+                                            <button class="btn-info btn-sm" onclick="editEstimation()" value="<?= $row['estimationID']; ?>">Edit</button>
 
                                         </td>
-                                        <td hidden><?= $row['addressLine2']; ?></td>
-                                        <td hidden><?= $row['contactNo2']; ?></td>
+
 
 
                                     </tr>
@@ -303,48 +322,25 @@ include("../Common/Scripts.php");
 
     }
 
-    function editUser() {
-        document.getElementById('addUser').disabled=true;
-        document.getElementById('updateUser').disabled=false;
-        document.getElementById('picBox').hidden=false;
+    function editEstimation() {
+        document.getElementById('addEstimation').disabled=true;
+        document.getElementById('updateEstimation').disabled=false;
 
-        var dir = "../Upload/User/";
-        var table = document.getElementById('userTable'),index;
+
+        var table = document.getElementById('estimationTable'),index;
 
         for (var  i = 1 ; i < table.rows.length ; i++){
-            table.rows[i].onclick = function () {
+            table.row[i].onclick = function () {
                 rIndex = this.rowIndex;
-                document.getElementById("userID").value = this.cells[0].innerHTML;
-                document.getElementById("roleID").value = this.cells[1].innerHTML;
-                document.getElementById("centerID").value = this.cells[2].innerHTML;
-                document.getElementById("firstName").value = this.cells[3].innerHTML;
-                document.getElementById("lastName").value = this.cells[4].innerHTML;
-                document.getElementById("addressLine1").value = this.cells[5].innerHTML;
-                document.getElementById("contactNo1").value = this.cells[6].innerHTML;
-                document.getElementById("email").value = this.cells[7].innerHTML;
-                document.getElementById("dob").value = this.cells[8].innerHTML;
-
-                let gender_temp = this.cells[9].innerHTML;
-                if (gender_temp == "1"){
-                    document.getElementById("male").checked=true;
-                }
-                else {
-                    document.getElementById("female").checked=true
-
-                }
-
-                document.getElementById("addressLine2").value = this.cells[12].innerHTML;
-                document.getElementById("contactNo2").value = this.cells[13].innerHTML;
-                document.getElementById("Password").value = this.cells[14].innerHTML;
-                document.getElementById("confirmPassword").value = this.cells[14].innerHTML;
-                // document.getElementById("picBox").src = dir + this.cells[15].innerHTML;
-                // alert(this.cells[15].innerHTML)
-                document.images['picBox'].src = dir +this.cells[15].innerHTML;
-
-
-                document.getElementById('isActive').disabled=false;
-                document.getElementById('userID').readOnly=true;
-                document.getElementById('confirmPassword').readOnly=true;
+                document.getElementById("estimationID").value = this.cells[0].innerHTML;
+                document.getElementById("centerID").value = this.cells[1].innerHTML;
+                document.getElementById("dateOn").value = this.cells[2].innerHTML;
+                document.getElementById("PaddyType").value = this.cells[3].innerHTML;
+                document.getElementById("season").value = this.cells[4].innerHTML;
+                document.getElementById("landArea").value = this.cells[5].innerHTML;
+                document.getElementById("totalFarmers").value = this.cells[6].innerHTML;
+                document.getElementById("quantity").value = this.cells[7].innerHTML;
+              ;
 
 
                 // $('#myInput').val( this.cells[0].innerHTML);
