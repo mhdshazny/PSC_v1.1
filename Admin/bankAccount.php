@@ -40,12 +40,12 @@ include("../Common/TopNavBar.php");
                 <?php
                 $Priority = 'AdminUserReg';
                 ?>
-                <FORM action="Farmer_Register_dB.php" method="POST" class="col" enctype="multipart/form-data">
+                <FORM action="bankAccount_dB.php" method="POST" class="col" enctype="multipart/form-data">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-12 ">
                                 <div class="form-group">
-                                    <label for="ContactDetails" class="col-sm-12 col-md-12 col-lg-12 rounded bg-info mt-4">Farmer Details</label>
+                                    <label for="ContactDetails" class="col-sm-12 col-md-12 col-lg-12 rounded bg-info mt-4">Bank Details</label>
                                 </div>
                             </div>
                         </div>
@@ -166,8 +166,8 @@ include("../Common/TopNavBar.php");
 
                     <br><br>
                     <div class="container" style="margin-left: 30%">
-                        <button type="submit" name="addFarmer" id="addFarmer" class="btn btn-primary btn-block" style="width: 50%; align-content: center">Register</button>
-                        <button type="submit" name="updateFarmer" id="updateFarmer" class="btn btn-primary btn-block" style="width: 50%; align-content: center" disabled>Update</button>
+                        <button type="submit" name="addBankAccount" id="addBankAccount" class="btn btn-primary btn-block" style="width: 50%; align-content: center">Register</button>
+                        <button type="submit" name="updateBankAccount" id="updateBankAccount" class="btn btn-primary btn-block" style="width: 50%; align-content: center" disabled>Update</button>
                         <button type="button" name="reload" id="reload" class="btn btn-danger btn-block" style="width: 50%; align-content: center" onclick="location.reload()">Clear</button>
 
                     </div>
@@ -179,20 +179,15 @@ include("../Common/TopNavBar.php");
             <div class="row">
                 <div class="container-fluid ">
                     <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12">
-                        <table id="userTable" class="table table-bordered table-hover table-light" >
+                        <table id="userTable" class="table table-bordered table-hover table-light table-responsive" >
                             <thead>
                             <tr>
-                                <th>Farmer ID</th>
-                                <th>Center ID</th>
-                                <th style="max-width: 20%">Region</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>NIC</th>
-                                <th style="width: 10%">Address</th>
-                                <th>Contact No</th>
-                                <th>Land Area</th>
-                                <th>Gender</th>
-                                <th>isActive</th>
+                                <th>Bank Account ID</th>
+                                <th>Bank Name</th>
+                                <th>Bank Account No</th>
+                                <th>Region</th>
+                                <th>Status</th>
+
                                 <th style="width: 8%">Actions</th>
                             </tr>
                             </thead>
@@ -201,30 +196,25 @@ include("../Common/TopNavBar.php");
 
                             <?php
                             include("../Common/config.php");
-                            $loadTable = "SELECT * FROM `tbl_farmer` ORDER BY `farmerID` DESC";
+                            $loadTable = "SELECT * FROM `tbl_bank` ORDER BY `bankAccID` DESC";
                             $result = $con->query($loadTable);
                             if ($result) {
                                 foreach ($result as $row) {
                                     ?>
                                     <tr style="width: 10%">
-                                        <td><?= $row['farmerID']; ?></td>
-                                        <td><?= $row['centerID']; ?></td>
-                                        <td ></td>
-                                        <td><?= $row['firstName']; ?></td>
-                                        <td><?= $row['lastName']; ?></td>
-                                        <td><?= $row['NIC']; ?></td>
-                                        <td><?= $row['addressLine1']; ?></td>
-                                        <td><?= $row['contactNo1']; ?></td>
-                                        <td><?= $row['landArea']; ?></td>
-                                        <td><?= $row['gender'] ?></td>
+                                        <td><?= $row['bankAccID']; ?></td>
+                                        <td><?= $row['bankName']; ?></td>
+
+                                        <td><?= $row['bankAccNo']; ?></td>
+                                        <td><?= $row['region']; ?></td>
+
                                         <td><?= $row['isActive']; ?></td>
                                         <td style="width: 10%">
-                                            <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $row['farmerID'];?>')" value="<?= $row['farmerID']; ?>">Delete</button>
-                                            <button class="btn-info btn-sm" onclick="editFarmer()" value="<?= $row['farmerID']; ?>">Edit</button>
+                                            <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $row['bankAccID'];?>')" value="<?= $row['bankAccID']; ?>">Delete</button>
+                                            <button class="btn-info btn-sm" onclick="editBank()" value="<?= $row['bankAccID']; ?>">Edit</button>
 
                                         </td>
-                                        <td hidden><?= $row['addressLine2']; ?></td>
-                                        <td hidden><?= $row['contactNo2']; ?></td>
+
                                         <!--<td hidden><?/*= $row['region']; */?></td>-->
 
 
@@ -313,35 +303,22 @@ include("../Common/Scripts.php");
 
     }
 
-    function editFarmer() {
-        document.getElementById('addFarmer').disabled=true;
-        document.getElementById('updateFarmer').disabled=false;
+    function editBank() {
+        document.getElementById('addBankAccount').disabled=true;
+        document.getElementById('updateBankAccount').disabled=false;
 
-        var dir = "../Upload/User/";
+
         var table = document.getElementById('userTable'),index;
 
         for (var  i = 1 ; i < table.rows.length ; i++){
-            table.rows[i].onclick = function () {
+            table.row[i].onclick = function () {
                 rIndex = this.rowIndex;
-                document.getElementById("farmerID").value = this.cells[0].innerHTML;
+                document.getElementById("bankAccID").value = this.cells[0].innerHTML;
                 // document.getElementById("centerID").value = this.cells[1].innerHTML;
-                document.getElementById("centerID").value = this.cells[1].innerHTML;
-                document.getElementById("firstName").value = this.cells[3].innerHTML;
-                document.getElementById("lastName").value = this.cells[4].innerHTML;
-                document.getElementById("NIC").value = this.cells[5].innerHTML;
-                document.getElementById("addressLine1").value = this.cells[6].innerHTML;
-                document.getElementById("contactNo1").value = this.cells[7].innerHTML;
-                document.getElementById("landArea").value = this.cells[8].innerHTML;
-                // document.getElementById("dob").value = this.cells[8].innerHTML;
+                document.getElementById("bankName").value = this.cells[1].innerHTML;
+                document.getElementById("bankAccNo").value = this.cells[3].innerHTML;
+                document.getElementById("region").value = this.cells[4].innerHTML;
 
-                let gender_temp = this.cells[9].innerHTML;
-                if (gender_temp == "1"){
-                    document.getElementById("male").checked=true;
-                }
-                else {
-                    document.getElementById("female").checked=true
-
-                }
 
                 let isActive_temp = this.cells[10].innerHTML;
                 if (isActive_temp == "1"){
@@ -352,13 +329,12 @@ include("../Common/Scripts.php");
 
                 }
 
-                document.getElementById("addressLine2").value = this.cells[12].innerHTML;
-                document.getElementById("contactNo2").value = this.cells[13].innerHTML;
+
                 // document.getElementById("centerID").value = this.cells[13].innerHTML;
 
 
                 document.getElementById('isActive').disabled=false;
-                document.getElementById('farmerID').readOnly=true;
+                document.getElementById('bankAccID').readOnly=true;
 
 
                 // $('#myInput').val( this.cells[0].innerHTML);
