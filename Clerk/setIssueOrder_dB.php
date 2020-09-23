@@ -34,7 +34,7 @@ if (isset($_POST['setIssueOrder'])) {
                 VALUES ('$issueOrderID', '$customerID', '$orderDateOn', '$region', '$paddyType','$quantity','$unitPrice','$orderDateOn','$netTotal')";
 
 
-                    header('Location: setIssueOrder.php?e=data inserted');
+                    header('Location: setIssueOrders.php?e=data inserted');
 
 
 
@@ -46,12 +46,12 @@ if (isset($_POST['setIssueOrder'])) {
 
                     //This will redirect to same page and it'll show the message above url//
 
-                    header('Location: setIssueOrder.php?e=Wrong Credentials11');
+                    header('Location: setIssueOrders.php?e=Wrong Credentials11');
                 }
 
 
             } else {
-    header('Location: setIssueOrder.php?e=Wrong Credentials4');
+    header('Location: setIssueOrders.php?e=Wrong Credentials4');
 
 }
 

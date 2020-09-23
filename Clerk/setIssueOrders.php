@@ -166,12 +166,12 @@ include("../Common/TopNavBar.php");
                                                         <table id="customerTableModal" class="col-md-12 col-lg-12 col-sm-12 table table-bordered table-dark table-hover">
                                                             <thead>
                                                             <tr>
-                                                                <th>Issue OrderID</th>
-                                                                <th>Customer ID
+
+                                                                <th>Customer ID</th>
+                                                                <th>First Name</th>
+                                                                <th>Contact No</th>
                                                                 <th>Region</th>
-                                                                <th>Paddy Type</th>
-                                                                <th>Quantity</th>
-                                                                <th>Ordered Date</th>
+
                                                                 <th>isActive</th>
                                                                 <th>Actions</th>
                                                             </tr>
@@ -181,31 +181,25 @@ include("../Common/TopNavBar.php");
                                                             <?php
                                                             include ("../Common/config.php");
 
-                                                            $query="Select * from `tbl_issueorder`";
+                                                            $query="Select * from `tbl_customer`";
                                                             $result = $con->query($query);
                                                             if ($result){
                                                             foreach ($result as $rows){
                                                             ?>
                                                             <tr>
-                                                                <td><?= $rows['ioID']; ?></td>
                                                                 <td><?= $rows['customerID']; ?></td>
+                                                                <td><?= $rows['firstName']; ?></td>
+                                                                <td hidden><?= $rows['lastName']; ?></td>
+                                                                <td><?= $rows['contactNo1']; ?></td>
+                                                                <td hidden><?= $rows['contactNo2']; ?></td>
+                                                                <td hidden><?= $rows['email']; ?></td>
+                                                                <td hidden><?= $rows['addressLine1']; ?></td>
+                                                                <td hidden><?= $rows['addressLine2']; ?></td>
+                                                                <td hidden><?= $rows['centerID']; ?></td>
                                                                 <td><?= $rows['region']; ?></td>
-                                                                <td><?= $rows['paddyType']; ?></td>
-                                                                <td hidden><?= $rows['center1']; ?></td>
-                                                                <td hidden><?= $rows['center2']; ?></td>
-                                                                <td hidden><?= $rows['Qty2']; ?></td>
-                                                                <td><?= $rows['Qty1']; ?></td>
-                                                                <td hidden><?= $rows['totalQuantity']; ?></td>
-                                                                <td hidden><?= $rows['unitPrice']; ?></td>
-                                                                <td><?= $rows['orderDateOn']; ?></td>
-                                                                <td hidden><?= $rows['vehicleID']; ?></td>
-                                                                <td hidden><?= $rows['adminID']; ?></td>
-                                                                <td hidden><?= $rows['Description']; ?></td>
-                                                                <td><?= $rows['confrimDateOn']; ?></td>
-                                                                <td hidden><?= $rows['acceptedDateOn']; ?></td>
-                                                                <td hidden><?= $rows['orderStatus']; ?></td>
-                                                                <td hidden><?= $rows['netTotal']; ?></td>
-                                                                <td hidden><?= $rows['stockID']; ?></td>
+                                                                <td hidden><?= $rows['gender']; ?></td>
+                                                                <td hidden><?= $rows['NIC']; ?></td>
+
                                                                 <td><?= $rows['isActive']; ?></td>
                                                                 <td>
                                                                     <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $rows['empID'];?>')" value="<?= $rows['empID']; ?>">Delete</button>
@@ -249,8 +243,8 @@ include("../Common/TopNavBar.php");
                                                                     table.ros[i].onclick = function () {
                                                                         rIndex = this.rowIndex;
                                                                         document.getElementById("customerID").value = this.cells[0].innerHTML;
-                                                                        document.getElementById("customer").value = this.cells[1].innerHTML;
-                                                                        document.getElementById("contact").value = this.cells[2].innerHTML;
+                                                                        document.getElementById("firstName").value = this.cells[1].innerHTML;
+                                                                        document.getElementById("contactNo1").value = this.cells[2].innerHTML;
                                                                         document.getElementById("region").value = this.cells[3].innerHTML;
 
 

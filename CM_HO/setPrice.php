@@ -200,7 +200,7 @@ include("../Common/TopNavBar.php");
                                 foreach ($result as $row) {
                                     ?>
                                     <tr>
-                                        <td><?= $row['priceID']; ?></td>
+                                        <td><?= $row['priceRecID']; ?></td>
                                         <td><?= $row['paddyType']; ?></td>
                                         <td><?= $row['buyingPrice']; ?></td>
                                         <td><?= $row['sellingPrice']; ?></td>

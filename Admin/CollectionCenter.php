@@ -222,16 +222,16 @@ include("../Common/TopNavBar.php");
                         <table id="userTable" class="table table-bordered table-hover table-light table-responsive" >
                             <thead>
                             <tr>
-                                <th>Farmer ID</th>
                                 <th>Center ID</th>
-                                <th style="max-width: 20%">Region</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>NIC</th>
-                                <th style="width: 10%">Address</th>
+                                <th>Center Name</th>
+                                <th>Address</th>
+                                <th>Region</th>
+                                <th>Capacity</th>
                                 <th>Contact No</th>
-                                <th>Land Area</th>
-                                <th>Gender</th>
+                                <th>Bank Account No</th>
+                                <th>Store ID</th>
+                                <th>Center Manager</th>
+                                <th>Cash Allocated</th>
                                 <th>isActive</th>
                                 <th style="width: 8%">Actions</th>
                             </tr>
@@ -241,31 +241,29 @@ include("../Common/TopNavBar.php");
 
                             <?php
                             include("../Common/config.php");
-                            $loadTable = "SELECT * FROM `tbl_farmer` ORDER BY `farmerID` DESC";
+                            $loadTable = "SELECT * FROM `tbl_collectioncenter` ORDER BY `centerID` DESC";
                             $result = $con->query($loadTable);
                             if ($result) {
                                 foreach ($result as $row) {
                                     ?>
                                     <tr style="width: 10%">
-                                        <td><?= $row['farmerID']; ?></td>
                                         <td><?= $row['centerID']; ?></td>
-                                        <td ></td>
-                                        <td><?= $row['firstName']; ?></td>
-                                        <td><?= $row['lastName']; ?></td>
-                                        <td><?= $row['NIC']; ?></td>
-                                        <td><?= $row['addressLine1']; ?></td>
-                                        <td><?= $row['contactNo1']; ?></td>
-                                        <td><?= $row['landArea']; ?></td>
-                                        <td><?= $row['gender'] ?></td>
+                                        <td><?= $row['centerName']; ?></td>
+
+                                        <td><?= $row['address']; ?></td>
+                                        <td><?= $row['region']; ?></td>
+                                        <td><?= $row['capacity']; ?></td>
+                                        <td><?= $row['contactNo']; ?></td>
+                                        <td><?= $row['bankAccID']; ?></td>
+                                        <td><?= $row['storeID1']; ?></td>
+                                        <td><?= $row['centerManger'] ?></td>
+                                        <td><?= $row['amount'] ?></td>
                                         <td><?= $row['isActive']; ?></td>
                                         <td style="width: 10%">
                                             <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $row['farmerID'];?>')" value="<?= $row['farmerID']; ?>">Delete</button>
                                             <button class="btn-info btn-sm" onclick="editFarmer()" value="<?= $row['farmerID']; ?>">Edit</button>
 
                                         </td>
-                                        <td hidden><?= $row['addressLine2']; ?></td>
-                                        <td hidden><?= $row['contactNo2']; ?></td>
-                                        <!--<td hidden><?/*= $row['region']; */?></td>-->
 
 
                                     </tr>

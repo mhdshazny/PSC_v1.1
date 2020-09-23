@@ -50,8 +50,9 @@ include("../Common/TopNavBar.php");
                             <thead>
                             <tr>
                                 <th>Store ID</th>
-                                <th>Region</th>
-                                <th>Capacity</th>
+                                <th>Center ID</th>
+                                <th>Paddy Type</th>
+                                <th>Quantity</th>
                                 <th>Availability</th>
                                 <th>Action</th>
 
@@ -69,9 +70,10 @@ include("../Common/TopNavBar.php");
                                 foreach ($result as $row) {
                                     ?>
                                     <tr>
-                                        <td><?= $row['storeID']; ?></td>
+                                        <td><?= $row['storeRecID']; ?></td>
                                         <td><?= $row['centerID']; ?></td>
-                                        <td><?= $row['capacity']; ?></td>
+                                        <td><?= $row['productType']; ?></td>
+                                        <td><?= $row['Qty']; ?></td>
                                         <td><?= $row['isActive']; ?></td>
                                         <td>
                                             <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $row['empID'];?>')" value="<?= $row['empID']; ?>">Delete</button>
