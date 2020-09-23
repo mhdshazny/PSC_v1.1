@@ -271,9 +271,9 @@ include("../Common/TopNavBar.php");
 
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
                                 <div class="form-group">
-                                    <label for="StockID" class="col-sm-12 col-md-12 col-lg-12 control-label">Stock ID</label>
+                                    <label for="CenterID" class="col-sm-12 col-md-12 col-lg-12 control-label">Center ID</label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="text" id="StockID" name="StockID"  placeholder="Stock ID" class="form-control" >
+                                        <input type="text" id="CenterID" name="CenterID"  placeholder="Center ID" class="form-control" >
                                     </div>
                                 </div>
                             </div>
