@@ -65,7 +65,34 @@ include("../Common/TopNavBar.php");
                                 <div class="form-group">
                                     <label for="PurchaseOrderID" class="col-sm-12 col-md-12 col-lg-12 control-label">Purchase Order ID</label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="text" id="PurchaseOrderID" name="PurchaseOrderID"  placeholder="Purchase Order ID" class="form-control" >
+
+                                        <?php
+                                        include ("../Common/config.php");
+                                        $query="SELECT * FROM `tbl_purchaseorder` ORDER BY `poID` DESC LIMIT 1";
+                                        $result = $con->query($query);
+                                        $numRows = mysqli_num_rows($result);
+                                        $newID="POID00001";
+                                        if ($numRows>0){
+                                            foreach ($result as $rows) {
+
+
+                                                $prevID= $rows['poID'];
+                                                $newID = substr($prevID,4,5);
+                                                $newID = $newID + 1;
+                                                $newID = str_pad($newID, 5, "0", STR_PAD_LEFT);
+
+
+                                                ?>
+                                                <input type="text" id="PurchaseOrderID" name="PurchaseOrderID"  placeholder="Purchase Order ID" value="POID<?= $newID?>" class="form-control" readonly>
+
+                                                <?php
+                                            }
+                                        }
+                                        $con->close();
+                                        ?>
+
+
+
                                     </div>
                                 </div>
                             </div>
