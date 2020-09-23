@@ -54,7 +54,7 @@
 
             <a href="Customer_Register.php" class="btn btn-danger btn-lg btnMenu mx-2" role="button"><span class="glyphicon glyphicon-list-alt"></span> <br/>Customer</a>
             <a href="#" class="btn btn-warning btn-lg btnMenu mx-2" role="button"><span class="glyphicon glyphicon-bookmark"></span> <br/>Issue Order</a>
-            <a href="Farmer_Register.php" class="btn btn-success btn-lg btnMenu mx-2" role="button"><span class="glyphicon glyphicon-user"></span> <br/>Farmer</a>
+            <a href="../Clerk_RO/Farmer_Register.php" class="btn btn-success btn-lg btnMenu mx-2" role="button"><span class="glyphicon glyphicon-user"></span> <br/>Farmer</a>
         </div>
     </div>
 </div>

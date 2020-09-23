@@ -76,22 +76,174 @@ include("../Common/TopNavBar.php");
                         <div class="row">
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
                                 <div class="form-group">
-                                    <label for="BankID" class="col-sm-12 col-md-12 col-lg-12 control-label">Bank ID </label>
-                                    <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <div class="input-group">
+                                    <label for="farmerID" class="control-label">Farmer ID</label>
+                                    <div class="input-group input-group-md">
+                                        <div class="input-group col-sm-2 col-md-2 col-lg-2 mr-0">
                                             <button type="button" class="btn btn-outline-primary ion-search" data-toggle="modal"
-                                                    data-target=".bd-example-modal-lg" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
-                                            <input type="text" name="customerID" id="customerID" class="form-group input-group form-control  col-sm-12 col-md-12 col-lg-12" placeholder="Customer ID" aria-label="" aria-describedby="basic-addon1">                                <!--                                  modal-->
+                                                    data-target=".bd-example-modal-lg" ></button>
 
-<!--                                        <input type="text" id="BankID" name="BankID"  placeholder="Bank ID" class="form-control" >-->
                                         </div>
+                                        <input type="text" class="ml-0 mr-3 input-group form-control col-sm-10 col-md-10 col-lg-10" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                                        <!--                                  modal-->
+                                        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg">
+                                                <div class="modal-content">
+                                                    <!--                                    <header class="modal-header">Hello world</header>-->
+                                                    <!--                                    <div class="modal-body">-->
+                                                    <!--                                        <div class="container">-->
+                                                    <!--                                            <button class="close" data-dismiss="modal"-->
+                                                    <!--                                                    aria-label="Close">-->
+                                                    <!---->
+                                                    <!--                                            </button>-->
+                                                    <!--                                        </div>-->
+                                                    <!--                                    </div>-->
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" style="color: #011d21" id="exampleModalLabel">New message</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body" style="color: #011d21; margin-left: 0%; margin-right: 0%" >
+
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="md-form mb-2">
+                                                                    <i class="fas fa-user prefix grey-text"></i>
+                                                                    <label data-error="wrong" data-success="right"
+                                                                           for="orangeForm-name1" >Farmer ID</label>
+                                                                    <input type="text" id="customerID_Modal" name="customerID_Modal"
+                                                                           class="form-control validate"
+                                                                           onkeyup="farmerID_Search()">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-6">
+                                                                <div class="md-form mb-3">
+                                                                    <i class="fas ion-android-create prefix grey-text"></i>
+                                                                    <label data-error="wrong" data-success="right"
+                                                                           for="orangeForm-email1">Customer Name</label>
+                                                                    <input type="text" id="customerNamemodal" name="customerNamemodal"
+                                                                           class="form-control validate">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12 col-lg-12 col-sm-12">
+                                                                <table id="customerTableModal" class="col-md-12 col-lg-12 col-sm-12 table table-bordered table-dark table-hover">
+                                                                    <thead>
+                                                                    <tr>
+
+                                                                        <th>Farmer ID</th>
+                                                                        <th>First Name</th>
+                                                                        <th>Contact No</th>
+
+
+                                                                        <th>isActive</th>
+                                                                        <th>Actions</th>
+                                                                    </tr>
+                                                                    </thead>
+                                                                    <tbody>
+
+                                                                    <?php
+                                                                    include ("../Common/config.php");
+
+                                                                    $query="Select * from `tbl_farmer`";
+                                                                    $result = $con->query($query);
+                                                                    if ($result){
+                                                                    foreach ($result as $rows){
+                                                                    ?>
+                                                                    <tr>
+                                                                        <td><?= $rows['farmerID']; ?></td>
+                                                                        <td><?= $rows['firstName']; ?></td>
+                                                                        <td hidden><?= $rows['lastName']; ?></td>
+                                                                        <td><?= $rows['contactNo1']; ?></td>
+                                                                        <td hidden><?= $rows['contactNo2']; ?></td>
+
+                                                                        <td hidden><?= $rows['addressLine1']; ?></td>
+                                                                        <td hidden><?= $rows['addressLine2']; ?></td>
+                                                                        <td hidden><?= $rows['centerID']; ?></td>
+
+                                                                        <td hidden><?= $rows['gender']; ?></td>
+                                                                        <td hidden><?= $rows['NIC']; ?></td>
+                                                                        <td hidden><?= $rows['landArea']; ?></td>
+                                                                        <td><?= $rows['isActive']; ?></td>
+                                                                        <td>
+                                                                            <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $rows['empID'];?>')" value="<?= $rows['empID']; ?>">Delete</button>
+                                                                            <button class="btn-info btn-sm" onclick="editUser()" value="<?= $rows['empID']; ?>">Edit</button>
+
+                                                                        </td>
+
+                                                                        <?php
+                                                                        }
+                                                                        }
+                                                                        ?>
+                                                                    </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                                <script>
+                                                                    function customerID_Search() {
+                                                                        // alert();
+                                                                        let input, filter, table, tr, td, i, txtValue;
+                                                                        input = document.getElementById("customerID_Modal");
+                                                                        filter = input.value.toUpperCase();
+                                                                        table = document.getElementById("customerTableModal");
+                                                                        tr = table.getElementsByTagName("tr");
+                                                                        for (i = 0; i < tr.length; i++) {
+                                                                            td = tr[i].getElementsByTagName("td")[0];
+                                                                            if (td) {
+                                                                                txtValue = td.textContent || td.innerText;
+                                                                                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                                                                    tr[i].style.display = "";
+                                                                                } else {
+                                                                                    tr[i].style.display = "none";
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+
+                                                                    function selectModal() {
+
+                                                                        var table = document.getElementById('customerTableModal'),index;
+
+                                                                        for (var  i = 1 ; i < table.rows.length ; i++){
+                                                                            table.ros[i].onclick = function () {
+                                                                                rIndex = this.rowIndex;
+                                                                                document.getElementById("customerID").value = this.cells[0].innerHTML;
+                                                                                document.getElementById("firstName").value = this.cells[1].innerHTML;
+                                                                                document.getElementById("contactNo1").value = this.cells[2].innerHTML;
+                                                                                document.getElementById("region").value = this.cells[3].innerHTML;
+
+
+
+
+                                                                                // $('#myInput').val( this.cells[0].innerHTML);
+
+
+
+                                                                            }
+                                                                        }
+                                                                    }
+
+                                                                    }
+                                                                </script>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                        <button type="button" class="btn btn-primary">Send message</button>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
+
+                                        <!---->
+                                    </div>
+
                                 </div>
                             </div>
+
                         </div>
-<!--                            <div class="container" style="margin-left: 30%">-->
-<!--                            <button type="submit" name="search" id="search" class="btn btn-primary btn-block" style="width: 50%; align-content: center">search</button>-->
-<!--                            </div>-->
 
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-12 ">

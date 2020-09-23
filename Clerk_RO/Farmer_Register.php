@@ -55,7 +55,7 @@ include("../Common/TopNavBar.php");
                                     <label for="farmerID" class="col-sm-12 col-md-12 col-lg-12 rounded">Farmer ID</label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
                                         <?php
-                                        include ("../Common/config.php");
+                                        include("../Common/config.php");
                                         $query="SELECT * FROM `tbl_farmer` ORDER BY `farmerID` DESC LIMIT 1";
                                         $result = $con->query($query);
 
