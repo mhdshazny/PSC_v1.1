@@ -347,7 +347,7 @@ include("../Common/TopNavBar.php");
             </div>
 
             <div class="row">
-                <div class="container-fluid ">
+                <div class="container-fluid">
                     <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12">
                         <table id="userTable" class="table table-bordered table-hover table-light table-responsive" width="100%">
                             <thead>

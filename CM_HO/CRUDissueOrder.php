@@ -28,13 +28,21 @@ if (isset($_GET['keyword']) && $_GET['keyword'] == 'searchCenter') {
     $centerID=$_GET['id'];
     $qty='';
     $query="select `Qty` from `tbl_stores` where `centerID`='".$centerID."'";
+    $query1="select `capacity` from `tbl_collectioncenter` where `centerID`='".$centerID."'";
     $result = $con->query($query);
+    $result1 = $con->query($query1);
     if ($result) {
+    if ($result1) {
         while ($row = $result->fetch_assoc()) {
-            $qty = $row['Qty'];
-            $Qty = array("result" => true, "Qty" => $qty);
-            echo json_encode($Qty);
+            while ($rows = $result1->fetch_assoc()) {
+                $qtyTemp1 = $row['Qty'];
+                $qtyTemp2 = $rows['capacity'];
+                $qty = $qtyTemp2 - $qtyTemp1;
+                $Qty = array("result" => true, "Qty" => $qty);
+                echo json_encode($Qty);
+            }
         }
+    }
     }
     else{
         $delalert = array("result"=>false, "message"=>'Failed');
