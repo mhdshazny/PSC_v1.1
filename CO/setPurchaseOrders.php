@@ -71,19 +71,19 @@ include("../Common/TopNavBar.php");
                                         $query="SELECT * FROM `tbl_purchaseorder` ORDER BY `poID` DESC LIMIT 1";
                                         $result = $con->query($query);
                                         $numRows = mysqli_num_rows($result);
-                                        $newID="POID00001";
+                                        $newID="PO001";
                                         if ($numRows>0){
                                             foreach ($result as $rows) {
 
 
                                                 $prevID= $rows['poID'];
-                                                $newID = substr($prevID,4,5);
+                                                $newID = substr($prevID,2,3);
                                                 $newID = $newID + 1;
-                                                $newID = str_pad($newID, 5, "0", STR_PAD_LEFT);
+                                                $newID = str_pad($newID, 3, "0", STR_PAD_LEFT);
 
 
                                                 ?>
-                                                <input type="text" id="PurchaseOrderID" name="PurchaseOrderID"  placeholder="Purchase Order ID" value="POID<?= $newID?>" class="form-control" readonly>
+                                                <input type="text" id="PurchaseOrderID" name="PurchaseOrderID"  placeholder="Purchase Order ID" value="PO<?= $newID?>" class="form-control" readonly>
 
                                                 <?php
                                             }
@@ -105,7 +105,7 @@ include("../Common/TopNavBar.php");
                                                     data-target=".bd-example-modal-lg" ></button>
 
                                         </div>
-                                        <input type="text" class="ml-0 mr-3 input-group form-control col-sm-10 col-md-10 col-lg-10" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                                        <input type="text" id="farmerID"class="ml-0 mr-3 input-group form-control col-sm-10 col-md-10 col-lg-10" placeholder="" aria-label="" aria-describedby="basic-addon1">
                                         <!--                                  modal-->
                                         <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-lg">
@@ -120,35 +120,35 @@ include("../Common/TopNavBar.php");
                                                     <!--                                        </div>-->
                                                     <!--                                    </div>-->
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" style="color: #011d21" id="exampleModalLabel">New message</h5>
+                                                        <h5 class="modal-title" style="color: #011d21" id="exampleModalLabel">Farmer Details</h5>
                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
                                                     <div class="modal-body" style="color: #011d21; margin-left: 0%; margin-right: 0%" >
 
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="md-form mb-2">
-                                                                    <i class="fas fa-user prefix grey-text"></i>
-                                                                    <label data-error="wrong" data-success="right"
-                                                                           for="orangeForm-name1" >Farmer ID</label>
-                                                                    <input type="text" id="FarmerID_Modal" name="FarmerID_Modal"
-                                                                           class="form-control validate"
-                                                                           onkeyup="farmerID_Search()">
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="col-md-6">
-                                                                <div class="md-form mb-3">
-                                                                    <i class="fas ion-android-create prefix grey-text"></i>
-                                                                    <label data-error="wrong" data-success="right"
-                                                                           for="orangeForm-email1">Customer Name</label>
-                                                                    <input type="text" id="customerNamemodal" name="customerNamemodal"
-                                                                           class="form-control validate">
-                                                                </div>
-                                                            </div>
-                                                        </div>
+<!--                                                        <div class="row">-->
+<!--                                                            <div class="col-md-6">-->
+<!--                                                                <div class="md-form mb-2">-->
+<!--                                                                    <i class="fas fa-user prefix grey-text"></i>-->
+<!--                                                                    <label data-error="wrong" data-success="right"-->
+<!--                                                                           for="orangeForm-name1" >Farmer ID</label>-->
+<!--                                                                    <input type="text" id="FarmerID_Modal" name="FarmerID_Modal"-->
+<!--                                                                           class="form-control validate"-->
+<!--                                                                           onkeyup="farmerID_Search()">-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!---->
+<!--                                                            <div class="col-md-6">-->
+<!--                                                                <div class="md-form mb-3">-->
+<!--                                                                    <i class="fas ion-android-create prefix grey-text"></i>-->
+<!--                                                                    <label data-error="wrong" data-success="right"-->
+<!--                                                                           for="orangeForm-email1">Customer Name</label>-->
+<!--                                                                    <input type="text" id="customerNamemodal" name="customerNamemodal"-->
+<!--                                                                           class="form-control validate">-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!--                                                        </div>-->
                                                         <div class="row">
                                                             <div class="col-md-12 col-lg-12 col-sm-12">
                                                                 <table id="FarmerTableModal" class="col-md-12 col-lg-12 col-sm-12 table table-bordered table-dark table-hover">
@@ -158,10 +158,8 @@ include("../Common/TopNavBar.php");
                                                                         <th>Farmer ID</th>
                                                                         <th>First Name</th>
                                                                         <th>Contact No</th>
-
-
                                                                         <th>isActive</th>
-                                                                        <th>Actions</th>
+<!--                                                                        <th>Actions</th>-->
                                                                     </tr>
                                                                     </thead>
                                                                     <tbody>
@@ -177,24 +175,8 @@ include("../Common/TopNavBar.php");
                                                                     <tr>
                                                                         <td><?= $rows['farmerID']; ?></td>
                                                                         <td><?= $rows['firstName']; ?></td>
-                                                                        <td hidden><?= $rows['lastName']; ?></td>
                                                                         <td><?= $rows['contactNo1']; ?></td>
-                                                                        <td hidden><?= $rows['contactNo2']; ?></td>
-
-                                                                        <td hidden><?= $rows['addressLine1']; ?></td>
-                                                                        <td hidden><?= $rows['addressLine2']; ?></td>
-                                                                        <td hidden><?= $rows['centerID']; ?></td>
-
-                                                                        <td hidden><?= $rows['gender']; ?></td>
-                                                                        <td hidden><?= $rows['NIC']; ?></td>
-                                                                        <td hidden><?= $rows['landArea']; ?></td>
                                                                         <td><?= $rows['isActive']; ?></td>
-                                                                        <td>
-                                                                            <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $rows['farmerID'];?>')" value="<?= $rows['farmerID']; ?>">Delete</button>
-                                                                            <button class="btn-info btn-sm" onclick="editUser()" value="<?= $rows['farmerID']; ?>">Edit</button>
-
-                                                                        </td>
-
                                                                         <?php
                                                                         }
                                                                         }
@@ -233,7 +215,7 @@ include("../Common/TopNavBar.php");
                                                                                 document.getElementById("farmerID").value = this.cells[0].innerHTML;
                                                                                 document.getElementById("firstName").value = this.cells[1].innerHTML;
                                                                                 document.getElementById("contactNo1").value = this.cells[2].innerHTML;
-                                                                                document.getElementById("centerID").value = this.cells[3].innerHTML;
+                                                                                document.getElementById("isActive").value = this.cells[3].innerHTML;
 
 
 
@@ -253,7 +235,7 @@ include("../Common/TopNavBar.php");
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                        <button type="button" class="btn btn-primary">Send message</button>
+<!--                                                        <button type="button" class="btn btn-primary">Send message</button>-->
                                                     </div>
                                                 </div>
                                             </div>
@@ -381,7 +363,7 @@ include("../Common/TopNavBar.php");
                             <tr>
                                 <th>Date</th>
                                 <th>PoID</th>
-                                <th>Stock ID</th>
+<!--                                <th>Stock ID</th>-->
                                 <th>Farmer ID</th>
                                 <th>Paddy type</th>
                                 <th>Unit price</th>
@@ -405,7 +387,7 @@ include("../Common/TopNavBar.php");
                                     <tr>
                                         <td><?= $row['DateOn']; ?></td>
                                         <td><?= $row['poID']; ?></td>
-                                        <td><?= $row['stockID']; ?></td>
+<!--                                        <td>--><?//= $row['stockID']; ?><!--</td>-->
                                         <td><?= $row['farmerID']; ?></td>
                                         <td><?= $row['paddyType']; ?></td>
                                         <td><?= $row['unitPrice']; ?></td>
@@ -447,6 +429,15 @@ include("../Common/Scripts.php");
 ?>
 <!--</div>-->
 <script>
+    $( document ).ready(function() {
+        $('#FarmerTableModal').DataTable();
+    });
+
+    $( document ).ready(function() {
+        $('#pOrderTable').DataTable();
+    });
+
+
 
     function confirmDelete(id){
         bootbox.confirm({
@@ -516,54 +507,27 @@ include("../Common/Scripts.php");
     }
 
 
+
     function editPurchases() {
         document.getElementById('addPOrder').disabled=true;
         document.getElementById('updatePO').disabled=false;
         // document.getElementById('picBox').hidden=false;
 
-        var dir = "../Upload/User/";
+
         var table = document.getElementById('pOrderTable'),index;
 
         for (var  i = 1 ; i < table.rows.length ; i++){
             table.rows[i].onclick = function () {
                 rIndex = this.rowIndex;
-                document.getElementById("DateOn").value = this.cells[0].innerHTML;
-                document.getElementById("poID").value = this.cells[1].innerHTML;
-                document.getElementById("stockID").value = this.cells[2].innerHTML;
-                document.getElementById("farmerID").value = this.cells[3].innerHTML;
-                document.getElementById("paddyType").value = this.cells[4].innerHTML;
-                document.getElementById("unitPrice").value = this.cells[5].innerHTML;
-                document.getElementById("Qty").value = this.cells[6].innerHTML;
-                document.getElementById("total").value = this.cells[7].innerHTML;
+                document.getElementById("Date").value = this.cells[0].innerHTML;
+                document.getElementById("PurchaseOrderID").value = this.cells[1].innerHTML;
+                document.getElementById("farmerID").value = this.cells[2].innerHTML;
+                document.getElementById("PaddyType").value = this.cells[3].innerHTML;
+                document.getElementById("UnitPrice").value = this.cells[4].innerHTML;
+                document.getElementById("Quantity").value = this.cells[5].innerHTML;
+                document.getElementById("Total").value = this.cells[6].innerHTML;
 
 
-                // document.getElementById("dob").value = this.cells[8].innerHTML;
-
-                // let gender_temp = this.cells[9].innerHTML;
-                // if (gender_temp == "1"){
-                //     document.getElementById("male").checked=true;
-                // }
-                // else {
-                //     document.getElementById("female").checked=true
-                //
-
-                // }
-                //
-                // document.getElementById("addressLine2").value = this.cells[12].innerHTML;
-                // document.getElementById("contactNo2").value = this.cells[13].innerHTML;
-                // document.getElementById("Password").value = this.cells[14].innerHTML;
-                // document.getElementById("confirmPassword").value = this.cells[14].innerHTML;
-                // // document.getElementById("picBox").src = dir + this.cells[15].innerHTML;
-                // // alert(this.cells[15].innerHTML)
-                // document.images['picBox'].src = dir +this.cells[15].innerHTML;
-
-
-                // document.getElementById('isActive').disabled=false;
-                // document.getElementById('userID').readOnly=true;
-                // document.getElementById('confirmPassword').readOnly=true;
-
-
-                // $('#myInput').val( this.cells[0].innerHTML);
 
 
 
