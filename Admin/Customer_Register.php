@@ -252,10 +252,10 @@ include("../Common/TopNavBar.php");
 
                     <br><br>
                     <div class="container" style="">
-                        <button type="submit" name="addUser" id="addUser" class="btn btn-primary btn-block" style="width: 50%; align-content: center">Register</button>
-                        <button type="submit" name="updateUser" id="updateUser" class="btn btn-primary btn-block" style="width: 50%; align-content: center" disabled>Update</button>
-                        <button type="button" name="reload" id="reload" class="btn btn-danger btn-block" style="width: 50%; align-content: center" onclick="location.reload()">Reload</button>
-                        <button type="button" name="temp" id="temp" class="btn btn-danger btn-block" style="width: 50%; align-content: center" data-target=".bd-example-modal-lg" data-toggle="modal" >temp</button>
+                        <button type="submit" name="addUser" id="addUser" class="btn btn-primary " style="align-content: center">Register</button>
+                        <button type="submit" name="updateUser" id="updateUser" class="btn btn-primary " style="align-content: center" disabled>Update</button>
+                        <button type="button" name="reload" id="reload" class="btn btn-danger " style="align-content: center" onclick="location.reload()">Reload</button>
+                        <button type="button" name="temp" id="temp" class="btn btn-danger " style="align-content: center" data-target=".bd-example-modal-lg" data-toggle="modal" >temp</button>
 
                         <!--Modal-->
                         <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
