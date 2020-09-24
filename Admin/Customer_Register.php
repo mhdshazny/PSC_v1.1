@@ -9,8 +9,11 @@
     include("../Common/Header.php");
     //    include ("../Common/config.php");
     ?>
-    <script src="../Plugins/bootstrap/js/bootstrap.min.js">  </script>
+<!--    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css"/>-->
+<!--    <script src="https://code.jquery.com/jquery-3.5.1.js">  </script>-->
+<!--    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">  </script>-->
     <!--Bootbox Scripts-->
+
 </head>
 <body class="bg-dark" style="width: 100%">
 
@@ -95,8 +98,32 @@ include("../Common/TopNavBar.php");
 
                                 <div class="form-group">
                                     <label for="region" class="col-sm-12 col-md-12 col-lg-12 control-label">Region</label>
-                                    <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="text" id="region" name="region" placeholder="region" class="form-control" >
+
+                                    <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                                        <select class="custom-select" id="centerID" name="centerID">
+                                            <option value=""></option>
+
+                                            <?php
+
+                                            include("../Common/config.php");
+                                            //
+                                            $addQuery = "select * from `tbl_collectioncenter`";
+                                            $result = $con->query($addQuery);
+                                            //
+                                            //                                        if ($result) {
+                                            //                                            foreach ($result as $row) {
+                                            ?>
+
+                                            <?php
+                                            while ($rows = $result->fetch_assoc()) {
+                                                $ccID= $rows['centerID'];
+                                                $ccName= $rows['region'];
+                                                echo "<option value='$ccID'>$ccName</option>";
+
+
+                                            }
+                                            ?>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -224,11 +251,11 @@ include("../Common/TopNavBar.php");
                     </div>
 
                     <br><br>
-                    <div class="container" style="margin-left: 30%">
-                        <button type="submit" name="addUser" id="addUser" class="btn btn-primary btn-block" style="width: 50%; align-content: center">Register</button>
-                        <button type="submit" name="updateUser" id="updateUser" class="btn btn-primary btn-block" style="width: 50%; align-content: center" disabled>Update</button>
-                        <button type="button" name="reload" id="reload" class="btn btn-danger btn-block" style="width: 50%; align-content: center" onclick="location.reload()">Reload</button>
-                        <button type="button" name="temp" id="temp" class="btn btn-danger btn-block" style="width: 50%; align-content: center" data-target=".bd-example-modal-lg" data-toggle="modal" >temp</button>
+                    <div class="container" style="">
+                        <button type="submit" name="addUser" id="addUser" class="btn btn-primary " style="align-content: center">Register</button>
+                        <button type="submit" name="updateUser" id="updateUser" class="btn btn-primary " style="align-content: center" disabled>Update</button>
+                        <button type="button" name="reload" id="reload" class="btn btn-danger " style="align-content: center" onclick="location.reload()">Reload</button>
+                        <button type="button" name="temp" id="temp" class="btn btn-danger " style="align-content: center" data-target=".bd-example-modal-lg" data-toggle="modal" >temp</button>
 
                         <!--Modal-->
                         <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -274,8 +301,8 @@ include("../Common/TopNavBar.php");
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-12 col-lg-12 col-sm-12">
-                                                <table id="customerTableModal" class="col-md-12 col-lg-12 col-sm-12 table table-bordered table-dark table-hover">
+                                            <div class="col-md-12 col-lg-12 col-sm-12 ">
+                                                <table id="customerTableModal" class="col-md-12 col-lg-12 col-sm-12 table table-bordered table-dark table-hover table-responsive">
                                                     <thead>
                                                     <tr>
                                                         <th>Customer ID</th>
@@ -334,21 +361,23 @@ include("../Common/TopNavBar.php");
             <div class="row">
                 <div class="container-fluid ">
                     <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12">
-                        <table id="userTable" class="table table-bordered table-hover table-light">
+                        <table id="userTable" class="table-responsive table table-bordered table-hover table-light">
                             <thead>
                             <tr>
                                 <th>Customer ID</th>
                                 <th>Center ID</th>
-                                <th>Region</th>
+                                <th hidden>Region</th>
                                 <th>First Name</th>
-                                <th>Last Name</th>
+                                <th hidden>Last Name</th>
                                 <th>NIC</th>
                                 <th>Address</th>
-                                <th>Contact No</th>
+                                <th>Contact</th>
                                 <th>E-Mail</th>
                                 <th>Gender</th>
-                                <th>isActive</th>
+                                <th>Active</th>
                                 <th>Actions</th>
+                                <th hidden>AddressLine1</th>
+                                <th hidden>Actions</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -360,22 +389,27 @@ include("../Common/TopNavBar.php");
                             $result = $con->query($loadTable);
                             if ($result) {
                                 foreach ($result as $row) {
+                                    $gen="";
+                                    if ($row['gender']==1)
+                                        $gen="Male";
+                                    else
+                                        $gen="Female";
                                     ?>
                                     <tr>
                                         <td><?= $row['customerID']; ?></td>
-                                        <td><?= $row['centerID']; ?></td>
+                                        <td hidden><?= $row['centerID']; ?></td>
                                         <td><?= $row['region']; ?></td>
                                         <td><?= $row['firstName']; ?></td>
-                                        <td><?= $row['lastName']; ?></td>
+                                        <td hidden><?= $row['lastName']; ?></td>
                                         <td><?= $row['NIC']; ?></td>
                                         <td><?= $row['addressLine1']; ?></td>
                                         <td><?= $row['contactNo1']; ?></td>
                                         <td><?= $row['email']; ?></td>
-                                        <td><?= $row['gender'] ?></td>
+                                        <td><?= $gen ?></td>
                                         <td><?= $row['isActive']; ?></td>
                                         <td>
-                                            <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $row['customerID'];?>')" value="<?= $row['customerID']; ?>">Delete</button>
-                                            <button class="btn-info btn-sm" onclick="editUser()" value="<?= $row['customerID']; ?>">Edit</button>
+                                            <button class="btn-danger btn-sm ion-trash-b" onclick="confirmDelete('<?= $row['customerID'];?>')" value="<?= $row['customerID']; ?>"></button>
+                                            <button class="btn-info btn-sm ion-android-share-alt" onclick="editUser()" value="<?= $row['customerID']; ?>"></button>
 
                                         </td>
                                         <td hidden><?= $row['addressLine2']; ?></td>
@@ -432,6 +466,10 @@ include("../Common/Scripts.php");
 ?>
 <!--</div>-->
 <script>
+    $(document).ready(function() {
+        $('#userTable').DataTable();
+    } );
+
 
     function confirmDelete(id){
         bootbox.confirm({
@@ -470,15 +508,13 @@ include("../Common/Scripts.php");
     function editUser() {
         document.getElementById('addUser').disabled=true;
         document.getElementById('updateUser').disabled=false;
-        document.getElementById('picBox').hidden=false;
-
+        //document.getElementById('picBox').hidden=false;
         var dir = "../Upload/User/";
         var table = document.getElementById('userTable'),index;
-
         for (var  i = 1 ; i < table.rows.length ; i++){
             table.rows[i].onclick = function () {
                 rIndex = this.rowIndex;
-                document.getElementById("userID").value = this.cells[0].innerHTML;
+                document.getElementById("customerID").value = this.cells[0].innerHTML;
                 document.getElementById("roleID").value = this.cells[1].innerHTML;
                 document.getElementById("centerID").value = this.cells[2].innerHTML;
                 document.getElementById("firstName").value = this.cells[3].innerHTML;
@@ -487,23 +523,20 @@ include("../Common/Scripts.php");
                 document.getElementById("contactNo1").value = this.cells[6].innerHTML;
                 document.getElementById("email").value = this.cells[7].innerHTML;
                 document.getElementById("dob").value = this.cells[8].innerHTML;
-
                 let gender_temp = this.cells[9].innerHTML;
                 if (gender_temp == "1"){
                     document.getElementById("male").checked=true;
                 }
                 else {
                     document.getElementById("female").checked=true
-
                 }
-
                 document.getElementById("addressLine2").value = this.cells[12].innerHTML;
                 document.getElementById("contactNo2").value = this.cells[13].innerHTML;
                 document.getElementById("Password").value = this.cells[14].innerHTML;
                 document.getElementById("confirmPassword").value = this.cells[14].innerHTML;
                 // document.getElementById("picBox").src = dir + this.cells[15].innerHTML;
                 // alert(this.cells[15].innerHTML)
-                document.images['picBox'].src = dir +this.cells[15].innerHTML;
+                //document.images['picBox'].src = dir +this.cells[15].innerHTML;
 
 
                 document.getElementById('isActive').disabled=false;

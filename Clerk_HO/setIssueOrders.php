@@ -110,27 +110,18 @@ include("../Common/TopNavBar.php");
                     <div class="row">
                         <div class="col-sm-4 col-md-4 col-lg-4 ">
                             <!--                            <div class="form-group">-->
-                            <label for="customerID" class="control-label">Customer ID</label>
+                            <label for="customerID" class="col-sm-12 col-md-12 col-lg-12 control-label">Customer ID</label>
                             <div class="input-group input-group-md">
                                 <div class="input-group col-sm-2 col-md-2 col-lg-2 mr-0">
                                     <button type="button" class="btn btn-outline-primary ion-search" data-toggle="modal"
-                                            data-target=".bd-example-modal-lg" ></button>
+                                            data-target=".bd-example-modal-lg" >&nbsp;&nbsp;</button>
 
                                 </div>
-                                <input type="text" class="ml-0 mr-3 input-group form-control col-sm-10 col-md-10 col-lg-10" placeholder="" aria-label="" aria-describedby="basic-addon1">
-                                <!--                                  modal-->
+                                <input type="text" class="col-sm-10 col-md-10 col-lg-10 ml-0 mr-3 input-group form-control " placeholder="" aria-label="" aria-describedby="basic-addon1">
+                                <!-- Modal     -->
                                 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
-                                            <!--                                    <header class="modal-header">Hello world</header>-->
-                                            <!--                                    <div class="modal-body">-->
-                                            <!--                                        <div class="container">-->
-                                            <!--                                            <button class="close" data-dismiss="modal"-->
-                                            <!--                                                    aria-label="Close">-->
-                                            <!---->
-                                            <!--                                            </button>-->
-                                            <!--                                        </div>-->
-                                            <!--                                    </div>-->
                                             <div class="modal-header">
                                                 <h5 class="modal-title" style="color: #011d21" id="exampleModalLabel">New message</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -271,7 +262,7 @@ include("../Common/TopNavBar.php");
                                     </div>
                                 </div>
 
-                                <!---->
+                                <!-- Model-End -->
                             </div>
 
                         </div>

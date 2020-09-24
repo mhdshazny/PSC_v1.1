@@ -161,8 +161,6 @@ include("Common/TopNavBar.php");
                             </tr>
                             </thead>
                             <tbody>
-
-
                             <?php
                             include("../../Common/config.php");
                             $loadTable = "SELECT * FROM `tbl_purchaseorder` ORDER BY `DateOn` DESC";
@@ -180,19 +178,12 @@ include("Common/TopNavBar.php");
                                         <td><?= $row['stockID']; ?></td>
                                         <td><?= $row['DateOn']; ?></td>
                                         <td><?= $row['Description']; ?></td>
-
-
-
                                     </tr>
-
                                     <?php
                                 }
-
                             }
-
                             ?>
                             </tbody>
-
                         </table>
                         <script>
                             function customerID_Search() {

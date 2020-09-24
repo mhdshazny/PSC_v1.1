@@ -244,8 +244,7 @@ $LineGraph2Data4 = trim($LineGraph2Data4,",");
             datasets: [{
                 data: [<?php echo $data2?>],
                 backgroundColor: ["#white ", "#ff8585", "#FDB45C", "#949FB1", "#4D5360", "#39ff39 "],
-                hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870", "#A8B3C5", "#616774"],
-                labelColor: ["#fff", "#fff", "#fff", "#fff", "#fff"]
+                hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870", "#A8B3C5", "#616774"]
             }]
         },
         options: {
@@ -253,7 +252,7 @@ $LineGraph2Data4 = trim($LineGraph2Data4,",");
         }
     });
 
-    //Chart
+    //Bar Chart
 
     let ctxB = document.getElementById("barGraph1").getContext('2d');
     let myChart;

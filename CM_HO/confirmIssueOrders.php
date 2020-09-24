@@ -418,7 +418,7 @@ include("../Common/TopNavBar.php");
                                         <td><?= $row['customerID']; ?></td>
                                         <td><?= $row['region']; ?></td>
                                         <td><?= $row['paddyType']; ?></td>
-                                        <td><?= $row['Qty1']; ?></td>
+                                        <td><?= $row['totalQuantity']; ?></td>
                                         <td><?= $row['orderDateOn'];?></td>
 
                                         <td><?= $row['isActive']; ?></td>
