@@ -59,7 +59,7 @@ include("../Common/TopNavBar.php");
                             <div class="form-group">
                                 <label for="issueOrderID" class="col-sm-12 col-md-12 col-lg-12 control-label">Issue Order ID</label>
                                 <div class="col-sm-12 col-md-12 col-lg-12">
-                                    <input type="text" id="issueOrderID" name="issueOrderID" placeholder="Issue Order ID" class="form-control" readonly>
+                                    <input type="text" id="ioID" name="ioID" placeholder="Issue Order ID" class="form-control" readonly>
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
@@ -169,7 +169,7 @@ include("../Common/TopNavBar.php");
                                 <th>Paddy Type</th>
                                 <th>Quantity</th>
                                 <th>Ordered Date</th>
-                                <th>isActive</th>
+<!--                                <th>isActive</th>-->
                                 <th>Actions</th>
 
 
@@ -180,30 +180,30 @@ include("../Common/TopNavBar.php");
 
                             <?php
                             include("../Common/config.php");
-                            $loadTable = "SELECT * FROM `tbl_issueorder` WHERE `isActive`='1' && `orderStatus`='Order Placed' ";
+                            $loadTable = "SELECT * FROM `tbl_issueorder` ";
                             $result = $con->query($loadTable);
 
                             if ($result) {
                                 foreach ($result as $row) {
-                                    $centerID1 = $row['center1'];
+//                                    $centerID1 = $row['center1'];
                                     ?>
                                     <tr>
                                         <td><?= $row['ioID']; ?></td>
-                                        <td hidden><?= $row['customerID']; ?></td>
+<!--                                        <td hidden>--><?//= $row['customerID']; ?><!--</td>-->
                                         <td><?= $row['region']; ?></td>
                                         <td><?= $row['paddyType']; ?></td>
                                         <td><?= $row['Qty1']; ?></td>
                                         <td><?= $row['orderDateOn'];?></td>
 
-                                        <td><?= $row['isActive']; ?></td>
+<!--                                        <td>--><?//= $row['isActive']; ?><!--</td>-->
                                         <td>
-                                            <button class="btn-danger btn-sm" onclick="rejectOrder('<?= $row['ioID'];?>')" value="<?= $row['empID']; ?>">Reject</button>
-                                            <button class="btn-info btn-sm" onclick="acceptIssueOrder()" value="<?= $row['ioID']; ?>">Accept</button>
+                                            <button class="btn-danger btn-sm" onclick="rejectOrder('<?= $row['ioID'];?>')" value="<?= $row['ioID']; ?>">Reject</button>
+                                            <button class="btn-info btn-sm" id="acceptOrder"onclick="acceptIssueOrder()" value="<?= $row['ioID']; ?>">Check</button>
 
                                         </td>
-                                        <td hidden><?= $row['unitPrice']; ?></td>
-                                        <td hidden><?= $row['netTotal']; ?></td>
-                                        <td hidden><?= $row['center1']; ?></td>
+<!--                                        <td hidden>--><?//= $row['unitPrice']; ?><!--</td>-->
+<!--                                        <td hidden>--><?//= $row['netTotal']; ?><!--</td>-->
+<!--                                        <td hidden>--><?//= $row['center1']; ?><!--</td>-->
 
 <!--                                        --><?//= $centerID1_temp = $row['center1']; ?>
 
@@ -218,47 +218,7 @@ include("../Common/TopNavBar.php");
                             </tbody>
 
                         </table>
-                        <script>
 
-
-                            function acceptIssueOrder() {
-
-                                // document.getElementById('acceptOrder').disabled=true;
-
-                                // document.getElementById('updateUser').disabled=false;
-                                document.getElementById('centerID1').disabled=false;
-                                document.getElementById('isActive').disabled=false;
-
-                                var table = document.getElementById('issueOrderTable'),index;
-
-                                for (var  i = 1 ; i < table.rows.length ; i++){
-                                    table.rows[i].onclick = function () {
-                                        rIndex = this.rowIndex;
-                                        document.getElementById("issueOrderID").value = this.cells[0].innerHTML;
-                                        document.getElementById("orderDateOn").value = this.cells[5].innerHTML;
-                                        document.getElementById("region").value = this.cells[2].innerHTML;
-
-                                        document.getElementById("paddyType").value = this.cells[3].innerHTML;
-                                        document.getElementById("quantity").value = this.cells[4].innerHTML;
-                                        document.getElementById("acceptedDateOn").value = this.cells[15].innerHTML;
-                                        document.getElementById("orderStatus").value = this.cells[16].innerHTML;
-
-                                        let centerID = document.getElementById("centerID1").value = this.cells[10].innerHTML;
-
-
-
-
-
-                                    }
-                                }
-                            }
-
-                            function centerQtyAvailable() {
-                                alert();
-                            }
-
-
-                        </script>
                     </div>
                 </div>
             </div>
@@ -276,14 +236,52 @@ include("../Common/Scripts.php");
 <!--</div>-->
 <script>
 
-    $( document ).ready(function() {
-        $('#centerID1').change(function(e){
-            availableQty();
-        });
-        $('#vehicleID').change(function(d){
-            vehicleCapcity();
-        });
-    });
+    // $( document ).ready(function() {
+    //     $('#centerID1').change(function(e){
+    //         availableQty();
+    //     });
+    //     $('#vehicleID').change(function(d){
+    //         vehicleCapcity();
+    //     });
+    // });
+
+    function acceptIssueOrder() {
+
+        document.getElementById('acceptOrder').disabled=false;
+
+        //   document.getElementById('updateUser').disabled=false;
+        // document.getElementById('centerID1').disabled=false;
+        // document.getElementById('isActive').disabled=false;
+
+        var table = document.getElementById('issueOrderTable'),index;
+
+        for (var  i = 1 ; i < table.rows.length ; i++){
+            table.rows[i].onclick = function () {
+                rIndex = this.rowIndex;
+                document.getElementById("ioID").value = this.cells[0].innerHTML;
+                document.getElementById("region").value = this.cells[1].innerHTML;
+                document.getElementById("paddyType").value = this.cells[2].innerHTML;
+                document.getElementById("quantity").value = this.cells[3].innerHTML;
+                document.getElementById("orderDateOn").value = this.cells[4].innerHTML;
+                // document.getElementById("acceptedDateOn").value = this.cells[15].innerHTML;
+                // document.getElementById("orderStatus").value = this.cells[16].innerHTML;
+
+                //   let centerID = document.getElementById("centerID1").value = this.cells[10].innerHTML;
+
+
+
+
+
+            }
+        }
+    }
+
+    // function centerQtyAvailable() {
+    //     alert();
+    // }
+
+
+
 
     function rejectOrder(id){
         bootbox.confirm({
@@ -320,114 +318,114 @@ include("../Common/Scripts.php");
     }
 
 
-    function getQtyCenter(){
-
-        let totQty= document.getElementById("quantity").value;
-        let centerAvblQty1= document.getElementById("Avlbl_quantity1").value;
-
-        //let centerAvblQty2= document.getElementById("Avlbl_quantity2").value;
-
-        let rem= centerAvblQty1 - totQty;
-
-        //let rem2 = rem - centerAvblQty2;
-
-        //document.getElementById("capacity").value= <?php //echo $vehicleCapTemp?>//;
-
-        if (rem>0){
-            document.getElementById("orderQuantity1").value= document.getElementById("quantity").value ;
-            // document.getElementById("quantity").value= ;
-
-
-            document.getElementById("centerID2").disabled=false;
-            document.getElementById("quantity2").readOnly=false;
-
-            let rem2 = document.getElementById("orderQuantity1").value;
-            // document.getElementById("centerID2").disabled=false;
-            if (rem2 != totQty){
-
-
-                document.getElementById("orderQuantity2").readOnly=false;
-                document.getElementById("centerID1").disabled=true;
-                // document.getElementById("Avlbl_quantity2").value= rem2;
-
-            }
-
-        }
-        else {
-            document.getElementById("centerID2").readOnly=true;
-            document.getElementById("quantity2").readOnly=true;
-            document.getElementById("orderQuantity2").readOnly=true;
-
-        }
-
-        // var id = $('#centerID1').val();
-        // $.ajax({
-        //     type: "GET",
-        //     url: "CRUDissueOrder.php",
-        //     data: {keyword:'searchCenter',id:id},
-        //     cache: false,
-        //     dataType:'json',
-        //     success: function(data){
-        //         if(data.result){
-        //            $('#Avlbl_quantity1').val(data.message);
-        //
-        //         }
-        //     }
-        // });
-    }
-    function getQtyCenter2(){
-
-
-        let rem= document.getElementById("orderQuantity1").value;
-        let centerAvblQty2= document.getElementById("Avlbl_quantity2").value;
-
-        let rem2 = rem - centerAvblQty2;
-
-        document.getElementById("orderQuantity2").value= rem2;
-
-
-
-    }
-    function availableQty() {
-        var id = $('#centerID1').val();
-        $.ajax({
-            type: "GET",
-            url: "CRUDissueOrder.php",
-            data: {keyword:'searchCenter',id:id},
-            cache: false,
-            dataType:'json',
-            success: function(data){
-                if(data.result){
-                   $('#Avlbl_quantity1').val(data.Qty);
-                    getQtyCenter()
-                }
-            }
-        });
-    }
-    function orderQtyFromCC1() {
-        let totValue = $('#quantity').val();
-        let valueCC1 = $('#Avlbl_quantity1').val();
-        if (totValue<valueCC1) {
-            $('#orderQuantity1').val(data.Vehicle);
-        }
-    }
-
-
-    function vehicleCapcity() {
-        var id1 = $('#vehicleID').val();
-        $.ajax({
-            type: "GET",
-            url: "CRUDissueOrder.php",
-            data: {search:'searchVehicle',id:id1},
-            cache: false,
-            dataType:'json',
-            success: function(data){
-                if(data.result){
-                   $('#vehicleCapacity').val(data.Vehicle);
-                }
-            }
-        });
-    }
+    //function getQtyCenter(){
+    //
+    //    let totQty= document.getElementById("quantity").value;
+    //    let centerAvblQty1= document.getElementById("Avlbl_quantity1").value;
+    //
+    //    //let centerAvblQty2= document.getElementById("Avlbl_quantity2").value;
+    //
+    //    let rem= centerAvblQty1 - totQty;
+    //
+    //    //let rem2 = rem - centerAvblQty2;
+    //
+    //    //document.getElementById("capacity").value= <?php ////echo $vehicleCapTemp?>////;
+    //
+    //    if (rem>0){
+    //        document.getElementById("orderQuantity1").value= document.getElementById("quantity").value ;
+    //        // document.getElementById("quantity").value= ;
+    //
+    //
+    //        document.getElementById("centerID2").disabled=false;
+    //        document.getElementById("quantity2").readOnly=false;
+    //
+    //        let rem2 = document.getElementById("orderQuantity1").value;
+    //        // document.getElementById("centerID2").disabled=false;
+    //        if (rem2 != totQty){
+    //
+    //
+    //            document.getElementById("orderQuantity2").readOnly=false;
+    //            document.getElementById("centerID1").disabled=true;
+    //            // document.getElementById("Avlbl_quantity2").value= rem2;
+    //
+    //        }
+    //
+    //    }
+    //    else {
+    //        document.getElementById("centerID2").readOnly=true;
+    //        document.getElementById("quantity2").readOnly=true;
+    //        document.getElementById("orderQuantity2").readOnly=true;
+    //
+    //    }
+    //
+    //    // var id = $('#centerID1').val();
+    //    // $.ajax({
+    //    //     type: "GET",
+    //    //     url: "CRUDissueOrder.php",
+    //    //     data: {keyword:'searchCenter',id:id},
+    //    //     cache: false,
+    //    //     dataType:'json',
+    //    //     success: function(data){
+    //    //         if(data.result){
+    //    //            $('#Avlbl_quantity1').val(data.message);
+    //    //
+    //    //         }
+    //    //     }
+    //    // });
+    //}
+    //function getQtyCenter2(){
+    //
+    //
+    //    let rem= document.getElementById("orderQuantity1").value;
+    //    let centerAvblQty2= document.getElementById("Avlbl_quantity2").value;
+    //
+    //    let rem2 = rem - centerAvblQty2;
+    //
+    //    document.getElementById("orderQuantity2").value= rem2;
+    //
+    //
+    //
+    //}
+    //function availableQty() {
+    //    var id = $('#centerID1').val();
+    //    $.ajax({
+    //        type: "GET",
+    //        url: "CRUDissueOrder.php",
+    //        data: {keyword:'searchCenter',id:id},
+    //        cache: false,
+    //        dataType:'json',
+    //        success: function(data){
+    //            if(data.result){
+    //               $('#Avlbl_quantity1').val(data.Qty);
+    //                getQtyCenter()
+    //            }
+    //        }
+    //    });
+    //}
+    //function orderQtyFromCC1() {
+    //    let totValue = $('#quantity').val();
+    //    let valueCC1 = $('#Avlbl_quantity1').val();
+    //    if (totValue<valueCC1) {
+    //        $('#orderQuantity1').val(data.Vehicle);
+    //    }
+    //}
+    //
+    //
+    //function vehicleCapcity() {
+    //    var id1 = $('#vehicleID').val();
+    //    $.ajax({
+    //        type: "GET",
+    //        url: "CRUDissueOrder.php",
+    //        data: {search:'searchVehicle',id:id1},
+    //        cache: false,
+    //        dataType:'json',
+    //        success: function(data){
+    //            if(data.result){
+    //               $('#vehicleCapacity').val(data.Vehicle);
+    //            }
+    //        }
+    //    });
+    //}
 
 </script>
 </body>
