@@ -164,7 +164,7 @@ include("../Common/TopNavBar.php");
                             <thead>
                             <tr>
                                 <th>Issue OrderID</th>
-                                <th>Customer ID
+
                                 <th>Region</th>
                                 <th>Paddy Type</th>
                                 <th>Quantity</th>
@@ -189,10 +189,10 @@ include("../Common/TopNavBar.php");
                                     ?>
                                     <tr>
                                         <td><?= $row['ioID']; ?></td>
-                                        <td><?= $row['customerID']; ?></td>
+                                        <td hidden><?= $row['customerID']; ?></td>
                                         <td><?= $row['region']; ?></td>
                                         <td><?= $row['paddyType']; ?></td>
-                                        <td><?= $row['totalQuantity']; ?></td>
+                                        <td><?= $row['Qty1']; ?></td>
                                         <td><?= $row['orderDateOn'];?></td>
 
                                         <td><?= $row['isActive']; ?></td>
