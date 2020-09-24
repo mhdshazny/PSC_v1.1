@@ -118,7 +118,7 @@ include("../Common/TopNavBar.php");
                                             while ($rows = $result->fetch_assoc()) {
                                                 $ccID= $rows['centerID'];
                                                 $ccName= $rows['region'];
-                                                echo "<option value='$ccID'>$ccName</option>";
+                                                echo "<option>$ccName</option>";
 
 
                                             }
@@ -251,25 +251,16 @@ include("../Common/TopNavBar.php");
                     </div>
 
                     <br><br>
-                    <div class="container" style="">
-                        <button type="submit" name="addUser" id="addUser" class="btn btn-primary " style="align-content: center">Register</button>
-                        <button type="submit" name="updateUser" id="updateUser" class="btn btn-primary " style="align-content: center" disabled>Update</button>
-                        <button type="button" name="reload" id="reload" class="btn btn-danger " style="align-content: center" onclick="location.reload()">Reload</button>
-                        <button type="button" name="temp" id="temp" class="btn btn-danger " style="align-content: center" data-target=".bd-example-modal-lg" data-toggle="modal" >temp</button>
+                    <div class="container" style="max-width: 900px">
+                        <button type="submit" name="addUser" id="addUser" class="btn btn-primary btn-block" style="">Register</button>
+                        <button type="submit" name="updateUser" id="updateUser" class="btn btn-primary btn-block" style="" disabled>Update</button>
+                        <button type="button" name="reload" id="reload" class="btn btn-danger btn-block" style="" onclick="location.reload()">Reload</button>
+                        <button type="button" name="temp" id="temp" class="btn btn-danger btn-block" style="" data-target=".bd-example-modal-lg" data-toggle="modal" >temp</button>
 
                         <!--Modal-->
                         <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
-                                    <!--                                    <header class="modal-header">Hello world</header>-->
-                                    <!--                                    <div class="modal-body">-->
-                                    <!--                                        <div class="container">-->
-                                    <!--                                            <button class="close" data-dismiss="modal"-->
-                                    <!--                                                    aria-label="Close">-->
-                                    <!---->
-                                    <!--                                            </button>-->
-                                    <!--                                        </div>-->
-                                    <!--                                    </div>-->
                                     <div class="modal-header">
                                         <h5 class="modal-title" style="color: #011d21" id="exampleModalLabel">New message</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -515,16 +506,17 @@ include("../Common/Scripts.php");
             table.rows[i].onclick = function () {
                 rIndex = this.rowIndex;
                 document.getElementById("customerID").value = this.cells[0].innerHTML;
-                document.getElementById("roleID").value = this.cells[1].innerHTML;
-                document.getElementById("centerID").value = this.cells[2].innerHTML;
+                document.getElementById('centerID').value = this.cells[2].innerHTML;
+                // this.['centerID'].value = this.cells[2].innerHTML;
+                //document.getElementById("centerID").value = this.cells[2].innerHTML;
                 document.getElementById("firstName").value = this.cells[3].innerHTML;
                 document.getElementById("lastName").value = this.cells[4].innerHTML;
-                document.getElementById("addressLine1").value = this.cells[5].innerHTML;
-                document.getElementById("contactNo1").value = this.cells[6].innerHTML;
-                document.getElementById("email").value = this.cells[7].innerHTML;
-                document.getElementById("dob").value = this.cells[8].innerHTML;
+                document.getElementById("NIC").value = this.cells[5].innerHTML;
+                document.getElementById("addressLine1").value = this.cells[6].innerHTML;
+                document.getElementById("contactNo1").value = this.cells[7].innerHTML;
+                document.getElementById("email").value = this.cells[8].innerHTML;
                 let gender_temp = this.cells[9].innerHTML;
-                if (gender_temp == "1"){
+                if (gender_temp == "Male"){
                     document.getElementById("male").checked=true;
                 }
                 else {
@@ -532,15 +524,15 @@ include("../Common/Scripts.php");
                 }
                 document.getElementById("addressLine2").value = this.cells[12].innerHTML;
                 document.getElementById("contactNo2").value = this.cells[13].innerHTML;
-                document.getElementById("Password").value = this.cells[14].innerHTML;
-                document.getElementById("confirmPassword").value = this.cells[14].innerHTML;
-                // document.getElementById("picBox").src = dir + this.cells[15].innerHTML;
-                // alert(this.cells[15].innerHTML)
-                //document.images['picBox'].src = dir +this.cells[15].innerHTML;
+                // document.getElementById("Password").value = this.cells[14].innerHTML;
+                // document.getElementById("confirmPassword").value = this.cells[14].innerHTML;
+                // // document.getElementById("picBox").src = dir + this.cells[15].innerHTML;
+                // // alert(this.cells[15].innerHTML)
+                // //document.images['picBox'].src = dir +this.cells[15].innerHTML;
 
 
                 document.getElementById('isActive').disabled=false;
-                document.getElementById('userID').readOnly=true;
+                document.getElementById('customerID').readOnly=true;
                 document.getElementById('confirmPassword').readOnly=true;
 
 

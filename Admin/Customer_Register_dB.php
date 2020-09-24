@@ -57,94 +57,91 @@ if (isset($_POST['addUser'])) {
 
 if (isset($_POST['updateUser'])){
 
-    $upUserID = $_POST['userID'];
-    $upPass1 = $_POST['Password'];
-    $upPass2 = $_POST['confirmPassword'];
-    $upCenterID = $_POST['centerID'];
-
-    $upRoleID = $_POST['roleID'];
-    $upfName = $_POST['firstName'];
-    $uplName = $_POST['lastName'];
-    $upAddress1 = $_POST['addressLine1'];
-    $upAddress2 = $_POST['addressLine2'];
-    $upContact = $_POST['contactNo1'];
-    $upContact2 = $_POST['contactNo2'];
-    $upEmail = $_POST['email'];
-    $upDob = $_POST['dob'];
-    $upGender=$_POST['gender'];
+    $cusID = $_POST['customerID'];
+    $centerID = $_POST['centerID'];
+    $regionID = $_POST['regionID'];
+    $fName = $_POST['firstName'];
+    $lName = $_POST['lastName'];
+    $Address1 = $_POST['addressLine1'];
+    $Address2 = $_POST['addressLine2'];
+    $Contact = $_POST['contactNo1'];
+    $Contact2 = $_POST['contactNo2'];
+    $Email = $_POST['email'];
+//    $upDob = $_POST['dob'];
+    $Gender=$_POST['gender'];
 //    $picture = addslashes(file_get_contents($_FILES["picture"]["temp_name"]));
-    $upPicture=basename($_FILES["picture"]["name"]);
-    $upPasswordFinal = $upPass1;
+//    $upPicture=basename($_FILES["picture"]["name"]);
+//    $upPasswordFinal = $upPass1;
 
     $upIsActive=$_POST['isActive'];
 
-    $target_dir = "../Upload/User/";
+//    $target_dir = "../Upload/User/";
 
 
 
-    if ($upPicture!="") {
-        $target_file = $target_dir . basename($_FILES["picture"]["name"]);
-        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+//    if ($upPicture!="") {
+//        $target_file = $target_dir . basename($_FILES["picture"]["name"]);
+//        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
-        $check = getimagesize($_FILES["picture"]["tmp_name"]);
+//        $check = getimagesize($_FILES["picture"]["tmp_name"]);
 
-        if (!$check) {
-            header('Location: userReg.php?e=Wrong Credentials1');
-        }
-        if ($_FILES["picture"]["size"] > 500000) {
-            header('Location: userReg.php?e=Wrong Credentials2');
-        }
-        if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-            header('Location: userReg.php?e=Wrong Credentials3');
-        }
-        if (!empty($userID) && !empty($pass2) && !empty($pass1)) {
-            if ($pass1 == $pass2) {
-                $sql = "INSERT INTO `tbl_employee`(`empID`, `firstName`, `lastName`, `profilePic`, `roleID`, `addressLine1`, `addressLine2`, `contactNo1`, `contactNo2`, `email`, `centerID`, `dob`, `gender`, `isActive`,`password`) 
-                VALUES ('$userID', '$fName', '$lName', '$picture','$roleID','$address1','$address2','$contact','$contact2','$email','$centerID','$dob','$gender','$isActive','$passwordFinal')";
+//        if (!$check) {
+//            header('Location: userReg.php?e=Wrong Credentials1');
+//        }
+//        if ($_FILES["picture"]["size"] > 500000) {
+//            header('Location: userReg.php?e=Wrong Credentials2');
+//        }
+//        if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
+//            header('Location: userReg.php?e=Wrong Credentials3');
+//        }
+//        if (!empty($cusID)) {
+////            if ($pass1 == $pass2) {
+//                $sql = "INSERT INTO `tbl_employee`(`customerID`, `firstName`, `lastName`, `profilePic`, `roleID`, `addressLine1`, `addressLine2`, `contactNo1`, `contactNo2`, `email`, `centerID`, `dob`, `gender`, `isActive`,`password`)
+//                VALUES ('$cusID', '$fName', '$lName', '$picture','$roleID','$address1','$address2','$contact','$contact2','$email','$centerID','$dob','$gender','$isActive','$passwordFinal')";
+//
+//                if ($con->query($sql) === TRUE) {
+//                    if (move_uploaded_file($_FILES["picture"]["tmp_name"], $target_file)) {
+//                        mysqli_commit($con);
+//                        header('Location: userReg.php?e=data inserted');
+//                    } else {
+//                        echo "Sorry, there was an error uploading your file.";
+//                    }
+//
+//
+//                } else {
+//
+//                    //This will print the error//
+//
+//                    print("Error: " . $sql . "<br>" . $con->error);
+//
+//                    //This will redirect to same page and it'll show the message above url//
+//
+//                    header('Location: userReg.php?e=Wrong Credentials11');
+//                }
 
-                if ($con->query($sql) === TRUE) {
-                    if (move_uploaded_file($_FILES["picture"]["tmp_name"], $target_file)) {
-                        mysqli_commit($con);
-                        header('Location: userReg.php?e=data inserted');
-                    } else {
-                        echo "Sorry, there was an error uploading your file.";
-                    }
 
-
-                } else {
-
-                    //This will print the error//
-
-                    print("Error: " . $sql . "<br>" . $con->error);
-
-                    //This will redirect to same page and it'll show the message above url//
-
-                    header('Location: userReg.php?e=Wrong Credentials11');
-                }
-
-
-            } else {
-                header('Location: userReg.php?e=Wrong Credentials4');
-
-            }
-        } else {
-            header('Location: userReg.php?e=userID or password Missing6');
-
-        }
-    }
-    else{
-        /*   echo $upUserID;
-           echo $upPass1;
-           exit();*/
-        if ($upUserID!="" && $upPass1!="" && $upPass2!="") {
-            if ($upPass1 == $upPass2) {
-                $sql = "UPDATE `tbl_employee` SET `firstName`='$upfName',`lastName`='$uplName',`profilePic`='$upPicture',`addressLine1`='$upAddress1',`addressLine2`='$upAddress2',`contactNo1`='$upContact',`contactNo2`='$upContact2',`email`='$upEmail',`centerID`='$upCenterID',`dob`='$upDob',`gender`='$upGender',`isActive`='$upIsActive',`password`='$upPasswordFinal' WHERE `empID`='$upUserID' ";
+//            } else {
+//                header('Location: userReg.php?e=Wrong Credentials4');
+//
+//            }
+//        } else {
+//            header('Location: userReg.php?e=userID or password Missing6');
+//
+//        }
+//    }
+//    else{
+//        /*   echo $upUserID;
+//           echo $upPass1;
+//           exit();*/
+        if ($cusID!="") {
+//            if ($upPass1 == $upPass2) {
+                $sql = "UPDATE `tbl_customer` SET `firstName`='$fName',`lastName`='$lName',`addressLine1`='$Address1',`addressLine2`='$Address2',`contactNo1`='$Contact',`contactNo2`='$Contact2',`email`='$Email',`region`='$centerID',`gender`='$Gender',`isActive`='$upIsActive' WHERE `customerID`='$cusID' ";
 
 //                `profilePic`, `roleID`, `addressLine1`, `addressLine2`, `contactNo1`, `contactNo2`, `email`, `centerID`, `dob`, `gender`, `isActive`,`password`
                 if ($con->query($sql) === TRUE) {
 //                     if (move_uploaded_file($_FILES["picture"]["tmp_name"], $target_file)) {
                     mysqli_commit($con);
-                    header('Location: userReg.php?e=data inserted');
+                    header('Location: Customer_Register.php?e=data inserted');
 //                     } else {
 //                         echo "Sorry, there was an error uploading your file.";
 //                     }
@@ -158,18 +155,18 @@ if (isset($_POST['updateUser'])){
 
                     //This will redirect to same page and it'll show the message above url//
 
-                    header('Location: userReg.php?e=Up Wrong Credentials11');
+                    header('Location: Customer_Register.php?e=Up Wrong Credentials11');
                 }
-
-
+//
+//
             } else {
-                header('Location: userReg.php?e=Up Wrong Credentials4');
-
+                header('Location: userReg.php?e=Up Wrong Credentials CusID failed');
+//
             }
-        } else {
-            header('Location: userReg.php?e=userID or password Missing Up');
-
-        }
-    }
+//        } else {
+//            header('Location: userReg.php?e=userID or password Missing Up');
+//
+//        }
+//    }
 
 }
