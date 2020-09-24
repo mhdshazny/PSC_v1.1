@@ -161,7 +161,7 @@ include("../Common/TopNavBar.php");
                                                                         <th>Farmer ID</th>
                                                                         <th>First Name</th>
                                                                         <th>Contact No</th>
-                                                                        <th>isActive</th>
+                                                                        <th>Actions</th>
 <!--                                                                        <th>Actions</th>-->
                                                                     </tr>
                                                                     </thead>
@@ -180,11 +180,8 @@ include("../Common/TopNavBar.php");
                                                                         <td><?= $rows['farmerID']; ?></td>
                                                                         <td><?= $rows['firstName']; ?></td>
                                                                         <td><?= $rows['contactNo1']; ?></td>
-                                                                        <td><?= $rows['isActive']; ?></td>
-
                                                                         <td>
-                                                                            <button class="btn-info btn-sm" onclick="selectFromModal()" data-dismiss="modal" value="<?= $rows['customerID']; ?>">Select</button>
-
+                                                                            <button class="btn-info btn-sm" onclick="selectModal()">Edit</button>
                                                                         </td>
                                                                         <?php
                                                                         }
@@ -222,17 +219,6 @@ include("../Common/TopNavBar.php");
                                                                             table.ros[i].onclick = function () {
                                                                                 rIndex = this.rowIndex;
                                                                                 document.getElementById("farmerID").value = this.cells[0].innerHTML;
-                                                                                document.getElementById("firstName").value = this.cells[1].innerHTML;
-                                                                                document.getElementById("contactNo1").value = this.cells[2].innerHTML;
-                                                                                document.getElementById("isActive").value = this.cells[3].innerHTML;
-
-
-
-
-                                                                                // $('#myInput').val( this.cells[0].innerHTML);
-
-
-
                                                                             }
                                                                         }
                                                                     }
@@ -272,7 +258,7 @@ include("../Common/TopNavBar.php");
                                 <div class="form-group">
                                     <label for="PaddyType" class="col-sm-12 col-md-12 col-lg-12 control-label">Paddy Type*</label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <select class="form-control" id="PaddyType" onchange="getUP()" name="PaddyType">
+                                        <select class="form-control" id="PaddyType" name="PaddyType" onchange="getUP()">
                                             <option></option>
                                             <?php
 
@@ -314,7 +300,7 @@ include("../Common/TopNavBar.php");
                                 <div class="form-group">
                                     <label for="UnitPrice" class="col-sm-12 col-md-12 col-lg-12 control-label">Unit price</label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="text" id="UnitPrice" name="UnitPrice" placeholder="Unit price" class="form-control" autofocus>
+                                        <input type="text" id="UnitPrice" name="UnitPrice" placeholder="Unit price" class="form-control" autofocus onchange="getUP()">
                                     </div>
                                 </div>
                             </div>
@@ -322,13 +308,13 @@ include("../Common/TopNavBar.php");
                                 <div class="form-group">
                                     <label for="Quantity" class="col-sm-12 col-md-12 col-lg-12  control-label">Quantity</label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="text" id="Quantity" name="Quantity" placeholder="Quantity" onchange="getUP()" class="form-control" autofocus>
+                                        <input type="text" id="Quantity" name="Quantity" placeholder="Quantity" class="form-control" autofocus onchange="getUP()">
                                     </div>
                                 </div>
                             </div>
 
                             <div class="container" style="margin-left: 30%">
-                                <button type="button" name="cal" id="cal" class="btn btn-primary btn-block" style="width: 50%; align-content: center" onclick="calTot()">Calculate</button>
+<!--                                <button type="button" name="cal" id="cal" class="btn btn-primary btn-block" style="width: 50%; align-content: center" onclick="calTot()">Calculate</button>-->
                             </div>
 
                         </div>
@@ -461,34 +447,12 @@ include("../Common/Scripts.php");
     $( document ).ready(function() {
         $('#pOrderTable').DataTable();
     });
-
     $( document ).ready(function() {
-        Qty = document.getElementById("Quantity").defaultValue ="0";
+        document.getElementById("Quantity").defaultValue ="0";
         document.getElementById("UnitPrice").defaultValue = "0";
         document.getElementById("Total").defaultValue = "0";
 
     });
-
-    function selectFromModal() {
-
-        var table = document.getElementById("FarmerTableModal"),index;
-
-        for (var  i = 1 ; i < table.rows.length ; i++){
-            table.rows[i].onclick = function () {
-                rIndex = this.rowIndex;
-                document.getElementById("farmerID").value = this.cells[0].innerHTML;
-                document.getElementById("centerID").value = this.cells[7].innerHTML;
-
-
-
-
-                // $('#myInput').val( this.cells[0].innerHTML);
-
-
-
-            }
-        }
-    }
 
 
     function confirmDelete(id){
@@ -525,7 +489,18 @@ include("../Common/Scripts.php");
 
     }
 
+    function selectFromModal() {
 
+        var table = document.getElementById("FarmerTableModal"), index;
+
+        for (var i = 1; i < table.rows.length; i++) {
+            table.rows[i].onclick = function () {
+                rIndex = this.rowIndex;
+                document.getElementById("farmerID").value = this.cells[0].innerHTML;
+
+            }
+        }
+    }
     //Calculate total
     function calTot() {
 
@@ -586,7 +561,7 @@ include("../Common/Scripts.php");
             }
         }
     }
-   function getUP() {
+    function getUP() {
         let Qty,UP;
         document.getElementById("UnitPrice").value = document.getElementById("PaddyType").value;
         UP = document.getElementById("PaddyType").value;
@@ -595,6 +570,7 @@ include("../Common/Scripts.php");
         document.getElementById("Total").value= Qty * UP;
 
 
-   }
+    }
+
 </script>
 </body>

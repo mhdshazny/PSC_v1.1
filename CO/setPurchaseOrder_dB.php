@@ -4,7 +4,7 @@ include("../Common/config.php");
 if (isset($_POST['addPOrder'])) {
     $Date = $_POST['Date'];
     $PurchaseOrderID = $_POST['PurchaseOrderID'];
-    $FarmerID = $_POST['FarmerID'];
+    $FarmerID = $_POST['farmerID'];
     $StockID = $_POST['StockID'];
     $PaddyType = $_POST['PaddyType'];
     $Quantity = $_POST['Quantity'];
