@@ -296,7 +296,7 @@ include("../Common/TopNavBar.php");
                                                 <table id="customerTableModal" class="col-md-12 col-lg-12 col-sm-12 table table-bordered table-dark table-hover table-responsive">
                                                     <thead>
                                                     <tr>
-                                                        <th>Customer ID</th>
+                                                        <th>Cus ID</th>
                                                         <th>First Name</th>
                                                         <th>Last Name</th>
                                                         <th>Contact No</th>
@@ -350,12 +350,12 @@ include("../Common/TopNavBar.php");
             </div>
 
             <div class="row">
-                <div class="container-fluid ">
-                    <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12">
-                        <table id="userTable" class="table-responsive table table-bordered table-hover table-light">
+                <div class="container">
+                    <div class="">
+                        <table id="userTable" class="table-responsive table table-bordered table-hover table-light" style="width: initial">
                             <thead>
                             <tr>
-                                <th>Customer ID</th>
+                                <th>Cus ID</th>
                                 <th>Center ID</th>
                                 <th hidden>Region</th>
                                 <th>First Name</th>

@@ -610,9 +610,6 @@ include("../Common/Scripts.php");
         let rem2 = rem - centerAvblQty2;
 
         document.getElementById("orderQuantity2").value= rem2;
-
-
-
     }
     function availableQty() {
         var id = $('#centerID1').val();
