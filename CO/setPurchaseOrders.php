@@ -23,7 +23,10 @@
 <!--<div class="container">-->
 <?php
 include("../Common/TopNavBar.php");
+//include("../Common/session.php");
+
 ?>
+
 <div class="row" style="min-height: 87%; background-color: #011d21">
     <?php
     include("../Common/SideNavBar.php");
@@ -63,7 +66,7 @@ include("../Common/TopNavBar.php");
                             </div>
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
                                 <div class="form-group">
-                                    <label for="PurchaseOrderID" class="col-sm-12 col-md-12 col-lg-12 control-label">Purchase Order ID</label>
+                                    <label for="PurchaseOrderID" class="col-sm-12 col-md-12 col-lg-12 control-label">Purchase Order ID </label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
 
                                         <?php
@@ -166,8 +169,9 @@ include("../Common/TopNavBar.php");
 
                                                                     <?php
                                                                     include ("../Common/config.php");
+                                                                    $center = $_SESSION['userCenterID'];
 
-                                                                    $query="Select * from `tbl_farmer`";
+                                                                    $query="Select * from `tbl_farmer` where centerID ='$center'";
                                                                     $result = $con->query($query);
                                                                     if ($result){
                                                                     foreach ($result as $rows){
@@ -255,7 +259,7 @@ include("../Common/TopNavBar.php");
                                 <div class="form-group">
                                     <label for="CenterID" class="col-sm-12 col-md-12 col-lg-12 control-label">Center ID</label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="text" id="CenterID" name="CenterID"  placeholder="Center ID" class="form-control" >
+                                        <input type="text" id="CenterID" name="CenterID"  placeholder="Center ID" class="form-control" readonly value="<?php echo $_SESSION['userCenterID'];?>">
                                     </div>
                                 </div>
                             </div>
