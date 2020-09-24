@@ -263,12 +263,28 @@ include("../Common/TopNavBar.php");
                                 <div class="form-group">
                                     <label for="PaddyType" class="col-sm-12 col-md-12 col-lg-12 control-label">Paddy Type*</label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <select class="form-control" id="PaddyType" name="PaddyType">
-                                            <option value="Basmathi Rice">Basmathi Rice</option>
-                                            <option value="Nadu Rice">Nadu Rice</option>
-                                            <option value="Kekulu Rice">Kekulu Rice</option>
-                                            <option value="Samba Rice">Samba Rice</option>
-                                            <option value="Red Rice">Red Rice</option>
+                                        <select class="form-control" id="PaddyType" onchange="getUP()" name="PaddyType">
+                                            <option></option>
+                                            <?php
+
+                                            include("../Common/config.php");
+                                            //
+                                            $addQuery = "select * from `tbl_product`";
+                                            $result = $con->query($addQuery);
+                                            //
+                                            //                                        if ($result) {
+                                            //                                            foreach ($result as $row) {
+                                            ?>
+
+                                            <?php
+                                            while ($rows = $result->fetch_assoc()) {
+                                                $PrSP= $rows['sellingPrice'];
+                                                $PrName= $rows['paddyType'];
+                                                echo "<option value='$PrSP'>$PrName</option>";
+
+
+                                            }
+                                            ?>
                                         </select>
                                     </div>
                                 </div>
@@ -297,7 +313,7 @@ include("../Common/TopNavBar.php");
                                 <div class="form-group">
                                     <label for="Quantity" class="col-sm-12 col-md-12 col-lg-12  control-label">Quantity</label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="text" id="Quantity" name="Quantity" placeholder="Quantity" class="form-control" autofocus>
+                                        <input type="text" id="Quantity" name="Quantity" placeholder="Quantity" onchange="getUP()" class="form-control" autofocus>
                                     </div>
                                 </div>
                             </div>
@@ -437,6 +453,13 @@ include("../Common/Scripts.php");
         $('#pOrderTable').DataTable();
     });
 
+    $( document ).ready(function() {
+        Qty = document.getElementById("Quantity").defaultValue ="0";
+        document.getElementById("UnitPrice").defaultValue = "0";
+        document.getElementById("Total").defaultValue = "0";
+
+    });
+
 
 
     function confirmDelete(id){
@@ -534,5 +557,15 @@ include("../Common/Scripts.php");
             }
         }
     }
+   function getUP() {
+        let Qty,UP;
+        document.getElementById("UnitPrice").value = document.getElementById("PaddyType").value;
+        UP = document.getElementById("PaddyType").value;
+        Qty = document.getElementById("Quantity").value;
+
+        document.getElementById("Total").value= Qty * UP;
+
+
+   }
 </script>
 </body>
