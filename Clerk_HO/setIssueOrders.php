@@ -382,7 +382,7 @@ include("../Common/TopNavBar.php");
 
             <br><br>
             <div class="container" style="text-align: center; max-width: 50%"">
-                <button type="submit" name="addUser" id="addUser" class="btn btn-primary btn-block" >Confirm Order</button>
+                <button type="submit" name="setIssueOrder" id="setIssueOrder" class="btn btn-primary btn-block" >Confirm Order</button>
                 <button type="submit" name="updateUser" id="updateUser" class="btn btn-primary btn-block"  hidden>Update</button>
                 <button type="button" name="reload" id="reload" class="btn btn-danger btn-block"  onclick="location.reload()">Reload</button>
             </div>

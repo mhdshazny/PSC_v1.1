@@ -21,38 +21,38 @@ if (isset($_POST['setIssueOrder'])) {
     $quantity = $_POST['quantity'];
     $unitPrice = $_POST['unitPrice'];
     $netTotal = $_POST['netTotal'];
+    $centerID = $_POST['centerID'];
 
 
-    $isActive=$_POST['isActive'];
+    $isActive = $_POST['isActive'];
 
 
+    if (!empty($issueOrderID) && !empty($quantity) && !empty($region)) {
 
 
-        if (!empty($issueOrderID) && !empty($quantity) && !empty($region)) {
-
-                $sql = "INSERT INTO `tbl_issueorder`(`ioID`, `customerID`, `region`, `paddyType`, `Qty`, `unitPrice`, `orderDateOn`, `netTotal`) 
-                VALUES ('$issueOrderID', '$customerID', '$orderDateOn', '$region', '$paddyType','$quantity','$unitPrice','$orderDateOn','$netTotal')";
-
-
-                    header('Location: setIssueOrders.php?e=data inserted');
+        $sql = "INSERT INTO `tbl_issueorder`(`ioID`, `customerID`, `region`, `paddyType`, `center1`, `totalQuantity`, `unitPrice`, `orderDateOn`, `netTotal`) 
+                VALUES ('$issueOrderID', '$customerID', '$region', '$paddyType', '$centerID','$quantity','$unitPrice','$orderDateOn','$netTotal')";
+        if ($con->query($sql) == true) {
+            mysqli_commit($con);
+            header('Location: setIssueOrders.php?e=data inserted');
 
 
+        } else {
 
-                } else {
+            //This will print the error//
 
-                    //This will print the error//
+            print("Error: " . $sql . "<br>" . $con->error);
 
-                    print("Error: " . $sql . "<br>" . $con->error);
+            //This will redirect to same page and it'll show the message above url//
 
-                    //This will redirect to same page and it'll show the message above url//
-
-                    header('Location: setIssueOrders.php?e=Wrong Credentials11');
-                }
+            header('Location: setIssueOrders.php?e=Wrong Credentials11');
+        }
 
 
-            } else {
-    header('Location: setIssueOrders.php?e=Wrong Credentials4');
+    } else {
+        header('Location: setIssueOrders.php?e=Wrong Credentials4');
 
+    }
 }
-
+//Run karanna
 

@@ -177,6 +177,11 @@ include("../Common/TopNavBar.php");
                                                                         <td><?= $rows['firstName']; ?></td>
                                                                         <td><?= $rows['contactNo1']; ?></td>
                                                                         <td><?= $rows['isActive']; ?></td>
+
+                                                                        <td>
+                                                                            <button class="btn-info btn-sm" onclick="selectFromModal()" data-dismiss="modal" value="<?= $rows['customerID']; ?>">Select</button>
+
+                                                                        </td>
                                                                         <?php
                                                                         }
                                                                         }
@@ -460,6 +465,26 @@ include("../Common/Scripts.php");
 
     });
 
+    function selectFromModal() {
+
+        var table = document.getElementById("FarmerTableModal"),index;
+
+        for (var  i = 1 ; i < table.rows.length ; i++){
+            table.rows[i].onclick = function () {
+                rIndex = this.rowIndex;
+                document.getElementById("farmerID").value = this.cells[0].innerHTML;
+                document.getElementById("centerID").value = this.cells[7].innerHTML;
+
+
+
+
+                // $('#myInput').val( this.cells[0].innerHTML);
+
+
+
+            }
+        }
+    }
 
 
     function confirmDelete(id){
