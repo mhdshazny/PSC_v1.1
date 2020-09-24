@@ -334,12 +334,12 @@ include("../Common/TopNavBar.php");
                         <table id="cashAllocateTable" class="table table-bordered table-hover table-light">
                             <thead>
                             <tr>
-                                <th>Date</th>
-                                <th>Bank ID</th>
-                                <th>Bank name</th>
-                                <th>Region</th>
-                                <th>Account number</th>
+                                <th>Transfer ID</th>
+                                <th>Paying Account Number</th>
+                                <th>Bank Account ID</th>
                                 <th>Amount</th>
+                                <th>Date On</th>
+
 
 
 
@@ -350,23 +350,19 @@ include("../Common/TopNavBar.php");
 
                             <?php
                             include("../Common/config.php");
-                            $loadTable = "SELECT * FROM `tbl_cutomer`";
+                            $loadTable = "SELECT * FROM `tbl_mnytransfers`";
                             $result = $con->query($loadTable);
                             if ($result) {
                                 foreach ($result as $row) {
                                     ?>
                                     <tr>
-                                        <td><?= $row['customerID']; ?></td>
-                                        <td><?= $row['centerID']; ?></td>
-                                        <td><?= $row['region']; ?></td>
-                                        <td><?= $row['firstName']; ?></td>
-                                        <td><?= $row['lastName']; ?></td>
-                                        <td><?= $row['NIC']; ?></td>
-                                        <td><?= $row['addressLine1']; ?></td>
-                                        <td><?= $row['contactNo1']; ?></td>
-                                        <td><?= $row['email']; ?></td>
-                                        <td><?= $row['gender'] ?></td>
-                                        <td><?= $row['isActive']; ?></td>
+                                        <td><?= $row['transferID']; ?></td>
+                                        <td><?= $row['payingAccNo']; ?></td>
+                                        <td><?= $row['bankAccID']; ?></td>
+                                        <td><?= $row['amount']; ?></td>
+                                        <td><?= $row['dateOn']; ?></td>
+
+<!--                                        <td>--><?//= $row['isActive']; ?><!--</td>-->
                                         <td>
                                             <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $row['empID'];?>')" value="<?= $row['empID']; ?>">Delete</button>
                                             <button class="btn-info btn-sm" onclick="editUser()" value="<?= $row['empID']; ?>">Edit</button>
