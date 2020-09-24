@@ -133,7 +133,7 @@ include("../Common/TopNavBar.php");
                                                                     <i class="fas fa-user prefix grey-text"></i>
                                                                     <label data-error="wrong" data-success="right"
                                                                            for="orangeForm-name1" >Farmer ID</label>
-                                                                    <input type="text" id="customerID_Modal" name="customerID_Modal"
+                                                                    <input type="text" id="FarmerID_Modal" name="FarmerID_Modal"
                                                                            class="form-control validate"
                                                                            onkeyup="farmerID_Search()">
                                                                 </div>
@@ -151,7 +151,7 @@ include("../Common/TopNavBar.php");
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-md-12 col-lg-12 col-sm-12">
-                                                                <table id="customerTableModal" class="col-md-12 col-lg-12 col-sm-12 table table-bordered table-dark table-hover">
+                                                                <table id="FarmerTableModal" class="col-md-12 col-lg-12 col-sm-12 table table-bordered table-dark table-hover">
                                                                     <thead>
                                                                     <tr>
 
@@ -190,8 +190,8 @@ include("../Common/TopNavBar.php");
                                                                         <td hidden><?= $rows['landArea']; ?></td>
                                                                         <td><?= $rows['isActive']; ?></td>
                                                                         <td>
-                                                                            <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $rows['empID'];?>')" value="<?= $rows['empID']; ?>">Delete</button>
-                                                                            <button class="btn-info btn-sm" onclick="editUser()" value="<?= $rows['empID']; ?>">Edit</button>
+                                                                            <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $rows['farmerID'];?>')" value="<?= $rows['farmerID']; ?>">Delete</button>
+                                                                            <button class="btn-info btn-sm" onclick="editUser()" value="<?= $rows['farmerID']; ?>">Edit</button>
 
                                                                         </td>
 
@@ -206,9 +206,9 @@ include("../Common/TopNavBar.php");
                                                                     function customerID_Search() {
                                                                         // alert();
                                                                         let input, filter, table, tr, td, i, txtValue;
-                                                                        input = document.getElementById("customerID_Modal");
+                                                                        input = document.getElementById("FarmerID_Modal");
                                                                         filter = input.value.toUpperCase();
-                                                                        table = document.getElementById("customerTableModal");
+                                                                        table = document.getElementById("FarmerTableModal");
                                                                         tr = table.getElementsByTagName("tr");
                                                                         for (i = 0; i < tr.length; i++) {
                                                                             td = tr[i].getElementsByTagName("td")[0];
@@ -225,15 +225,15 @@ include("../Common/TopNavBar.php");
 
                                                                     function selectModal() {
 
-                                                                        var table = document.getElementById('customerTableModal'),index;
+                                                                        var table = document.getElementById('FarmerTableModal'),index;
 
                                                                         for (var  i = 1 ; i < table.rows.length ; i++){
                                                                             table.ros[i].onclick = function () {
                                                                                 rIndex = this.rowIndex;
-                                                                                document.getElementById("customerID").value = this.cells[0].innerHTML;
+                                                                                document.getElementById("farmerID").value = this.cells[0].innerHTML;
                                                                                 document.getElementById("firstName").value = this.cells[1].innerHTML;
                                                                                 document.getElementById("contactNo1").value = this.cells[2].innerHTML;
-                                                                                document.getElementById("region").value = this.cells[3].innerHTML;
+                                                                                document.getElementById("centerID").value = this.cells[3].innerHTML;
 
 
 
@@ -365,7 +365,7 @@ include("../Common/TopNavBar.php");
                     <br><br>
                     <div class="container" style="margin-left: 30%">
                         <button type="submit" name="addPOrder" id="addPOrder" class="btn btn-primary btn-block" style="width: 50%; align-content: center">Add purchase order</button>
-                        <button type="submit" name="updateUser" id="updateUser" class="btn btn-primary btn-block" style="width: 50%; align-content: center" disabled>Update</button>
+                        <button type="submit" name="updatePO" id="updatePO" class="btn btn-primary btn-block" style="width: 50%; align-content: center" disabled>Update</button>
                         <button type="button" name="reload" id="reload" class="btn btn-danger btn-block" style="width: 50%; align-content: center" onclick="location.reload()">Reload</button>
                     </div>
 
@@ -376,7 +376,7 @@ include("../Common/TopNavBar.php");
             <div class="row">
                 <div class="container-fluid ">
                     <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12">
-                        <table id="cashAllocateTable" class="table table-bordered table-hover table-light">
+                        <table id="pOrderTable" class="table table-bordered table-hover table-light">
                             <thead>
                             <tr>
                                 <th>Date</th>
@@ -413,12 +413,11 @@ include("../Common/TopNavBar.php");
                                         <td><?= $row['total']; ?></td>
 
                                         <td>
-                                            <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $row['empID'];?>')" value="<?= $row['empID']; ?>">Delete</button>
-                                            <button class="btn-info btn-sm" onclick="editUser()" value="<?= $row['empID']; ?>">Edit</button>
+                                            <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $row['poID'];?>')" value="<?= $row['poID']; ?>">Delete</button>
+                                            <button class="btn-info btn-sm" onclick="editPurchases()" value="<?= $row['poID']; ?>">Edit</button>
 
                                         </td>
-                                        <td hidden><?= $row['addressLine2']; ?></td>
-                                        <td hidden><?= $row['contactNo2']; ?></td>
+
 
 
                                     </tr>
@@ -466,7 +465,7 @@ include("../Common/Scripts.php");
                 if (result){
                     $.ajax({
                         type: "POST",
-                        url: "CRUDuser.php",
+                        url: "CRUDpurchases.php",
                         data: {Delete:id},
                         cache: false,
                         dataType:'json',
@@ -517,48 +516,51 @@ include("../Common/Scripts.php");
     }
 
 
-    function editUser() {
-        document.getElementById('addUser').disabled=true;
-        document.getElementById('updateUser').disabled=false;
-        document.getElementById('picBox').hidden=false;
+    function editPurchases() {
+        document.getElementById('addPOrder').disabled=true;
+        document.getElementById('updatePO').disabled=false;
+        // document.getElementById('picBox').hidden=false;
 
         var dir = "../Upload/User/";
-        var table = document.getElementById('userTable'),index;
+        var table = document.getElementById('pOrderTable'),index;
 
         for (var  i = 1 ; i < table.rows.length ; i++){
             table.rows[i].onclick = function () {
                 rIndex = this.rowIndex;
-                document.getElementById("userID").value = this.cells[0].innerHTML;
-                document.getElementById("roleID").value = this.cells[1].innerHTML;
-                document.getElementById("centerID").value = this.cells[2].innerHTML;
-                document.getElementById("firstName").value = this.cells[3].innerHTML;
-                document.getElementById("lastName").value = this.cells[4].innerHTML;
-                document.getElementById("addressLine1").value = this.cells[5].innerHTML;
-                document.getElementById("contactNo1").value = this.cells[6].innerHTML;
-                document.getElementById("email").value = this.cells[7].innerHTML;
-                document.getElementById("dob").value = this.cells[8].innerHTML;
-
-                let gender_temp = this.cells[9].innerHTML;
-                if (gender_temp == "1"){
-                    document.getElementById("male").checked=true;
-                }
-                else {
-                    document.getElementById("female").checked=true
-
-                }
-
-                document.getElementById("addressLine2").value = this.cells[12].innerHTML;
-                document.getElementById("contactNo2").value = this.cells[13].innerHTML;
-                document.getElementById("Password").value = this.cells[14].innerHTML;
-                document.getElementById("confirmPassword").value = this.cells[14].innerHTML;
-                // document.getElementById("picBox").src = dir + this.cells[15].innerHTML;
-                // alert(this.cells[15].innerHTML)
-                document.images['picBox'].src = dir +this.cells[15].innerHTML;
+                document.getElementById("DateOn").value = this.cells[0].innerHTML;
+                document.getElementById("poID").value = this.cells[1].innerHTML;
+                document.getElementById("stockID").value = this.cells[2].innerHTML;
+                document.getElementById("farmerID").value = this.cells[3].innerHTML;
+                document.getElementById("paddyType").value = this.cells[4].innerHTML;
+                document.getElementById("unitPrice").value = this.cells[5].innerHTML;
+                document.getElementById("Qty").value = this.cells[6].innerHTML;
+                document.getElementById("total").value = this.cells[7].innerHTML;
 
 
-                document.getElementById('isActive').disabled=false;
-                document.getElementById('userID').readOnly=true;
-                document.getElementById('confirmPassword').readOnly=true;
+                // document.getElementById("dob").value = this.cells[8].innerHTML;
+
+                // let gender_temp = this.cells[9].innerHTML;
+                // if (gender_temp == "1"){
+                //     document.getElementById("male").checked=true;
+                // }
+                // else {
+                //     document.getElementById("female").checked=true
+                //
+
+                // }
+                //
+                // document.getElementById("addressLine2").value = this.cells[12].innerHTML;
+                // document.getElementById("contactNo2").value = this.cells[13].innerHTML;
+                // document.getElementById("Password").value = this.cells[14].innerHTML;
+                // document.getElementById("confirmPassword").value = this.cells[14].innerHTML;
+                // // document.getElementById("picBox").src = dir + this.cells[15].innerHTML;
+                // // alert(this.cells[15].innerHTML)
+                // document.images['picBox'].src = dir +this.cells[15].innerHTML;
+
+
+                // document.getElementById('isActive').disabled=false;
+                // document.getElementById('userID').readOnly=true;
+                // document.getElementById('confirmPassword').readOnly=true;
 
 
                 // $('#myInput').val( this.cells[0].innerHTML);
