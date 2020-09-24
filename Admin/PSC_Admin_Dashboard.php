@@ -6,6 +6,7 @@
     <?php
     include("../Common/Header.php");
     include ("../Common/config.php");
+    include ("../Common/session.php");
     ?>
 
     <style>

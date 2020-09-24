@@ -1,5 +1,5 @@
 <?php
-//session_start();
+session_start();
 //$user = $_POST['username'];
 //$pass = $_POST['password'];
 
@@ -24,27 +24,30 @@ $result = mysqli_query($con, "select * from tbl_employee where email = '$user' a
 if (mysqli_num_rows($result) == 1) {
 
     //print ("Login Successful");
-//    foreach ($result as $row) {
-////        $_SESSION['loggeduser'] = $row["M_Name"];
-////        $_SESSION['userid '] = $row["Mem_ID"];
-////        $_SESSION['useraddress'] = $row["Address"];
-////        $_SESSION['userstatus'] = $row["Acc_Status"];
-//
-//        if ($row['RoleID'] == "Admin") {
-//
-//            header('Location:Dashboard.php?e=Login Successful and session loaded');
-//
-//        } elseif ($row['RoleID'] == "Student") {
-//            header('Location:StdDashboard.php?e=Login Successful');
-//
-//        } else {
-//            header('Location:LectDashboard.html?e=Login Successful');
-//
-//        }
+    foreach ($result as $row) {
+        $_SESSION['loggedUser'] = $row["email"];
+        $_SESSION['userID'] = $row["empID"];
+        $_SESSION['Role'] = $row["roleID"];
+        $_SESSION['userCenterID'] = $row["centerID"];
+//        $_SESSION['userStatus'] = $row["Acc_Status"];
 
-//    }
+        if ($row['roleID'] == "1") {
+            header('Location:Login.php?e=success 111');
 
-    header('Location:../Admin/PSC_Admin_Dashboard.php?e=Username or password Success');
+
+        }
+        elseif ($row['roleID'] == "2") {
+
+            header('Location:../Admin/PSC_Admin_Dashboard.php?e=Username or password Success');
+        }
+        else {
+            header('Location:Login.php?e= success 333');
+
+        }
+
+    }
+
+//    header('Location:../Admin/PSC_Admin_Dashboard.php?e=Username or password Success');
 
 
 } else {
