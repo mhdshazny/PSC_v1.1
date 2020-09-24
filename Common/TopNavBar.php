@@ -46,7 +46,7 @@
 <!--            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
             <ul class="navbar-nav" style="left: 0px">
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="../Identity/login.php">Logout</a>
+                    <a class="nav-link text-white" href="../Identity/login.php"><?php echo $_SESSION['loggedUser']; ?></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-white" href="#">Settings</a>
