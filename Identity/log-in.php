@@ -1,5 +1,6 @@
 <?php
-session_start();
+session_destroy();
+//session_start();
 //$user = $_POST['username'];
 //$pass = $_POST['password'];
 
