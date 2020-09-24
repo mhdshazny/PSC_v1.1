@@ -74,7 +74,7 @@ include("../Common/TopNavBar.php");
 
 
                                             ?>
-                                            <input type="text" id="issueOrderID" name="issueOrderID" placeholder="issueOrderID" value="ISOR<?= $newID?>" class="form-control" >
+                                            <input type="text" id="issueOrderID" name="issueOrderID" placeholder="issueOrderID" value="ISOR<?= $newID?>" class="form-control" readonly>
                                             <?php
                                         }
                                     }
@@ -95,14 +95,7 @@ include("../Common/TopNavBar.php");
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-4 col-md-4 col-lg-4">
-                            <div class="form-group">
-                                <label for="region" class="col-sm-12 col-md-12 col-lg-12 control-label">Region</label>
-                                <div class="col-sm-12 col-md-12 col-lg-12">
-                                    <input type="text" id="region" name="region" placeholder="region" class="form-control" >
-                                </div>
-                            </div>
-                        </div>
+
 
 
                     </div>
@@ -112,12 +105,12 @@ include("../Common/TopNavBar.php");
                             <!--                            <div class="form-group">-->
                             <label for="customerID" class="col-sm-12 col-md-12 col-lg-12 control-label">Customer ID</label>
                             <div class="input-group input-group-md">
-                                <div class="input-group col-sm-2 col-md-2 col-lg-2 mr-0">
+<!--                                <div class="input-group col-sm-2 col-md-2 col-lg-2 mr-0">-->
                                     <button type="button" class="btn btn-outline-primary ion-search" data-toggle="modal"
-                                            data-target=".bd-example-modal-lg" >&nbsp;&nbsp;</button>
+                                            data-target=".bd-example-modal-lg" style="margin-left: 5%">&nbsp;&nbsp;&nbsp;</button>
 
-                                </div>
-                                <input type="text" class="col-sm-10 col-md-10 col-lg-10 ml-0 mr-3 input-group form-control " placeholder="" aria-label="" aria-describedby="basic-addon1">
+<!--                                </div>-->
+                                <input type="text" class="ml-0 mr-3 input-group form-control" readonly name="customerID" id="CustomerID" placeholder="" aria-label="" aria-describedby="basic-addon1">
                                 <!-- Modal     -->
                                 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
@@ -130,28 +123,28 @@ include("../Common/TopNavBar.php");
                                             </div>
                                             <div class="modal-body" style="color: #011d21; margin-left: 0%; margin-right: 0%" >
 
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="md-form mb-2">
-                                                            <i class="fas fa-user prefix grey-text"></i>
-                                                            <label data-error="wrong" data-success="right"
-                                                                   for="orangeForm-name1" >Customer ID</label>
-                                                            <input type="text" id="customerID_Modal" name="customerID_Modal"
-                                                                   class="form-control validate"
-                                                                   onkeyup="customerID_Search()">
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-md-6">
-                                                        <div class="md-form mb-3">
-                                                            <i class="fas ion-android-create prefix grey-text"></i>
-                                                            <label data-error="wrong" data-success="right"
-                                                                   for="orangeForm-email1">Customer Name</label>
-                                                            <input type="text" id="customerNamemodal" name="customerNamemodal"
-                                                                   class="form-control validate">
-                                                        </div>
-                                                    </div>
-                                                </div>
+<!--                                                <div class="row">-->
+<!--                                                    <div class="col-md-6">-->
+<!--                                                        <div class="md-form mb-2">-->
+<!--                                                            <i class="fas fa-user prefix grey-text"></i>-->
+<!--                                                            <label data-error="wrong" data-success="right"-->
+<!--                                                                   for="orangeForm-name1" >Customer ID</label>-->
+<!--                                                            <input type="text" id="customerID_Modal" name="customerID_Modal"-->
+<!--                                                                   class="form-control validate"-->
+<!--                                                                   onkeyup="customerID_Search()">-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!---->
+<!--                                                    <div class="col-md-6">-->
+<!--                                                        <div class="md-form mb-3">-->
+<!--                                                            <i class="fas ion-android-create prefix grey-text"></i>-->
+<!--                                                            <label data-error="wrong" data-success="right"-->
+<!--                                                                   for="orangeForm-email1">Customer Name</label>-->
+<!--                                                            <input type="text" id="customerNamemodal" name="customerNamemodal"-->
+<!--                                                                   class="form-control validate">-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
                                                 <div class="row">
                                                     <div class="col-md-12 col-lg-12 col-sm-12">
                                                         <table id="customerTableModal" class="col-md-12 col-lg-12 col-sm-12 table table-bordered table-dark table-hover">
@@ -160,8 +153,18 @@ include("../Common/TopNavBar.php");
 
                                                                 <th>Customer ID</th>
                                                                 <th>First Name</th>
+                                                                <th hidden>Last Name</th>
                                                                 <th>Contact No</th>
+                                                                <th hidden>Last Name</th>
+                                                                <th hidden>Last Name</th>
+                                                                <th hidden>Last Name</th>
+                                                                <th hidden>Last Name</th>
+                                                                <th hidden>Last Name</th>
+
                                                                 <th>Region</th>
+
+                                                                <th hidden>Last Name</th>
+                                                                <th hidden>Last Name</th>
 
                                                                 <th>isActive</th>
                                                                 <th>Actions</th>
@@ -193,8 +196,7 @@ include("../Common/TopNavBar.php");
 
                                                                 <td><?= $rows['isActive']; ?></td>
                                                                 <td>
-                                                                    <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $rows['empID'];?>')" value="<?= $rows['empID']; ?>">Delete</button>
-                                                                    <button class="btn-info btn-sm" onclick="editUser()" value="<?= $rows['empID']; ?>">Edit</button>
+                                                                    <button class="btn-info btn-sm" onclick="selectFromModal()" data-dismiss="modal" value="<?= $rows['customerID']; ?>">Select</button>
 
                                                                 </td>
 
@@ -205,52 +207,6 @@ include("../Common/TopNavBar.php");
                                                             </tr>
                                                             </tbody>
                                                         </table>
-                                                        <script>
-                                                            function customerID_Search() {
-                                                                // alert();
-                                                                let input, filter, table, tr, td, i, txtValue;
-                                                                input = document.getElementById("customerID_Modal");
-                                                                filter = input.value.toUpperCase();
-                                                                table = document.getElementById("customerTableModal");
-                                                                tr = table.getElementsByTagName("tr");
-                                                                for (i = 0; i < tr.length; i++) {
-                                                                    td = tr[i].getElementsByTagName("td")[0];
-                                                                    if (td) {
-                                                                        txtValue = td.textContent || td.innerText;
-                                                                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                                                                            tr[i].style.display = "";
-                                                                        } else {
-                                                                            tr[i].style.display = "none";
-                                                                        }
-                                                                    }
-                                                                }
-                                                            }
-
-                                                            function selectModal() {
-
-                                                                var table = document.getElementById('customerTableModal'),index;
-
-                                                                for (var  i = 1 ; i < table.rows.length ; i++){
-                                                                    table.ros[i].onclick = function () {
-                                                                        rIndex = this.rowIndex;
-                                                                        document.getElementById("customerID").value = this.cells[0].innerHTML;
-                                                                        document.getElementById("firstName").value = this.cells[1].innerHTML;
-                                                                        document.getElementById("contactNo1").value = this.cells[2].innerHTML;
-                                                                        document.getElementById("region").value = this.cells[3].innerHTML;
-
-
-
-
-                                                                        // $('#myInput').val( this.cells[0].innerHTML);
-
-
-
-                                                                    }
-                                                                }
-                                                            }
-
-                                                            }
-                                                        </script>
                                                     </div>
                                                 </div>
                                             </div>
@@ -274,7 +230,7 @@ include("../Common/TopNavBar.php");
                             <div class="form-group">
                                 <label for="customer" class="col-sm-12 col-md-12 col-lg-12 control-label">Customer Name</label>
                                 <div class="col-sm-12 col-md-12 col-lg-12">
-                                    <input type="text" id="customer" name="customer" placeholder="Customer Name" class="form-control" required autofocus>
+                                    <input type="text" id="customerName" name="customerName" placeholder="Customer Name" class="form-control" readonly required autofocus>
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
@@ -284,7 +240,7 @@ include("../Common/TopNavBar.php");
                             <div class="form-group">
                                 <label for="contact" class="col-sm-12 col-md-12 col-lg-12 control-label">Contact Number</label>
                                 <div class="col-sm-12 col-md-12 col-lg-12">
-                                    <input type="number" id="contact" name="contact" placeholder="Contact Number" class="form-control" required autofocus>
+                                    <input type="number" id="contact" name="contact" placeholder="Contact Number" class="form-control" readonly required autofocus>
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
@@ -295,8 +251,13 @@ include("../Common/TopNavBar.php");
                     </div>
                     <div class="row">
 
-                        <div class="col-sm-4 col-md-4 col-lg-4 ">
-
+                        <div class="col-sm-4 col-md-4 col-lg-4">
+                            <div class="form-group">
+                                <label for="region" class="col-sm-12 col-md-12 col-lg-12 control-label">Region</label>
+                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                    <input type="text" id="region" name="region" placeholder="region" class="form-control" readonly>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -312,12 +273,28 @@ include("../Common/TopNavBar.php");
                             <div class="form-group">
                                 <label for="paddyType" class="col-sm-12 col-md-12 col-lg-12 control-label">Paddy Type</label>
                                 <div class="col-sm-12 col-md-12 col-lg-12">
-                                    <select class="form-control" id="paddyType" name="paddyType" required>
-                                        <option value ="Basmathi Rice">Basmathi Rice</option>
-                                        <option value ="Nadu Rice">Nadu Rice</option>
-                                        <option value ="Kekulu Rice">Kekulu Rice</option>
-                                        <option value ="Samba Rice">Samba Rice</option>
-                                        <option value ="Red Rice">Red Rice</option>
+                                    <select class="form-control" id="paddyType" name="paddyType" onchange="getUnitPrice()" required>
+                                        <option></option>
+                                        <?php
+
+                                        include("../Common/config.php");
+                                        //
+                                        $addQuery = "select * from `tbl_product`";
+                                        $result = $con->query($addQuery);
+                                        //
+                                        //                                        if ($result) {
+                                        //                                            foreach ($result as $row) {
+                                        ?>
+
+                                        <?php
+                                        while ($rows = $result->fetch_assoc()) {
+                                            $PrSP= $rows['sellingPrice'];
+                                            $PrName= $rows['paddyType'];
+                                            echo "<option value='$PrSP'>$PrName</option>";
+
+
+                                        }
+                                        ?>
                                         <div class="valid-feedback">Valid.</div>
                                         <div class="invalid-feedback">Please fill out this field.</div>
                                     </select>
@@ -329,7 +306,7 @@ include("../Common/TopNavBar.php");
                             <div class="form-group">
                                 <label for="quantity"class="col-sm-12 col-md-12 col-lg-12 control-label">Quantity</label>
                                 <div class="col-sm-12 col-md-12 col-lg-12">
-                                    <input type="text" id="quantity" name="quantity" placeholder="Paddy Quantity" class="form-control" required autofocus>
+                                    <input type="number" id="quantity" name="quantity" placeholder="Paddy Quantity" onchange="getUnitPrice()" class="form-control" required autofocus>
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
                                 </div>
@@ -404,10 +381,10 @@ include("../Common/TopNavBar.php");
             </div>
 
             <br><br>
-            <div class="container" style="margin-left: 30%">
-                <button type="submit" name="addUser" id="addUser" class="btn btn-primary btn-block" style="width: 50%; align-content: center">Register</button>
-                <button type="submit" name="updateUser" id="updateUser" class="btn btn-primary btn-block" style="width: 50%; align-content: center" disabled>Update</button>
-                <button type="button" name="reload" id="reload" class="btn btn-danger btn-block" style="width: 50%; align-content: center" onclick="location.reload()">Reload</button>
+            <div class="container" style="text-align: center; max-width: 50%"">
+                <button type="submit" name="addUser" id="addUser" class="btn btn-primary btn-block" >Confirm Order</button>
+                <button type="submit" name="updateUser" id="updateUser" class="btn btn-primary btn-block"  hidden>Update</button>
+                <button type="button" name="reload" id="reload" class="btn btn-danger btn-block"  onclick="location.reload()">Reload</button>
             </div>
 
             <br><br>
@@ -417,7 +394,7 @@ include("../Common/TopNavBar.php");
         <div class="row">
             <div class="container-fluid ">
                 <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12">
-                    <table id="userTable" class="table table-bordered table-hover table-light table-responsive">
+                    <table id="IOTable" class="table table-bordered table-hover table-light table-responsive">
 
 
                             <thead>
@@ -429,7 +406,7 @@ include("../Common/TopNavBar.php");
                                 <th>Quantity</th>
                                 <th>Ordered Date</th>
                                 <th>isActive</th>
-                                <th>Actions</th>
+<!--                                <th>Actions</th>-->
                             </tr>
                             </thead>
                             <tbody>
@@ -447,27 +424,26 @@ include("../Common/TopNavBar.php");
                                 <td><?= $rows['customerID']; ?></td>
                                 <td><?= $rows['region']; ?></td>
                                 <td><?= $rows['paddyType']; ?></td>
-                                <td hidden><?= $rows['center1']; ?></td>
-                                <td hidden><?= $rows['center2']; ?></td>
-                                <td hidden><?= $rows['Qty2']; ?></td>
+<!--                                <td hidden>--><?//= $rows['center1']; ?><!--</td>-->
+<!--                                <td hidden>--><?//= $rows['center2']; ?><!--</td>-->
+<!--                                <td hidden>--><?//= $rows['Qty2']; ?><!--</td>-->
                                 <td><?= $rows['Qty1']; ?></td>
-                                <td hidden><?= $rows['totalQuantity']; ?></td>
-                                <td hidden><?= $rows['unitPrice']; ?></td>
+<!--                                <td hidden>--><?//= $rows['totalQuantity']; ?><!--</td>-->
+<!--                                <td hidden>--><?//= $rows['unitPrice']; ?><!--</td>-->
                                 <td><?= $rows['orderDateOn']; ?></td>
-                                <td hidden><?= $rows['vehicleID']; ?></td>
-                                <td hidden><?= $rows['adminID']; ?></td>
-                                <td hidden><?= $rows['Description']; ?></td>
-                                <td><?= $rows['confrimDateOn']; ?></td>
-                                <td hidden><?= $rows['acceptedDateOn']; ?></td>
-                                <td hidden><?= $rows['orderStatus']; ?></td>
-                                <td hidden><?= $rows['netTotal']; ?></td>
-                                <td hidden><?= $rows['stockID']; ?></td>
+<!--                                <td hidden>--><?//= $rows['vehicleID']; ?><!--</td>-->
+<!--                                <td hidden>--><?//= $rows['adminID']; ?><!--</td>-->
+<!--                                <td hidden>--><?//= $rows['Description']; ?><!--</td>-->
+<!--                                <td hidden>--><?//= $rows['confrimDateOn']; ?><!--</td>-->
+<!--                                <td hidden>--><?//= $rows['acceptedDateOn']; ?><!--</td>-->
+<!--                                <td hidden>--><?//= $rows['orderStatus']; ?><!--</td>-->
+<!--                                <td hidden>--><?//= $rows['netTotal']; ?><!--</td>-->
+<!--                                <td hidden>--><?//= $rows['stockID']; ?><!--</td>-->
                                 <td><?= $rows['isActive']; ?></td>
-                                <td>
-                                    <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $rows['empID'];?>')" value="<?= $rows['empID']; ?>">Delete</button>
-                                    <button class="btn-info btn-sm" onclick="editUser()" value="<?= $rows['empID']; ?>">Edit</button>
-
-                                </td>
+<!--                                <td>-->
+<!--                                    <button class="btn-info btn-sm" onclick="editUser()" value="--><?//= $rows['ioID']; ?><!--">Edit</button>-->
+<!---->
+<!--                                </td>-->
 
                                 <?php
                                 }
@@ -490,6 +466,17 @@ include("../Common/Scripts.php");
 ?>
 <!--</div>-->
 <script>
+    $( document ).ready(function() {
+        document.getElementById("quantity").defaultValue="0";
+
+    });
+
+    $( document ).ready(function() {
+        $('#customerTableModal').DataTable();
+    });
+    $( document ).ready(function() {
+        $('#IOTable').DataTable();
+    });
 
     function confirmDelete(id){
         bootbox.confirm({
@@ -525,48 +512,20 @@ include("../Common/Scripts.php");
 
     }
 
-    function editUser() {
-        document.getElementById('addUser').disabled=true;
-        document.getElementById('updateUser').disabled=false;
-        document.getElementById('picBox').hidden=false;
 
-        var dir = "../Upload/User/";
-        var table = document.getElementById('userTable'),index;
+    function selectFromModal() {
+
+        var table = document.getElementById("customerTableModal"),index;
 
         for (var  i = 1 ; i < table.rows.length ; i++){
             table.rows[i].onclick = function () {
                 rIndex = this.rowIndex;
-                document.getElementById("userID").value = this.cells[0].innerHTML;
-                document.getElementById("roleID").value = this.cells[1].innerHTML;
-                document.getElementById("centerID").value = this.cells[2].innerHTML;
-                document.getElementById("firstName").value = this.cells[3].innerHTML;
-                document.getElementById("lastName").value = this.cells[4].innerHTML;
-                document.getElementById("addressLine1").value = this.cells[5].innerHTML;
-                document.getElementById("contactNo1").value = this.cells[6].innerHTML;
-                document.getElementById("email").value = this.cells[7].innerHTML;
-                document.getElementById("dob").value = this.cells[8].innerHTML;
-
-                let gender_temp = this.cells[9].innerHTML;
-                if (gender_temp == "1"){
-                    document.getElementById("male").checked=true;
-                }
-                else {
-                    document.getElementById("female").checked=true
-
-                }
-
-                document.getElementById("addressLine2").value = this.cells[12].innerHTML;
-                document.getElementById("contactNo2").value = this.cells[13].innerHTML;
-                document.getElementById("Password").value = this.cells[14].innerHTML;
-                document.getElementById("confirmPassword").value = this.cells[14].innerHTML;
-                // document.getElementById("picBox").src = dir + this.cells[15].innerHTML;
-                // alert(this.cells[15].innerHTML)
-                document.images['picBox'].src = dir +this.cells[15].innerHTML;
+                document.getElementById("CustomerID").value = this.cells[0].innerHTML;
+                document.getElementById("customerName").value = this.cells[1].innerHTML;
+                document.getElementById("contact").value = this.cells[3].innerHTML;
+                document.getElementById("region").value = this.cells[9].innerHTML;
 
 
-                document.getElementById('isActive').disabled=false;
-                document.getElementById('userID').readOnly=true;
-                document.getElementById('confirmPassword').readOnly=true;
 
 
                 // $('#myInput').val( this.cells[0].innerHTML);
@@ -575,6 +534,19 @@ include("../Common/Scripts.php");
 
             }
         }
+    }
+
+    function getUnitPrice(){
+        let UP,Qty;
+         document.getElementById("unitPrice").value = document.getElementById("paddyType").value;
+         UP = document.getElementById("unitPrice").value;
+        Qty = document.getElementById("quantity").value;
+
+
+        document.getElementById("netTotal").value = UP * Qty;
+
+
+
     }
 </script>
 </body>

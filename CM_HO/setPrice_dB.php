@@ -17,7 +17,7 @@ if (isset($_POST['setPrice'])) {
     if (!empty($priceID) && !empty($buyingPrice) && !empty($sellingPrice)) {
        /* $sql = "INSERT INTO `tbl_price`(`paddyType`, `buyingPrice`, `sellingPrice`)
                 VALUES ('$PaddyType', '$buyingPrice','$sellingPrice')";*/
-    $sql = "UPDATE `tbl_price` SET `DateOn`= '$dateOn',`buyingPrice`='$buyingPrice', `sellingPrice`='$sellingPrice' WHERE `priceID`='$priceID'";
+    $sql = "UPDATE `tbl_poduct` SET `DateOn`= '$dateOn',`buyingPrice`='$buyingPrice', `sellingPrice`='$sellingPrice' WHERE `priceID`='$priceID'";
     $sqlIn ="INSERT INTO `tbl_priceRecord`(`priceRecID`, `paddyType`, `buyingPrice`, `sellingPrice`, `DateOn`) VALUES ('$priceID','$paddyType','$buyingPrice','$sellingPrice', '$dateOn')";
 
         if ($con->query($sql) === TRUE && $con->query($sqlIn)==true) {
