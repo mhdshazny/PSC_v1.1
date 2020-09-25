@@ -25,7 +25,7 @@ include("../Common/TopNavBar.php");
 ?>
 <div class="row" style="min-height: 87%; background-color: #011d21">
     <?php
-    include("../Common/SideNavBar.php");
+    include("SideNavBar.php");
     ?>
     <div class="col-md-10 d-none d-md-block container text-white" style="background-color: #011d21">
         <div class="container-fluid rounded" style="min-height: 100%; background-color: #04333b">
@@ -203,7 +203,6 @@ include("../Common/TopNavBar.php");
                             <thead>
                             <tr>
                                 <th>PoID</th>
-                                <th>Stock ID</th>
                                 <th>Farmer ID</th>
                                 <th>Paddy Type</th>
                                 <th>Quantity</th>
@@ -227,18 +226,12 @@ include("../Common/TopNavBar.php");
                                     ?>
                                     <tr>
                                         <td><?= $row['poID']; ?></td>
-                                        <td><?= $row['stockID']; ?></td>
                                         <td><?= $row['farmerID']; ?></td>
                                         <td><?= $row['paddyType']; ?></td>
                                         <td><?= $row['Qty']; ?></td>
                                         <td><?= $row['Description']; ?></td>
                                         <td><?= $row['total']; ?></td>
 
-                                        <td>
-                                            <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $row['empID'];?>')" value="<?= $row['empID']; ?>">Delete</button>
-                                            <button class="btn-info btn-sm" onclick="editUser()" value="<?= $row['empID']; ?>">Edit</button>
-
-                                        </td>
 
 
 

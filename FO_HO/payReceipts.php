@@ -27,7 +27,7 @@ include("../Common/TopNavBar.php");
 <!--<div class="row" style="min-height: 87%; background-color: #011d21">-->
 <div class="row" style="min-height: 87%; background-color: #011d21">
     <?php
-    include("../Common/SideNavBar.php");
+    include("SideNavBar.php");
     ?>
     <div class="col-md-10 d-none d-md-block container text-white" style="background-color: #011d21">
         <div class="container-fluid rounded" style="min-height: 100%; background-color: #04333b">
@@ -275,95 +275,93 @@ include("../Common/TopNavBar.php");
 
 
 
-                            </div>
-
-
-
                         </div>
-                        <div class="row">
 
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
-
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12 col-md-12 col-lg-12 ">
-                                <div class="form-group">
-                                    <label for="CenterDetails" class="col-sm-12 col-md-12 col-lg-12 bg-info mt-4">Issue Order Details</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
-                                <div class="form-group">
-                                    <label for="unitPrice"class="col-sm-12 col-md-12 col-lg-12 control-label">Unit Price</label>
-                                    <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="text" id="unitPrice" name="unitPrice" placeholder="Unit Price" class="form-control" required autofocus>
-                                        <div class="valid-feedback">Valid.</div>
-                                        <div class="invalid-feedback">Please fill out this field.</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
-                                <div class="form-group">
-                                    <label for="quantity"class="col-sm-12 col-md-12 col-lg-12 control-label">Quantity</label>
-                                    <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="text" id="quantity" name="quantity" placeholder="Paddy Quantity" class="form-control" required autofocus>
-                                        <div class="valid-feedback">Valid.</div>
-                                        <div class="invalid-feedback">Please fill out this field.</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
-                                <div class="form-group">
-                                    <label for="netTotal" class="col-sm-12 col-md-12 col-lg-12 control-label">Net Total</label>
-                                    <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="text" id="netTotal" name="netTotal" placeholder="Net Total" class="form-control" required autofocus>
-                                        <div class="valid-feedback">Valid.</div>
-                                        <div class="invalid-feedback">Please fill out this field.</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
-
-                            </div>
-
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
-                                <div class="form-group">
-
-                                </div>
-                            </div>
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
-
-                            </div>
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
-
-                            </div>
-                        </div>
 
 
                     </div>
+                    <div class="row">
 
-                    <br><br>
-                    <div class="container" style="margin-left: 30%">
-                        <button type="submit" name="addBill" id="addBill" class="btn btn-primary btn-block" style="width: 50%; align-content: center">Add Bill</button>
-                        <button type="submit" name="updateUser" id="updateUser" class="btn btn-primary btn-block" style="width: 50%; align-content: center" disabled>Update</button>
-                        <button type="button" name="reload" id="reload" class="btn btn-danger btn-block" style="width: 50%; align-content: center" onclick="location.reload()">Reload</button>
+                        <div class="col-sm-4 col-md-4 col-lg-4 ">
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-12 ">
+                            <div class="form-group">
+                                <label for="CenterDetails" class="col-sm-12 col-md-12 col-lg-12 bg-info mt-4">Issue Order Details</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-sm-4 col-md-4 col-lg-4 ">
+                            <div class="form-group">
+                                <label for="unitPrice"class="col-sm-12 col-md-12 col-lg-12 control-label">Unit Price</label>
+                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                    <input type="text" id="unitPrice" name="unitPrice" placeholder="Unit Price" class="form-control" required autofocus>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4 col-md-4 col-lg-4 ">
+                            <div class="form-group">
+                                <label for="quantity"class="col-sm-12 col-md-12 col-lg-12 control-label">Quantity</label>
+                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                    <input type="text" id="quantity" name="quantity" placeholder="Paddy Quantity" class="form-control" required autofocus>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-sm-4 col-md-4 col-lg-4 ">
+                            <div class="form-group">
+                                <label for="netTotal" class="col-sm-12 col-md-12 col-lg-12 control-label">Net Total</label>
+                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                    <input type="text" id="netTotal" name="netTotal" placeholder="Net Total" class="form-control" required autofocus>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4 col-md-4 col-lg-4 ">
+
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4 col-md-4 col-lg-4 ">
+                            <div class="form-group">
+
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-md-4 col-lg-4 ">
+
+                        </div>
+                        <div class="col-sm-4 col-md-4 col-lg-4 ">
+
+                        </div>
                     </div>
 
-                    <br><br>
-                </FORM>
+
             </div>
 
+            <br><br>
+            <div class="container" style="margin-left: 30%">
+                <button type="submit" name="addBill" id="addBill" class="btn btn-primary btn-block" style="width: 50%; align-content: center">Add Bill</button>
+                <button type="submit" name="updateUser" id="updateUser" class="btn btn-primary btn-block" style="width: 50%; align-content: center" disabled>Update</button>
+                <button type="button" name="reload" id="reload" class="btn btn-danger btn-block" style="width: 50%; align-content: center" onclick="location.reload()">Reload</button>
+            </div>
+
+            <br><br>
+            </FORM>
             <div class="row">
                 <div class="container-fluid ">
                     <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12">
@@ -371,7 +369,7 @@ include("../Common/TopNavBar.php");
                             <thead>
                             <tr>
                                 <th>Date</th>
-                                <th>Sale ID</th>
+                                <th>Customer ID</th>
                                 <th>IoID</th>
                                 <th>Paddy type</th>
                                 <th>Unit price</th>
@@ -388,37 +386,21 @@ include("../Common/TopNavBar.php");
                             <?php
                             include("../Common/config.php");
                             $loadTableIssueOrder = "SELECT * FROM `tbl_issueorder`";
-//                            $loadTablePayReceipts = "SELECT * FROM `tbl_paymentreceipts`";
-//                            $result1 = $con->query($loadTablePayReceipts);
+                            //                            $loadTablePayReceipts = "SELECT * FROM `tbl_paymentreceipts`";
+                            //                            $result1 = $con->query($loadTablePayReceipts);
                             $result2 = $con->query($loadTableIssueOrder);
 
-//                            if ($result1) {
-                                    ?>
-                                    <tr>
-<!--                                        --><?php
-//
-//                                        foreach ($result1 as $rows) {
-//
-//                                        ?>
-<!---->
-<!--                                            <td>--><?//= $rows['DateOn']; ?><!--</td>-->
-<!--                                            <td>--><?//= $rows['saleID']; ?><!--</td>-->
-<!---->
-<!---->
-<!---->
-<!--                                            --><?php
-//                                        }
-//                                        }
-//                                        ?>
-                                    <!--</tr>
-                                <tr>-->
-                                        <?php
+                            //                            if ($result1) {
+                            ?>
+                            <tr>
+
+                                <?php
                                         if ($result2){
                                         foreach ($result2 as $row) {
 
-                                        ?>
-                                        <td><?= $row['DateOn']; ?></td>
-                                        <td><?= $row['saleID']; ?></td>
+                                            ?>
+                                        <td><?= $row['confrimDateOn']; ?></td>
+                                        <td><?= $row['customerID']; ?></td>
                                         <td><?= $row['ioID']; ?></td>
                                         <td><?= $row['paddyType']; ?></td>
                                         <td><?= $row['unitPrice']; ?></td>
@@ -433,22 +415,25 @@ include("../Common/TopNavBar.php");
 
 
 
-                                    </tr>
+                            </tr>
 
-                                    <?php
-                                }
+                                <?php
+                                                                    }
 
-                            }
+                                                        }
 
-                            ?>
+                                ?>
                             </tbody>
 
                         </table>
                     </div>
                 </div>
             </div>
+
         </div>
+
     </div>
+</div>
 
 
 </div>
