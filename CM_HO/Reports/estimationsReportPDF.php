@@ -43,7 +43,7 @@ table thead th{ background-color: #EEEEEE;
 <!--mpdf
 <htmlpageheader name="myheader">
 <div style="text-align:center;font-size:20pt;font-weight:bold">Paddy Storage Corporation - Reports</div>   
-<div style="text-align:center;font-size:17pt;font-weight:bold">Purchase Report</div>   
+<div style="text-align:center;font-size:17pt;font-weight:bold">Estimations Report</div>   
 <div style="text-align:center;font-size:16pt;font-weight:bold">As of '.$_POST['fromDate'].' to '.$_POST['toDate'].'</div>
 </htmlpageheader>
 <htmlpagefooter name="myfooter">
@@ -58,14 +58,12 @@ mpdf-->
 <table class="items" width="100%" style="font-size: 9pt; border-collapse: collapse; " cellpadding="8">
 <thead>
 <tr>
-<th>Purchase ID</th>
-<th>farmerID</th>
-<th>paddyType</th>
-<th>Qty</th>
-<th>unitPrice</th>
-<th>total</th>
-<th>DateOn</th>
-<th>Description</th>
+                                <th>Price Record ID</th>
+                                <th>Paddy Type</th>
+                                <th>Buying Price</th>
+                                <th>Selling Price</th>
+                                <th>Date</th>
+
 
 </tr>
 </thead>
@@ -74,29 +72,24 @@ mpdf-->
 include("../../Common/config.php");
 $purchaseDateFrom=$_POST['fromDate'];
 $purchaseDateTo=$_POST['toDate'];
-$loadTable = "SELECT * FROM `tbl_purchaseorder` WHERE `DateOn` BETWEEN '$purchaseDateFrom' AND '$purchaseDateTo' ";
+$loadTable = "SELECT * FROM `tbl_pricerecord` WHERE `dateOn` BETWEEN '$purchaseDateFrom' AND '$purchaseDateTo' ";
 $result = $con->query($loadTable);
 
-    foreach($result as $row){
-         $html.='
+foreach($result as $row){
+    $html.='
 <!-- ITEMS HERE -->
 <tr>
-                                        <td>'. $row['poID'] .'</td>
-                                        <td>'. $row['farmerID'] .'</td>
-                                        <td>'. $row['paddyType'] .'</td>
-                                        <td>'. $row['Qty'] .'</td>
-                                        <td>'. $row['unitPrice'] .'</td>
-                                        <td>'. $row['total'] .'</td>
-                                        <td>'. $row['DateOn'] .'</td>
-                                        <td>'. $row['Description'] .'</td>
-                                     
-                         
+                                        <td>'. $row['priceRecID'] .'</td>
+                                        <td>'. $row['priceRecID'] .'</td>
+                                        <td>'. $row['priceRecID'] .'</td>
+                                        <td>'. $row['sellingPrice'] .'</td>
+                                        <td>'. $row['dateOn'] .'</td>                                      
 </tr>';
 
 }
 $html.='</tbody>
 </table>
-<div style="text-align: center; font-style: italic;">Purchase terms: Purchases within '.$_POST['fromDate'].' to '.$_POST['toDate'].' days</div>
+<div style="text-align: center; font-style: italic;">Estimation terms: Estimations within '.$_POST['fromDate'].' to '.$_POST['toDate'].' days</div>
 </body>
 </html>
 ';
@@ -121,4 +114,4 @@ $mpdf->SetDisplayMode('fullpage');
 
 $mpdf->WriteHTML($html);
 
-$mpdf->Output('purchaseReport.pdf','D');
+$mpdf->Output('estimationsReport.pdf','D');

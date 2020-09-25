@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '\..\..\vendor\autoload.php';
 
-$html.='
+$html ='
 <html>
 <head>
 <style>
@@ -77,22 +77,24 @@ $purchaseDateTo=$_POST['toDate'];
 $loadTable = "SELECT * FROM `tbl_purchaseorder` WHERE `DateOn` BETWEEN '$purchaseDateFrom' AND '$purchaseDateTo' ";
 $result = $con->query($loadTable);
 
-    foreach($result as $row){
-         $html.='
+if ($result) {
+    foreach ($result as $row) {
+        $html .= '
 <!-- ITEMS HERE -->
 <tr>
-                                        <td>'. $row['poID'] .'</td>
-                                        <td>'. $row['farmerID'] .'</td>
-                                        <td>'. $row['paddyType'] .'</td>
-                                        <td>'. $row['Qty'] .'</td>
-                                        <td>'. $row['unitPrice'] .'</td>
-                                        <td>'. $row['total'] .'</td>
-                                        <td>'. $row['DateOn'] .'</td>
-                                        <td>'. $row['Description'] .'</td>
+                                        <td>' . $row['poID'] . '</td>
+                                        <td>' . $row['farmerID'] . '</td>
+                                        <td>' . $row['paddyType'] . '</td>
+                                        <td>' . $row['Qty'] . '</td>
+                                        <td>' . $row['unitPrice'] . '</td>
+                                        <td>' . $row['total'] . '</td>
+                                        <td>' . $row['DateOn'] . '</td>
+                                        <td>' . $row['Description'] . '</td>
                                      
                          
 </tr>';
 
+    }
 }
 $html.='</tbody>
 </table>
@@ -100,7 +102,6 @@ $html.='</tbody>
 </body>
 </html>
 ';
-
 $mpdf = new \Mpdf\Mpdf([
     'margin_left' => 20,
     'margin_right' => 15,
