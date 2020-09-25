@@ -1,6 +1,6 @@
 <head>
 
-    <title>User Registration</title>
+    <title>Customer Registration</title>
 
 
     <!--    Resources -->
@@ -202,14 +202,14 @@ include("../Common/TopNavBar.php");
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-4 col-md-4 col-lg-4 ">
-                                <div class="form-group">
-                                    <label for="email" class="col-sm-12 col-md-12 col-lg-12 control-label">Email* </label>
-                                    <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="email" id="email" placeholder="Email" class="form-control" name= "email">
-                                    </div>
-                                </div>
-                            </div>
+<!--                            <div class="col-sm-4 col-md-4 col-lg-4 ">-->
+<!--                                <div class="form-group">-->
+<!--                                    <label for="email" class="col-sm-12 col-md-12 col-lg-12 control-label">Email* </label>-->
+<!--                                    <div class="col-sm-12 col-md-12 col-lg-12">-->
+<!--                                        <input type="email" id="email" placeholder="Email" class="form-control" name= "email">-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
                         </div>
                         <div class="row">
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
@@ -255,7 +255,7 @@ include("../Common/TopNavBar.php");
                         <button type="submit" name="addUser" id="addUser" class="btn btn-primary btn-block" style="">Register</button>
                         <button type="submit" name="updateUser" id="updateUser" class="btn btn-primary btn-block" style="" disabled>Update</button>
                         <button type="button" name="reload" id="reload" class="btn btn-danger btn-block" style="" onclick="location.reload()">Reload</button>
-                        <button type="button" name="temp" id="temp" class="btn btn-danger btn-block" style="" data-target=".bd-example-modal-lg" data-toggle="modal" >temp</button>
+<!--                        <button type="button" name="temp" id="temp" class="btn btn-danger btn-block" style="" data-target=".bd-example-modal-lg" data-toggle="modal" >temp</button>-->
 
                         <!--Modal-->
                         <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -300,7 +300,7 @@ include("../Common/TopNavBar.php");
                                                         <th>First Name</th>
                                                         <th>Last Name</th>
                                                         <th>Contact No</th>
-                                                        <th>Email</th>
+<!--                                                        <th>Email</th>-->
                                                         <th>Region</th>
                                                         <th>Actions</th>
                                                     </tr>
@@ -320,7 +320,7 @@ include("../Common/TopNavBar.php");
                                                         <td><?=$rows['firstName'];?></td>
                                                         <td><?=$rows['lastName'];?></td>
                                                         <td><?=$rows['contactNo1'];?></td>
-                                                        <td><?=$rows['email'];?></td>
+<!--                                                        <td>--><?//=$rows['email'];?><!--</td>-->
                                                         <td><?=$rows['region'];?></td>
                                                         <td>
                                                             <button class="btn-info btn-sm" onclick="selectCustomer()" value="<?= $row['customerID']; ?>">Select</button>
@@ -356,14 +356,14 @@ include("../Common/TopNavBar.php");
                             <thead>
                             <tr>
                                 <th>Cus ID</th>
-                                <th>Center ID</th>
+                                <th>Center </th>
                                 <th hidden>Region</th>
                                 <th>First Name</th>
                                 <th hidden>Last Name</th>
                                 <th>NIC</th>
                                 <th>Address</th>
                                 <th>Contact</th>
-                                <th>E-Mail</th>
+<!--                                <th>E-Mail</th>-->
                                 <th>Gender</th>
                                 <th>Active</th>
                                 <th>Actions</th>
@@ -395,7 +395,7 @@ include("../Common/TopNavBar.php");
                                         <td><?= $row['NIC']; ?></td>
                                         <td><?= $row['addressLine1']; ?></td>
                                         <td><?= $row['contactNo1']; ?></td>
-                                        <td><?= $row['email']; ?></td>
+<!--                                        <td>--><?//= $row['email']; ?><!--</td>-->
                                         <td><?= $gen ?></td>
                                         <td><?= $row['isActive']; ?></td>
                                         <td>
@@ -514,7 +514,7 @@ include("../Common/Scripts.php");
                 document.getElementById("NIC").value = this.cells[5].innerHTML;
                 document.getElementById("addressLine1").value = this.cells[6].innerHTML;
                 document.getElementById("contactNo1").value = this.cells[7].innerHTML;
-                document.getElementById("email").value = this.cells[8].innerHTML;
+            //    document.getElementById("email").value = this.cells[8].innerHTML;
                 let gender_temp = this.cells[9].innerHTML;
                 if (gender_temp == "Male"){
                     document.getElementById("male").checked=true;
