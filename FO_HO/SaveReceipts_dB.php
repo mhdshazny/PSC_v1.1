@@ -2,10 +2,10 @@
 include("../Common/config.php");
 
 if (isset($_POST['addBill'])) {
-    $Date = $_POST['Date'];
-    $SaleID= $_POST['SaleID'];
+    $Date = $_POST['DateOn'];
+    $SaleID= $_POST['saleID'];
     $ioID= $_POST['ioID'];
-    $Total = $_POST['Total'];
+    $Total = $_POST['netTotal'];
     $isActive="1";
 
 

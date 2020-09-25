@@ -64,9 +64,33 @@ include("../Common/TopNavBar.php");
                             </div>
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
                                 <div class="form-group">
-                                    <label for="SaleID" class="col-sm-12 col-md-12 col-lg-12 control-label">Sale ID </label>
+                                    <label for="saleID" class="col-sm-12 col-md-12 col-lg-12 control-label">Sale ID</label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="text" id="SaleID" name="SaleID"  placeholder="Sale ID" class="form-control" >
+                                        <?php
+                                        include ("../Common/config.php");
+                                        $query="SELECT * FROM `tbl_paymentreceipts` ORDER BY `saleID` DESC LIMIT 1";
+                                        $result = $con->query($query);
+                                        $numRows = mysqli_num_rows($result);
+                                        $newID="SAL00001";
+                                        if ($numRows>0){
+                                            foreach ($result as $rows) {
+
+
+                                                $prevID= $rows['saleID'];
+                                                $newID = substr($prevID,4,5);
+                                                $newID = $newID + 1;
+                                                $newID = str_pad($newID, 5, "0", STR_PAD_LEFT);
+
+
+                                                ?>
+                                                <input type="text" id="saleID" name="saleID" placeholder="saleID" value="SAL<?= $newID?>" class="form-control" >
+                                                <?php
+                                            }
+                                        }
+                                        $con->close();
+                                        ?>
+
+
                                     </div>
                                 </div>
                             </div>
