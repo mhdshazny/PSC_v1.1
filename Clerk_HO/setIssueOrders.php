@@ -62,19 +62,19 @@ include("../Common/TopNavBar.php");
                                     $query="SELECT * FROM `tbl_issueorder` ORDER BY `ioID` DESC LIMIT 1";
                                     $result = $con->query($query);
                                     $numRows = mysqli_num_rows($result);
-                                    $newID="ISOR00001";
+                                    $newID="IO001";
                                     if ($numRows>0){
                                         foreach ($result as $rows) {
 
 
                                             $prevID= $rows['ioID'];
-                                            $newID = substr($prevID,4,5);
+                                            $newID = substr($prevID,3,);
                                             $newID = $newID + 1;
-                                            $newID = str_pad($newID, 5, "0", STR_PAD_LEFT);
+                                            $newID = str_pad($newID, 3, "0", STR_PAD_LEFT);
 
 
                                             ?>
-                                            <input type="text" id="issueOrderID" name="issueOrderID" placeholder="issueOrderID" value="ISOR<?= $newID?>" class="form-control" readonly>
+                                            <input type="text" id="issueOrderID" name="issueOrderID" placeholder="issueOrderID" value="I0<?= $newID?>" class="form-control" readonly>
                                             <?php
                                         }
                                     }
@@ -427,7 +427,7 @@ include("../Common/TopNavBar.php");
 <!--                                <td hidden>--><?//= $rows['center1']; ?><!--</td>-->
 <!--                                <td hidden>--><?//= $rows['center2']; ?><!--</td>-->
 <!--                                <td hidden>--><?//= $rows['Qty2']; ?><!--</td>-->
-                                <td><?= $rows['Qty1']; ?></td>
+                                <td><?= $rows['totalQuantity']; ?></td>
 <!--                                <td hidden>--><?//= $rows['totalQuantity']; ?><!--</td>-->
 <!--                                <td hidden>--><?//= $rows['unitPrice']; ?><!--</td>-->
                                 <td><?= $rows['orderDateOn']; ?></td>
