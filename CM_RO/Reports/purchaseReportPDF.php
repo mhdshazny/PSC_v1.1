@@ -64,6 +64,7 @@ mpdf-->
 <th>Qty</th>
 <th>unitPrice</th>
 <th>total</th>
+<th>stockID</th>
 <th>DateOn</th>
 <th>Description</th>
 
@@ -87,6 +88,7 @@ $result = $con->query($loadTable);
                                         <td>'. $row['Qty'] .'</td>
                                         <td>'. $row['unitPrice'] .'</td>
                                         <td>'. $row['total'] .'</td>
+                                        <td>'. $row['stockID'] .'</td>
                                         <td>'. $row['DateOn'] .'</td>
                                         <td>'. $row['Description'] .'</td>
                                      

@@ -29,7 +29,7 @@ include("../Common/TopNavBar.php");
 
 <div class="row" style="min-height: 87%; background-color: #011d21">
     <?php
-    include("../Common/SideNavBar.php");
+    include("SideNavBar.php");
 
     ?>
     <div class="col-md-10 d-none d-md-block container text-white" style="background-color: #011d21">
@@ -210,15 +210,15 @@ include("../Common/TopNavBar.php");
                                         ?>
 
 
-                                        <select class="form-control" id="PaddyType" name="PaddyType" onchange="getUP()">
+                                        <select class="form-control" id="PaddyType" name="PaddyType">
                                             <option></option>
                                             <?php
                                             while ($rows = $result->fetch_assoc()) {
-//                                                $PrSP= $rows['sellingPrice'];
+//                                                $PrID= $rows['sellingPrice'];
                                                 $UnitPrice= $rows['sellingPrice'];
                                                 $PrName= $rows['paddyType'];
 
-                                                echo "<option value='$UnitPrice'>$PrName</option>";
+                                                echo "<option value='$PrName' data-price='$UnitPrice'>$PrName</option>";
 
 
                                             }
@@ -251,7 +251,7 @@ include("../Common/TopNavBar.php");
                                 <div class="form-group">
                                     <label for="Quantity" class="col-sm-12 col-md-12 col-lg-12  control-label">Quantity</label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="number" id="Quantity" name="Quantity" placeholder="Quantity" class="form-control" autofocus onchange="getUP()">
+                                        <input type="number" id="Quantity" name="Quantity" placeholder="Quantity" class="form-control" autofocus onchange="getTot()">
                                     </div>
                                 </div>
                             </div>
@@ -388,16 +388,26 @@ include("../Common/Scripts.php");
         $('#FarmerTableModal').DataTable();
         $('#POorderTable').DataTable();
 
-    });
 
-
-
-    $( document ).ready(function() {
         document.getElementById("Quantity").defaultValue ="0";
         document.getElementById("UnitPrice").defaultValue = "0";
         document.getElementById("Total").defaultValue = "0";
 
+        $('#PaddyType').change(function(){
+            let Qty,UP;
+            $('#UnitPrice').val($(this).find(':selected').data('price'))
+            getTot()
+        });
+
     });
+
+    function getTot() {
+        UP = document.getElementById("UnitPrice").value;
+
+        Qty = document.getElementById("Quantity").value;
+
+        document.getElementById("Total").value= Qty * UP;
+    }
 
 
     function confirmDelete(id){
@@ -507,43 +517,10 @@ include("../Common/Scripts.php");
         }
     }
 
-    function getUP() {
-//        <?//echo $PName?>//= document.getElementById("paddyType").value;
-//        <?php
-//        //$PName="";
-//
-////        if ( ! empty($_POST['PaddyType'])){
-////        }
-//        include("../Common/config.php");
-//        //$PName = $_POST['PaddyType'];
-//
-//        //
-//        $UnitPrice = 0;
-//        $addQuery = "select * from `tbl_product` where paddyType='$PName' ";
-//        $result = $con->query($addQuery);
-//
-//
-//        while ($rows = $result->fetch_assoc()) {
-//            $UnitPrice= $rows['sellingPrice'];
-//            $PrName= $rows['paddyType'];
-////            echo "<option value='$PrName'>$PrName</option>";
-//
-//
-//        }
-//        ?>
-
-
-
-
-        let Qty,UP;
-        // document.getElementById("UnitPrice").value =document.getElementById("PaddyType").value;
-        document.getElementById("UnitPrice").value = <?php echo $UnitPrice?>;
-        UP = document.getElementById("PaddyType").value;
-        //UP = <?php echo $UnitPrice?>;
-        Qty = document.getElementById("Quantity").value;
-
-        document.getElementById("Total").value= Qty * UP;
-    }
+    // function getUP(paddy) {
+    // console.log(paddy)
+    //
+    // }
 
 </script>
 </body>

@@ -43,7 +43,7 @@ table thead th{ background-color: #EEEEEE;
 <!--mpdf
 <htmlpageheader name="myheader">
 <div style="text-align:center;font-size:20pt;font-weight:bold">Paddy Storage Corporation - Reports</div>   
-<div style="text-align:center;font-size:17pt;font-weight:bold">Purchase Report</div>   
+<div style="text-align:center;font-size:17pt;font-weight:bold">Price variation Report</div>   
 <div style="text-align:center;font-size:16pt;font-weight:bold">As of '.$_POST['fromDate'].' to '.$_POST['toDate'].'</div>
 </htmlpageheader>
 <htmlpagefooter name="myfooter">
@@ -64,6 +64,7 @@ mpdf-->
 <th>Qty</th>
 <th>unitPrice</th>
 <th>total</th>
+<th>stockID</th>
 <th>DateOn</th>
 <th>Description</th>
 
@@ -77,8 +78,8 @@ $purchaseDateTo=$_POST['toDate'];
 $loadTable = "SELECT * FROM `tbl_purchaseorder` WHERE `DateOn` BETWEEN '$purchaseDateFrom' AND '$purchaseDateTo' ";
 $result = $con->query($loadTable);
 
-    foreach($result as $row){
-         $html.='
+foreach($result as $row){
+    $html.='
 <!-- ITEMS HERE -->
 <tr>
                                         <td>'. $row['poID'] .'</td>
@@ -87,6 +88,7 @@ $result = $con->query($loadTable);
                                         <td>'. $row['Qty'] .'</td>
                                         <td>'. $row['unitPrice'] .'</td>
                                         <td>'. $row['total'] .'</td>
+                                        <td>'. $row['stockID'] .'</td>
                                         <td>'. $row['DateOn'] .'</td>
                                         <td>'. $row['Description'] .'</td>
                                      
@@ -96,7 +98,7 @@ $result = $con->query($loadTable);
 }
 $html.='</tbody>
 </table>
-<div style="text-align: center; font-style: italic;">Purchase terms: Purchases within '.$_POST['fromDate'].' to '.$_POST['toDate'].' days</div>
+<div style="text-align: center; font-style: italic;">Pricing terms: Price variation within '.$_POST['fromDate'].' to '.$_POST['toDate'].' days</div>
 </body>
 </html>
 ';
@@ -121,4 +123,4 @@ $mpdf->SetDisplayMode('fullpage');
 
 $mpdf->WriteHTML($html);
 
-$mpdf->Output('purchaseReport.pdf','D');
+$mpdf->Output('priceVariationReport.pdf','D');
