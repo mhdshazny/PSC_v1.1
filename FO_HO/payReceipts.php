@@ -41,7 +41,7 @@ include("../Common/TopNavBar.php");
                 <?php
                 $Priority = 'AdminUserReg';
                 ?>
-                <FORM action="SaveReceipts_dB.php" method="POST" class="col" enctype="multipart/form-data">
+                <FORM action="InVoice.php" method="POST" class="col" enctype="multipart/form-data">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-12 ">
@@ -66,30 +66,50 @@ include("../Common/TopNavBar.php");
                                 <div class="form-group">
                                     <label for="saleID" class="col-sm-12 col-md-12 col-lg-12 control-label">Sale ID</label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
+<!--                                        --><?php
+//                                        include ("../Common/config.php");
+//                                        $query="SELECT * FROM `tbl_paymentreceipts` ORDER BY `saleID` DESC LIMIT 1";
+//                                        $result = $con->query($query);
+//                                        $numRows = mysqli_num_rows($result);
+//                                        $finalID="";
+//                                        $newID="SAL00001";
+//                                        if ($numRows>0) {
+//                                            foreach ($result as $rows) {
+//
+//
+//                                                $prevID = $rows['saleID'];
+//                                                $newID = substr($prevID, 4, 5);
+//                                                $newID = $newID + 1;
+//                                                $newID = str_pad($newID, 5, "0", STR_PAD_LEFT);
+//                                                $finalID = "SAL"+'"$newID"';
+//
+//                                            }
+//                                        }
+//                                                ?>
+<!--                                                <input type="text" id="saleID" name="saleID" placeholder="saleID" value="--><?php //echo $finalID?><!--" class="form-control" >-->
+<!--                                                --><?php
+//
+//
+//                                        //$con->close();
+//                                        ?>
                                         <?php
                                         include ("../Common/config.php");
                                         $query="SELECT * FROM `tbl_paymentreceipts` ORDER BY `saleID` DESC LIMIT 1";
                                         $result = $con->query($query);
-                                        $numRows = mysqli_num_rows($result);
-                                        $newID="SAL00001";
-                                        if ($numRows>0){
-                                            foreach ($result as $rows) {
+
+                                        foreach ($result as $rows) {
+                                            $prevID= $rows['saleID'];
+                                            $newID = substr($prevID,4,5);
+                                            $newID = $newID + 1;
+                                            $newID = str_pad($newID, 5, "0", STR_PAD_LEFT);
 
 
-                                                $prevID= $rows['saleID'];
-                                                $newID = substr($prevID,4,5);
-                                                $newID = $newID + 1;
-                                                $newID = str_pad($newID, 5, "0", STR_PAD_LEFT);
-
-
-                                                ?>
-                                                <input type="text" id="saleID" name="saleID" placeholder="saleID" value="SAL<?= $newID?>" class="form-control" >
-                                                <?php
-                                            }
+                                            ?>
+                                                                                            <input type="text" id="saleID" name="saleID" placeholder="saleID" value="SAL<?= $newID?>" class="form-control" >
+                                            <?php
                                         }
                                         $con->close();
                                         ?>
-
 
                                     </div>
                                 </div>
@@ -355,7 +375,7 @@ include("../Common/TopNavBar.php");
 
             <br><br>
             <div class="container" style="margin-left: 30%">
-                <button type="submit" name="addBill" id="addBill" class="btn btn-primary btn-block" style="width: 50%; align-content: center">Add Bill</button>
+                <button type="submit" name="addBill" id="addBill" class="btn btn-primary btn-block" style="width: 50%; align-content: center" onclick="location.reload()">Add Bill</button>
                 <button type="submit" name="updateUser" id="updateUser" class="btn btn-primary btn-block" style="width: 50%; align-content: center" disabled>Update</button>
                 <button type="button" name="reload" id="reload" class="btn btn-danger btn-block" style="width: 50%; align-content: center" onclick="location.reload()">Reload</button>
             </div>
