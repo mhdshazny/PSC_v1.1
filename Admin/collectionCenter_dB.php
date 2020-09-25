@@ -52,18 +52,17 @@ if (isset($_POST['addCenter'])) {
 
         $centerID = $_POST['centerID'];
 
-        $CenterName = $_POST['CenterName'];
-        $Capacity = $_POST['Capacity'];
+        $region = $_POST['region'];
+        $capacity = $_POST['capacity'];
         $bankAccID = $_POST['bankAccID'];
         $contact = $_POST['contactNo1'];
 
-        $CenterName= $_POST['CenterName'];
-        $amount = $_POST['amount'];
+        $centerManager= $_POST['centerManager'];
 
 
 
-        if (!empty($UP_farmerID) && !empty($UP_fName) && !empty($UP_lName) && !empty($UP_address1) && !empty($UP_contact) && !empty($UP_gender) && !empty($landArea)) {
-            $sql = "UPDATE `tbl_collectioncenter` SET `firstName`='$UP_fName',`lastName`='$UP_lName',`addressLine1`='$UP_address1',`addressLine2`='$UP_address2',`contactNo1`='$UP_contact',`contactNo2`='$UP_contact2', `centerID`='$UP_centerID',`gender`='$UP_gender',`isActive`='$UP_isActive',`landArea`='$landArea' WHERE `farmerID`='$UP_farmerID' ";
+        if (!empty($centerID) && !empty($region) && !empty($capacity) && !empty($contact) && !empty($bankAccID)  && !empty($centerManager)) {
+            $sql = "UPDATE `tbl_collectioncenter` SET `region`='$region',`capacity`='$capacity',`bankAccID`='$bankAccID',`contactNo`='$contact',`centerManger`='$centerManager' WHERE `centerID`= '$centerID' ";
 
 //                `profilePic`, `roleID`, `addressLine1`, `addressLine2`, `contactNo1`, `contactNo2`, `email`, `centerID`, `dob`, `gender`, `isActive`,`password`
             if ($con->query($sql) === TRUE) {
@@ -88,7 +87,7 @@ if (isset($_POST['addCenter'])) {
 
 
         } else {
-            header('Location: CollectionCenter.php?e=credentials Missing6');
+            header('Location: CollectionCenter.php?e=credentials Missing');
 
         }
 
