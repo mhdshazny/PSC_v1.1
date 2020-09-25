@@ -369,12 +369,12 @@ include("../Common/TopNavBar.php");
                             <thead>
                             <tr>
                                 <th>Date</th>
-                                <th>Customer ID</th>
+                                <th>Sale ID</th>
                                 <th>IoID</th>
-                                <th>Paddy type</th>
-                                <th>Unit price</th>
-                                <th>Qty</th>
+<!--                                <th>Paddy type</th>-->
+<!--                                <th>Unit price</th>-->
                                 <th>Amount</th>
+                                <th>Actions</th>
 
 
 
@@ -385,7 +385,7 @@ include("../Common/TopNavBar.php");
 
                             <?php
                             include("../Common/config.php");
-                            $loadTableIssueOrder = "SELECT * FROM `tbl_issueorder`";
+                            $loadTableIssueOrder = "SELECT * FROM `tbl_paymentreceipts`";
                             //                            $loadTablePayReceipts = "SELECT * FROM `tbl_paymentreceipts`";
                             //                            $result1 = $con->query($loadTablePayReceipts);
                             $result2 = $con->query($loadTableIssueOrder);
@@ -399,13 +399,13 @@ include("../Common/TopNavBar.php");
                                         foreach ($result2 as $row) {
 
                                             ?>
-                                        <td><?= $row['confrimDateOn']; ?></td>
-                                        <td><?= $row['customerID']; ?></td>
+                                        <td><?= $row['DateOn']; ?></td>
+                                        <td><?= $row['saleID']; ?></td>
                                         <td><?= $row['ioID']; ?></td>
-                                        <td><?= $row['paddyType']; ?></td>
-                                        <td><?= $row['unitPrice']; ?></td>
-                                        <td><?= $row['totalQuantity']; ?></td>
-                                        <td><?= $row['netTotal']; ?></td>
+<!--                                        <td>--><?//= $row['paddyType']; ?><!--</td>-->
+<!--                                        <td>--><?//= $row['unitPrice']; ?><!--</td>-->
+                                        <td><?= $row['amount']; ?></td>
+<!--                                        <td>--><?//= $row['netTotal']; ?><!--</td>-->
 
                                         <td>
                                             <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $row['saleID'];?>')" value="<?= $row['saleID']; ?>">Delete</button>
