@@ -31,7 +31,6 @@ include("../Common/TopNavBar.php");
     <?php
     include("../Common/SideNavBar.php");
 
-    $UnitPrice = 0;
     ?>
     <div class="col-md-10 d-none d-md-block container text-white" style="background-color: #011d21">
         <div class="container-fluid rounded" style="min-height: 100%; background-color: #04333b">
@@ -197,25 +196,29 @@ include("../Common/TopNavBar.php");
                                 <div class="form-group">
                                     <label for="PaddyType" class="col-sm-12 col-md-12 col-lg-12 control-label">Paddy Type*</label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
+                                        <?php
+
+                                        include("../Common/config.php");
+                                        //
+                                        $addQuery = "select * from `tbl_product`";
+                                        $result = $con->query($addQuery);
+                                        $UnitPrice = 0;
+
+                                        //
+                                        //                                        if ($result) {
+                                        //                                            foreach ($result as $row) {
+                                        ?>
+
+
                                         <select class="form-control" id="PaddyType" name="PaddyType" onchange="getUP()">
                                             <option></option>
-                                            <?php
-
-                                            include("../Common/config.php");
-                                            //
-                                            $addQuery = "select * from `tbl_product`";
-                                            $result = $con->query($addQuery);
-                                            //
-                                            //                                        if ($result) {
-                                            //                                            foreach ($result as $row) {
-                                            ?>
-
                                             <?php
                                             while ($rows = $result->fetch_assoc()) {
 //                                                $PrSP= $rows['sellingPrice'];
                                                 $UnitPrice= $rows['sellingPrice'];
                                                 $PrName= $rows['paddyType'];
-                                                echo "<option value='$PrName'>$PrName</option>";
+
+                                                echo "<option value='$UnitPrice'>$PrName</option>";
 
 
                                             }
@@ -503,11 +506,40 @@ include("../Common/Scripts.php");
             }
         }
     }
+
     function getUP() {
+//        <?//echo $PName?>//= document.getElementById("paddyType").value;
+//        <?php
+//        //$PName="";
+//
+////        if ( ! empty($_POST['PaddyType'])){
+////        }
+//        include("../Common/config.php");
+//        //$PName = $_POST['PaddyType'];
+//
+//        //
+//        $UnitPrice = 0;
+//        $addQuery = "select * from `tbl_product` where paddyType='$PName' ";
+//        $result = $con->query($addQuery);
+//
+//
+//        while ($rows = $result->fetch_assoc()) {
+//            $UnitPrice= $rows['sellingPrice'];
+//            $PrName= $rows['paddyType'];
+////            echo "<option value='$PrName'>$PrName</option>";
+//
+//
+//        }
+//        ?>
+
+
+
+
         let Qty,UP;
-        document.getElementById("UnitPrice").value = document.getElementById("PaddyType").value;
-        // UP = document.getElementById("PaddyType").value;
-        UP = <?php echo $UnitPrice?>;
+        // document.getElementById("UnitPrice").value =document.getElementById("PaddyType").value;
+        document.getElementById("UnitPrice").value = <?php echo $UnitPrice?>;
+        UP = document.getElementById("PaddyType").value;
+        //UP = <?php echo $UnitPrice?>;
         Qty = document.getElementById("Quantity").value;
 
         document.getElementById("Total").value= Qty * UP;

@@ -33,17 +33,16 @@ if (mysqli_num_rows($result) == 1) {
 //        $_SESSION['userStatus'] = $row["Acc_Status"];
 
         if ($row['roleID'] == "1") {
-            header('Location:Login.php?e=success 111');
-
-
-        }
-        elseif ($row['roleID'] == "2") {
-
             header('Location:../Admin/PSC_Admin_Dashboard.php?e=Username or password Success');
+        }
+        elseif ($row['roleID'] == "7") {
+            header('Location:../Clerk_HO/PSC_Clerk_HO_Dashboard.php?e=Username or password Success');
+        }
+        elseif ($row['roleID'] == "8") {
+            header('Location:../Clerk_RO/PSC_Clerk_RO_Dashboard.php?e=Username or password Success');
         }
         else {
             header('Location:Login.php?e= success 333');
-
         }
 
     }
