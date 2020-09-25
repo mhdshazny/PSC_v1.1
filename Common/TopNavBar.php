@@ -14,7 +14,7 @@ include("../Common/session.php");
         </ul>
             <ul class="navbar-nav" style="left: 0px">
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="../Identity/login.php"><?php echo $_SESSION['loggedUser']; ?></a>
+                    <a class="nav-link text-white" href="../Identity/login.php"></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-white" href="#">Settings</a>
