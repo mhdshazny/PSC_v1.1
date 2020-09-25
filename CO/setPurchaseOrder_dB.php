@@ -1,23 +1,19 @@
 <?php
 include("../Common/config.php");
+$Date = $_POST['Date'];
+$PurchaseOrderID = $_POST['PurchaseOrderID'];
+$FarmerID = $_POST['farmerID'];
+$StockID = $_POST['StockID'];
+$PaddyType = $_POST['PaddyType'];
+$Quantity = $_POST['Quantity'];
+$UnitPrice = $_POST['UnitPrice'];
+$Total = $_POST['Total'];
+$Description = $_POST['Description'];
+$isActive="1";
+$CenterID = $_POST['CenterID'];
+
 
 if (isset($_POST['addPOrder'])) {
-    $Date = $_POST['Date'];
-    $PurchaseOrderID = $_POST['PurchaseOrderID'];
-    $FarmerID = $_POST['farmerID'];
-    $StockID = $_POST['StockID'];
-    $PaddyType = $_POST['PaddyType'];
-    $Quantity = $_POST['Quantity'];
-    $UnitPrice = $_POST['UnitPrice'];
-    $Total = $_POST['Total'];
-    $Description = $_POST['Description'];
-    $isActive="1";
-    $CenterID = $_POST['CenterID'];
-
-
-
-
-
     if (!empty($_POST['PurchaseOrderID']))
     {
         $sql = "INSERT INTO `tbl_purchaseorder`(`poID`,`farmerID`, `paddyType`,`Qty`,`unitPrice`,`total`,`centerID`,`DateOn`,`Description`,`isActive`) 
@@ -73,20 +69,10 @@ else {
 
 if (isset($_POST['updatePO'])) {
 
-    $Date = $_POST['Date'];
-    $PurchaseOrderID = $_POST['PurchaseOrderID'];
-    $FarmerID = $_POST['FarmerID'];
-    $StockID = $_POST['StockID'];
-    $PaddyType = $_POST['PaddyType'];
-    $Quantity = $_POST['Quantity'];
-    $UnitPrice = $_POST['UnitPrice'];
-    $Total = $_POST['Total'];
-    $Description = $_POST['Description'];
-    $isActive = "1";
 
     if ($PurchaseOrderID != "") {
 //            if ($upPass1 == $upPass2) {
-        $sql = "UPDATE `tbl_issueorder` SET `farmerID`='$FarmerID',`paddyType`='$PaddyType',`Qty`='$Quantity',`unitPrice`='$UnitPrice',`total`='$Total',`centerID`='$Date',`DateOn`='$Date',`isActive`='$isActive' WHERE `poID`='$PurchaseOrderID' ";
+        $sql = "UPDATE `tbl_purchaseorder` SET `farmerID`='$FarmerID',`paddyType`='$PaddyType',`Qty`='$Quantity',`unitPrice`='$UnitPrice',`total`='$Total',`centerID`='$CenterID',`DateOn`='$Date',`isActive`='$isActive' WHERE `poID`='$PurchaseOrderID' ";
 
 //                `profilePic`, `roleID`, `addressLine1`, `addressLine2`, `contactNo1`, `contactNo2`, `email`, `centerID`, `dob`, `gender`, `isActive`,`password`
         if ($con->query($sql) === TRUE) {

@@ -1,6 +1,6 @@
 <head>
 
-    <title>Add Collection Center</title>
+    <title>Collection Center</title>
 
 
     <!--    Resources -->
@@ -33,7 +33,7 @@ include("../Common/TopNavBar.php");
             <div class="row">
                 <div class="container-fluid">
                     <br>
-                    <p class="text-info font-weight-bold" style="font-size: 150%; margin-left: 20%">Add Collection Center</p>
+                    <p class="text-info font-weight-bold" style="font-size: 150%; margin-left: 20%">Collection Center</p>
 
                 </div>
 
@@ -60,15 +60,15 @@ include("../Common/TopNavBar.php");
                                         $query="SELECT * FROM `tbl_collectioncenter` ORDER BY `centerID` DESC LIMIT 1";
                                         $result = $con->query($query);
                                         $numRows = mysqli_num_rows($result);
-                                        $newID="CEN00001";
+                                        $newID="CEN001";
                                         if ($numRows>0){
                                             foreach ($result as $rows) {
 
 
                                                 $prevID= $rows['centerID'];
-                                                $newID = substr($prevID,4,5);
+                                                $newID = substr($prevID,3,3);
                                                 $newID = $newID + 1;
-                                                $newID = str_pad($newID, 5, "0", STR_PAD_LEFT);
+                                                $newID = str_pad($newID, 3, "0", STR_PAD_LEFT);
 
 
                                                 ?>
@@ -149,16 +149,6 @@ include("../Common/TopNavBar.php");
                         <div class="row">
 
 
-                            <!--                            <div class="col-sm-4 col-md-4 col-lg-4 ">-->
-                            <!--                                <div class="form-group">-->
-                            <!--                                    <label for="addressLine2" class="col-sm-12 col-md-12 col-lg-12  control-label">Address 2</label>-->
-                            <!--                                    <div class="col-sm-12 col-md-12 col-lg-12">-->
-                            <!--                                        <input type="text" id="addressLine2" name="addressLine2" placeholder="Street address 2 (Optional)" class="form-control" autofocus>-->
-                            <!--                                    </div>-->
-                            <!--                                </div>                            </div>-->
-                            <!--                            <div class="col-sm-4 col-md-4 col-lg-4 ">-->
-                            <!---->
-                            <!--                            </div>-->
                         </div>
 
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
@@ -207,7 +197,7 @@ include("../Common/TopNavBar.php");
                     <br><br>
                     <div class="container" style="margin-left: 30%">
                         <button type="submit" name="addCenter" id="addCenter" class="btn btn-primary btn-block" style="width: 50%; align-content: center">Register</button>
-                        <button type="submit" name="updateFarmer" id="updateFarmer" class="btn btn-primary btn-block" style="width: 50%; align-content: center" disabled>Update</button>
+                        <button type="submit" name="updateCenter" id="updateCenter" class="btn btn-primary btn-block" style="width: 50%; align-content: center" disabled>Update</button>
                         <button type="button" name="reload" id="reload" class="btn btn-danger btn-block" style="width: 50%; align-content: center" onclick="location.reload()">Clear</button>
 
                     </div>
@@ -219,20 +209,19 @@ include("../Common/TopNavBar.php");
             <div class="row">
                 <div class="container-fluid ">
                     <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12">
-                        <table id="userTable" class="table table-bordered table-hover table-light table-responsive" >
+                        <table id="CenterTable" class="table table-bordered table-hover table-light table-responsive" >
                             <thead>
                             <tr>
                                 <th>Center ID</th>
-                                <th>Center Name</th>
-                                <th>Address</th>
+<!--                                <th>Center Name</th>-->
+
                                 <th>Region</th>
                                 <th>Capacity</th>
                                 <th>Contact No</th>
                                 <th>Bank Account No</th>
-                                <th>Store ID</th>
+
                                 <th>Center Manager</th>
-                                <th>Cash Allocated</th>
-                                <th>isActive</th>
+
                                 <th style="width: 8%">Actions</th>
                             </tr>
                             </thead>
@@ -248,20 +237,16 @@ include("../Common/TopNavBar.php");
                                     ?>
                                     <tr style="width: 10%">
                                         <td><?= $row['centerID']; ?></td>
-                                        <td><?= $row['centerName']; ?></td>
 
-                                        <td><?= $row['address']; ?></td>
                                         <td><?= $row['region']; ?></td>
                                         <td><?= $row['capacity']; ?></td>
                                         <td><?= $row['contactNo']; ?></td>
                                         <td><?= $row['bankAccID']; ?></td>
-                                        <td><?= $row['storeID1']; ?></td>
                                         <td><?= $row['centerManger'] ?></td>
-                                        <td><?= $row['amount'] ?></td>
-                                        <td><?= $row['isActive']; ?></td>
+
                                         <td style="width: 10%">
-                                            <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $row['farmerID'];?>')" value="<?= $row['farmerID']; ?>">Delete</button>
-                                            <button class="btn-info btn-sm" onclick="editFarmer()" value="<?= $row['farmerID']; ?>">Edit</button>
+                                            <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $row['centerID'];?>')" value="<?= $row['centerID']; ?>">Delete</button>
+                                            <button class="btn-info btn-sm" onclick="editCenter()" value="<?= $row['centerID']; ?>">Edit</button>
 
                                         </td>
 
@@ -277,29 +262,29 @@ include("../Common/TopNavBar.php");
                             </tbody>
 
                         </table>
-                        <script>
-                            function farmerID_Search() {
-                                // alert();
-                                let input, filter, table, tr, td, i,txtValue;
-                                input = document.getElementById("farmerID_Modal");
-                                filter = input.value.toUpperCase();
-                                table = document.getElementById("farmerTableModal");
-                                tr = table.getElementsByTagName("tr");
-                                for (i = 0; i < tr.length; i++) {
-                                    td = tr[i].getElementsByTagName("td")[0];
-                                    if (td) {
-                                        txtValue = td.textContent || td.innerText;
-                                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                                            tr[i].style.display = "";
-                                        } else {
-                                            tr[i].style.display = "none";
-                                        }
-                                    }
-                                }
-
-
-                            }
-                        </script>
+<!--                        <script>-->
+<!--                            function farmerID_Search() {-->
+<!--                                // alert();-->
+<!--                                let input, filter, table, tr, td, i,txtValue;-->
+<!--                                input = document.getElementById("farmerID_Modal");-->
+<!--                                filter = input.value.toUpperCase();-->
+<!--                                table = document.getElementById("farmerTableModal");-->
+<!--                                tr = table.getElementsByTagName("tr");-->
+<!--                                for (i = 0; i < tr.length; i++) {-->
+<!--                                    td = tr[i].getElementsByTagName("td")[0];-->
+<!--                                    if (td) {-->
+<!--                                        txtValue = td.textContent || td.innerText;-->
+<!--                                        if (txtValue.toUpperCase().indexOf(filter) > -1) {-->
+<!--                                            tr[i].style.display = "";-->
+<!--                                        } else {-->
+<!--                                            tr[i].style.display = "none";-->
+<!--                                        }-->
+<!--                                    }-->
+<!--                                }-->
+<!---->
+<!---->
+<!--                            }-->
+<!--                        </script>-->
                     </div>
                 </div>
             </div>
@@ -334,7 +319,7 @@ include("../Common/Scripts.php");
                 if (result){
                     $.ajax({
                         type: "POST",
-                        url: "CRUDfarmer.php",
+                        url: "CRUDcenter.php",
                         data: {Delete:id},
                         cache: false,
                         dataType:'json',
@@ -351,55 +336,25 @@ include("../Common/Scripts.php");
 
     }
 
-    function editFarmer() {
-        document.getElementById('addFarmer').disabled=true;
-        document.getElementById('updateFarmer').disabled=false;
+    function editCenter() {
+        document.getElementById('addCenter').disabled=true;
+        document.getElementById('updateCenter').disabled=false;
 
-        var dir = "../Upload/User/";
-        var table = document.getElementById('userTable'),index;
+
+        var table = document.getElementById('CenterTable'),index;
 
         for (var  i = 1 ; i < table.rows.length ; i++){
             table.rows[i].onclick = function () {
                 rIndex = this.rowIndex;
-                document.getElementById("farmerID").value = this.cells[0].innerHTML;
-                // document.getElementById("centerID").value = this.cells[1].innerHTML;
-                document.getElementById("centerID").value = this.cells[1].innerHTML;
-                document.getElementById("firstName").value = this.cells[3].innerHTML;
-                document.getElementById("lastName").value = this.cells[4].innerHTML;
-                document.getElementById("NIC").value = this.cells[5].innerHTML;
-                document.getElementById("addressLine1").value = this.cells[6].innerHTML;
-                document.getElementById("contactNo1").value = this.cells[7].innerHTML;
-                document.getElementById("landArea").value = this.cells[8].innerHTML;
-                // document.getElementById("dob").value = this.cells[8].innerHTML;
+                document.getElementById("centerID").value = this.cells[0].innerHTML;
 
-                let gender_temp = this.cells[9].innerHTML;
-                if (gender_temp == "1"){
-                    document.getElementById("male").checked=true;
-                }
-                else {
-                    document.getElementById("female").checked=true
-
-                }
-
-                let isActive_temp = this.cells[10].innerHTML;
-                if (isActive_temp == "1"){
-                    document.getElementById("isActive").checked=true;
-                }
-                else {
-                    document.getElementById("isActive").checked=false;
-
-                }
-
-                document.getElementById("addressLine2").value = this.cells[12].innerHTML;
-                document.getElementById("contactNo2").value = this.cells[13].innerHTML;
-                // document.getElementById("centerID").value = this.cells[13].innerHTML;
+                document.getElementById("region").value = this.cells[1].innerHTML;
+                document.getElementById("contactNo1").value = this.cells[2].innerHTML;
+                document.getElementById("capacity").value = this.cells[3].innerHTML;
+                document.getElementById("bankAccID").value = this.cells[4].innerHTML;
+                document.getElementById("centerManager").value = this.cells[5].innerHTML;
 
 
-                document.getElementById('isActive').disabled=false;
-                document.getElementById('farmerID').readOnly=true;
-
-
-                // $('#myInput').val( this.cells[0].innerHTML);
 
 
 

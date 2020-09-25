@@ -30,6 +30,7 @@ include("../Common/TopNavBar.php");
 <div class="row" style="min-height: 87%; background-color: #011d21">
     <?php
     include("../Common/SideNavBar.php");
+
     ?>
     <div class="col-md-10 d-none d-md-block container text-white" style="background-color: #011d21">
         <div class="container-fluid rounded" style="min-height: 100%; background-color: #04333b">
@@ -60,7 +61,7 @@ include("../Common/TopNavBar.php");
                                 <div class="form-group">
                                     <label for="Date" class="col-sm-12 col-md-12 col-lg-12 control-label">Date </label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="date" id="Date" name="Date"  class="form-control" >
+                                        <input type="date" id="Date" name="Date"  class="form-control" value="<?php echo date('Y-m-d')?>">
                                     </div>
                                 </div>
                             </div>
@@ -74,15 +75,15 @@ include("../Common/TopNavBar.php");
                                         $query="SELECT * FROM `tbl_purchaseorder` ORDER BY `poID` DESC LIMIT 1";
                                         $result = $con->query($query);
                                         $numRows = mysqli_num_rows($result);
-                                        $newID="PO001";
+                                        $newID="PO0001";
                                         if ($numRows>0){
                                             foreach ($result as $rows) {
 
 
                                                 $prevID= $rows['poID'];
-                                                $newID = substr($prevID,2,3);
+                                                $newID = substr($prevID,2,4);
                                                 $newID = $newID + 1;
-                                                $newID = str_pad($newID, 3, "0", STR_PAD_LEFT);
+                                                $newID = str_pad($newID, 4, "0", STR_PAD_LEFT);
 
 
                                                 ?>
@@ -103,25 +104,19 @@ include("../Common/TopNavBar.php");
                                 <div class="form-group">
                                     <label for="farmerID" class="control-label">Farmer ID</label>
                                     <div class="input-group input-group-md">
-                                        <div class="input-group col-sm-2 col-md-2 col-lg-2 mr-0">
-                                            <button type="button" class="btn btn-outline-primary ion-search" data-toggle="modal"
-                                                    data-target=".bd-example-modal-lg" ></button>
 
-                                        </div>
-                                        <input type="text" id="farmerID"class="ml-0 mr-3 input-group form-control col-sm-10 col-md-10 col-lg-10" placeholder="" aria-label="" aria-describedby="basic-addon1">
+<!--                                        <div class="input-group col-sm-2 col-md-2 col-lg-2 mr-0">-->
+                                            <button type="button" class="btn btn-outline-primary ion-search" data-toggle="modal"
+                                                    data-target=".bd-example-modal-lg">&nbsp;</button>
+<!--                                        </div>-->
+
+                                        <input type="text" id="farmerID" name="farmerID" class="ml-0 mr-3 input-group form-control col-sm-10 col-md-10 col-lg-10" placeholder="Farmer ID" aria-label="" aria-describedby="basic-addon1">
+
                                         <!--                                  modal-->
+
                                         <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-lg">
                                                 <div class="modal-content">
-                                                    <!--                                    <header class="modal-header">Hello world</header>-->
-                                                    <!--                                    <div class="modal-body">-->
-                                                    <!--                                        <div class="container">-->
-                                                    <!--                                            <button class="close" data-dismiss="modal"-->
-                                                    <!--                                                    aria-label="Close">-->
-                                                    <!---->
-                                                    <!--                                            </button>-->
-                                                    <!--                                        </div>-->
-                                                    <!--                                    </div>-->
                                                     <div class="modal-header">
                                                         <h5 class="modal-title" style="color: #011d21" id="exampleModalLabel">Farmer Details</h5>
                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -129,29 +124,6 @@ include("../Common/TopNavBar.php");
                                                         </button>
                                                     </div>
                                                     <div class="modal-body" style="color: #011d21; margin-left: 0%; margin-right: 0%" >
-
-<!--                                                        <div class="row">-->
-<!--                                                            <div class="col-md-6">-->
-<!--                                                                <div class="md-form mb-2">-->
-<!--                                                                    <i class="fas fa-user prefix grey-text"></i>-->
-<!--                                                                    <label data-error="wrong" data-success="right"-->
-<!--                                                                           for="orangeForm-name1" >Farmer ID</label>-->
-<!--                                                                    <input type="text" id="FarmerID_Modal" name="FarmerID_Modal"-->
-<!--                                                                           class="form-control validate"-->
-<!--                                                                           onkeyup="farmerID_Search()">-->
-<!--                                                                </div>-->
-<!--                                                            </div>-->
-<!---->
-<!--                                                            <div class="col-md-6">-->
-<!--                                                                <div class="md-form mb-3">-->
-<!--                                                                    <i class="fas ion-android-create prefix grey-text"></i>-->
-<!--                                                                    <label data-error="wrong" data-success="right"-->
-<!--                                                                           for="orangeForm-email1">Customer Name</label>-->
-<!--                                                                    <input type="text" id="customerNamemodal" name="customerNamemodal"-->
-<!--                                                                           class="form-control validate">-->
-<!--                                                                </div>-->
-<!--                                                            </div>-->
-<!--                                                        </div>-->
                                                         <div class="row">
                                                             <div class="col-md-12 col-lg-12 col-sm-12">
                                                                 <table id="FarmerTableModal" class="col-md-12 col-lg-12 col-sm-12 table table-bordered table-dark table-hover">
@@ -181,7 +153,7 @@ include("../Common/TopNavBar.php");
                                                                         <td><?= $rows['firstName']; ?></td>
                                                                         <td><?= $rows['contactNo1']; ?></td>
                                                                         <td>
-                                                                            <button class="btn-info btn-sm" onclick="selectModal()">Edit</button>
+                                                                            <button type="button" name="SF" id="SF" class="btn btn-secondary" data-dismiss="modal" onclick="selectFromModal()">Select</button>
                                                                         </td>
                                                                         <?php
                                                                         }
@@ -190,41 +162,7 @@ include("../Common/TopNavBar.php");
                                                                     </tr>
                                                                     </tbody>
                                                                 </table>
-                                                                <script>
-                                                                    function customerID_Search() {
-                                                                        // alert();
-                                                                        let input, filter, table, tr, td, i, txtValue;
-                                                                        input = document.getElementById("FarmerID_Modal");
-                                                                        filter = input.value.toUpperCase();
-                                                                        table = document.getElementById("FarmerTableModal");
-                                                                        tr = table.getElementsByTagName("tr");
-                                                                        for (i = 0; i < tr.length; i++) {
-                                                                            td = tr[i].getElementsByTagName("td")[0];
-                                                                            if (td) {
-                                                                                txtValue = td.textContent || td.innerText;
-                                                                                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                                                                                    tr[i].style.display = "";
-                                                                                } else {
-                                                                                    tr[i].style.display = "none";
-                                                                                }
-                                                                            }
-                                                                        }
-                                                                    }
 
-                                                                    function selectModal() {
-
-                                                                        var table = document.getElementById('FarmerTableModal'),index;
-
-                                                                        for (var  i = 1 ; i < table.rows.length ; i++){
-                                                                            table.ros[i].onclick = function () {
-                                                                                rIndex = this.rowIndex;
-                                                                                document.getElementById("farmerID").value = this.cells[0].innerHTML;
-                                                                            }
-                                                                        }
-                                                                    }
-
-                                                                    }
-                                                                </script>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -258,24 +196,29 @@ include("../Common/TopNavBar.php");
                                 <div class="form-group">
                                     <label for="PaddyType" class="col-sm-12 col-md-12 col-lg-12 control-label">Paddy Type*</label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
+                                        <?php
+
+                                        include("../Common/config.php");
+                                        //
+                                        $addQuery = "select * from `tbl_product`";
+                                        $result = $con->query($addQuery);
+                                        $UnitPrice = 0;
+
+                                        //
+                                        //                                        if ($result) {
+                                        //                                            foreach ($result as $row) {
+                                        ?>
+
+
                                         <select class="form-control" id="PaddyType" name="PaddyType" onchange="getUP()">
                                             <option></option>
                                             <?php
-
-                                            include("../Common/config.php");
-                                            //
-                                            $addQuery = "select * from `tbl_product`";
-                                            $result = $con->query($addQuery);
-                                            //
-                                            //                                        if ($result) {
-                                            //                                            foreach ($result as $row) {
-                                            ?>
-
-                                            <?php
                                             while ($rows = $result->fetch_assoc()) {
-                                                $PrSP= $rows['sellingPrice'];
+//                                                $PrSP= $rows['sellingPrice'];
+                                                $UnitPrice= $rows['sellingPrice'];
                                                 $PrName= $rows['paddyType'];
-                                                echo "<option value='$PrSP'>$PrName</option>";
+
+                                                echo "<option value='$UnitPrice'>$PrName</option>";
 
 
                                             }
@@ -308,7 +251,7 @@ include("../Common/TopNavBar.php");
                                 <div class="form-group">
                                     <label for="Quantity" class="col-sm-12 col-md-12 col-lg-12  control-label">Quantity</label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="text" id="Quantity" name="Quantity" placeholder="Quantity" class="form-control" autofocus onchange="getUP()">
+                                        <input type="number" id="Quantity" name="Quantity" placeholder="Quantity" class="form-control" autofocus onchange="getUP()">
                                     </div>
                                 </div>
                             </div>
@@ -369,7 +312,7 @@ include("../Common/TopNavBar.php");
             <div class="row">
                 <div class="container-fluid ">
                     <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12">
-                        <table id="pOrderTable" class="table table-bordered table-hover table-light">
+                        <table id="POorderTable" class="table table-bordered table-hover table-light">
                             <thead>
                             <tr>
                                 <th>Date</th>
@@ -380,6 +323,7 @@ include("../Common/TopNavBar.php");
                                 <th>Unit price</th>
                                 <th>Qty</th>
                                 <th>Amount</th>
+                                <th>Actions</th>
 
 
 
@@ -442,11 +386,12 @@ include("../Common/Scripts.php");
 <script>
     $( document ).ready(function() {
         $('#FarmerTableModal').DataTable();
+        $('#POorderTable').DataTable();
+
     });
 
-    $( document ).ready(function() {
-        $('#pOrderTable').DataTable();
-    });
+
+
     $( document ).ready(function() {
         document.getElementById("Quantity").defaultValue ="0";
         document.getElementById("UnitPrice").defaultValue = "0";
@@ -541,7 +486,7 @@ include("../Common/Scripts.php");
         // document.getElementById('picBox').hidden=false;
 
 
-        var table = document.getElementById('pOrderTable'),index;
+        var table = document.getElementById('POorderTable'),index;
 
         for (var  i = 1 ; i < table.rows.length ; i++){
             table.rows[i].onclick = function () {
@@ -561,15 +506,43 @@ include("../Common/Scripts.php");
             }
         }
     }
+
     function getUP() {
+//        <?//echo $PName?>//= document.getElementById("paddyType").value;
+//        <?php
+//        //$PName="";
+//
+////        if ( ! empty($_POST['PaddyType'])){
+////        }
+//        include("../Common/config.php");
+//        //$PName = $_POST['PaddyType'];
+//
+//        //
+//        $UnitPrice = 0;
+//        $addQuery = "select * from `tbl_product` where paddyType='$PName' ";
+//        $result = $con->query($addQuery);
+//
+//
+//        while ($rows = $result->fetch_assoc()) {
+//            $UnitPrice= $rows['sellingPrice'];
+//            $PrName= $rows['paddyType'];
+////            echo "<option value='$PrName'>$PrName</option>";
+//
+//
+//        }
+//        ?>
+
+
+
+
         let Qty,UP;
-        document.getElementById("UnitPrice").value = document.getElementById("PaddyType").value;
+        // document.getElementById("UnitPrice").value =document.getElementById("PaddyType").value;
+        document.getElementById("UnitPrice").value = <?php echo $UnitPrice?>;
         UP = document.getElementById("PaddyType").value;
+        //UP = <?php echo $UnitPrice?>;
         Qty = document.getElementById("Quantity").value;
 
         document.getElementById("Total").value= Qty * UP;
-
-
     }
 
 </script>
