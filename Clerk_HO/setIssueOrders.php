@@ -68,7 +68,7 @@ include("../Common/TopNavBar.php");
 
 
                                             $prevID= $rows['ioID'];
-                                            $newID = substr($prevID,3,);
+                                            $newID = substr($prevID,3,3);
                                             $newID = $newID + 1;
                                             $newID = str_pad($newID, 3, "0", STR_PAD_LEFT);
 
@@ -290,7 +290,7 @@ include("../Common/TopNavBar.php");
                                         while ($rows = $result->fetch_assoc()) {
                                             $PrSP= $rows['sellingPrice'];
                                             $PrName= $rows['paddyType'];
-                                            echo "<option value='$PrSP'>$PrName</option>";
+                                            echo "<option value='$PrName' data-price='$PrSP'>$PrName</option>";
 
 
                                         }
@@ -469,6 +469,13 @@ include("../Common/Scripts.php");
     $( document ).ready(function() {
         document.getElementById("quantity").defaultValue="0";
 
+
+        $('#paddyType').change(function(){
+            let Qty,UP;
+            $('#unitPrice').val($(this).find(':selected').data('price'))
+            // document.getElementById("unitPrice").value = $(this).find(':selected').data('price');
+            getUnitPrice()
+        });
     });
 
     $( document ).ready(function() {
@@ -538,7 +545,7 @@ include("../Common/Scripts.php");
 
     function getUnitPrice(){
         let UP,Qty;
-         document.getElementById("unitPrice").value = document.getElementById("paddyType").value;
+         // document.getElementById("unitPrice").value = document.getElementById("paddyType").value;
          UP = document.getElementById("unitPrice").value;
         Qty = document.getElementById("quantity").value;
 
