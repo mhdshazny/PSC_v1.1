@@ -68,9 +68,9 @@ include("../Common/TopNavBar.php");
 
 
                                             $prevID= $rows['ioID'];
-                                            $newID = substr($prevID,4,);
+                                            $newID = substr($prevID,3,);
                                             $newID = $newID + 1;
-                                            $newID = str_pad($newID, 5, "0", STR_PAD_LEFT);
+                                            $newID = str_pad($newID, 3, "0", STR_PAD_LEFT);
 
 
                                             ?>
@@ -427,7 +427,7 @@ include("../Common/TopNavBar.php");
 <!--                                <td hidden>--><?//= $rows['center1']; ?><!--</td>-->
 <!--                                <td hidden>--><?//= $rows['center2']; ?><!--</td>-->
 <!--                                <td hidden>--><?//= $rows['Qty2']; ?><!--</td>-->
-                                <td><?= $rows['Qty1']; ?></td>
+                                <td><?= $rows['totalQuantity']; ?></td>
 <!--                                <td hidden>--><?//= $rows['totalQuantity']; ?><!--</td>-->
 <!--                                <td hidden>--><?//= $rows['unitPrice']; ?><!--</td>-->
                                 <td><?= $rows['orderDateOn']; ?></td>
