@@ -12,7 +12,7 @@ if (isset($_POST['addBill'])) {
 
 
 
-    if (!empty($_POST['SaleID']))
+    if (!empty($_POST['saleID']))
     {
         $sql = "INSERT INTO `tbl_paymentreceipts`(`saleID`,`ioID`,`amount`,`DateOn`,`isActive`) 
                 VALUES ('$SaleID','$ioID',' $Total','$Date','$isActive')";

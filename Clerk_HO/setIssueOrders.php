@@ -62,19 +62,19 @@ include("../Common/TopNavBar.php");
                                     $query="SELECT * FROM `tbl_issueorder` ORDER BY `ioID` DESC LIMIT 1";
                                     $result = $con->query($query);
                                     $numRows = mysqli_num_rows($result);
-                                    $newID="ISOR00001";
+                                    $newID="IO001";
                                     if ($numRows>0){
                                         foreach ($result as $rows) {
 
 
                                             $prevID= $rows['ioID'];
-                                            $newID = substr($prevID,4,5);
+                                            $newID = substr($prevID,4,);
                                             $newID = $newID + 1;
                                             $newID = str_pad($newID, 5, "0", STR_PAD_LEFT);
 
 
                                             ?>
-                                            <input type="text" id="issueOrderID" name="issueOrderID" placeholder="issueOrderID" value="ISOR<?= $newID?>" class="form-control" readonly>
+                                            <input type="text" id="issueOrderID" name="issueOrderID" placeholder="issueOrderID" value="I0<?= $newID?>" class="form-control" readonly>
                                             <?php
                                         }
                                     }

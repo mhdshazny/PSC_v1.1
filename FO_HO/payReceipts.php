@@ -362,8 +362,6 @@ include("../Common/TopNavBar.php");
 
                     <br><br>
                 </FORM>
-            </div>
-
             <div class="row">
                 <div class="container-fluid ">
                     <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12">
@@ -372,11 +370,9 @@ include("../Common/TopNavBar.php");
                             <tr>
                                 <th>Date</th>
                                 <th>Sale ID</th>
-                                <th>IoID</th>
-                                <th>Paddy type</th>
-                                <th>Unit price</th>
-                                <th>Qty</th>
+                                <th>IOID</th>
                                 <th>Amount</th>
+                                <th>Actions</th>
 
 
 
@@ -387,71 +383,52 @@ include("../Common/TopNavBar.php");
 
                             <?php
                             include("../Common/config.php");
-                            $loadTableIssueOrder = "SELECT * FROM `tbl_issueorder`";
-//                            $loadTablePayReceipts = "SELECT * FROM `tbl_paymentreceipts`";
-//                            $result1 = $con->query($loadTablePayReceipts);
-                            $result2 = $con->query($loadTableIssueOrder);
+                            //                            $loadTableIssueOrder = "SELECT * FROM `tbl_issueorder`";
+                            $loadTablePayReceipts = "SELECT * FROM `tbl_paymentreceipts`";
+                            $result1 = $con->query($loadTablePayReceipts);
+                            //                            $result2 = $con->query($loadTableIssueOrder);
 
-//                            if ($result1) {
+                            if ($result1) {
+                                ?>
+                                <?php
+//
+                                foreach ($result1 as $rows) {
+//
                                     ?>
                                     <tr>
-<!--                                        --><?php
-//
-//                                        foreach ($result1 as $rows) {
-//
-//                                        ?>
-<!---->
-<!--                                            <td>--><?//= $rows['DateOn']; ?><!--</td>-->
-<!--                                            <td>--><?//= $rows['saleID']; ?><!--</td>-->
-<!---->
-<!---->
-<!---->
-<!--                                            --><?php
-//                                        }
-//                                        }
-//                                        ?>
-                                    <!--</tr>
-                                <tr>-->
-                                        <?php
-                                        if ($result2){
-                                        foreach ($result2 as $row) {
 
-                                        ?>
-                                        <td><?= $row['DateOn']; ?></td>
-                                        <td><?= $row['saleID']; ?></td>
-                                        <td><?= $row['ioID']; ?></td>
-                                        <td><?= $row['paddyType']; ?></td>
-                                        <td><?= $row['unitPrice']; ?></td>
-                                        <td><?= $row['totalQuantity']; ?></td>
-                                        <td><?= $row['netTotal']; ?></td>
-
+                                        <td><?= $rows['DateOn']; ?></td>
+                                        <td><?= $rows['saleID']; ?></td>
+                                        <td><?= $rows['ioID']; ?></td>
+                                        <td><?= $rows['amount']; ?></td>
                                         <td>
-                                            <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $row['saleID'];?>')" value="<?= $row['saleID']; ?>">Delete</button>
-                                            <button class="btn-info btn-sm" onclick="editUser()" value="<?= $row['saleID']; ?>">Edit</button>
+                                            <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $rows['saleID'];?>')" value="<?= $rows['saleID']; ?>">Delete</button>
+                                            <button class="btn-info btn-sm" onclick="editUser()" value="<?= $rows['saleID']; ?>">Edit</button>
 
                                         </td>
-
-
-
                                     </tr>
 
                                     <?php
                                 }
-
                             }
-
                             ?>
+
+
+
                             </tbody>
 
                         </table>
                     </div>
                 </div>
             </div>
+            </div>
+
+
         </div>
     </div>
 
 
-</div>
+ </div>
 
 
 <?php
@@ -460,6 +437,11 @@ include("../Common/Scripts.php");
 ?>
 <!--</div>-->
 <script>
+
+    $( document ).ready(function() {
+        $('#cashAllocateTable').DataTable();
+    });
+
 
     function confirmDelete(id){
         bootbox.confirm({
@@ -530,48 +512,23 @@ include("../Common/Scripts.php");
 
 
     function editUser() {
-        document.getElementById('addUser').disabled=true;
+        document.getElementById('addBill').disabled=true;
         document.getElementById('updateUser').disabled=false;
-        document.getElementById('picBox').hidden=false;
-
-        var dir = "../Upload/User/";
-        var table = document.getElementById('userTable'),index;
+        // document.getElementById('picBox').hidden=false;
+        //
+        // var dir = "../Upload/User/";
+        var table = document.getElementById('cashAllocateTable'),index;
 
         for (var  i = 1 ; i < table.rows.length ; i++){
-            table.rows[i].onclick = function () {
+            table.row[i].onclick = function () {
                 rIndex = this.rowIndex;
-                document.getElementById("userID").value = this.cells[0].innerHTML;
-                document.getElementById("roleID").value = this.cells[1].innerHTML;
-                document.getElementById("centerID").value = this.cells[2].innerHTML;
-                document.getElementById("firstName").value = this.cells[3].innerHTML;
-                document.getElementById("lastName").value = this.cells[4].innerHTML;
-                document.getElementById("addressLine1").value = this.cells[5].innerHTML;
-                document.getElementById("contactNo1").value = this.cells[6].innerHTML;
-                document.getElementById("email").value = this.cells[7].innerHTML;
-                document.getElementById("dob").value = this.cells[8].innerHTML;
-
-                let gender_temp = this.cells[9].innerHTML;
-                if (gender_temp == "1"){
-                    document.getElementById("male").checked=true;
-                }
-                else {
-                    document.getElementById("female").checked=true
-
-                }
-
-                document.getElementById("addressLine2").value = this.cells[12].innerHTML;
-                document.getElementById("contactNo2").value = this.cells[13].innerHTML;
-                document.getElementById("Password").value = this.cells[14].innerHTML;
-                document.getElementById("confirmPassword").value = this.cells[14].innerHTML;
-                // document.getElementById("picBox").src = dir + this.cells[15].innerHTML;
-                // alert(this.cells[15].innerHTML)
-                document.images['picBox'].src = dir +this.cells[15].innerHTML;
+                document.getElementById("Date").value = this.cells[0].innerHTML;
+                document.getElementById("saleID").value = this.cells[1].innerHTML;
+                document.getElementById("ioID").value = this.cells[2].innerHTML;
+                document.getElementById("netTotal").value = this.cells[3].innerHTML;
 
 
                 document.getElementById('isActive').disabled=false;
-                document.getElementById('userID').readOnly=true;
-                document.getElementById('confirmPassword').readOnly=true;
-
 
                 // $('#myInput').val( this.cells[0].innerHTML);
 

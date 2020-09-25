@@ -316,8 +316,8 @@ include("../Common/Scripts.php");
                 document.getElementById("bankAccID").value = this.cells[0].innerHTML;
                 // document.getElementById("centerID").value = this.cells[1].innerHTML;
                 document.getElementById("bankName").value = this.cells[1].innerHTML;
-                document.getElementById("bankAccNo").value = this.cells[3].innerHTML;
-                document.getElementById("region").value = this.cells[4].innerHTML;
+                document.getElementById("bankAccNo").value = this.cells[2].innerHTML;
+                document.getElementById("region").value = this.cells[3].innerHTML;
 
 
                 let isActive_temp = this.cells[10].innerHTML;
