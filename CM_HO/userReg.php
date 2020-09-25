@@ -9,7 +9,7 @@
     include("../Common/Header.php");
     //    include ("../Common/config.php");
     ?>
-    <script src="../Plugins/bootstrap/js/bootstrap.min.js">  </script>
+    <!--    <script src="../Plugins/bootstrap/js/bootstrap.min.js">  </script>-->
     <!--Bootbox Scripts-->
 </head>
 <body class="bg-dark" style="width: 100%; margin: 0%;">
@@ -24,9 +24,9 @@
 <?php
 include("../Common/TopNavBar.php");
 ?>
-<div class="row" style="min-height: 87%; background-color: #011d21; margin-right: 0px; margin-left: 0px">
+<div class="row" style="min-height: 87%; background-color: #011d21;  margin: 0px; padding-left: 1%">
     <?php
-    include("../Common/SideNavBar.php");
+    include("SideNavBar.php");
     ?>
     <div class="col-md-10 col-lg-10 col-sm-10 d-none d-md-block container text-white" style="background-color: #011d21">
         <div class="container-fluid rounded" style="min-height: 100%; background-color: #04333b">
@@ -56,19 +56,19 @@ include("../Common/TopNavBar.php");
                                     <div class="col-sm-12 col-md-12 col-lg-12">
                                         <?php
                                         include ("../Common/config.php");
-                                         $query="SELECT * FROM `tbl_employee` ORDER BY `empID` DESC LIMIT 1";
+                                        $query="SELECT * FROM `tbl_employee` ORDER BY `empID` DESC LIMIT 1";
                                         $result = $con->query($query);
 
                                         foreach ($result as $rows) {
-                                         $prevID= $rows['empID'];
-                                         $newID = substr($prevID,4,5);
-                                         $newID = $newID + 1;
-                                         $newID = str_pad($newID, 5, "0", STR_PAD_LEFT);
+                                            $prevID= $rows['empID'];
+                                            $newID = substr($prevID,4,5);
+                                            $newID = $newID + 1;
+                                            $newID = str_pad($newID, 5, "0", STR_PAD_LEFT);
 
 
-                                        ?>
-                                        <input type="text" id="userID" name="userID" placeholder="userID" class="form-control" value="USER<?= $newID?>" readonly >
-                                        <?php
+                                            ?>
+                                            <input type="text" id="userID" name="userID" placeholder="userID" class="form-control" value="USER<?= $newID?>" readonly >
+                                            <?php
                                         }
                                         $con->close();
                                         ?>
@@ -88,29 +88,29 @@ include("../Common/TopNavBar.php");
                                         <select class="custom-select" id="roleID" name="roleID">
                                             <option value=''></option>
 
-<!---->
-                                        <?php
+                                            <!---->
+                                            <?php
 
-                                        include("../Common/config.php");
-//
-                                        $addQuery = "select * from `tbl_roles`";
-                                        $result = $con->query($addQuery);
-//
-                                        //                                        if ($result) {
-                                        //                                            foreach ($result as $row) {
-                                        ?>
+                                            include("../Common/config.php");
+                                            //
+                                            $addQuery = "select * from `tbl_roles`";
+                                            $result = $con->query($addQuery);
+                                            //
+                                            //                                        if ($result) {
+                                            //                                            foreach ($result as $row) {
+                                            ?>
 
                                             <?php
                                             while ($rows = $result->fetch_assoc()) {
-                                            $roleID= $rows['roleID'];
-                                            $roleName= $rows['roleName'];
-                                            echo "<option value='$roleID'>$roleName</option>";
+                                                $roleID= $rows['roleID'];
+                                                $roleName= $rows['roleName'];
+                                                echo "<option value='$roleID'>$roleName</option>";
 
 
                                             }
                                             ?>
-<!---->
-<!---->
+                                            <!---->
+                                            <!---->
                                         </select>
                                     </div>
 
@@ -119,12 +119,12 @@ include("../Common/TopNavBar.php");
                                 </div>
                             </div>
                             <div class="col-sm-4 col-md-4 col-lg-4">
-<!--                                <div class="form-group">-->
-<!--                                    <label for="picture" class="col-sm-12 col-md-12 col-lg-12  control-label">Picture</label>-->
-<!--                                    <div class="col-sm-12 col-md-12 col-lg-12">-->
-<!--                                        <input type="file" name="picture" id="picture" placeholder=Picture" class="form-control">-->
-<!--                                    </div>-->
-<!--                                </div>-->
+                                <!--                                <div class="form-group">-->
+                                <!--                                    <label for="picture" class="col-sm-12 col-md-12 col-lg-12  control-label">Picture</label>-->
+                                <!--                                    <div class="col-sm-12 col-md-12 col-lg-12">-->
+                                <!--                                        <input type="file" name="picture" id="picture" placeholder=Picture" class="form-control">-->
+                                <!--                                    </div>-->
+                                <!--                                </div>-->
                                 <div class="form-group">
                                     <label for="picture" class="col-sm-12 col-md-12 col-lg-12  control-label">Picture</label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
@@ -336,10 +336,10 @@ include("../Common/TopNavBar.php");
                     </div>
 
                     <br><br>
-                    <div class="container" style="margin-left: 30%">
-                        <button type="submit" name="addUser" id="addUser" class="btn btn-primary btn-block" style="width: 50%; align-content: center">Register</button>
-                        <button type="submit" name="updateUser" id="updateUser" class="btn btn-primary btn-block" style="width: 50%; align-content: center" disabled>Update</button>
-                        <button type="button" name="reload" id="reload" class="btn btn-danger btn-block" style="width: 50%; align-content: center" onclick="location.reload()">Reload</button>
+                    <div class="container" style="text-align: center">
+                        <button type="submit" name="addUser" id="addUser" class="btn btn-primary btn-block" >Register</button>
+                        <button type="submit" name="updateUser" id="updateUser" class="btn btn-primary btn-block"  disabled>Update</button>
+                        <button type="button" name="reload" id="reload" class="btn btn-danger btn-block" onclick="location.reload()">Reload</button>
                     </div>
 
                     <br><br>
@@ -347,9 +347,9 @@ include("../Common/TopNavBar.php");
             </div>
 
             <div class="row">
-                <div class="container-fluid ">
+                <div class="container-fluid">
                     <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12">
-                        <table id="userTable" class="table table-bordered table-hover table-light">
+                        <table id="userTable" class="table table-bordered table-hover table-light table-responsive" width="100%">
                             <thead>
                             <tr>
                                 <th>User ID</th>
@@ -366,6 +366,12 @@ include("../Common/TopNavBar.php");
                                 <th>Actions</th>
 
 
+                                <th hidden></th>
+                                <th hidden>Actions</th>
+                                <th hidden>Actions</th>
+                                <th hidden>Actions</th>
+
+
                             </tr>
                             </thead>
                             <tbody>
@@ -376,35 +382,35 @@ include("../Common/TopNavBar.php");
                             $loadTable = "SELECT * FROM `tbl_employee` ORDER BY `empID` DESC ";
                             $result = $con->query($loadTable);
                             if ($result) {
-                            foreach ($result as $row) {
-                            ?>
-                            <tr>
-                                <td><?= $row['empID']; ?></td>
-                                <td><?= $row['roleID']; ?></td>
-                                <td><?= $row['centerID']; ?></td>
-                                <td><?= $row['firstName']; ?></td>
-                                <td><?= $row['lastName']; ?></td>
-                                <td><?= $row['addressLine1']; ?></td>
-                                <td><?= $row['contactNo1']; ?></td>
-                                <td><?= $row['email']; ?></td>
-                                <td><?= $row['dob']; ?></td>
-                                <td><?= $row['gender'] ?></td>
-                                <td><?= $row['isActive']; ?></td>
-                                <td>
-                                    <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $row['empID'];?>')" value="<?= $row['empID']; ?>">Delete</button>
-                                    <button class="btn-info btn-sm" onclick="editUser()" value="<?= $row['empID']; ?>">Edit</button>
+                                foreach ($result as $row) {
+                                    ?>
+                                    <tr>
+                                        <td><?= $row['empID']; ?></td>
+                                        <td><?= $row['roleID']; ?></td>
+                                        <td><?= $row['centerID']; ?></td>
+                                        <td><?= $row['firstName']; ?></td>
+                                        <td><?= $row['lastName']; ?></td>
+                                        <td><?= $row['addressLine1']; ?></td>
+                                        <td><?= $row['contactNo1']; ?></td>
+                                        <td><?= $row['email']; ?></td>
+                                        <td><?= $row['dob']; ?></td>
+                                        <td><?= $row['gender'] ?></td>
+                                        <td><?= $row['isActive']; ?></td>
+                                        <td>
+                                            <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $row['empID'];?>')" value="<?= $row['empID']; ?>">Delete</button>
+                                            <button class="btn-info btn-sm" onclick="editUser()" value="<?= $row['empID']; ?>">Edit</button>
 
-                                </td>
-                                <td hidden><?= $row['addressLine2']; ?></td>
-                                <td hidden><?= $row['contactNo2']; ?></td>
-                                <td hidden><?= $row['password']; ?></td>
-                                <td hidden><?= $row['profilePic']; ?></td>
+                                        </td>
+                                        <td hidden><?= $row['addressLine2']; ?></td>
+                                        <td hidden><?= $row['contactNo2']; ?></td>
+                                        <td hidden><?= $row['password']; ?></td>
+                                        <td hidden><?= $row['profilePic']; ?></td>
 
 
-                            </tr>
+                                    </tr>
 
-                            <?php
-                            }
+                                    <?php
+                                }
 
                             }
 
@@ -428,6 +434,9 @@ include("../Common/Scripts.php");
 ?>
 <!--</div>-->
 <script>
+    $( document ).ready(function() {
+        $('#userTable').DataTable();
+    });
 
     function confirmDelete(id){
         bootbox.confirm({
