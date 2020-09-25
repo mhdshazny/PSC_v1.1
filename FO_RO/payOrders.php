@@ -27,7 +27,7 @@ include("../Common/TopNavBar.php");
 <!--<div class="row" style="min-height: 87%; background-color: #011d21">-->
 <div class="row" style="min-height: 87%; background-color: #011d21">
     <?php
-    include("../Common/SideNavBar.php");
+    include("SideNavBar.php");
     ?>
     <div class="col-md-10 d-none d-md-block container text-white" style="background-color: #011d21">
         <div class="container-fluid rounded" style="min-height: 100%; background-color: #04333b">
@@ -363,91 +363,76 @@ include("../Common/TopNavBar.php");
 
             <br><br>
             </FORM>
-        </div>
-
-        <div class="row">
-            <div class="container-fluid ">
-                <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12">
-                    <table id="cashAllocateTable" class="table table-bordered table-hover table-light">
-                        <thead>
-                        <tr>
-<!--                            <th>Date</th>-->
-<!--                            <th>Sale ID</th>-->
-                            <th>poID</th>
-                            <th>Paddy type</th>
-                            <th>Unit price</th>
-                            <th>Qty</th>
-                            <th>Amount</th>
-
+            <div class="row">
+                <div class="container-fluid ">
+                    <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12">
+                        <table id="cashAllocateTable" class="table table-bordered table-hover table-light">
+                            <thead>
+                            <tr>
+                                <!--                            <th>Date</th>-->
+                                <!--                            <th>Sale ID</th>-->
+                                <th>poID</th>
+                                <th>Paddy type</th>
+                                <th>Unit price</th>
+                                <th>Qty</th>
+                                <th>Amount</th>
+                                <th>Actions</th>
 
 
-                        </tr>
-                        </thead>
-                        <tbody>
+
+                            </tr>
+                            </thead>
+                            <tbody>
 
 
-                        <?php
-                        include("../Common/config.php");
-                        $loadTableIssueOrder = "SELECT * FROM ` tbl_purchaseorder`";
-                        //                            $loadTablePayReceipts = "SELECT * FROM `tbl_paymentreceipts`";
-                        //                            $result1 = $con->query($loadTablePayReceipts);
-                        $result2 = $con->query($loadTableIssueOrder);
-
-                        //                            if ($result1) {
-                        ?>
-                        <tr>
-                            <!--                                        --><?php
-                            //
-                            //                                        foreach ($result1 as $rows) {
-                            //
-                            //                                        ?>
-                            <!---->
-                            <!--                                            <td>--><?//= $rows['DateOn']; ?><!--</td>-->
-                            <!--                                            <td>--><?//= $rows['saleID']; ?><!--</td>-->
-                            <!---->
-                            <!---->
-                            <!---->
-                            <!--                                            --><?php
-                            //                                        }
-                            //                                        }
-                            //                                        ?>
-                            <!--</tr>
-                        <tr>-->
                             <?php
-                            if ($result2){
-                            foreach ($result2 as $row) {
+                            include("../Common/config.php");
+                            $loadTableIssueOrder = "SELECT * FROM `tbl_purchaseorder`";
+                            //                            $loadTablePayReceipts = "SELECT * FROM `tbl_paymentreceipts`";
+                            //                            $result1 = $con->query($loadTablePayReceipts);
+                            $result2 = $con->query($loadTableIssueOrder);
+
+                            //                            if ($result1) {
+                            ?>
+
+                                <?php
+                                if ($result2){
+                                foreach ($result2 as $row) {
+
+                                ?>
+                                    <tr>
+
+                                    <td><?= $row['poID']; ?></td>
+                                <td><?= $row['paddyType']; ?></td>
+                                <td><?= $row['unitPrice']; ?></td>
+                                <td><?= $row['Qty']; ?></td>
+                                <td><?= $row['total']; ?></td>
+
+                                <td>
+                                    <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $row['poID'];?>//')" value="<?= $row['poID']; ?>">Delete</button>
+                                    <button class="btn-info btn-sm" onclick="editUser()" value="<?= $row['poID']; ?>">Edit</button>
+
+                                </td>
+
+
+                                    </tr>
+
+
+                            <?php
+                            }
+
+                            }
 
                             ?>
-<!--                            <td>--><?//= $row['DateOn']; ?><!--</td>-->
-<!--                            <td>--><?//= $row['saleID']; ?><!--</td>-->
-                            <td><?= $row['poID']; ?></td>
-                            <td><?= $row['paddyType']; ?></td>
-                            <td><?= $row['unitPrice']; ?></td>
-                            <td><?= $row['Qty']; ?></td>
-                            <td><?= $row['total']; ?></td>
+                            </tbody>
 
-                            <td>
-                                <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $row['poID'];?>')" value="<?= $row['poID']; ?>">Delete</button>
-                                <button class="btn-info btn-sm" onclick="editUser()" value="<?= $row['poID']; ?>">Edit</button>
-
-                            </td>
-
-
-
-                        </tr>
-
-                        <?php
-                        }
-
-                        }
-
-                        ?>
-                        </tbody>
-
-                    </table>
+                        </table>
+                    </div>
                 </div>
             </div>
+
         </div>
+
     </div>
 </div>
 
