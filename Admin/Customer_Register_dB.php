@@ -10,7 +10,7 @@ mysqli_autocommit($con,FALSE);
 
 if (isset($_POST['addUser'])) {
     $customerID = $_POST['customerID'];
-    $centerID = $_POST['region'];
+
 
     $fName = $_POST['firstName'];
     $lName = $_POST['lastName'];
@@ -18,7 +18,8 @@ if (isset($_POST['addUser'])) {
     $address2 = $_POST['addressLine2'];
     $contact = $_POST['contactNo1'];
     $contact2 = $_POST['contactNo2'];
-    $email = $_POST['email'];
+  //  $email = $_POST['email'];
+     $centerID = $_POST['centerID'];
     $gender=$_POST['gender'];
     $isActive=$_POST['isActive'];
 //    $isActive='1';

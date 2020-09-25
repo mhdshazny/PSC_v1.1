@@ -94,7 +94,7 @@ include("../Common/TopNavBar.php");
                             <div class="col-sm-4 col-md-4 col-lg-4">
 
                                 <div class="form-group">
-                                    <label for="region" class="col-sm-12 col-md-12 col-lg-12 control-label">Region</label>
+                                    <label for="region" class="col-sm-12 col-md-12 col-lg-12 control-label">Center </label>
                                     <!--                                    region name will be displayed instead of centerID-->
                                     <div class="col-sm-12 col-md-12 col-lg-12">
                                         <!--                                        <input type="text" id="centerID" name="centerID" placeholder="region" class="form-control" >-->
@@ -288,7 +288,7 @@ include("../Common/TopNavBar.php");
                             <tr>
                                 <th>Farmer ID</th>
                                 <th>Center ID</th>
-                                <th style="max-width: 20%">Region</th>
+<!--                                <th style="max-width: 20%">Region</th>-->
                                 <th>First Name</th>
                                 <th>Last Name</th>
                                 <th>NIC</th>
@@ -313,7 +313,7 @@ include("../Common/TopNavBar.php");
                                     <tr style="width: 10%">
                                         <td><?= $row['farmerID']; ?></td>
                                         <td><?= $row['centerID']; ?></td>
-                                        <td ></td>
+<!--                                        <td >--><?//= $row['region']; ?><!--</td>-->
                                         <td><?= $row['firstName']; ?></td>
                                         <td><?= $row['lastName']; ?></td>
                                         <td><?= $row['NIC']; ?></td>
@@ -434,8 +434,8 @@ include("../Common/Scripts.php");
             table.rows[i].onclick = function () {
                 rIndex = this.rowIndex;
                 document.getElementById("farmerID").value = this.cells[0].innerHTML;
-                // document.getElementById("centerID").value = this.cells[1].innerHTML;
                 document.getElementById("centerID").value = this.cells[1].innerHTML;
+                // document.getElementById("region").value = this.cells[2].innerHTML;
                 document.getElementById("firstName").value = this.cells[3].innerHTML;
                 document.getElementById("lastName").value = this.cells[4].innerHTML;
                 document.getElementById("NIC").value = this.cells[5].innerHTML;
