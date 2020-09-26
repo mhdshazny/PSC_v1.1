@@ -76,7 +76,7 @@ include("../Common/TopNavBar.php");
                         <div class="row">
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
                                 <div class="form-group">
-                                    <label for="farmerID" class="control-label">Farmer ID</label>
+                                    <label for="farmerID" class="control-label">Bank ID</label>
                                     <div class="input-group input-group-md">
                                         <div class="input-group col-sm-2 col-md-2 col-lg-2 mr-0">
                                             <button type="button" class="btn btn-outline-primary ion-search" data-toggle="modal"
@@ -133,12 +133,12 @@ include("../Common/TopNavBar.php");
                                                                     <thead>
                                                                     <tr>
 
-                                                                        <th>Farmer ID</th>
-                                                                        <th>First Name</th>
-                                                                        <th>Contact No</th>
+                                                                        <th>Bank ID</th>
+                                                                        <th>Bank Name</th>
+                                                                        <th>Bank Account No</th>
 
 
-                                                                        <th>isActive</th>
+                                                                        <th>Region</th>
                                                                         <th>Actions</th>
                                                                     </tr>
                                                                     </thead>
@@ -147,29 +147,22 @@ include("../Common/TopNavBar.php");
                                                                     <?php
                                                                     include ("../Common/config.php");
 
-                                                                    $query="Select * from `tbl_farmer`";
+                                                                    $query="Select * from ` tbl_bank`";
                                                                     $result = $con->query($query);
                                                                     if ($result){
                                                                     foreach ($result as $rows){
                                                                     ?>
                                                                     <tr>
-                                                                        <td><?= $rows['farmerID']; ?></td>
-                                                                        <td><?= $rows['firstName']; ?></td>
-                                                                        <td hidden><?= $rows['lastName']; ?></td>
-                                                                        <td><?= $rows['contactNo1']; ?></td>
-                                                                        <td hidden><?= $rows['contactNo2']; ?></td>
+                                                                        <td><?= $rows['bankAccID']; ?></td>
+                                                                        <td><?= $rows['bankName']; ?></td>
+<!--                                                                        <td hidden>--><?//= $rows['lastName']; ?><!--</td>-->
+                                                                        <td><?= $rows['bankAccNo']; ?></td>
+                                                                        <td><?= $rows['region']; ?></td>
 
-                                                                        <td hidden><?= $rows['addressLine1']; ?></td>
-                                                                        <td hidden><?= $rows['addressLine2']; ?></td>
-                                                                        <td hidden><?= $rows['centerID']; ?></td>
 
-                                                                        <td hidden><?= $rows['gender']; ?></td>
-                                                                        <td hidden><?= $rows['NIC']; ?></td>
-                                                                        <td hidden><?= $rows['landArea']; ?></td>
-                                                                        <td><?= $rows['isActive']; ?></td>
                                                                         <td>
-                                                                            <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $rows['empID'];?>')" value="<?= $rows['empID']; ?>">Delete</button>
-                                                                            <button class="btn-info btn-sm" onclick="editUser()" value="<?= $rows['empID']; ?>">Edit</button>
+<!--                                                                            <button class="btn-danger btn-sm" onclick="confirmDelete('--><?//= $rows['bankAccID'];?>//')" value="<?//= $rows['bankAccID']; ?><!--">Delete</button>-->
+<!--                                                                            <button class="btn-info btn-sm" onclick="editCashAllocation()" value="--><?//= $rows['bankAccID']; ?><!--">Edit</button>-->
 
                                                                         </td>
 
@@ -208,9 +201,9 @@ include("../Common/TopNavBar.php");
                                                                         for (var  i = 1 ; i < table.rows.length ; i++){
                                                                             table.ros[i].onclick = function () {
                                                                                 rIndex = this.rowIndex;
-                                                                                document.getElementById("customerID").value = this.cells[0].innerHTML;
-                                                                                document.getElementById("firstName").value = this.cells[1].innerHTML;
-                                                                                document.getElementById("contactNo1").value = this.cells[2].innerHTML;
+                                                                                document.getElementById("bankAccID").value = this.cells[0].innerHTML;
+                                                                                document.getElementById("bankName").value = this.cells[1].innerHTML;
+                                                                                document.getElementById("bankAccNo").value = this.cells[2].innerHTML;
                                                                                 document.getElementById("region").value = this.cells[3].innerHTML;
 
 
@@ -318,9 +311,9 @@ include("../Common/TopNavBar.php");
 
                     <br><br>
                     <div class="container" style="margin-left: 30%">
-                        <button type="submit" name="addUser" id="addUser" class="btn btn-primary btn-block" style="width: 50%; align-content: center">Add record</button>
-                        <button type="submit" name="addUser" id="addUser" class="btn btn-primary btn-block" style="width: 50%; align-content: center">Print Bill</button>
-                        <button type="submit" name="updateUser" id="updateUser" class="btn btn-primary btn-block" style="width: 50%; align-content: center" disabled>Update</button>
+                        <button type="submit" name="addRecord" id="addRecord" class="btn btn-primary btn-block" style="width: 50%; align-content: center">Add record</button>
+                        <button type="submit" name="print" id="print" class="btn btn-primary btn-block" style="width: 50%; align-content: center">Print Bill</button>
+                        <button type="submit" name="updateRecord" id="updateRecord" class="btn btn-primary btn-block" style="width: 50%; align-content: center" disabled>Update</button>
                         <button type="button" name="reload" id="reload" class="btn btn-danger btn-block" style="width: 50%; align-content: center" onclick="location.reload()">Reload</button>
                     </div>
 
@@ -364,8 +357,8 @@ include("../Common/TopNavBar.php");
 
 <!--                                        <td>--><?//= $row['isActive']; ?><!--</td>-->
                                         <td>
-                                            <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $row['empID'];?>')" value="<?= $row['empID']; ?>">Delete</button>
-                                            <button class="btn-info btn-sm" onclick="editUser()" value="<?= $row['empID']; ?>">Edit</button>
+                                            <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $row['transferID'];?>')" value="<?= $row['transferID']; ?>">Delete</button>
+                                            <button class="btn-info btn-sm" onclick="editCashAllocation()" value="<?= $row['transferID']; ?>">Edit</button>
 
                                         </td>
                                         <td hidden><?= $row['addressLine2']; ?></td>
@@ -417,7 +410,7 @@ include("../Common/Scripts.php");
                 if (result){
                     $.ajax({
                         type: "POST",
-                        url: "CRUDuser.php",
+                        url: "CRUDcash.php",
                         data: {Delete:id},
                         cache: false,
                         dataType:'json',
@@ -434,12 +427,10 @@ include("../Common/Scripts.php");
 
     }
 
-    function editUser() {
-        document.getElementById('addUser').disabled=true;
-        document.getElementById('updateUser').disabled=false;
-        document.getElementById('picBox').hidden=false;
+    function editCashAllocation() {
+        document.getElementById('addRecord').disabled=true;
+        document.getElementById('updateRecord').disabled=false;
 
-        var dir = "../Upload/User/";
         var table = document.getElementById('userTable'),index;
 
         for (var  i = 1 ; i < table.rows.length ; i++){
