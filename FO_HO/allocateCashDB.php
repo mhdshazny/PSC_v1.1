@@ -2,16 +2,20 @@
 include("../Common/config.php");
 
 if (isset($_POST['addRecord'])) {
+
+    $transferID = $_POST['transferID'];
+    $Date = $_POST['Date'];
+
     $accID = $_POST['bankAccID'];
-    $name = $_POST['bankName'];
-    $accNo = $_POST['bankAccNo'];
-    $region = $_POST['region'];
+
+    $paying = $_POST['payingAccNo'];
+    $amount = $_POST['amount'];
 
 
 
-    if (!empty($estimationID)) {
-        $sql = "INSERT INTO `tbl_estimations`(`bankAccID`, `bankName`, `bankAccNo`, `region`) 
-                VALUES ('$accID', '$name','$accNo', '$region')";
+    if (!empty($transferID)) {
+        $sql = "INSERT INTO `tbl_mnytransfers`(`transferID`,`bankAccID`, `payingAccNo`, `amount`, `Date`) 
+                VALUES ('$transferID','$accID', '$paying','$amount', '$Date')";
 
 
         if ($con->query($sql) === TRUE) {

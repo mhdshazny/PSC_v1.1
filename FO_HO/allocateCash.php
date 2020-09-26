@@ -52,6 +52,14 @@ include("../Common/TopNavBar.php");
 
 
                         <div class="row">
+                            <div class="col-sm-4 col-md-4 col-lg-4 ">
+                                <div class="form-group">
+                                    <label for="transferID" class="col-sm-12 col-md-12 col-lg-12 control-label">Transfer ID</label>
+                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                        <input type="text" id="transferID" name="transferID" placeholder="Transfer ID" class="form-control" >
+                                    </div>
+                                </div>
+                            </div>
 
                             <div class="col-sm-4 col-md-4 col-lg-4 ">
                                 <div class="form-group">
@@ -69,6 +77,8 @@ include("../Common/TopNavBar.php");
                                     </div>
                                 </div>
                             </div>
+
+
 
 
 
@@ -431,45 +441,16 @@ include("../Common/Scripts.php");
         document.getElementById('addRecord').disabled=true;
         document.getElementById('updateRecord').disabled=false;
 
-        var table = document.getElementById('userTable'),index;
+        var table = document.getElementById('cashAllocateTable'),index;
 
         for (var  i = 1 ; i < table.rows.length ; i++){
             table.rows[i].onclick = function () {
                 rIndex = this.rowIndex;
-                document.getElementById("userID").value = this.cells[0].innerHTML;
-                document.getElementById("roleID").value = this.cells[1].innerHTML;
-                document.getElementById("centerID").value = this.cells[2].innerHTML;
-                document.getElementById("firstName").value = this.cells[3].innerHTML;
-                document.getElementById("lastName").value = this.cells[4].innerHTML;
-                document.getElementById("addressLine1").value = this.cells[5].innerHTML;
-                document.getElementById("contactNo1").value = this.cells[6].innerHTML;
-                document.getElementById("email").value = this.cells[7].innerHTML;
-                document.getElementById("dob").value = this.cells[8].innerHTML;
-
-                let gender_temp = this.cells[9].innerHTML;
-                if (gender_temp == "1"){
-                    document.getElementById("male").checked=true;
-                }
-                else {
-                    document.getElementById("female").checked=true
-
-                }
-
-                document.getElementById("addressLine2").value = this.cells[12].innerHTML;
-                document.getElementById("contactNo2").value = this.cells[13].innerHTML;
-                document.getElementById("Password").value = this.cells[14].innerHTML;
-                document.getElementById("confirmPassword").value = this.cells[14].innerHTML;
-                // document.getElementById("picBox").src = dir + this.cells[15].innerHTML;
-                // alert(this.cells[15].innerHTML)
-                document.images['picBox'].src = dir +this.cells[15].innerHTML;
-
-
-                document.getElementById('isActive').disabled=false;
-                document.getElementById('userID').readOnly=true;
-                document.getElementById('confirmPassword').readOnly=true;
-
-
-                // $('#myInput').val( this.cells[0].innerHTML);
+                document.getElementById("transferID").value = this.cells[0].innerHTML;
+                document.getElementById("PayingAccNo").value = this.cells[1].innerHTML;
+                document.getElementById("bankAccID").value = this.cells[2].innerHTML;
+                document.getElementById("Amount").value = this.cells[3].innerHTML;
+                document.getElementById("Date").value = this.cells[4].innerHTML;
 
 
 
