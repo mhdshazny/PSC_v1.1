@@ -182,7 +182,7 @@ include("../Common/TopNavBar.php");
                                                                     <?php
                                                                     include ("../Common/config.php");
 
-                                                                    $query="Select * from ` tbl_bank`";
+                                                                    $query="Select * from `tbl_bank`";
                                                                     $result = $con->query($query);
                                                                     if ($result){
                                                                     foreach ($result as $rows){
@@ -195,9 +195,9 @@ include("../Common/TopNavBar.php");
                                                                         <td><?= $rows['region']; ?></td>
 
 
-                                                                        <td>
-<!--                                                                            <button class="btn-danger btn-sm" onclick="confirmDelete('--><?//= $rows['bankAccID'];?>//')" value="<?//= $rows['bankAccID']; ?><!--">Delete</button>-->
-<!--                                                                            <button class="btn-info btn-sm" onclick="editCashAllocation()" value="--><?//= $rows['bankAccID']; ?><!--">Edit</button>-->
+                                                                        <td hidden>
+                                                                            <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $rows['bankAccID'];?>//')" value="<?= $rows['bankAccID']; ?>">Delete</button>
+                                                                            <button class="btn-info btn-sm" onclick="editCashAllocation()" value="<?= $rows['bankAccID']; ?>">Edit</button>
 
                                                                         </td>
 
