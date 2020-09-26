@@ -133,7 +133,7 @@ include("../Common/TopNavBar.php");
                                                     <!--                                        </div>-->
                                                     <!--                                    </div>-->
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" style="color: #011d21" id="exampleModalLabel">New message</h5>
+                                                        <h5 class="modal-title" style="color: #011d21" id="exampleModalLabel">Bank Details</h5>
                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
@@ -141,26 +141,26 @@ include("../Common/TopNavBar.php");
                                                     <div class="modal-body" style="color: #011d21; margin-left: 0%; margin-right: 0%" >
 
                                                         <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="md-form mb-2">
-                                                                    <i class="fas fa-user prefix grey-text"></i>
-                                                                    <label data-error="wrong" data-success="right"
-                                                                           for="orangeForm-name1" >Farmer ID</label>
-                                                                    <input type="text" id="customerID_Modal" name="customerID_Modal"
-                                                                           class="form-control validate"
-                                                                           onkeyup="farmerID_Search()">
-                                                                </div>
-                                                            </div>
+<!--                                                            <div class="col-md-6">-->
+<!--                                                                <div class="md-form mb-2">-->
+<!--                                                                    <i class="fas fa-user prefix grey-text"></i>-->
+<!--                                                                    <label data-error="wrong" data-success="right"-->
+<!--                                                                           for="orangeForm-name1" >Farmer ID</label>-->
+<!--                                                                    <input type="text" id="customerID_Modal" name="customerID_Modal"-->
+<!--                                                                           class="form-control validate"-->
+<!--                                                                           onkeyup="farmerID_Search()">-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
 
-                                                            <div class="col-md-6">
-                                                                <div class="md-form mb-3">
-                                                                    <i class="fas ion-android-create prefix grey-text"></i>
-                                                                    <label data-error="wrong" data-success="right"
-                                                                           for="orangeForm-email1">Customer Name</label>
-                                                                    <input type="text" id="customerNamemodal" name="customerNamemodal"
-                                                                           class="form-control validate">
-                                                                </div>
-                                                            </div>
+<!--                                                            <div class="col-md-6">-->
+<!--                                                                <div class="md-form mb-3">-->
+<!--                                                                    <i class="fas ion-android-create prefix grey-text"></i>-->
+<!--                                                                    <label data-error="wrong" data-success="right"-->
+<!--                                                                           for="orangeForm-email1">Customer Name</label>-->
+<!--                                                                    <input type="text" id="customerNamemodal" name="customerNamemodal"-->
+<!--                                                                           class="form-control validate">-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-md-12 col-lg-12 col-sm-12">
@@ -259,7 +259,7 @@ include("../Common/TopNavBar.php");
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                        <button type="button" class="btn btn-primary">Send message</button>
+<!--                                                        <button type="button" class="btn btn-primary">Send message</button>-->
                                                     </div>
                                                 </div>
                                             </div>
@@ -367,6 +367,9 @@ include("../Common/TopNavBar.php");
                                 <th>Bank Account ID</th>
                                 <th>Amount</th>
                                 <th>Date On</th>
+                                <th hidden>Action</th>
+
+
 
 
 
@@ -391,13 +394,12 @@ include("../Common/TopNavBar.php");
                                         <td><?= $row['dateOn']; ?></td>
 
 <!--                                        <td>--><?//= $row['isActive']; ?><!--</td>-->
-                                        <td>
-                                            <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $row['transferID'];?>')" value="<?= $row['transferID']; ?>">Delete</button>
+                                        <td hidden>
+                                            <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $row['transferID'];?>//')" value="<?= $row['transferID']; ?>">Delete</button>
                                             <button class="btn-info btn-sm" onclick="editCashAllocation()" value="<?= $row['transferID']; ?>">Edit</button>
 
                                         </td>
-                                        <td hidden><?= $row['addressLine2']; ?></td>
-                                        <td hidden><?= $row['contactNo2']; ?></td>
+
 
 
                                     </tr>
