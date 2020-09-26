@@ -56,7 +56,32 @@ include("../Common/TopNavBar.php");
                                 <div class="form-group">
                                     <label for="transferID" class="col-sm-12 col-md-12 col-lg-12 control-label">Transfer ID</label>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="text" id="transferID" name="transferID" placeholder="Transfer ID" class="form-control" >
+
+                                        <?php
+                                        include ("../Common/config.php");
+                                        $query="SELECT * FROM `tbl_mnytransfers` ORDER BY `transferID` DESC LIMIT 1";
+                                        $result = $con->query($query);
+                                        $numRows = mysqli_num_rows($result);
+                                        $newID="TR0001";
+                                        if ($numRows>0){
+                                            foreach ($result as $rows) {
+
+
+                                                $prevID= $rows['transferID'];
+                                                $newID = substr($prevID,2,4);
+                                                $newID = $newID + 1;
+                                                $newID = str_pad($newID, 4, "0", STR_PAD_LEFT);
+
+
+                                                ?>
+
+                                                <input type="text" id="transferID" name="transferID" placeholder="Transfer ID"value="TR<?= $newID?>" class="form-control" >
+
+                                                <?php
+                                            }
+                                        }
+                                        $con->close();
+                                        ?>
                                     </div>
                                 </div>
                             </div>
