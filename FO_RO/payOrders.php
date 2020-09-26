@@ -131,26 +131,26 @@ include("../Common/TopNavBar.php");
                                                     <div class="modal-body" style="color: #011d21; margin-left: 0%; margin-right: 0%" >
 
                                                         <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="md-form mb-2">
-                                                                    <i class="fas fa-user prefix grey-text"></i>
-                                                                    <label data-error="wrong" data-success="right"
-                                                                           for="orangeForm-name1" >Issue Order ID</label>
-                                                                    <input type="text" id="issueOrderID_Modal" name="issueOrderID_Modal"
-                                                                           class="form-control validate"
-                                                                           onkeyup="issueOrderID_Search()">
-                                                                </div>
-                                                            </div>
+<!--                                                            <div class="col-md-6">-->
+<!--                                                                <div class="md-form mb-2">-->
+<!--                                                                    <i class="fas fa-user prefix grey-text"></i>-->
+<!--                                                                    <label data-error="wrong" data-success="right"-->
+<!--                                                                           for="orangeForm-name1" >Issue Order ID</label>-->
+<!--                                                                    <input type="text" id="issueOrderID_Modal" name="issueOrderID_Modal"-->
+<!--                                                                           class="form-control validate"-->
+<!--                                                                           onkeyup="issueOrderID_Search()">-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
 
-                                                            <div class="col-md-6">
-                                                                <div class="md-form mb-3">
-                                                                    <i class="fas ion-android-create prefix grey-text"></i>
-                                                                    <label data-error="wrong" data-success="right"
-                                                                           for="orangeForm-email1">Customer Name</label>
-                                                                    <input type="text" id="customerName_Modal" name="customerName_Modal"
-                                                                           onkeyup="customerName_Search()" class="form-control validate">
-                                                                </div>
-                                                            </div>
+<!--                                                            <div class="col-md-6">-->
+<!--                                                                <div class="md-form mb-3">-->
+<!--                                                                    <i class="fas ion-android-create prefix grey-text"></i>-->
+<!--                                                                    <label data-error="wrong" data-success="right"-->
+<!--                                                                           for="orangeForm-email1">Customer Name</label>-->
+<!--                                                                    <input type="text" id="customerName_Modal" name="customerName_Modal"-->
+<!--                                                                           onkeyup="customerName_Search()" class="form-control validate">-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-md-12 col-lg-12 col-sm-12">
@@ -162,6 +162,8 @@ include("../Common/TopNavBar.php");
                                                                         <th>Quantity</th>
                                                                         <th>Unit Price</th>
                                                                         <th>Net Total</th>
+                                                                        <th>Actions</th>
+
 
                                                                     </tr>
                                                                     </thead>
@@ -248,9 +250,10 @@ include("../Common/TopNavBar.php");
                                                                                 // alert(this.cells[3].innerHTML);
                                                                                 // alert(this.cells[4].innerHTML);
                                                                                 document.getElementById("poID").value = this.cells[0].innerHTML;
-                                                                                document.getElementById("unitPrice").value = this.cells[1].innerHTML;
-                                                                                document.getElementById("quantity").value = this.cells[2].innerHTML;
-                                                                                document.getElementById("netTotal").value = this.cells[3].innerHTML;
+                                                                                document.getElementById("paddyType").value =this.cells[1].innerHTML;
+                                                                                document.getElementById("unitPrice").value = this.cells[2].innerHTML;
+                                                                                document.getElementById("quantity").value = this.cells[3].innerHTML;
+                                                                                document.getElementById("netTotal").value = this.cells[4].innerHTML;
 
                                                                             }
                                                                         }
@@ -262,7 +265,7 @@ include("../Common/TopNavBar.php");
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                        <button type="button" class="btn btn-primary">Send message</button>
+<!--                                                        <button type="button" class="btn btn-primary">Send message</button>-->
                                                     </div>
                                                 </div>
                                             </div>
@@ -366,16 +369,19 @@ include("../Common/TopNavBar.php");
             <div class="row">
                 <div class="container-fluid ">
                     <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12">
-                        <table id="cashAllocateTable" class="table table-bordered table-hover table-light">
+                        <table id="paymentTable" class="table table-bordered table-hover table-light">
                             <thead>
                             <tr>
                                 <!--                            <th>Date</th>-->
                                 <!--                            <th>Sale ID</th>-->
+                                <th>Payment ID </th>
                                 <th>poID</th>
-                                <th>Paddy type</th>
-                                <th>Unit price</th>
-                                <th>Qty</th>
+<!--                                <th>Paddy type</th>-->
+<!--                                <th>Unit price</th>-->
+<!--                                <th>Qty</th>-->
                                 <th>Amount</th>
+                                <th>DateOn</th>
+
                                 <th>Actions</th>
 
 
@@ -387,7 +393,7 @@ include("../Common/TopNavBar.php");
 
                             <?php
                             include("../Common/config.php");
-                            $loadTableIssueOrder = "SELECT * FROM `tbl_purchaseorder`";
+                            $loadTableIssueOrder = "SELECT * FROM ` tbl_purchasepayments`";
                             //                            $loadTablePayReceipts = "SELECT * FROM `tbl_paymentreceipts`";
                             //                            $result1 = $con->query($loadTablePayReceipts);
                             $result2 = $con->query($loadTableIssueOrder);
@@ -401,16 +407,16 @@ include("../Common/TopNavBar.php");
 
                                 ?>
                                     <tr>
-
+                                        <td><?= $row['PayID']; ?></td>
                                     <td><?= $row['poID']; ?></td>
-                                <td><?= $row['paddyType']; ?></td>
-                                <td><?= $row['unitPrice']; ?></td>
-                                <td><?= $row['Qty']; ?></td>
-                                <td><?= $row['total']; ?></td>
+                                <td><?= $row['amount']; ?></td>
+                                <td><?= $row['DateOn']; ?></td>
+<!--                                <td>--><?//= $row['Qty']; ?><!--</td>-->
+<!--                                <td>--><?//= $row['total']; ?><!--</td>-->
 
                                 <td>
-                                    <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $row['poID'];?>//')" value="<?= $row['poID']; ?>">Delete</button>
-                                    <button class="btn-info btn-sm" onclick="editUser()" value="<?= $row['poID']; ?>">Edit</button>
+                                    <button class="btn-danger btn-sm" onclick="confirmDelete('<?= $row['PayID'];?>//')" value="<?= $row['PayID']; ?>">Delete</button>
+                                    <button class="btn-info btn-sm" onclick="editUser()" value="<?= $row['PayID']; ?>">Edit</button>
 
                                 </td>
 
@@ -516,54 +522,32 @@ include("../Common/Scripts.php");
 
 
     function editUser() {
-        document.getElementById('addUser').disabled=true;
+        document.getElementById('addBill').disabled=true;
         document.getElementById('updateUser').disabled=false;
-        document.getElementById('picBox').hidden=false;
 
-        var dir = "../Upload/User/";
-        var table = document.getElementById('userTable'),index;
+        var table = document.getElementById('paymentTable'),index;
 
         for (var  i = 1 ; i < table.rows.length ; i++){
             table.rows[i].onclick = function () {
                 rIndex = this.rowIndex;
-                document.getElementById("userID").value = this.cells[0].innerHTML;
-                document.getElementById("roleID").value = this.cells[1].innerHTML;
-                document.getElementById("centerID").value = this.cells[2].innerHTML;
-                document.getElementById("firstName").value = this.cells[3].innerHTML;
-                document.getElementById("lastName").value = this.cells[4].innerHTML;
-                document.getElementById("addressLine1").value = this.cells[5].innerHTML;
-                document.getElementById("contactNo1").value = this.cells[6].innerHTML;
-                document.getElementById("email").value = this.cells[7].innerHTML;
-                document.getElementById("dob").value = this.cells[8].innerHTML;
+                document.getElementById("PayID").value = this.cells[0].innerHTML;
+                document.getElementById("poID").value = this.cells[1].innerHTML;
+                document.getElementById("netTotal").value = this.cells[2].innerHTML;
+                document.getElementById("Date").value = this.cells[3].innerHTML;
 
-                let gender_temp = this.cells[9].innerHTML;
-                if (gender_temp == "1"){
-                    document.getElementById("male").checked=true;
-                }
-                else {
-                    document.getElementById("female").checked=true
+                var table = document.getElementById('POorderTable'),index;
 
-                }
-
-                document.getElementById("addressLine2").value = this.cells[12].innerHTML;
-                document.getElementById("contactNo2").value = this.cells[13].innerHTML;
-                document.getElementById("Password").value = this.cells[14].innerHTML;
-                document.getElementById("confirmPassword").value = this.cells[14].innerHTML;
-                // document.getElementById("picBox").src = dir + this.cells[15].innerHTML;
-                // alert(this.cells[15].innerHTML)
-                document.images['picBox'].src = dir +this.cells[15].innerHTML;
-
-
-                document.getElementById('isActive').disabled=false;
-                document.getElementById('userID').readOnly=true;
-                document.getElementById('confirmPassword').readOnly=true;
-
-
-                // $('#myInput').val( this.cells[0].innerHTML);
+                for (var  i = 1 ; i < table.rows.length ; i++){
+                    table.rows[i].onclick = function () {
+                        rIndex = this.rowIndex;
+                        // document.getElementById("PayID").value = this.cells[0].innerHTML;
+                        // document.getElementById("poID").value = this.cells[1].innerHTML;
+                        document.getElementById("quantity").value = this.cells[2].innerHTML;
+                        document.getElementById("BuyingPrice").value = this.cells[3].innerHTML;
 
 
 
-            }
+                    }
         }
     }
 </script>
